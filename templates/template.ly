@@ -27,7 +27,7 @@
 % Bb major: \transpose do sib
 % Eb major: \transpose do mib
 % A major:  \transpose do la
-% 
+%
 % MINOR KEYS:
 % A minor:  \transpose do la   (then use \minor in global)
 % E minor:  \transpose do mi   (then use \minor in global)
@@ -56,8 +56,8 @@ songComposer = "Ed Johnson-Williams, 29 July 2025"
 }
 
 global = {
-  \key do \major  % ALWAYS do major - transpose handles actual key
-  % \minor        % Uncomment for minor keys
+  \key do \major
+  \minor        % Uncomment for minor keys but leave the \major aboe
   \aikenHeads     % or \sacredHarpHeads for 4-shape
   \numericTimeSignature
   \time 3/4       % Change as needed
@@ -75,7 +75,7 @@ global = {
 % The songKey transpose will handle the actual key
 %
 % HELPFUL PATTERNS:
-% Repeats:     \repeat volta 2 { music } 
+% Repeats:     \repeat volta 2 { music }
 % Mid-bar:     \bar ";"
 % Line break:  \break (after A section)
 % Slurs:       do8[re8] or do4(re4)
@@ -99,7 +99,7 @@ trebleMusic = \relative do' {
   sol2 do4 |
   sol2 mi4 |
   sol2.
-  
+
   % === B SECTION ===
   % Add B section music here
   \bar ".."
@@ -123,7 +123,7 @@ altoMusic = \relative do' {
   si2 do4 |
   re2 do4 |
   do2.
-  
+
   % === B SECTION ===
   % Add B section music here
 }
@@ -146,7 +146,7 @@ tenorMusic = \relative do'' {
   sol2 do8[mi8] |
   sol2 do,4 |
   do2.
-  
+
   % === B SECTION ===
   % Add B section music here
   \bar "|."
@@ -170,7 +170,7 @@ bassMusic = \relative do {
   sol2 do,4 |
   sol'2 la4 |
   do2.
-  
+
   % === B SECTION ===
   % Add B section music here
 }
@@ -219,7 +219,7 @@ musicContent = {
       % Uncomment for additional verses under treble:
       % \new Lyrics \lyricsto "treble" { \set stanza = "3." \verseThree }
     >>
-    
+
     \new Staff = alto <<
       \new Voice = "alto" {
         \global
@@ -228,7 +228,7 @@ musicContent = {
       % Uncomment for verse 2 under alto (common pattern):
       % \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
     >>
-    
+
     \new Staff = tenor <<
       \new Voice = "tenor" {
         \global
@@ -238,7 +238,7 @@ musicContent = {
       % Uncomment for verse 3 under tenor:
       % \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
     >>
-    
+
     \new Staff = bass <<
       \clef bass
       \new Voice = "bass" {
@@ -257,7 +257,7 @@ musicContent = {
   \transpose do \songKey {
     \musicContent
   }
-  
+
   \layout {
     indent = 0\cm
     \context {
@@ -283,7 +283,7 @@ musicContent = {
       \new Staff { \global \transpose do do, { \tenorMusic } }
     >>
   }
-  
+
   \midi {
     \context {
       \Score
