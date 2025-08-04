@@ -19,7 +19,7 @@
 % - All parts sing same lyrics - placement under treble/tenor for good spacing
 % - For minor keys: set songKey AND uncomment \minor in global
 %
-% KEY TRANSPOSITION EXAMPLES (change in ONE place only):
+% KEY TRANSPOSITION EXAMPLES (change on line 43):
 % C major:  \transpose do do    (no change - default)
 % G major:  \transpose do sol
 % F major:  \transpose do fa
@@ -28,18 +28,22 @@
 % Eb major: \transpose do mib
 % A major:  \transpose do la
 %
-% MINOR KEYS:
-% A minor:  \transpose do la   (then use \minor in global)
-% E minor:  \transpose do mi   (then use \minor in global)
-% D minor:  \transpose do re   (then use \minor in global)
-% C minor:  \transpose do do   (then use \minor in global)
-% G minor:  \transpose do sol  (then use \minor in global)
+% MINOR KEYS (relative minor approach):
+% F# minor: songKey = la    (writes in C major, transposes to A major)
+% C# minor: songKey = mi    (writes in C major, transposes to E major)
+% G# minor: songKey = si    (writes in C major, transposes to B major)
+% D# minor: songKey = fis   (writes in C major, transposes to F# major)
+% A minor:  songKey = do    (writes in C major, stays in C major)
+% E minor:  songKey = sol   (writes in C major, transposes to G major)
+% B minor:  songKey = re    (writes in C major, transposes to D major)
+% G minor:  songKey = sib   (writes in C major, transposes to Bb major)
+% D minor:  songKey = fa    (writes in C major, transposes to F major)
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = sol  % Change this to set key (see examples above)
-songTitle = "SONG TITLE"
-songMeter = "11s"
-songComposer = "Ed Johnson-Williams, 29 July 2025"
+songKey = la % Change this to set key (see examples above)
+songTitle = "Death's Alarms"
+songMeter = "CM"
+songComposer = "Ed Johnson-Williams, 4 August 2025"
 
 \paper {
   page-count = #1
@@ -51,16 +55,16 @@ songComposer = "Ed Johnson-Williams, 29 July 2025"
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   arranger = #songComposer
-  meter = "G Major"  % Update this manually to match songKey
+  meter = "G Minor"  % Update this manually to match songKey
   tagline = ##f
 }
 
 global = {
-  \key do \major
-  \minor        % Uncomment for minor keys but leave the \major aboe
+  \key do \major  % Don't remove the `\major` here – even for minor tunes
+  %\minor        % Uncomment here for minor keys
   \aikenHeads     % or \sacredHarpHeads for 4-shape
   \numericTimeSignature
-  \time 3/4       % Change as needed
+  \time 4/4       % Change as needed
   \defineBarLine ";" #'("|" ";" " ")
   \defineBarLine ";." #'("|" ";." ";.")
   \defineBarLine ".;" #'("|" ".;" ".;")
@@ -68,6 +72,7 @@ global = {
   \defineBarLine ";.." #'(";.." ";.." ";..")
   \defineBarLine ";.;" #'(";.;" ";.;" ";.;")
   \autoBeamOff
+
 }
 
 %%%%%%% MUSIC %%%%%%%%%
@@ -83,22 +88,16 @@ global = {
 
 trebleMusic = \relative do' {
   % === A SECTION ===
-  mi2 mi4 |
-  sol2 do,4 |
-  sol'2 la4 |
-  la2 la4 |
-  sol2 mi4 |
-  do2 do4 |
-  mi2 do4 |
-  sol'2. |
-  do,2 sol'4 |
-  sol2 do4 |
-  do2 sol8[mi8]|
-  mi2 do4 |
-  sol'2 mi4 |
-  sol2 do4 |
-  sol2 mi4 |
-  sol2.
+  mi1|
+  la4 sol mi do8[si8] |
+  do4 mi sol mi8[sol8] |
+  la4 mi sol do4 |
+  si2. la4 |
+  sol4. mi8 sol4 mi |
+  do8[mi8] sol4 sol4 mi4|
+  mi2 do8([re8] mi4) |
+  mi2 sol2|
+  la1
 
   % === B SECTION ===
   % Add B section music here
@@ -107,22 +106,17 @@ trebleMusic = \relative do' {
 
 altoMusic = \relative do' {
   % === A SECTION ===
-  sol2 la4 |
-  do2 do4 |
-  mi2 do4 |
-  la2 do4 |
-  do2 la4 |
-  do2 mi4 |
-  do2 do4 |
-  si2. |
-  do2  si4|
-  do2  sol4|
-  mi' do do |
-  sol2 sol4 |
-  sol2 la4|
-  si2 do4 |
-  re2 do4 |
-  do2.
+  do1|
+  do4 mi8[re8] do4 mi |
+  do4 sol sol do4 |
+  do4 do mi8[re8] do4 |
+  re2. do4 |
+  mi4. do8 re4 do8[mi8] |
+  do4 sol4 sol4 sol4|
+  do2 la4 (do4) |
+  do2 si|
+  do1
+
 
   % === B SECTION ===
   % Add B section music here
@@ -130,22 +124,17 @@ altoMusic = \relative do' {
 
 tenorMusic = \relative do'' {
   % === A SECTION ===
-  sol,2 la4 |
-  do2 mi4 |
-  sol2 mi8[do8] |
-  la2 do4 |
-  sol2 do4|
-  do2 la4 |
-  do2 la'4 |
-  sol2.|
-  la2 sol4|
-  sol4 (mi) do |
-  sol (la) do |
-  mi2 sol4 |
-  do,2 la4 |
-  sol2 do8[mi8] |
-  sol2 do,4 |
-  do2.
+  la,1|
+  mi'4 do la do |
+  mi mi8[re8] mi4 sol |
+  mi do do mi |
+  sol2. la4 |
+  sol4. mi8 re4 do |
+  sol' sol8[mi8] re4
+  mi4|
+  do(mi) mi2 |
+  sol4(mi) mi2|
+  la,1
 
   % === B SECTION ===
   % Add B section music here
@@ -154,23 +143,18 @@ tenorMusic = \relative do'' {
 
 bassMusic = \relative do {
   % === A SECTION ===
-  do2 la4 |
-  sol2 do,4 |
-  do'2 la4 |
-  do2 la4 |
-  sol2 do,4 |
-  sol'2 la4 |
-  do2 do4 |
-  sol2. |
-  la2 sol4 |
-  do,2 sol'4 |
-  do2 do4 |
-  do2 do4 |
-  sol2 la4 |
-  sol2 do,4 |
-  sol'2 la4 |
-  do2.
 
+  <la la,>1|
+  la4 do la sol |
+  la sol4 do4 do |
+  la sol mi sol |
+  sol2. la4 |
+  sol4. mi8 sol4 la |
+  do do sol4
+  mi4 |
+  sol(la) la2 |
+  mi2 mi2|
+  <la la,>1
   % === B SECTION ===
   % Add B section music here
 }
@@ -180,25 +164,30 @@ bassMusic = \relative do {
 verseOne = \lyricmode {
   \tiny
   % Verse 1 lyrics
-  May the grace of Christ our Sav -- ior,
-  And the Fa -- ther's bound -- less love,
-  With the Ho -- ly Spi -- rit's fa -- vor,
-  Rest up -- on us from a -- bove.
+  Why do we mourn de -- par -- ting friends,
+  Or shake at death’s a -- larms?
+  ’Tis but the voice that Je -- sus sends,
+  To call them to His arms.
 }
 
 verseTwo = \lyricmode {
   \tiny
   % Verse 2 lyrics
-  Thus may we a -- bide in un -- ion
-  With each o -- ther and the Lord;
-  And po -- ssess, in sweet co -- mmu -- nion,
-  Joys which earth can -- not a -- fford.
+
+  Why should we trem -- ble to con -- vey
+  Their bod -- ies to the tomb?
+  There the dear flesh of Je -- sus lay,
+  And va -- nished all the gloom.
 }
 
 % Additional verses if needed
 verseThree = \lyricmode {
   \tiny
   % Verse 3 lyrics if needed
+  Thence He arose, a -- scend -- ed high,
+  And showed our feet the way;
+  Up to the Lord our souls shall fly,
+  At the great ris -- ing day.
 }
 
 verseFour = \lyricmode {
@@ -279,8 +268,15 @@ musicContent = {
     <<
       \musicContent
       % Octave doubling for richer MIDI sound
-      \new Staff { \global \transpose do do, { \trebleMusic } }
-      \new Staff { \global \transpose do do, { \tenorMusic } }
+      \new Staff {
+        \set Staff.instrumentName = "Treble Low"
+
+        \global \transpose do do, { \trebleMusic }
+      }
+      \new Staff {
+        \set Staff.instrumentName = "Tenor Low"
+        \global \transpose do do, { \tenorMusic }
+      }
     >>
   }
 
@@ -288,6 +284,10 @@ musicContent = {
     \context {
       \Score
       tempoWholesPerMinute = #(ly:make-moment 100 4)
+    }
+    \context {
+      \Staff
+      midiInstrument = #"acoustic grand"
     }
   }
 }
