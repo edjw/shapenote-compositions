@@ -97,7 +97,7 @@ trebleMusic = \relative do' {
   do8[mi8] sol4 sol4 mi4|
   mi2 do8([re8] mi4) |
   sol2 la2|
-  mi1
+  la1
 
   % === B SECTION ===
   % Add B section music here
