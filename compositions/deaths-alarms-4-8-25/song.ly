@@ -47,7 +47,7 @@ songComposer = "Ed Johnson-Williams, 4 August 2025"
 
 \paper {
   page-count = #1
-  system-count = #2
+  system-count = #1
   system-system-spacing = #'((basic-distance . 0) (padding . 6))
   top-margin = 0.5\in
 }
@@ -89,15 +89,15 @@ global = {
 trebleMusic = \relative do' {
   % === A SECTION ===
   mi1|
-  la4 sol mi do8[si8] |
-  do4 mi sol mi8[sol8] |
-  la4 mi sol do4 |
-  si2. la4 |
+  mi4 sol mi do4 |
+  do4 mi sol sol |
+  la4 sol do la |
+  sol2. la4 |
   sol4. mi8 sol4 mi |
   do8[mi8] sol4 sol4 mi4|
   mi2 do8([re8] mi4) |
-  mi2 sol2|
-  la1
+  sol2 la2|
+  mi1
 
   % === B SECTION ===
   % Add B section music here
@@ -106,15 +106,15 @@ trebleMusic = \relative do' {
 
 altoMusic = \relative do' {
   % === A SECTION ===
-  do1|
-  do4 mi8[re8] do4 mi |
-  do4 sol sol do4 |
-  do4 do mi8[re8] do4 |
+  la1|
+  do4 do do mi |
+  do4 do sol do4 |
+  do4 do mi do |
   re2. do4 |
-  mi4. do8 re4 do8[mi8] |
-  do4 sol4 sol4 sol4|
-  do2 la4 (do4) |
-  do2 si|
+  re4. do8 re4 do8[la8] |
+  sol4 sol4 sol4 sol8[la8]|
+  do4(si4) la4 (do4) |
+  do2 do|
   do1
 
 
@@ -133,7 +133,7 @@ tenorMusic = \relative do'' {
   sol' sol8[mi8] re4
   mi4|
   do(mi) mi2 |
-  sol4(mi) mi2|
+  sol2 mi2|
   la,1
 
   % === B SECTION ===
@@ -145,15 +145,16 @@ bassMusic = \relative do {
   % === A SECTION ===
 
   <la la,>1|
-  la4 do la sol |
-  la sol4 do4 do |
-  la sol mi sol |
+  la4 do la la |
+  la la
+  4 do4 do |
+  la do sol la |
   sol2. la4 |
   sol4. mi8 sol4 la |
   do do sol4
   mi4 |
-  sol(la) la2 |
-  mi2 mi2|
+  sol2 la2 |
+  do2 la2|
   <la la,>1
   % === B SECTION ===
   % Add B section music here
