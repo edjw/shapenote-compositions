@@ -36,7 +36,7 @@
 % G minor:  \transpose do sol  (then use \minor in global)
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = sol  % Change this to set key (see examples above)
+songKey = re  % Change this to set key (see examples above)
 songTitle = "SONG TITLE"
 songMeter = "11s"
 songComposer = "Ed Johnson-Williams, 29 July 2025"
@@ -57,10 +57,10 @@ songComposer = "Ed Johnson-Williams, 29 July 2025"
 
 global = {
   \key do \major
-  \minor        % Uncomment for minor keys but leave the \major aboe
+ % \minor        % Uncomment for minor keys but leave the \major aboe
   \aikenHeads     % or \sacredHarpHeads for 4-shape
   \numericTimeSignature
-  \time 3/4       % Change as needed
+  \time 4/4       % Change as needed
   \defineBarLine ";" #'("|" ";" " ")
   \defineBarLine ";." #'("|" ";." ";.")
   \defineBarLine ".;" #'("|" ".;" ".;")
@@ -83,23 +83,7 @@ global = {
 
 trebleMusic = \relative do' {
   % === A SECTION ===
-  mi2 mi4 |
-  sol2 do,4 |
-  sol'2 la4 |
-  la2 la4 |
-  sol2 mi4 |
-  do2 do4 |
-  mi2 do4 |
-  sol'2. |
-  do,2 sol'4 |
-  sol2 do4 |
-  do2 sol8[mi8]|
-  mi2 do4 |
-  sol'2 mi4 |
-  sol2 do4 |
-  sol2 mi4 |
-  sol2.
-
+  
   % === B SECTION ===
   % Add B section music here
   \bar ".."
@@ -107,45 +91,15 @@ trebleMusic = \relative do' {
 
 altoMusic = \relative do' {
   % === A SECTION ===
-  sol2 la4 |
-  do2 do4 |
-  mi2 do4 |
-  la2 do4 |
-  do2 la4 |
-  do2 mi4 |
-  do2 do4 |
-  si2. |
-  do2  si4|
-  do2  sol4|
-  mi' do do |
-  sol2 sol4 |
-  sol2 la4|
-  si2 do4 |
-  re2 do4 |
-  do2.
+  
 
   % === B SECTION ===
   % Add B section music here
 }
 
-tenorMusic = \relative do'' {
+tenorMusic = \relative do' {
   % === A SECTION ===
-  sol,2 la4 |
-  do2 mi4 |
-  sol2 mi8[do8] |
-  la2 do4 |
-  sol2 do4|
-  do2 la4 |
-  do2 la'4 |
-  sol2.|
-  la2 sol4|
-  sol4 (mi) do |
-  sol (la) do |
-  mi2 sol4 |
-  do,2 la4 |
-  sol2 do8[mi8] |
-  sol2 do,4 |
-  do2.
+  
 
   % === B SECTION ===
   % Add B section music here
@@ -154,22 +108,7 @@ tenorMusic = \relative do'' {
 
 bassMusic = \relative do {
   % === A SECTION ===
-  do2 la4 |
-  sol2 do,4 |
-  do'2 la4 |
-  do2 la4 |
-  sol2 do,4 |
-  sol'2 la4 |
-  do2 do4 |
-  sol2. |
-  la2 sol4 |
-  do,2 sol'4 |
-  do2 do4 |
-  do2 do4 |
-  sol2 la4 |
-  sol2 do,4 |
-  sol'2 la4 |
-  do2.
+  
 
   % === B SECTION ===
   % Add B section music here
@@ -180,19 +119,13 @@ bassMusic = \relative do {
 verseOne = \lyricmode {
   \tiny
   % Verse 1 lyrics
-  May the grace of Christ our Sav -- ior,
-  And the Fa -- ther's bound -- less love,
-  With the Ho -- ly Spi -- rit's fa -- vor,
-  Rest up -- on us from a -- bove.
+  
 }
 
 verseTwo = \lyricmode {
   \tiny
   % Verse 2 lyrics
-  Thus may we a -- bide in un -- ion
-  With each o -- ther and the Lord;
-  And po -- ssess, in sweet co -- mmu -- nion,
-  Joys which earth can -- not a -- fford.
+ 
 }
 
 % Additional verses if needed
@@ -288,6 +221,11 @@ musicContent = {
     \context {
       \Score
       tempoWholesPerMinute = #(ly:make-moment 100 4)
+    }
+    
+    \context {
+      \Staff
+      midiInstrument = #"acoustic grand"
     }
   }
 }
