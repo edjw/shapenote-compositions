@@ -57,7 +57,7 @@ songComposer = "Ed Johnson-Williams, 29 July 2025"
 
 global = {
   \key do \major
- % \minor        % Uncomment for minor keys but leave the \major aboe
+  % \minor        % Uncomment for minor keys but leave the \major aboe
   \aikenHeads     % or \sacredHarpHeads for 4-shape
   \numericTimeSignature
   \time 4/4       % Change as needed
@@ -83,7 +83,7 @@ global = {
 
 trebleMusic = \relative do' {
   % === A SECTION ===
-  
+
   % === B SECTION ===
   % Add B section music here
   \bar ".."
@@ -91,7 +91,7 @@ trebleMusic = \relative do' {
 
 altoMusic = \relative do' {
   % === A SECTION ===
-  
+
 
   % === B SECTION ===
   % Add B section music here
@@ -99,7 +99,7 @@ altoMusic = \relative do' {
 
 tenorMusic = \relative do' {
   % === A SECTION ===
-  
+
 
   % === B SECTION ===
   % Add B section music here
@@ -108,7 +108,7 @@ tenorMusic = \relative do' {
 
 bassMusic = \relative do {
   % === A SECTION ===
-  
+
 
   % === B SECTION ===
   % Add B section music here
@@ -119,13 +119,13 @@ bassMusic = \relative do {
 verseOne = \lyricmode {
   \tiny
   % Verse 1 lyrics
-  
+
 }
 
 verseTwo = \lyricmode {
   \tiny
   % Verse 2 lyrics
- 
+
 }
 
 % Additional verses if needed
@@ -167,9 +167,9 @@ musicContent = {
         \global
         \tenorMusic
       }
-      \new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
+      %\new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
       % Uncomment for verse 3 under tenor:
-      % \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
+      \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
     >>
 
     \new Staff = bass <<
@@ -196,7 +196,6 @@ musicContent = {
     \context {
       \Score
       \remove "Bar_number_engraver"
-      \omit VoltaBracket
       \override TimeSignature.break-visibility = ##(#f #t #t)
       \override NoteHead.font-size = #1
       startRepeatBarType = #";"
@@ -208,6 +207,7 @@ musicContent = {
 
 % Score for MIDI (reuses musicContent with octave doubling)
 \score {
+  \unfoldRepeats
   \transpose do \songKey {
     <<
       \musicContent
@@ -222,7 +222,7 @@ musicContent = {
       \Score
       tempoWholesPerMinute = #(ly:make-moment 100 4)
     }
-    
+
     \context {
       \Staff
       midiInstrument = #"acoustic grand"
