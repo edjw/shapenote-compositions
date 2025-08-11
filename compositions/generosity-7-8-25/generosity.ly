@@ -37,13 +37,13 @@
 
 %%%%%% QUICK SETTINGS %%%%%%
 songKey = sol  % Change this to set key (see examples above)
-songTitle = ""
+songTitle = "Generosity"
 songMeter = "LM"
 songComposer = "Ed Johnson-Williams, 7 August 2025"
 
 \paper {
   page-count = #1
-  system-count = #1 
+  system-count = #2
   system-system-spacing = #'((basic-distance . 0) (padding . 6))
   top-margin = 0.5\in
 }
@@ -83,25 +83,17 @@ global = {
 
 trebleMusic = \relative do' {
   % === A SECTION ===
- 
-r2. mi4 |
-sol mi |
-mi8([re]) do4 |
-si4 do |
-do sol' |
-sol4 mi |
-sol sol |
-do si8([la]) |
-si2 la2 |
-sol8([mi]) do8([re]) |
-mi4 sol |
-do4 sol |
-mi2 |
-sol2 |
-mi4 sol |
-sol la |
-sol8([fa]) mi4 |
-sol2
+
+  r2. mi4 |
+  sol mi mi8([re]) do4 |
+  si4 do do sol' |
+  sol4 mi sol sol |
+  do si8([la]) sol2 |
+  sol2 sol8([mi]) do8([re]) |
+  mi4 sol do4 sol |
+  mi2 sol2 |
+  mi4 sol sol la |
+  sol8([fa]) mi4 sol2
 
 
 
@@ -113,24 +105,15 @@ sol2
 altoMusic = \relative do' {
   % === A SECTION ===
   r2. sol4 |
-  do do |
-  do sol |
-  sol la |
-  sol do |
-  si la |
-  sol do8([si]) |
-  la4 sol |
-  sol2 |
-  la2 |
-  do4 do8([re]) |
-  mi4 do |
-  do re |
-  do2 |
-  mi2 |
-  do4 mi |
-  do do |
-  si do8([re]) |
-  mi2 
+  do do do sol |
+  sol la sol do |
+  si la sol do8([si]) |
+  la4 sol sol2 |
+  sol2 do4 do8([re]) |
+  do4 do do re |
+  do2 sol2 |
+  do4 mi do do |
+  si do4 do2
 
 
   % === B SECTION ===
@@ -139,26 +122,17 @@ altoMusic = \relative do' {
 
 tenorMusic = \relative do' {
   % === A SECTION ===
-  r2. sol'4 |
-  do, do8([re]) |
-  mi4 mi |
-  re mi8([re8]) |
-  do4 sol |
-  sol' la8([sol]) |
-  mi4 do8([re])|
-  mi4 re |
-  re2 |
-  re4.(mi8) |
-  sol4 sol8([la]) |
-  sol4 mi |
-  sol sol8([la]) |
-  sol2 |
-  do, |
-  do4 do8([re]) |
-  mi4 fa8([mi8]) |
-  re4 mi8([re8]) |
-  do2
-  
+  r2. mi4 |
+  do do8([re]) mi4 mi |
+  re mi8([re8]) do4 sol |
+  sol' la8([sol]) mi4 do8([re])|
+  mi4 re re2 |
+  re4.(mi8) sol4 sol8([la]) |
+  sol4 mi sol sol8([la]) |
+  sol2 do, |
+  do4 do8([re]) mi4 fa8([mi8]) |
+  re8([fa8]) mi8([re8]) do2
+
 
   % === B SECTION ===
   % Add B section music here
@@ -167,25 +141,16 @@ tenorMusic = \relative do' {
 
 bassMusic = \relative do {
   % === A SECTION ===
-  r2. do,4 |
-  sol' sol |
-  sol mi |
-  sol la |
-  sol do,8([mi8]) |
-  sol4 mi |
-  do sol' |
-  la sol |
-  sol2 |
-  la2 |
-  do4 mi8([re]) |
-  do4 do8([sol]) |
-  mi4 sol |
-  sol2 |
-  do2 |
-  sol4 do |
-  do8([la]) la4 |
-  sol4 mi |
-  do2
+  r2. do4 |
+  do sol sol do |
+  sol la sol do |
+  sol4 la do do |
+  la sol sol2 |
+  sol2 do4 mi8([re]) |
+  do4 do8([sol]) mi4 sol |
+  sol2 do2 |
+  sol4 do do do |
+  sol4 sol <do do,>2
 
   % === B SECTION ===
   % Add B section music here
@@ -197,19 +162,19 @@ verseOne = \lyricmode {
   \tiny
   % Verse 1 lyrics
   Life is the time to serve the Lord,
-The time t’in -- sure the great re -- ward;
-And while the lamp holds out to burn
-The vi -- lest sin -- ner may re -- turn.
+  The time t’in -- sure the great re -- ward;
+  And while the lamp holds out to burn
+  The vi -- lest sin -- ner may re -- turn.
 
 }
 
 verseTwo = \lyricmode {
   \tiny
   % Verse 2 lyrics
- Life is the hour that God has giv’n,
-To es -- cape hell and fly to heav’n;
-The day of grace, and mor -- tals may
-Se -- cure the ble -- ssing of the day.
+  Life is the hour that God has giv’n,
+  To es -- cape hell and fly to heav’n;
+  The day of grace, and mor -- tals may
+  Se -- cure the bles -- sing of the day.
 
 }
 
@@ -218,9 +183,9 @@ verseThree = \lyricmode {
   \tiny
   % Verse 3 lyrics if needed
   The li -- ving know that they must die,
-But all the dead for -- got -- ten lie;
-Their mem’ -- ry and their sense is gone,
-A -- like un -- know -- ing and un -- known.
+  But all the dead for -- got -- ten lie;
+  Their mem’ -- ry and their sense is gone,
+  A -- like un -- know -- ing and un -- known.
 }
 
 verseFour = \lyricmode {
@@ -248,7 +213,7 @@ musicContent = {
         \altoMusic
       }
       % Uncomment for verse 2 under alto (common pattern):
-       \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
+      \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
     >>
 
     \new Staff = tenor <<
@@ -257,7 +222,7 @@ musicContent = {
         \tenorMusic
       }
       % Uncomment for verse 3 under tenor:
-       \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
+      \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
     >>
 
     \new Staff = bass <<
@@ -310,7 +275,7 @@ musicContent = {
       \Score
       tempoWholesPerMinute = #(ly:make-moment 100 4)
     }
-    
+
     \context {
       \Staff
       midiInstrument = #"acoustic grand"
