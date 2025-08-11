@@ -1,6 +1,8 @@
 \language "espanol"
 \version "2.24.0"
 #(set-default-paper-size "a4landscape")
+\include "articulate.ly"
+
 
 %%%%%% Sacred Harp Simplified Template v1.0 %%%%%%
 % Ed Johnson-Williams - Fast typesetting from paper
@@ -36,16 +38,17 @@
 % G minor:  \transpose do sol  (then use \minor in global)
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = re  % Change this to set key (see examples above)
-songTitle = "SONG TITLE"
-songMeter = "11s"
-songComposer = "Ed Johnson-Williams, 29 July 2025"
+songKey = sol  % Change this to set key (see examples above)
+songTitle = "Bolderwood"
+songMeter = "CM"
+songComposer = "Ed Johnson-Williams, 10 August 2025"
 
 \paper {
   page-count = #1
-  system-count = #2
+  system-count = #1
   system-system-spacing = #'((basic-distance . 0) (padding . 6))
   top-margin = 0.5\in
+
 }
 
 \header {
@@ -57,10 +60,10 @@ songComposer = "Ed Johnson-Williams, 29 July 2025"
 
 global = {
   \key do \major
- % \minor        % Uncomment for minor keys but leave the \major aboe
+  % \minor        % Uncomment for minor keys but leave the \major aboe
   \aikenHeads     % or \sacredHarpHeads for 4-shape
   \numericTimeSignature
-  \time 4/4       % Change as needed
+  \time 6/4       % Change as needed
   \defineBarLine ";" #'("|" ";" " ")
   \defineBarLine ";." #'("|" ";." ";.")
   \defineBarLine ".;" #'("|" ".;" ".;")
@@ -83,7 +86,27 @@ global = {
 
 trebleMusic = \relative do' {
   % === A SECTION ===
-  
+
+  r1 r4 mi4 |
+
+  sol2 mi4 do2 sol'4 |
+  sol2 sol4 mi2\fermata do4 |
+  re2 do4 sol'2 mi4 | \break
+  re2. r2 do4|
+  mi2 sol4 do2 si4 |
+  do2 la4 sol2\fermata sol4  | \bar ".|:"
+
+  \repeat volta 2 {
+    do,4(re) mi sol2 mi4 |
+  }
+  \alternative {
+    { sol2.(mi2)\fermata sol4 | }
+    { mi1. | }
+  }
+
+
+
+
   % === B SECTION ===
   % Add B section music here
   \bar ".."
@@ -91,7 +114,25 @@ trebleMusic = \relative do' {
 
 altoMusic = \relative do' {
   % === A SECTION ===
-  
+
+  r1 r4 sol4 |
+
+  do2 do4 sol2 sol4 |
+  sol2 do4 do2\fermata do4 |
+  si2 la4 sol2 do4 |
+  si2. r2 do4 |
+  do2 do4 sol2 sol4 |
+  do2 la4 sol2\fermata do4 | \bar ".|:"
+
+  \repeat volta 2 {
+    do4(si) do do2 do4 |
+  }
+  \alternative {
+    { sol2.(do2)\fermata sol4 | }
+    { sol1. | }
+  }
+
+
 
   % === B SECTION ===
   % Add B section music here
@@ -99,7 +140,21 @@ altoMusic = \relative do' {
 
 tenorMusic = \relative do' {
   % === A SECTION ===
-  
+  r1 r4 sol4 |
+  do2 la4 sol2 do4 |
+  mi2 sol4 do,2\fermata la4 |
+  sol2 do4 mi2 sol4 |
+  sol2. r2 sol4 |
+  la2 sol4 mi2 sol4 |
+  sol2 mi4 re2\fermata mi4 | \bar ".|:"
+
+  \repeat volta 2 {
+    mi4(re) do sol2 la4 |
+  }
+  \alternative {
+    { do2.(mi2)\fermata mi4 | }
+    { do1. | }
+  }
 
   % === B SECTION ===
   % Add B section music here
@@ -108,7 +163,24 @@ tenorMusic = \relative do' {
 
 bassMusic = \relative do {
   % === A SECTION ===
-  
+  r1 r4 do4 |
+  sol2 la4 do2 mi4|
+  do2 sol4 sol2\fermata la4 |
+  sol2 la4 do2 do4 |
+  sol2. r2 sol4 |
+  la2 do4 do2 sol4 |
+  do2 la4 sol2\fermata do,4 | \bar ".|:"
+
+  \repeat volta 2 {
+    sol'2 sol4 do2 do4 |
+  }
+  \alternative {
+    { do2.(sol2)\fermata do,4 | }
+    { <do do'>1. | }
+  }
+
+
+
 
   % === B SECTION ===
   % Add B section music here
@@ -119,19 +191,38 @@ bassMusic = \relative do {
 verseOne = \lyricmode {
   \tiny
   % Verse 1 lyrics
-  
+  Now shall my in -- ward joys a -- rise,
+  And burst in -- to a song;
+  Al -- migh -- ty love in -- spires my heart,
+  And plea -- sure tunes my tongue.
+  And
+  tongue.
+
 }
 
 verseTwo = \lyricmode {
   \tiny
   % Verse 2 lyrics
- 
+  God, on His thir -- sty Zi -- on’s hill,
+  Some mer -- cy drops has thrown;
+  And so -- lemn oaths have bound His love
+  To show’r sal -- va -- tion down.
+  To
+  down.
+
+
 }
 
 % Additional verses if needed
 verseThree = \lyricmode {
   \tiny
   % Verse 3 lyrics if needed
+  Why do we then in -- dulge our fears,
+  Sus -- pic -- ions and com -- plaints?
+  Is He a God, and shall His grace
+  Grow wea -- ry of His saints?
+  Grow
+  saints?
 }
 
 verseFour = \lyricmode {
@@ -159,7 +250,7 @@ musicContent = {
         \altoMusic
       }
       % Uncomment for verse 2 under alto (common pattern):
-      % \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
+      \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
     >>
 
     \new Staff = tenor <<
@@ -167,9 +258,9 @@ musicContent = {
         \global
         \tenorMusic
       }
-      \new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
+      %\new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
       % Uncomment for verse 3 under tenor:
-      % \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
+      \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
     >>
 
     \new Staff = bass <<
@@ -196,7 +287,6 @@ musicContent = {
     \context {
       \Score
       \remove "Bar_number_engraver"
-      \omit VoltaBracket
       \override TimeSignature.break-visibility = ##(#f #t #t)
       \override NoteHead.font-size = #1
       startRepeatBarType = #";"
@@ -208,13 +298,15 @@ musicContent = {
 
 % Score for MIDI (reuses musicContent with octave doubling)
 \score {
-  \transpose do \songKey {
-    <<
-      \musicContent
-      % Octave doubling for richer MIDI sound
-      \new Staff { \global \transpose do do, { \trebleMusic } }
-      \new Staff { \global \transpose do do, { \tenorMusic } }
-    >>
+  \articulate \unfoldRepeats {
+    \transpose do \songKey {
+      <<
+        \musicContent
+        % Octave doubling for richer MIDI sound
+        \new Staff { \global \transpose do do, { \trebleMusic } }
+        \new Staff { \global \transpose do do, { \tenorMusic } }
+      >>
+    }
   }
 
   \midi {
@@ -222,11 +314,12 @@ musicContent = {
       \Score
       tempoWholesPerMinute = #(ly:make-moment 100 4)
     }
-    
+
     \context {
       \Staff
       midiInstrument = #"acoustic grand"
     }
   }
 }
+
 
