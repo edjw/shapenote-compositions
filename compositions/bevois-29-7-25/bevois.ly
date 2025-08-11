@@ -38,7 +38,7 @@
   %subsubtitle = \markup \italic \tiny
   %        ""	%	Optional Bible verse
   arranger = \markup %\bold \tiny
-  "Ed and Erin Johnson-Williams, 29 August 2025" % Composer
+  "Ed Johnson-Williams, 29 July 2025" % Composer
   meter = \markup {
     %\bold \tiny
     "A Major."
@@ -97,7 +97,7 @@ trebleA = \relative do' {
   sol'2. |
   do,2 sol'4 |
   sol2 sol4 |
-  do,2 sol'8[fa8]|
+  do,2 mi4|
   mi4(re4) do4 |
   sol'4(fa4) mi4 |
   sol2 do4 |
