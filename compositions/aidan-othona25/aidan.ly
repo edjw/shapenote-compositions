@@ -21,7 +21,7 @@
   system-count = #2
   %ragged-last = ##t
   %ragged-bottom = ##t
-    system-system-spacing = #'((basic-distance . 0) (padding . 6))
+  system-system-spacing = #'((basic-distance . 0) (padding . 6))
   top-margin = 0.5\in
 
 
@@ -29,16 +29,20 @@
 }
 
 \header {
-  title = \markup{ \bold \smaller
-  "Aidan   "  \small{"11s" }}% TITLE.  METER.
+  title = \markup{
+    \bold \smaller
+    "Aidan   "  \small{"11s" }
+  }% TITLE.  METER.
   %subtitle = \markup \italic \smaller
-   %       "For Beth and Matthew"	% Subtitle, alternative title
+  %       "For Beth and Matthew"	% Subtitle, alternative title
   %subsubtitle = \markup \italic \tiny
   %        ""	%	Optional Bible verse
   arranger = \markup %\bold \tiny
   "Ed Johnson-Williams, 25 July 2025." % Composer
-  meter = \markup {%\bold \tiny
-  "C Major."} % Key signature.  Poet.
+  meter = \markup {
+    %\bold \tiny
+    "C Major."
+  } % Key signature.  Poet.
   tagline = ##f
   %\markup \tiny
   %	"" % Copyright info if applicable; leave blank otherwise.
@@ -58,10 +62,10 @@ global = {
   \time 4/4				%TIME SIGNATURE as n/n
   \defineBarLine ";" #'("|" ";" " ")
   \defineBarLine ";." #'("|" ";." ";.")
-     \defineBarLine ".;" #'("|" ".;" ".;")
+  \defineBarLine ".;" #'("|" ".;" ".;")
   \defineBarLine ".." #'(".." ".." "..")
   \defineBarLine ";.." #'(";.." ";.." ";..")
-   \defineBarLine ";.;" #'(";.;" ";.;" ";.;")
+  \defineBarLine ";.;" #'(";.;" ";.;" ";.;")
   \autoBeamOff
   \override Score.RehearsalMark.self-alignment-X = #LEFT
 
@@ -100,15 +104,15 @@ trebleA = \relative do'' {
 
 
 
- %  \break	%	Uncomment for line break after A section
- 	% }				% Uncomment if repeating
+  %  \break	%	Uncomment for line break after A section
+  % }				% Uncomment if repeating
 
 }
 
 altoA = \relative do' {
   % Alto A section
 
-%  \repeat volta 2{	% Uncomment to repeat the A section
+  %  \repeat volta 2{	% Uncomment to repeat the A section
   %\bar ";"		% Uncomment if repeating
 
   % MUSIC GOES HERE
@@ -125,15 +129,15 @@ altoA = \relative do' {
   sol2.
 
 
- 	% }				% Uncomment if repeating
+  % }				% Uncomment if repeating
 
 }
 
 tenorA = \relative do'' {
   % Tenor A section
 
-%  \repeat volta 2{	% Uncomment to repeat the A section
- % \bar ";"		% Uncomment if repeating
+  %  \repeat volta 2{	% Uncomment to repeat the A section
+  % \bar ";"		% Uncomment if repeating
 
   % MUSIC GOES HERE
   r2
@@ -151,14 +155,14 @@ tenorA = \relative do'' {
   do2.
 
 
- 	% }				% Uncomment if repeating
+  % }				% Uncomment if repeating
 
 }
 
 bassA = \relative do' {
   % Bass A section
 
-%  \repeat volta 2{	% Uncomment to repeat the A section
+  %  \repeat volta 2{	% Uncomment to repeat the A section
   %\bar ";"		% Uncomment if repeating
 
   % MUSIC GOES HERE
@@ -176,7 +180,7 @@ bassA = \relative do' {
   do2 fa4 fa |
   do2.
 
- % 	}				% Uncomment if repeating
+  % 	}				% Uncomment if repeating
 
 }
 
@@ -186,7 +190,7 @@ trebleB = \relative do'' {
   % Treble B section
 
   % \repeat volta 2 {
-    % Uncomment to repeat the B section
+  % Uncomment to repeat the B section
 
   % MUSIC GOES HERE
   do4 |
@@ -211,32 +215,32 @@ trebleB = \relative do'' {
      { \set Timing.measureLength = #(ly:make-moment 3/4) \mark \markup \bold \tiny "1." mi2. \bar ";." }	% Uncomment if repeating
      { \set Timing.measureLength = #(ly:make-moment 6/4) \mark \markup \bold \tiny "2." mi1. \bar ".." }	% Uncomment if repeating
   }				% Uncomment if repeating
-%}
+  %}
 
-%  \bar ";.."
+  %  \bar ";.."
 
 }
 
 altoB = \relative do'' {
   % Alto B section
   % \repeat volta 2 {
-    % Uncomment to repeat the B section
+  % Uncomment to repeat the B section
 
-    % MUSIC GOES HERE
-    sol4 |
-    mi2 sol4 sol |
-    la2 sol4 la |
-    sol2 mi4 do |
-    do2
+  % MUSIC GOES HERE
+  sol4 |
+  mi2 sol4 sol |
+  la2 sol4 la |
+  sol2 mi4 do |
+  do2
 
-    do4( mi) |
-    mi2 sol4 la |
-    sol2 mi4 sol |
-    sol2 sol4 sol |
-    sol1 |
+  do4( mi) |
+  mi2 sol4 la |
+  sol2 mi4 sol |
+  sol2 sol4 sol |
+  sol1 |
 
-%  }	% Uncomment if repeating
-%{
+  %  }	% Uncomment if repeating
+  %{
   \alternative {
     % Uncomment if repeating
    { \set Timing.measureLength = #(ly:make-moment 3/4) sol2. \bar ";." }	% Uncomment if repeating
@@ -252,21 +256,21 @@ tenorB = \relative do'' {
   % Tenor B section
 
   % \repeat volta 2{
-    % Uncomment to repeat the B section
+  % Uncomment to repeat the B section
 
-    % MUSIC GOES HERE
-    % \bar ".;"
-    mi4 |
-    sol2 sol4 sol |
-    mi2 do4 la |
-    sol2 do4 do8[ re] |
-    mi2
+  % MUSIC GOES HERE
+  % \bar ".;"
+  mi4 |
+  sol2 sol4 mi |
+  mi2 do4 la |
+  sol2 do4 do8[ re] |
+  mi2
 
-    do2 |
-    do2 do4 la |
-    sol2 do4 re |
-    mi2 re4 re |
-    do1 |
+  do2 |
+  do2 do4 la |
+  sol2 do4 re |
+  mi2 re4 re |
+  do1 |
 
   % }	% Uncomment if repeating
   % \alternative {
@@ -284,31 +288,31 @@ bassB = \relative do' {
   % Bass B section
 
   % \repeat volta 2 {
-    % Uncomment to repeat the B section
+  % Uncomment to repeat the B section
 
-    % MUSIC GOES HERE
-    do4 |
-    sol2 do4 do |
-    la2 sol4 la |
-    <do do,>2 sol4 mi |
-    sol2
+  % MUSIC GOES HERE
+  do4 |
+  sol2 do4 do |
+  la2 sol4 la |
+  <do do,>2 sol4 mi |
+  sol2
 
-    la2 |
-    <do do,>2 sol4 do, |
-    sol'2 do4 sol |
-    do,2 sol'4 sol |
-    do,1 |
+  la2 |
+  <do do,>2 sol4 mi |
+  sol2 do4 sol |
+  do,2 sol'4 sol |
+  do,1 |
 
 
   % }	% Uncomment if repeating
 
- %{
+  %{
      \alternative {
     % Uncomment if repeating
      { \set Timing.measureLength = #(ly:make-moment 3/4) la4 do2 \bar ";." }	% Uncomment if repeating
      { \set Timing.measureLength = #(ly:make-moment 6/4) la4 do2~ do2.  }	% Uncomment if repeating
   }	% Uncomment if repeating
- %}
+  %}
 
 }
 
@@ -324,18 +328,18 @@ trebleTextA = \lyricmode {
   \set stanza = "1." % VERSE NUMBER (optional)
   % Lyrics to appear under treble A section
   I dreamt I was out, to the east cast mine eye,
-The at -- mos -- phere calm and se -- rene was the sky;
+  The at -- mos -- phere calm and se -- rene was the sky;
 
 }
 
 trebleTextATwo = \lyricmode {
   \tiny
-    \set stanza = "2." % VERSE NUMBER (optional)
+  \set stanza = "2." % VERSE NUMBER (optional)
   % Lyrics to appear under treble A section
-   A pil -- lar of cloud in the east did ap -- pear,
-   A throne in the midst on which Je -- sus sat fair,
-   Who co -- ming a -- long the e -- ther -- ’al bright plain
-   And soar -- ing a -- loft till the midst He did gain.
+  A pil -- lar of cloud in the east did ap -- pear,
+  A throne in the midst on which Je -- sus sat fair,
+  Who co -- ming a -- long the e -- ther -- ’al bright plain
+  And soar -- ing a -- loft till the midst He did gain.
 }
 
 altoTextA = \lyricmode {
@@ -343,22 +347,22 @@ altoTextA = \lyricmode {
   \set stanza = "3." % VERSE NUMBER (optional)
   % Lyrics to appear under alto A section
 
-The next I heard Je -- sus say “Come you up here;”
-Then all the blest nat -- ions a -- rose with -- out fear,
-And quit -- ting the globe with great plea -- sure did sing
-A song that was ne -- ver be -- fore tuned to string.
+  The next I heard Je -- sus say “Come you up here;”
+  Then all the blest nat -- ions a -- rose with -- out fear,
+  And quit -- ting the globe with great plea -- sure did sing
+  A song that was ne -- ver be -- fore tuned to string.
 }
 
 tenorTextA = \lyricmode {
   \tiny
   \set stanza = "4." % VERSE NUMBER (optional)
   % Lyrics to appear under tenor A section
-  
+
 
   Then, in the sweet tran -- sport, my feet left the ground
-With -- out a -- ny mo -- tion of bo -- dy or sound;
-My joys were un -- speak -- ab -- ly full of de -- light;
-So loud was the mus -- ic it o’er -- came me quite. 
+  With -- out a -- ny mo -- tion of bo -- dy or sound;
+  My joys were un -- speak -- ab -- ly full of de -- light;
+  So loud was the mus -- ic it o’er -- came me quite.
 }
 
 
@@ -374,7 +378,7 @@ trebleTextB = \lyricmode {
   \tiny
   % Lyrics to appear under treble B section
   So calm, still and aw -- ful, tre -- men -- dous the sight;
-I thought the last judge -- ment was dawn -- ing to light.
+  I thought the last judge -- ment was dawn -- ing to light.
 
 }
 
@@ -415,12 +419,12 @@ bassTextB = \lyricmode {
     \new Staff = treble <<
       \new Voice = "treble" {
         \global
-        	% \transpose do fa {	% Uncomment if transposing. x = original key; y = target key
+        % \transpose do fa {	% Uncomment if transposing. x = original key; y = target key
         \trebleA
         \trebleB
         % }	%  Uncomment if transposing
       }
-       \new Lyrics  \lyricsto "treble" { \trebleTextA \trebleTextB }
+      \new Lyrics  \lyricsto "treble" { \trebleTextA \trebleTextB }
       \new Lyrics  \lyricsto "treble" { \trebleTextATwo }
       %\new Lyrics  \lyricsto "treble" { \repeat unfold 28 { \skip 1 } \trebleTextB }
       %\new Lyrics \lyricsto "treble" { \repeat unfold NN { \skip 1 } \trebleTextBtwo }				% Uncomment to add text
@@ -446,8 +450,8 @@ bassTextB = \lyricmode {
         \tenorB
         % }	% Uncomment if transposing
       }
-       \new Lyrics  \lyricsto "tenor" { \tenorTextA \tenorTextB }
-     % \new Lyrics  \lyricsto "tenor" { \repeat unfold 28 { \skip 1 } \tenorTextB }
+      \new Lyrics  \lyricsto "tenor" { \tenorTextA \tenorTextB }
+      % \new Lyrics  \lyricsto "tenor" { \repeat unfold 28 { \skip 1 } \tenorTextB }
       %\new Lyrics \lyricsto "tenor" { \repeat unfold NN { \skip 1 } \tenorTextBtwo }
     >>
 
@@ -460,8 +464,8 @@ bassTextB = \lyricmode {
         \bassB
         % }	% Uncomment if transposing
       }
-       % \new Lyrics  \lyricsto "bass" { \bassTextA }
-     % \new Lyrics  \lyricsto "bass" { \repeat unfold 28 { \skip 1 } \bassTextB }
+      % \new Lyrics  \lyricsto "bass" { \bassTextA }
+      % \new Lyrics  \lyricsto "bass" { \repeat unfold 28 { \skip 1 } \bassTextB }
       %\new Lyrics \lyricsto "bass" { \repeat unfold NN { \skip 1 } \bassTextBtwo }
     >>
   >>
@@ -476,39 +480,19 @@ bassTextB = \lyricmode {
       \override TimeSignature.break-visibility = ##(#f #t #t)
       \override NoteHead.font-size = #1
 
-       startRepeatBarType = #";"	%	Uncomment if repeats start mid-bar
+      startRepeatBarType = #";"	%	Uncomment if repeats start mid-bar
       %	startRepeatBarType = #".;"	%	Uncomment if repeats start on barline
       endRepeatBarType = #";."
-       doubleRepeatBarType = ";.;"
+      doubleRepeatBarType = ";.;"
 
     }
 
 
   }
   \midi {
-		\context {
-			\Score
-			tempoWholesPerMinute = #(ly:make-moment 96 2) %Sets the metronome speed and value of the beat
-		}
-	}
-}2025-07-29 16:52:44: === SACRED HARP HARMONIC ANALYSIS START ===
-2025-07-29 16:52:44: Analyzing othona-25/aidan.midi in C major, 4/4 time
-2025-07-29 16:52:44: VOICE LEADING WARNING: Bar 2, Beat 3: Adjacent scale degrees si-do create dissonance
-→ Fix suggestion: Natural at cadences (si resolves to do), acceptable when brief
-2025-07-29 16:52:44: VOICE LEADING WARNING: Bar 6, Beat 3: Adjacent scale degrees si-do create dissonance
-→ Fix suggestion: Natural at cadences (si resolves to do), acceptable when brief
-2025-07-29 16:52:44: VOICE LEADING WARNING: Bar 12, Beat 4: Adjacent scale degrees do-re create dissonance
-→ Fix suggestion: Brief passing dissonance is acceptable, but avoid sustaining both notes
-2025-07-29 16:52:44: VOICE LEADING WARNING: SUSTAINED FATIGUE: Treble spends 5 of 8 beats in top 10% range (bars 12-14) - may tire singers
-2025-07-29 16:52:44: VOICE LEADING WARNING: SUSTAINED FATIGUE: Treble spends 5 of 8 beats in top 10% range (bars 13-14) - may tire singers
-2025-07-29 16:52:44: VOICE LEADING WARNING: SUSTAINED FATIGUE: Alto spends 5 of 8 beats in bottom 10% range (bars 2-4) - may tire singers
-2025-07-29 16:52:44: VOICE LEADING WARNING: SUSTAINED FATIGUE: Alto spends 5 of 8 beats in bottom 10% range (bars 3-4) - may tire singers
-2025-07-29 16:52:44: VOICE LEADING WARNING: SUSTAINED FATIGUE: Alto spends 5 of 8 beats in bottom 10% range (bars 4-5) - may tire singers
-2025-07-29 16:52:44: VOICE LEADING WARNING: FATIGUE WARNING: Alto has 4 consecutive low notes (bars 11-13) - may strain singers
-2025-07-29 16:52:44: VOICE LEADING WARNING: FATIGUE WARNING: Alto has 4 consecutive low notes (bars 12-13) - may strain singers
-2025-07-29 16:52:44: VOICE LEADING WARNING: FATIGUE WARNING: Alto has 4 consecutive low notes (bars 12-14) - may strain singers
-2025-07-29 16:52:44: VOICE LEADING WARNING: FATIGUE WARNING: Tenor has 4 consecutive high notes (bars 9-10) - may strain singers
-2025-07-29 16:52:44: VOICE LEADING WARNING: FATIGUE WARNING: Tenor has 4 consecutive high notes (bars 9-11) - may strain singers
-2025-07-29 16:52:44: VOICE LEADING WARNING: FATIGUE WARNING: Tenor has 4 consecutive high notes (bars 10-11) - may strain singers
-2025-07-29 16:52:44: PROGRESSION: I - I - I - I - I - vi - I - I - I - ii - I - I - IV - vi - I - I - I - I - I - I - I - vi - I - I - I - I - I - I - IV - IV - I - I - I - I - I - I - I - I - vi - vi - I - vi - I - I - I - I - I - I - vi - I - I - I - I - I - I - I - I - V - I - I - V - V - I - I - I - I
-2025-07-29 16:52:44: === SACRED HARP HARMONIC ANALYSIS END ===
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 96 2) %Sets the metronome speed and value of the beat
+    }
+  }
+}
