@@ -61,12 +61,12 @@ global = {
   \aikenHeads     % or \sacredHarpHeads for 4-shape
   \numericTimeSignature
   \time 4/4       % Change as needed
-  \defineBarLine ";" #'("|" ";" " ")
-  \defineBarLine ";." #'("|" ";." ";.")
-  \defineBarLine ".;" #'("|" ".;" ".;")
-  \defineBarLine ".." #'(".." ".." "..")
-  \defineBarLine ";.." #'(";.." ";.." ";..")
-  \defineBarLine ";.;" #'(";.;" ";.;" ";.;")
+  \defineBarLine ";" #'("|" ";" " ")        % Start repeat barline
+  \defineBarLine ";." #'("|" ";." ";.")     % End repeat barline
+  \defineBarLine ".;" #'("|" ".;" ".;")     % Double bar into start repeat
+  \defineBarLine ".." #'(".." ".." "..")    % Double barline for section endings
+  \defineBarLine ";.." #'(";.." ";.." ";..") % End repeat into double bar
+  \defineBarLine ";.;" #'(";.;" ";.;" ";.;") % Back-to-back repeats
   \autoBeamOff
 }
 
