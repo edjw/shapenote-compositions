@@ -85,7 +85,7 @@ trebleMusic = \relative do'' {
   % === A SECTION ===
   sol2. mi4 |
   sol2 do, |
-  do4. (re8 mi4) sol4 |
+  re4. (mi8) sol4 sol4 |
   sol2. mi4 |
   do4.(re8) mi4 do8[re] |
   mi2 mi |
