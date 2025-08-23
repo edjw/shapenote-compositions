@@ -12,3 +12,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+# GarageBand project files
+*.band/
