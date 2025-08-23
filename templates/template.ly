@@ -33,7 +33,7 @@
 % E minor:  \transpose do mi   (then use \minor in global)
 % D minor:  \transpose do re   (then use \minor in global)
 % C minor:  \transpose do do   (then use \minor in global)
-% G minor:  \transpose do sol  (then use \minor in global)
+% G minor:  \transpose do sib  (then use \minor in global)
 
 %%%%%% QUICK SETTINGS %%%%%%
 songKey = re  % Change this to set key (see examples above)
