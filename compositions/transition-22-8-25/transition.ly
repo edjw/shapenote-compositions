@@ -120,7 +120,7 @@ altoMusic = \relative do {
     mi2 la4 sol |
     mi2 sol |
     la4 sol la2 |
-    sol2 la4 do8[si] |
+    sol2 sol4 do8[si] |
     la4 sol la4.(si8)  |
     la1 |
   }
