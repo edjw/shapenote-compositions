@@ -96,13 +96,13 @@ trebleMusic = \relative do' {
 
   r2 sol |
   mi4 mi8[re] mi2 |
-  sol la4 mi4 |
-  mi2 mi | \break
-  mi4 re do re |
-  mi2 la |
-  sol mi4 re |
-  mi2 sol |
-  mi4 mi la2 |
+  sol mi4 mi |
+  re2 do | \break
+  mi4 sol mi8[re] do[re] |
+  mi2 mi |
+  sol mi4 sol |
+  la2 sol |
+  la4 mi mi2 |
   sol mi4 sol |
   la sol mi2
   (sol) mi|
@@ -127,7 +127,7 @@ altoMusic = \relative do {
 
   r2 sol |
   la4 la la2 |
-  sol do8[si] la4 |
+  sol la8[si] la4 |
   sol2 la |
   do4 si la sol |
   sol2 la |
@@ -155,14 +155,14 @@ tenorMusic = \relative do' {
   }
 
   r2 sol |
-  do4 do8[re] mi2 |
+  la4 do8[re] mi2 |
   re mi8[re] mi4 |
   sol2 mi |
   mi4 sol la sol |
   sol2 mi |
   re do4 re |
   mi2 re |
-  do4 sol la2 |
+  do4 la la2 |
   si do4 re |
   mi re do2
   (sol) la |
@@ -170,7 +170,7 @@ tenorMusic = \relative do' {
 
   % === B SECTION ===
   % Add B section music here
-  \bar "|."
+  \bar "|.".
 }
 
 bassMusic = \relative do {
@@ -188,7 +188,7 @@ bassMusic = \relative do {
   r2 do |
   la4 la la2 |
   si la4 la |
-  do2 la |
+  sol2 la |
   la4 sol mi sol |
   do2 la |
   sol mi4 sol |
