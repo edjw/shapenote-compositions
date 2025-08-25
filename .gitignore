@@ -15,3 +15,4 @@ wheels/
 
 # GarageBand project files
 *.band/
+!templates/voice.band/
