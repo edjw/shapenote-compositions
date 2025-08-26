@@ -33,13 +33,13 @@
 % E minor:  \transpose do mi   (then use \minor in global)
 % D minor:  \transpose do re   (then use \minor in global)
 % C minor:  \transpose do do   (then use \minor in global)
-% G minor:  \transpose do sol  (then use \minor in global)
+% G minor:  \transpose do sib  (then use \minor in global)
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = sol  % Change this to set key (see examples above)
-songTitle = ""
-songMeter = "LM"
-songComposer = "Ed Johnson-Williams, 7 August 2025"
+songKey = fa  % Change this to set key (see examples above)
+songTitle = "Muir"
+songMeter = "PM"
+songComposer = "Ed Johnson-Williams, 5+26 August 2025"
 
 \paper {
   page-count = #1
@@ -51,22 +51,22 @@ songComposer = "Ed Johnson-Williams, 7 August 2025"
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   arranger = #songComposer
-  meter = "D Major"  % Update this manually to match songKey
+  meter = "F Major"  % Update this manually to match songKey
   tagline = ##f
 }
 
 global = {
   \key do \major
-  %\minor        % Uncomment for minor keys but leave the \major aboe
+  % \minor        % Uncomment for minor keys but leave the \major aboe
   \aikenHeads     % or \sacredHarpHeads for 4-shape
   \numericTimeSignature
   \time 4/4       % Change as needed
-  \defineBarLine ";" #'("|" ";" " ")
-  \defineBarLine ";." #'("|" ";." ";.")
-  \defineBarLine ".;" #'("|" ".;" ".;")
-  \defineBarLine ".." #'(".." ".." "..")
-  \defineBarLine ";.." #'(";.." ";.." ";..")
-  \defineBarLine ";.;" #'(";.;" ";.;" ";.;")
+  \defineBarLine ";" #'("|" ";" " ")        % Start repeat barline
+  \defineBarLine ";." #'("|" ";." ";.")     % End repeat barline
+  \defineBarLine ".;" #'("|" ".;" ".;")     % Double bar into start repeat
+  \defineBarLine ".." #'(".." ".." "..")    % Double barline for section endings
+  \defineBarLine ";.." #'(";.." ";.." ";..") % End repeat into double bar
+  \defineBarLine ";.;" #'(";.;" ";.;" ";.;") % Back-to-back repeats
   \autoBeamOff
 }
 
@@ -84,7 +84,6 @@ global = {
 trebleMusic = \relative do' {
   % === A SECTION ===
 
-
   % === B SECTION ===
   % Add B section music here
   \bar ".."
@@ -100,8 +99,25 @@ altoMusic = \relative do' {
 
 tenorMusic = \relative do' {
   % === A SECTION ===
-  
 
+  r2. do4 |
+  sol' sol do, la'8([sol]) |
+  sol2. do,8([re]) |
+  mi8([fa]) sol4  re8([do]) do4 |
+  sol'2. sol4 |
+  do,4 la' sol sol |
+  do,2. re4 |
+  mi4. fa8 sol4 re |
+  do2. sol'4 |
+  do mi do sol8([do]) |
+  la4 sol sol do |
+  do do la8([sol]) sol4 |
+  do do do,2 |
+  la' sol4 sol |
+  do,8([re]) mi8([fa]) sol4. re8 |
+  do2. do'4 |
+  do do la8([sol]) sol4 |
+  do do do,2 |
   % === B SECTION ===
   % Add B section music here
   \bar "|."
@@ -109,7 +125,7 @@ tenorMusic = \relative do' {
 
 bassMusic = \relative do {
   % === A SECTION ===
-  
+
 
   % === B SECTION ===
   % Add B section music here
@@ -119,17 +135,20 @@ bassMusic = \relative do {
 
 verseOne = \lyricmode {
   \tiny
-  % Verse 1 lyrics
+  No bur -- ning heats by day,
+Nor blasts of eve -- ning air,
+Shall take my health a -- way,
+If God be with me there.
+Thou art my sun and Thou my shade
+To guard my head by night or noon. 
+Thou art my sun and Thou my shade
+To guard my head by night or noon.
 
 }
 
 verseTwo = \lyricmode {
   \tiny
   % Verse 2 lyrics
-  Why should we start and fear to die?
-What tim’ -- rous worms we mor -- tals are!
-Death is the gate to end -- less joy,
-And yet we dread to en -- ter there.
 
 }
 
@@ -172,9 +191,9 @@ musicContent = {
         \global
         \tenorMusic
       }
-      \new Lyrics \lyricsto "tenor" { \set stanza = "1." \verseTwo }
+      %\new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
       % Uncomment for verse 3 under tenor:
-      % \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
+      \new Lyrics \lyricsto "tenor" { \set stanza = "1." \verseOne }
     >>
 
     \new Staff = bass <<
@@ -201,7 +220,6 @@ musicContent = {
     \context {
       \Score
       \remove "Bar_number_engraver"
-      \omit VoltaBracket
       \override TimeSignature.break-visibility = ##(#f #t #t)
       \override NoteHead.font-size = #1
       startRepeatBarType = #";"
@@ -213,6 +231,7 @@ musicContent = {
 
 % Score for MIDI (reuses musicContent with octave doubling)
 \score {
+  \unfoldRepeats
   \transpose do \songKey {
     <<
       \musicContent
@@ -227,7 +246,7 @@ musicContent = {
       \Score
       tempoWholesPerMinute = #(ly:make-moment 100 4)
     }
-    
+
     \context {
       \Staff
       midiInstrument = #"acoustic grand"
