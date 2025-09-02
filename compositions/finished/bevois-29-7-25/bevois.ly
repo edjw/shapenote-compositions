@@ -189,7 +189,7 @@ bassA = \relative do {
   sol2 la4 |
   do2 do4 |
   sol2. |
-  la4 (sol4) sol4 |
+  la2 sol4 |
   do,2 sol'4 |
   do2 do4 |
   do2 do4 |
