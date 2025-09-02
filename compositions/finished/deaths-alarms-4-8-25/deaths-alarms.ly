@@ -55,7 +55,7 @@ songComposer = "Ed Johnson-Williams, 4 August 2025"
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   arranger = #songComposer
-  meter = "G Minor"  % Update this manually to match songKey
+  meter = "F# Minor"  % Update this manually to match songKey
   tagline = ##f
 }
 
