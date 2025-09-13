@@ -1,0 +1,274 @@
+\language "espanol"
+\version "2.24.0"
+#(set-default-paper-size "a4landscape")
+
+%%%%%% Sacred Harp Simplified Template v1.0 %%%%%%
+% Ed Johnson-Williams - Fast typesetting from paper
+%
+% HOW TO USE THIS TEMPLATE:
+% 1. Change songKey (line 39) to set the key - examples provided
+% 2. Update song info (lines 40-42): title, meter, composer
+% 3. Update meter = "G Major" (line 54) to show the key name
+% 4. Enter music in the four voice sections (always in C major)
+% 5. Add lyrics to verseOne and verseTwo sections
+
+%
+% QUICK TIPS:
+% - Always write music as if in C major (do, re, mi, fa, sol, la, si)
+% - The transpose happens automatically based on songKey
+% - All parts sing same lyrics - placement under treble/tenor for good spacing
+% - For minor keys: set songKey AND uncomment \minor in global
+%
+% KEY TRANSPOSITION EXAMPLES (change in ONE place only):
+% C major:  \transpose do do    (no change - default)
+% G major:  \transpose do sol
+% F major:  \transpose do fa
+% D major:  \transpose do re
+% Bb major: \transpose do sib
+% Eb major: \transpose do mib
+% A major:  \transpose do la
+%
+% MINOR KEYS:
+% A minor:  \transpose do la   (then use \minor in global)
+% E minor:  \transpose do mi   (then use \minor in global)
+% D minor:  \transpose do re   (then use \minor in global)
+% C minor:  \transpose do do   (then use \minor in global)
+% G minor:  \transpose do sib  (then use \minor in global)
+
+%%%%%% QUICK SETTINGS %%%%%%
+songKey = fa  % Change this to set key (see examples above)
+songTitle = "Portswood"
+songMeter = "CM"
+songComposer = "Ed Johnson-Williams, 13 September 2025"
+
+\paper {
+  page-count = #1
+  system-count = #1
+  system-system-spacing = #'((basic-distance . 0) (padding . 6))
+  top-margin = 0.5\in
+}
+
+\header {
+  title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
+  arranger = #songComposer
+  meter = "F Major"  % Update this manually to match songKey
+  tagline = ##f
+}
+
+global = {
+  \key do \major
+  % \minor        % Uncomment for minor keys but leave the \major aboe
+  \aikenHeads     % or \sacredHarpHeads for 4-shape
+  \numericTimeSignature
+  \time 4/4       % Change as needed
+  \defineBarLine ";" #'("|" ";" " ")        % Start repeat barline
+  \defineBarLine ";." #'("|" ";." ";.")     % End repeat barline
+  \defineBarLine ".;" #'("|" ".;" ".;")     % Double bar into start repeat
+  \defineBarLine ".." #'(".." ".." "..")    % Double barline for section endings
+  \defineBarLine ";.." #'(";.." ";.." ";..") % End repeat into double bar
+  \defineBarLine ";.;" #'(";.;" ";.;" ";.;") % Back-to-back repeats
+  \autoBeamOff
+}
+
+%%%%%%% MUSIC %%%%%%%%%
+% Write all music in C major (do, re, mi, fa, sol, la, si)
+% The songKey transpose will handle the actual key
+%
+% HELPFUL PATTERNS:
+% Repeats:     \repeat volta 2 { music }
+% Mid-bar:     \bar ";"
+% Line break:  \break (after A section)
+% Slurs:       do8[re8] or do4(re4)
+% Ties:        do4~ do4
+
+trebleMusic = \relative do'' {
+
+  sol2 mi4 sol |
+  la2 sol |
+  do4 sol sol2 |
+  sol2 mi4 sol |
+  do2 do|
+  sol1 |
+  sol2 do4 sol |
+  sol2 sol |
+  mi4 sol sol2 |
+  sol2 do4 do |
+  do2 sol |
+  sol1
+
+
+}
+
+altoMusic = \relative do' {
+
+  mi2 mi4 re |
+  do2 do |
+  do4 re mi2 |
+  re2 do4 mi |
+  mi2 do |
+  re1 |
+  do2 mi4 re |
+  do2 re2 |
+  do4 re do2 |
+  mi2 mi4 mi |
+  do2 re2 |
+  mi1
+}
+
+tenorMusic = \relative do' {
+  do2 do4 re |
+  mi2 mi |
+  mi4 re do2 |
+  sol'2 mi4 sol |
+  la2 sol |
+  sol1 |
+  sol2 la4 si |
+  do2 sol |
+  la4 sol sol2 |
+  sol2 mi4 sol |
+  mi2 re |
+  do1
+  \bar ".."
+}
+
+bassMusic = \relative do {
+
+  do2 do4 sol |
+  do2 do |
+  sol4 sol do2 |
+  sol2 do4 do |
+  mi2 do |
+  sol1 |
+  sol2 la4 sol |
+  do2 sol |
+  la4 si do2 |
+  do2 do4 do |
+  sol2 sol |
+  <do do,>1
+}
+
+%%%%%%% LYRICS %%%%%%%%%
+
+verseOne = \lyricmode {
+  \tiny
+  Oh, for a clo -- ser walk with God,
+  A calm and heav’n -- ly frame;
+  A light to shine up -- on the road
+  That leads me to the Lamb.
+
+}
+
+verseTwo = \lyricmode {
+  \tiny
+  Where is the bless -- ed -- ness I knew
+  When first I saw the Lord?
+  Where is the soul -- re -- fresh -- ing view
+  Of Je -- sus and His word?
+
+}
+
+% Additional verses if needed
+verseThree = \lyricmode {
+  \tiny
+  What peace -- ful hours I once en -- joyed!
+  How sweet their mem’ -- ry still!
+  But they have left an ach -- ing void
+  The world can ne -- ver fill.
+}
+
+verseFour = \lyricmode {
+  \tiny
+  % Verse 4 lyrics if needed
+}
+
+%%%%%%% SCORE %%%%%%%%%
+% Main music content (defined once, used for both print and MIDI)
+musicContent = {
+  \new ChoirStaff <<
+    \new Staff = treble <<
+      \new Voice = "treble" {
+        \global
+        \trebleMusic
+      }
+      \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
+      % Uncomment for additional verses under treble:
+      % \new Lyrics \lyricsto "treble" { \set stanza = "3." \verseThree }
+    >>
+
+    \new Staff = alto <<
+      \new Voice = "alto" {
+        \global
+        \altoMusic
+      }
+      % Uncomment for verse 2 under alto (common pattern):
+      \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
+    >>
+
+    \new Staff = tenor <<
+      \new Voice = "tenor" {
+        \global
+        \tenorMusic
+      }
+      %\new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
+      % Uncomment for verse 3 under tenor:
+      \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
+    >>
+
+    \new Staff = bass <<
+      \clef bass
+      \new Voice = "bass" {
+        \global
+        \bassMusic
+      }
+      % Uncomment for lyrics under bass (less common):
+      % \new Lyrics \lyricsto "bass" { \set stanza = "4." \verseFour }
+    >>
+  >>
+}
+
+% Score for printing
+\score {
+  % SINGLE TRANSPOSE for all voices - change songKey at top
+  \transpose do \songKey {
+    \musicContent
+  }
+
+  \layout {
+    indent = 0\cm
+    \context {
+      \Score
+      \remove "Bar_number_engraver"
+      \override TimeSignature.break-visibility = ##(#f #t #t)
+      \override NoteHead.font-size = #1
+      startRepeatBarType = #";"
+      endRepeatBarType = #";."
+      doubleRepeatBarType = ";.;"
+    }
+  }
+}
+
+% Score for MIDI (reuses musicContent with octave doubling)
+\score {
+  \unfoldRepeats
+  \transpose do \songKey {
+    <<
+      \musicContent
+      % Octave doubling for richer MIDI sound
+      \new Staff { \global \transpose do do, { \trebleMusic } }
+      \new Staff { \global \transpose do do, { \tenorMusic } }
+    >>
+  }
+
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 100 4)
+    }
+
+    \context {
+      \Staff
+      midiInstrument = #"acoustic grand"
+    }
+  }
+}
+
