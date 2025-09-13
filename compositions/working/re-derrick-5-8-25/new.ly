@@ -36,10 +36,10 @@
 % G minor:  \transpose do sib  (then use \minor in global)
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = re  % Change this to set key (see examples above)
-songTitle = "SONG TITLE"
-songMeter = "11s"
-songComposer = "Ed Johnson-Williams, 29 July 2025"
+songKey = fa  % Change this to set key (see examples above)
+songTitle = "Muir"
+songMeter = "PM"
+songComposer = "Ed Johnson-Williams, 5+26 August 2025"
 
 \paper {
   page-count = #1
@@ -51,7 +51,7 @@ songComposer = "Ed Johnson-Williams, 29 July 2025"
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   arranger = #songComposer
-  meter = "G Major"  % Update this manually to match songKey
+  meter = "F Major"  % Update this manually to match songKey
   tagline = ##f
 }
 
@@ -82,28 +82,67 @@ global = {
 % Ties:        do4~ do4
 
 trebleMusic = \relative do' {
-  
-  
+  % === A SECTION ===
+
+  % === B SECTION ===
+  % Add B section music here
+  \bar ".."
 }
 
 altoMusic = \relative do' {
- 
+  % === A SECTION ===
+
+
+  % === B SECTION ===
+  % Add B section music here
 }
 
 tenorMusic = \relative do' {
- 
- \bar ".."
+  % === A SECTION ===
+
+  r2. do4 |
+  sol' sol do, la'8([sol]) |
+  sol2. do,8([re]) |
+  mi8([fa]) sol4  re8([do]) do4 |
+  sol'2. sol4 |
+  do,4 la' sol sol |
+  do,2. re4 |
+  mi4. fa8 sol4 re |
+  do2. sol'4 |
+  do mi do sol8([do]) |
+  la4 sol sol do |
+  do do la8([sol]) sol4 |
+  do do do,2 |
+  la' sol4 sol |
+  do,8([re]) mi8([fa]) sol4. re8 |
+  do2. do'4 |
+  do do la8([sol]) sol4 |
+  do do do,2 |
+  % === B SECTION ===
+  % Add B section music here
+  \bar "|."
 }
 
 bassMusic = \relative do {
- 
+  % === A SECTION ===
+
+
+  % === B SECTION ===
+  % Add B section music here
 }
 
 %%%%%%% LYRICS %%%%%%%%%
 
 verseOne = \lyricmode {
   \tiny
-  % Verse 1 lyrics
+  No bur -- ning heats by day,
+Nor blasts of eve -- ning air,
+Shall take my health a -- way,
+If God be with me there.
+Thou art my sun and Thou my shade
+To guard my head by night or noon. 
+Thou art my sun and Thou my shade
+To guard my head by night or noon.
 
 }
 
@@ -154,7 +193,7 @@ musicContent = {
       }
       %\new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
       % Uncomment for verse 3 under tenor:
-      \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
+      \new Lyrics \lyricsto "tenor" { \set stanza = "1." \verseOne }
     >>
 
     \new Staff = bass <<

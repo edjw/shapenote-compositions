@@ -36,10 +36,10 @@
 % G minor:  \transpose do sib  (then use \minor in global)
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = re  % Change this to set key (see examples above)
-songTitle = "SONG TITLE"
-songMeter = "11s"
-songComposer = "Ed Johnson-Williams, 29 July 2025"
+songKey = do  % Change this to set key (see examples above)
+songTitle = "Czechia"
+songMeter = "CM"
+songComposer = "Ed Johnson-Williams, 1 September 2025"
 
 \paper {
   page-count = #1
@@ -51,7 +51,7 @@ songComposer = "Ed Johnson-Williams, 29 July 2025"
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   arranger = #songComposer
-  meter = "G Major"  % Update this manually to match songKey
+  meter = "C Major"  % Update this manually to match songKey
   tagline = ##f
 }
 
@@ -81,42 +81,108 @@ global = {
 % Slurs:       do8[re8] or do4(re4)
 % Ties:        do4~ do4
 
-trebleMusic = \relative do' {
-  
-  
+trebleMusic = \relative do'' {
+  r2. mi4 |
+  do2 mi |
+  mi2 mi4(re) |
+  mi2 sol |
+  sol2. mi4 |
+  re2. do4 |
+  mi2 do |
+  re2. do4 |
+  do4(re) do4(si) |
+  do2. sol'4 |
+  la (sol la) sol |
+  mi2. sol4 |
+  mi2. do4 |
+  mi (sol) do,4.(re8) |
+  mi1
+  \bar ".."
 }
 
 altoMusic = \relative do' {
- 
+  r2. mi4 |
+  mi2 do |
+  mi2 mi4(re) |
+  do2 re |
+  mi2. mi4 |
+  sol2. mi4 |
+  mi2 mi |
+  re2. mi4 |
+  do4(re) mi(sol) |
+  mi2. re4 |
+  mi (sol la) sol |
+  sol2. mi4 |
+  mi2. sol4 |
+  mi(sol) la4.(sol8) |
+  sol1
 }
 
-tenorMusic = \relative do' {
- 
- \bar ".."
+tenorMusic = \relative do'' {
+  r2. sol4 |
+  sol2 la |
+  sol2 do4(re) |
+  mi2 re |
+  do2. do4 |
+  re2. mi4 |
+  do2 sol |
+  sol2. sol4 |
+  mi4(sol) la4(sol) |
+  do2. re4 |
+  mi4(re do) re |
+  do2. mi4 |
+  sol2. mi4 |
+  mi4(do) mi4. (re8) |
+  do1
+
+  \bar "|."
 }
 
 bassMusic = \relative do {
- 
+  r2. do4 |
+  sol'2 mi |
+  sol2 mi4(sol) |
+  la2 sol |
+  do,2. do4 |
+  sol'2. la4 |
+  sol2 mi |
+  sol2. sol4 |
+  la (sol) do4(sol) |
+  sol2. sol4 |
+  do (sol mi) sol |
+  sol2. do4 |
+  do2. do,4 |
+  do(sol') la4.(sol8) |
+  do,1
 }
 
 %%%%%%% LYRICS %%%%%%%%%
 
 verseOne = \lyricmode {
   \tiny
-  % Verse 1 lyrics
+  God of my life, look gent -- ly down,
+  Be -- hold the pains I feel;
+  But I am dumb be -- fore Thy throne,
+  Nor dare dis -- pute Thy will.
 
 }
 
 verseTwo = \lyricmode {
   \tiny
-  % Verse 2 lyrics
+  I’m but a so -- jour -- ner be -- low,
+  As all my fa -- thers were;
+  May I be well pre -- pared to go
+  When I the sum -- mons hear.
 
 }
 
 % Additional verses if needed
 verseThree = \lyricmode {
   \tiny
-  % Verse 3 lyrics if needed
+  But if my life be spared a -- while,
+  Be -- fore my last re -- move,
+  Thy praise shall be my bus’ -- ness still
+  And I’ll de -- clare Thy love.
 }
 
 verseFour = \lyricmode {
@@ -144,7 +210,7 @@ musicContent = {
         \altoMusic
       }
       % Uncomment for verse 2 under alto (common pattern):
-      % \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
+      \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
     >>
 
     \new Staff = tenor <<
@@ -152,7 +218,7 @@ musicContent = {
         \global
         \tenorMusic
       }
-      %\new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
+      %\new Lyrics \lyricsto "tenor" { \set stanza = "1." \verseOne }
       % Uncomment for verse 3 under tenor:
       \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
     >>

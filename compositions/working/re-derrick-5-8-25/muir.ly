@@ -98,7 +98,7 @@ altoMusic = \relative do' {
 }
 
 tenorMusic = \relative do' {
-  % === A SECTION ===
+
 
   r2. do4 |
   sol' sol do, la'8([sol]) |
@@ -118,17 +118,30 @@ tenorMusic = \relative do' {
   do2. do'4 |
   do do la8([sol]) sol4 |
   do do do,2 |
-  % === B SECTION ===
-  % Add B section music here
+
   \bar "|."
 }
 
 bassMusic = \relative do {
-  % === A SECTION ===
 
-
-  % === B SECTION ===
-  % Add B section music here
+  r2. do4 |
+  do sol la la8([sol]) |
+  sol2. do8([sol]) |
+  la8([do]) do4 sol8([do]) do4 |
+  do2. sol4 |
+  la4 la sol sol |
+  do2. sol4 |
+  la4. do8 do4 sol |
+  do2. do4 |
+  do la do do8([do]) |
+  re4 mi mi do |
+  do mi mi8([re]) do4 |
+  la do do,2 |
+  la' sol4 sol |
+  do8([re]) mi8([fa]) sol4. re8 |
+  la2. do'4 |
+  do do la8([sol]) sol4 |
+  do do do,2 |
 }
 
 %%%%%%% LYRICS %%%%%%%%%
@@ -136,13 +149,13 @@ bassMusic = \relative do {
 verseOne = \lyricmode {
   \tiny
   No bur -- ning heats by day,
-Nor blasts of eve -- ning air,
-Shall take my health a -- way,
-If God be with me there.
-Thou art my sun and Thou my shade
-To guard my head by night or noon. 
-Thou art my sun and Thou my shade
-To guard my head by night or noon.
+  Nor blasts of eve -- ning air,
+  Shall take my health a -- way,
+  If God be with me there.
+  Thou art my sun and Thou my shade
+  To guard my head by night or noon.
+  Thou art my sun and Thou my shade
+  To guard my head by night or noon.
 
 }
 
