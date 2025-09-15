@@ -84,7 +84,7 @@ global = {
 trebleMusic = \relative do'' {
 
   sol2 mi4 sol |
-  la2 sol |
+  do2 sol |
   do4 sol sol2 |
   sol2 mi4 sol |
   do2 do|
@@ -105,9 +105,9 @@ altoMusic = \relative do' {
   do2 do |
   do4 re mi2 |
   re2 do4 mi |
-  mi2 do |
+  mi2 do 
   re1 |
-  do2 mi4 re |
+  re2 mi4 re |
   do2 re2 |
   do4 re do2 |
   mi2 mi4 mi |
@@ -124,7 +124,7 @@ tenorMusic = \relative do' {
   sol1 |
   sol2 la4 si |
   do2 sol |
-  la4 sol sol2 |
+  mi4 sol sol2 |
   sol2 mi4 sol |
   mi2 re |
   do1
