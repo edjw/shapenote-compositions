@@ -20,26 +20,30 @@
 % - For minor keys: set songKey AND uncomment \minor in global
 %
 % KEY TRANSPOSITION EXAMPLES (change in ONE place only):
-% C major:  \transpose do do    (no change - default)
+% C major:  \transpose do do
 % G major:  \transpose do sol
 % F major:  \transpose do fa
 % D major:  \transpose do re
+% A major:  \transpose do la
+% E major:  \transpose do mi
 % Bb major: \transpose do sib
 % Eb major: \transpose do mib
-% A major:  \transpose do la
 %
 % MINOR KEYS:
-% A minor:  \transpose do la   (then use \minor in global)
-% E minor:  \transpose do mi   (then use \minor in global)
-% D minor:  \transpose do re   (then use \minor in global)
-% C minor:  \transpose do do   (then use \minor in global)
-% G minor:  \transpose do sib  (then use \minor in global)
+% A minor:  \transpose do do
+% E minor:  \transpose do sol
+% B minor:  \transpose do re
+% F# minor: \transpose do la
+% D minor:  \transpose do fa
+% G minor:  \transpose do sib
+% C minor:  \transpose do mib
 
 %%%%%% QUICK SETTINGS %%%%%%
 songKey = re  % Change this to set key (see examples above)
 songTitle = "SONG TITLE"
 songMeter = "11s"
 songComposer = "Ed Johnson-Williams, 29 July 2025"
+keySignature = "G Major" % Edit this
 
 \paper {
   page-count = #1
@@ -51,13 +55,12 @@ songComposer = "Ed Johnson-Williams, 29 July 2025"
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   arranger = #songComposer
-  meter = "G Major"  % Update this manually to match songKey
+  meter = #keySignature
   tagline = ##f
 }
 
 global = {
-  \key do \major
-  % \minor        % Uncomment for minor keys but leave the \major aboe
+  \key do \major % Don't change this
   \aikenHeads     % or \sacredHarpHeads for 4-shape
   \numericTimeSignature
   \time 4/4       % Change as needed
@@ -81,7 +84,7 @@ global = {
 % Slurs:       do8[re8] or do4(re4)
 % Ties:        do4~ do4
 
-trebleMusic = \relative do' {
+trebleMusic = \relative do'' {
   
   
 }
@@ -143,7 +146,7 @@ musicContent = {
         \global
         \altoMusic
       }
-      % Uncomment for verse 2 under alto (common pattern):
+      % Uncomment for verse 2 under alto:
       % \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
     >>
 
