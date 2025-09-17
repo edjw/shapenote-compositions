@@ -2,22 +2,15 @@
 \version "2.24.0"
 #(set-default-paper-size "a4landscape")
 
-%%%%%% Sacred Harp Simplified Template v1.0 %%%%%%
-% Ed Johnson-Williams - Fast typesetting from paper
+%%%%%% Shapenote Template %%%%%%
 %
 % HOW TO USE THIS TEMPLATE:
-% 1. Change songKey (line 39) to set the key - examples provided
-% 2. Update song info (lines 40-42): title, meter, composer
-% 3. Update meter = "G Major" (line 54) to show the key name
-% 4. Enter music in the four voice sections (always in C major)
+% 1. Change songKey to set the key - examples provided
+% 2. Update song info: title, meter, composer
+% 3. Update meter = "G Major" to show the key name
+% 4. Enter music in the four voice sections
 % 5. Add lyrics to verseOne and verseTwo sections
 
-%
-% QUICK TIPS:
-% - Always write music as if in C major (do, re, mi, fa, sol, la, si)
-% - The transpose happens automatically based on songKey
-% - All parts sing same lyrics - placement under treble/tenor for good spacing
-% - For minor keys: set songKey AND uncomment \minor in global
 %
 % KEY TRANSPOSITION EXAMPLES (change in ONE place only):
 % C major:  \transpose do do
