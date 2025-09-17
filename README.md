@@ -1,8 +1,26 @@
-# LilyPond Sacred Harp Project
+# LilyPond Sacred Harp Compositions
 
-## Sacred Harp Harmonic Analysis
+A collection of original Sacred Harp compositions created with LilyPond.
 
-To run harmonic analysis on a LilyPond file after compilation:
+## Compositions
+
+### Finished Compositions (`compositions/finished/`)
+
+Each composition directory contains:
+- `.ly` - LilyPond source file
+- `.pdf` - Rendered score
+- `.midi` - Audio output
+
+### Work in Progress (`compositions/working/`)
+
+Compositions currently being developed.
+
+
+## Tools
+
+### Sacred Harp Harmonic Analysis
+
+For automated composition feedback and analysis. Not sure how well this works. Just an experiment really
 
 ```bash
 # Basic analysis (MIDI only)
@@ -15,14 +33,14 @@ uv run sacred_harp_analyzer.py song.midi harmony.log song.ly
 uv run sacred_harp_analyzer.py --watch song.midi harmony.log song.ly
 ```
 
-The analyzer will check for:
-- Forbidden chords (vii°, ii° in minor, VI in minor)
+The analyzer checks for:
+- Forbidden chords (viiÂ°, iiÂ° in minor, VI in minor)
 - Vocal range violations based on Sacred Harp repertoire data
 - Sustained fatigue warnings for extreme singing
 - Adjacent scale degree dissonance
 - Chord progressions and voice leading
 
-View the results with:
+View results:
 ```bash
 tail -n 20 harmony.log
 ```
