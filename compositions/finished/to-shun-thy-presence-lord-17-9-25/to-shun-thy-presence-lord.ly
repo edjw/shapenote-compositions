@@ -49,7 +49,7 @@ songComposer = "Ed Johnson-Williams, 16 September 2025"
   page-count = #1
   system-count = #2
   system-system-spacing = #'((basic-distance . 0) (padding . 6))
-  top-margin = 0.5\in
+  top-margin = 0.25\in
 }
 
 \header {
@@ -252,7 +252,7 @@ altoRepeat = \lyricmode {
   \tiny
   To shun Thy pres -- ence, Lord, or flee
   _ _ _ _ _ _ _ _ _
-  
+
 }
 
 altoContinuation = \lyricmode {
@@ -290,7 +290,7 @@ tenorContinuation = \lyricmode {
 tenorEnd = \lyricmode {
   \tiny
   no -- tice of Thine eye.
-  
+
 }
 
 
@@ -328,7 +328,7 @@ trebleInitialTwo = \lyricmode {
   \tiny
   % Should I sup -- press my vi -- tal breath
   % To scape the wrath di -- vine,
-  _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _
 }
 
 trebleRepeatTwo = \lyricmode {
@@ -347,7 +347,7 @@ trebleContinuationTwo = \lyricmode {
 trebleEndTwo = \lyricmode {
   % make the grave re -- sign.
   _ _ _ _ _
-  
+
 }
 
 
@@ -376,8 +376,8 @@ altoEndTwo = \lyricmode {
 
 tenorInitialTwo = \lyricmode {
   \tiny
-   Should I sup -- press my vi -- tal breath
-   To scape the wrath di -- vine,
+  Should I sup -- press my vi -- tal breath
+  To scape the wrath di -- vine,
 }
 
 tenorRepeatTwo = \lyricmode {
@@ -407,20 +407,20 @@ bassInitialTwo = \lyricmode {
 bassRepeatTwo = \lyricmode {
   \tiny
   Thy voice would break the bars of death,__
-  
+
 }
 
 bassContinuationTwo = \lyricmode {
   \tiny
-   Thy voice would break the bars of death,
-   And
-  
+  Thy voice would break the bars of death,
+  And
+
 
 }
 
 bassEndTwo = \lyricmode {
   make the grave re -- sign.
-  
+
 }
 
 % verseTwo = \lyricmode {
@@ -466,14 +466,14 @@ musicContent = {
         \trebleInitial      % Initial section
         \set stanza = "1."
         \trebleRepeat       % First time through repeat
-         \set stanza = "1."
+        \set stanza = "1."
         \trebleContinuation % After repeat ends
         \trebleEnd
         \trebleEnd
       }
 
       \new Lyrics \lyricsto "treble" {
-        
+
         \trebleInitialTwo      % Initial section
         \set stanza = "2."
         \trebleRepeatTwo       % First time through repeat
@@ -492,7 +492,7 @@ musicContent = {
       \new Lyrics \lyricsto "alto" {
 
 
-       % \set stanza = "1."
+        % \set stanza = "1."
         \altoInitial      % Initial section
         \set stanza = "1."
         \altoRepeat       % First time through repeat
@@ -523,22 +523,22 @@ musicContent = {
 
 
         \set stanza = "1."
-         \tenorInitial      % Initial section
+        \tenorInitial      % Initial section
         \tenorRepeat       % First time through repeat
         \set stanza = "1."
         \tenorContinuation % After repeat ends
         \tenorEnd
-       \tenorEnd
+        \tenorEnd
       }
 
       \new Lyrics \lyricsto "tenor" {
 
 
-       % \set stanza = "2."
-      %  \tenorInitialTwo      % Initial section
-      %  \tenorContinuationTwo % After repeat ends
-      %  \tenorEndTwo
-       % \tenorEndTwo
+        % \set stanza = "2."
+        %  \tenorInitialTwo      % Initial section
+        %  \tenorContinuationTwo % After repeat ends
+        %  \tenorEndTwo
+        % \tenorEndTwo
       }
     >>
 
