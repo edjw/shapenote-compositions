@@ -40,23 +40,27 @@
 % C minor:  \transpose do mib
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = la  % Change this to set key (see examples above)
+songKey = la
 songTitle = "To Shun Thy Presence, Lord"
 songMeter = "CM"
+keySignature = "F# Minor"
 songComposer = "Ed Johnson-Williams, 16 September 2025"
+poet = "Isaac Watts"
 
 \paper {
   page-count = #1
   system-count = #2
   system-system-spacing = #'((basic-distance . 0) (padding . 6))
-  top-margin = 0.25\in
+  markup-system-spacing = #'((basic-distance . 12) (padding . 4))
+  top-margin = 1.25\cm
+  bottom-margin = 1.25\cm
 }
 
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
-  arranger = #songComposer
-  meter = "F# Minor"  % Update this manually to match songKey
-  tagline = ##f
+  composer = #songComposer
+  tagline = ##f % removes the Lilypond tagline from bottom
+  poet = \markup{ \concat { #keySignature ", " #poet } }
 }
 
 global = {
@@ -74,8 +78,7 @@ global = {
 }
 
 %%%%%%% MUSIC %%%%%%%%%
-% Write all music in C major (do, re, mi, fa, sol, la, si)
-% The songKey transpose will handle the actual key
+% Write all music with the do, re, mi, fa, sol, la, si
 %
 % HELPFUL PATTERNS:
 % Repeats:     \repeat volta 2 { music }
@@ -92,8 +95,8 @@ trebleMusic = \relative do' {
   mi2. \bar ".|:"
 
   \repeat volta 2 {
-    r4
-    r1 |
+    r4 
+    r1 | \break 
     r2. la8([sol]) |
     la4 (sol mi) mi |
     la mi mi re |
@@ -117,6 +120,7 @@ trebleMusic = \relative do' {
 
 
 altoMusic = \relative do' {
+
   r2 do2 |
   do4 do la do |
   do la sol la8([si]) |
@@ -151,7 +155,6 @@ altoMusic = \relative do' {
 }
 
 tenorMusic = \relative do' {
-
   r2 mi2 |
   do4 la la do  |
   mi mi re mi8([sol]) |
@@ -273,6 +276,7 @@ tenorInitial = \lyricmode {
   \tiny
   In all my vast con -- cerns with Thee,
   In vain my soul would try
+
 }
 
 tenorRepeat = \lyricmode {
@@ -326,35 +330,35 @@ bassEnd= \lyricmode {
 
 trebleInitialTwo = \lyricmode {
   \tiny
-  % Should I sup -- press my vi -- tal breath
-  % To scape the wrath di -- vine,
-  _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  Should I sup -- press my vi -- tal breath
+  To scape the wrath di -- vine,
+
 }
 
 trebleRepeatTwo = \lyricmode {
   \tiny
-  Thy voice _ _
+  Thy voice
 }
 
 trebleContinuationTwo = \lyricmode {
   \tiny
 
-  %voice would break the bars of death,
-  %And
-  _ _ _ _ _ _ _ _
+  Thy voice would break the bars of death,
+  And
+
 }
 
 trebleEndTwo = \lyricmode {
-  % make the grave re -- sign.
-  _ _ _ _ _
-
+  make the grave re -- sign.
 }
 
 
 altoInitialTwo = \lyricmode {
   \tiny
-  In all my vast con -- cerns with Thee,
-  In vain my soul would try
+  % In all my vast con -- cerns with Thee,
+  % In vain my soul would try
+  _ _ _ _ _ _ _ _
+  _ _ _ _ _ _
 }
 
 altoRepeatTwo = \lyricmode {
@@ -364,13 +368,16 @@ altoRepeatTwo = \lyricmode {
 
 altoContinuationTwo = \lyricmode {
   \tiny
-  Thy voice would break the bars of death,
-  And
+  % Thy voice would break the bars of death,
+  % And
+  _ _ _ _ _ _ _ _
+  _
 
 }
 
 altoEndTwo = \lyricmode {
-  make the grave re -- sign.
+  % make the grave re -- sign.
+  _ _ _ _ _
 }
 
 
@@ -400,8 +407,10 @@ tenorEndTwo = \lyricmode {
 
 bassInitialTwo = \lyricmode {
   \tiny
-  Should I sup -- press my vi -- tal breath
-  To scape the wrath di -- vine,
+  % Should I sup -- press my vi -- tal breath
+  % To scape the wrath di -- vine,
+  _ _ _ _ _ _ _ _
+  _ _ _ _ _ _
 }
 
 bassRepeatTwo = \lyricmode {
@@ -464,9 +473,9 @@ musicContent = {
       \new Lyrics \lyricsto "treble" {
         \set stanza = "1."
         \trebleInitial      % Initial section
-        \set stanza = "1."
+        % \set stanza = "1."
         \trebleRepeat       % First time through repeat
-        \set stanza = "1."
+        % \set stanza = "1."
         \trebleContinuation % After repeat ends
         \trebleEnd
         \trebleEnd
@@ -474,8 +483,9 @@ musicContent = {
 
       \new Lyrics \lyricsto "treble" {
 
-        \trebleInitialTwo      % Initial section
         \set stanza = "2."
+
+        \trebleInitialTwo      % Initial section
         \trebleRepeatTwo       % First time through repeat
         \trebleContinuationTwo % After repeat ends
         \trebleEndTwo
@@ -494,7 +504,7 @@ musicContent = {
 
         % \set stanza = "1."
         \altoInitial      % Initial section
-        \set stanza = "1."
+        % stanza = "1."
         \altoRepeat       % First time through repeat
         \altoContinuation % After repeat ends
         \altoEnd
@@ -503,11 +513,11 @@ musicContent = {
 
       \new Lyrics \lyricsto "alto" {
 
-        \set stanza = "2."
+        %\set stanza = "2."
         \altoInitialTwo      % Initial section
-        \set stanza = "2."
+        %\set stanza = "2."
         \altoRepeatTwo       % First time through repeat
-        \set stanza = "2."
+        %\set stanza = "2."
         \altoContinuationTwo % After repeat ends
         \altoEndTwo
         \altoEndTwo
@@ -521,11 +531,10 @@ musicContent = {
       }
       \new Lyrics \lyricsto "tenor" {
 
-
         \set stanza = "1."
         \tenorInitial      % Initial section
         \tenorRepeat       % First time through repeat
-        \set stanza = "1."
+        % \set stanza = "1."
         \tenorContinuation % After repeat ends
         \tenorEnd
         \tenorEnd
@@ -534,11 +543,11 @@ musicContent = {
       \new Lyrics \lyricsto "tenor" {
 
 
-        % \set stanza = "2."
-        %  \tenorInitialTwo      % Initial section
-        %  \tenorContinuationTwo % After repeat ends
-        %  \tenorEndTwo
-        % \tenorEndTwo
+        \set stanza = "2."
+        \tenorInitialTwo      % Initial section
+        \tenorContinuationTwo % After repeat ends
+        \tenorEndTwo
+        \tenorEndTwo
       }
     >>
 
@@ -554,7 +563,7 @@ musicContent = {
 
         % \set stanza = "1."
         \bassInitial      % Initial section
-        \set stanza = "1."
+        % \set stanza = "1."
         \bassRepeat       % First time through repeat
         \bassContinuation % After repeat ends
         \bassEnd
@@ -564,14 +573,14 @@ musicContent = {
       \new Lyrics \lyricsto "bass" {
 
 
-        \set stanza = "2."
+        % \set stanza = "2."
         \bassInitialTwo      % Initial section
-        \set stanza = "2."
+        % \set stanza = "2."
         \bassRepeatTwo       % First time through repeat
-        \set stanza = "2."
-        \bassContinuationTwo % After repeat ends
-        \bassEndTwo
-        \bassEndTwo
+        % \set stanza = "2."
+        % \bassContinuationTwo % After repeat ends
+        % \bassEndTwo
+        % \bassEndTwo
       }
 
     >>
