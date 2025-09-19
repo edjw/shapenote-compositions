@@ -32,24 +32,27 @@
 % C minor:  \transpose do mib
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = re  % Change this to set key (see examples above)
-songTitle = "SONG TITLE"
-songMeter = "11s"
-songComposer = "Ed Johnson-Williams, 29 July 2025"
-keySignature = "G Major" % Edit this
+songKey = la
+songTitle = ""
+songMeter = "CM"
+keySignature = "F Major"
+songComposer = "Ed Johnson-Williams, 16 September 2025"
+poet = "Isaac Watts"
 
 \paper {
   page-count = #1
   system-count = #2
   system-system-spacing = #'((basic-distance . 0) (padding . 6))
-  top-margin = 0.5\in
+  markup-system-spacing = #'((basic-distance . 12) (padding . 4))
+  top-margin = 1.25\cm
+  bottom-margin = 1.25\cm
 }
 
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
-  arranger = #songComposer
-  meter = #keySignature
-  tagline = ##f
+  composer = #songComposer
+  tagline = ##f % removes the Lilypond tagline from bottom
+  poet = \markup{ \concat { #keySignature ", " #poet } }
 }
 
 global = {
@@ -67,15 +70,24 @@ global = {
 }
 
 %%%%%%% MUSIC %%%%%%%%%
-% Write all music in C major (do, re, mi, fa, sol, la, si)
-% The songKey transpose will handle the actual key
+% Write all music with the do, re, mi, fa, sol, la, si
 %
 % HELPFUL PATTERNS:
-% Repeats:     \repeat volta 2 { music }
-% Mid-bar:     \bar ";"
-% Line break:  \break (after A section)
-% Slurs:       do8[re8] or do4(re4)
-% Ties:        do4~ do4
+% Repeats:         \repeat volta 2 { music }
+% Mid-bar:         \bar ";"
+% Line break:      \break (after A section)
+% Beams:           do8[ re8] (eighth notes and shorter only)
+% Slurs:           do8( re8 mi8)
+% Combined:        do8([ re8]) (slur and beam together)
+% Ties:            do4~ do4
+% Dotted notes:    do4. re8
+% Octaves:         do'4 (higher) or do,4 (lower)
+% Fermatas:        do4\fermata
+% Grace notes:     \grace { do8 } re4
+% Chords:          <do mi sol>4
+% Accidentals:     dis4 or reb4
+% Text markings:   do4^\markup { "Fine" }
+% Triplets:        \tuplet 3/2 { do8 re8 mi8 }
 
 trebleMusic = \relative do'' {
   
@@ -192,7 +204,7 @@ musicContent = {
   \transpose do \songKey {
     <<
       \musicContent
-      % Octave doubling for richer MIDI sound
+      % Octave doubling
       \new Staff { \global \transpose do do, { \trebleMusic } }
       \new Staff { \global \transpose do do, { \tenorMusic } }
     >>
