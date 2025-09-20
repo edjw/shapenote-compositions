@@ -39,7 +39,7 @@
 songKey = sol  % Change this to set key (see examples above)
 songTitle = "Generosity"
 songMeter = "LM"
-songComposer = "Ed Johnson-Williams, 7 August 2025"
+songComposer = "Ed Johnson-Williams, August-September 2025"
 
 \paper {
   page-count = #1
@@ -51,7 +51,7 @@ songComposer = "Ed Johnson-Williams, 7 August 2025"
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   arranger = #songComposer
-  meter = "G Major"  % Update this manually to match songKey
+  meter = "G Major, Isaac Watts"  % Update this manually to match songKey
   tagline = ##f
 }
 
@@ -93,7 +93,7 @@ trebleMusic = \relative do' {
   mi4 sol do4 sol |
   mi2 sol2 |
   mi4 sol sol la |
-  sol8([fa]) mi4 sol2
+  la sol4 sol2
 
 
 
@@ -104,16 +104,16 @@ trebleMusic = \relative do' {
 
 altoMusic = \relative do' {
   % === A SECTION ===
-  r2. sol4 |
-  do do do sol |
-  sol la sol do |
-  si la sol do8([si]) |
+  r2. do4 |
+  mi do do do |
+  re do mi do |
+  re do do do |
   la4 sol sol2 |
   sol2 do4 do8([re]) |
   do4 do do re |
   do2 sol2 |
   do4 mi do do |
-  si do4 do2
+  re do4 do2
 
 
   % === B SECTION ===
@@ -131,7 +131,7 @@ tenorMusic = \relative do' {
   sol4 mi sol sol8([la]) |
   sol2 do, |
   do4 do8([re]) mi4 fa8([mi8]) |
-  re8([fa8]) mi8([re8]) do2
+  sol4 mi do2
 
 
   % === B SECTION ===
@@ -149,7 +149,7 @@ bassMusic = \relative do {
   sol2 do4 mi8([re]) |
   do4 do8([sol]) mi4 sol |
   sol2 do2 |
-  sol4 do do do |
+  sol4 sol sol fa |
   sol4 sol <do do,>2
 
   % === B SECTION ===

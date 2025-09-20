@@ -39,7 +39,7 @@
 songKey = sib  % Change this to set key (see examples above)
 songTitle = "Transition"
 songMeter = "8,7s"
-songComposer = "Ed Johnson-Williams, 22 August 2025"
+songComposer = "Ed Johnson-Williams, August & September 2025"
 
 \paper {
   page-count = #1
@@ -87,7 +87,7 @@ trebleMusic = \relative do' {
   \bar ";"
   \repeat volta 2 {
     mi2 mi4 re |
-    do2 si |
+    do2 re |
     do4 re mi2 |
     sol2 mi4 mi8[sol] |
     la4 sol la4.(sol8)  |
@@ -103,7 +103,7 @@ trebleMusic = \relative do' {
   sol mi4 sol |
   la2 sol |
   la4 mi mi2 |
-  sol mi4 sol |
+  re mi4 sol |
   la sol mi2
   (sol) mi|
 
@@ -112,30 +112,30 @@ trebleMusic = \relative do' {
   \bar ".."
 }
 
-altoMusic = \relative do {
+altoMusic = \relative do' {
   % === A SECTION ===
 
   \bar ";"
   \repeat volta 2 {
-    mi2 la4 sol |
+    la2 la4 sol |
     mi2 sol |
     la4 sol la2 |
-    sol2 sol4 do8[si] |
-    la4 sol la4.(si8)  |
+    sol2 sol4 la |
+    la4 sol mi4.(sol8)  |
     la1 |
   }
 
   r2 sol |
   la4 la la2 |
-  sol la8[si] la4 |
+  sol do4 la4 |
   sol2 la |
-  do4 si la sol |
+  do4 re do do |
   sol2 la |
-  si do8[la] sol4 |
-  la2 si |
+  sol sol8[la] sol4 |
+  la2 sol |
   la8[sol] mi4 mi2 |
-  sol la4 si |
-  la sol la2
+  sol la4 sol |
+  mi sol la2
   (sol) la |
 
   % === B SECTION ===
@@ -149,7 +149,7 @@ tenorMusic = \relative do' {
     la2 do4 re |
     mi2 re |
     do4 sol la2 |
-    si2 do4 do4 |
+    si2 do4 do |
     do si la4.(sol8) |
     la1 |
   }
@@ -170,7 +170,7 @@ tenorMusic = \relative do' {
 
   % === B SECTION ===
   % Add B section music here
-  \bar "|.".
+  \bar "|."
 }
 
 bassMusic = \relative do {
@@ -187,10 +187,10 @@ bassMusic = \relative do {
 
   r2 do |
   la4 la la2 |
-  si la4 la |
+  sol la4 la |
   sol2 la |
   la4 sol mi sol |
-  do2 la |
+  mi2 mi |
   sol mi4 sol |
   la2 sol |
   la4 do la2 |
@@ -254,6 +254,13 @@ musicContent = {
         \global
         \trebleMusic
       }
+      
+       \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
+      % Repeat lyrics (for the repeated A section)
+      \new Lyrics \lyricsto "treble" {
+        \set stanza = ""
+        \verseOneARepeat
+      }
 
 
     >>
@@ -263,12 +270,7 @@ musicContent = {
         \global
         \altoMusic
       }
-      \new Lyrics \lyricsto "alto" { \set stanza = "1." \verseOne }
-      % Repeat lyrics (for the repeated A section)
-      \new Lyrics \lyricsto "alto" {
-        \set stanza = ""
-        \verseOneARepeat
-      }
+    
     >>
 
     \new Staff = tenor <<
@@ -311,7 +313,7 @@ musicContent = {
       \Score
       \remove "Bar_number_engraver"
       \override TimeSignature.break-visibility = ##(#f #t #t)
-      \override NoteHead.font-size = #1
+      \override NoteHead.font-size = #2
       startRepeatBarType = #";"
       endRepeatBarType = #";."
       doubleRepeatBarType = ";.;"

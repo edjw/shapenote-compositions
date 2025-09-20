@@ -38,10 +38,10 @@
   %subsubtitle = \markup \italic \tiny
   %        ""	%	Optional Bible verse
   arranger = \markup %\bold \tiny
-  "Ed Johnson-Williams, 29 July 2025" % Composer
+  "Ed Johnson-Williams, July & September 2025" % Composer
   meter = \markup {
     %\bold \tiny
-    "A Major."
+    "A Major, John Newton"
   } % Key signature.  Poet.
   tagline = ##f
   %\markup \tiny
@@ -80,28 +80,28 @@ global = {
 
 %%%%%%% The A Section %%%%%%%%
 
-trebleA = \relative do' {
+trebleA = \relative do'' {
   % Treble A section
 
   % \repeat volta 2{	% Uncomment to repeat the A section
   % \bar ";"		% Uncomment if repeating
 
   % MUSIC GOES HERE
-  mi2 mi4 |
-  sol2 do,4 |
-  sol'2 la4 |
+  sol2 mi4 |
+  sol2 sol4 |
+  sol2 la4 |
   la2 la4 |
   sol2 mi4 |
-  do2 do4 |
-  mi2 do4 |
-  sol'2. |
-  do,2 sol'4 |
-  sol2 sol4 |
-  do,2 mi4|
+  sol2 mi4 |
+  mi2 mi4 |
+  sol2. | \break
+  mi2 sol4 |
+  sol2 mi4 |
+  do2 mi4|
   mi4(re4) do4 |
   sol'4(fa4) mi4 |
-  sol2 do4 |
-  sol2 mi4 |
+  mi2 do4 |
+  sol'2 mi4 |
   sol2.
 
   %  \break	%	Uncomment for line break after A section
@@ -116,24 +116,22 @@ altoA = \relative do' {
   %\bar ";"		% Uncomment if repeating
 
   % MUSIC GOES HERE
-  sol2 la4 |
+  sol2 do4 |
   do2 do4 |
   mi2 do4 |
   la2 do4 |
-  do2 la4 |
+  sol2 do4 |
   do2 mi4 |
   do2 do4 |
-  si2. |
-  do2  si4|
+  re2. |
+  do2 re4|
   do2  do4|
   mi(re) do |
   la2 sol4 |
   sol2 la4|
-  si2 do4 |
-  re2 do4 |
-  do2.
-
-
+  do2 do4 |
+  re2 mi4 |
+  mi2.
 
 
   % }				% Uncomment if repeating
@@ -153,7 +151,7 @@ tenorA = \relative do'' {
   do2 mi4 |
   sol2 mi8[do8] |
   la2 do4 |
-  sol2 do4|
+  sol2 la4|
   do2 la4 |
   do2 la'4 |
   sol2.|
@@ -164,9 +162,9 @@ tenorA = \relative do'' {
   sol (la) do |
   mi2 sol4 |
   do,2 la4 |
-  sol2 do8[mi8] |
-  sol2 do,4 |
-  do2.\bar "|."
+  sol2 sol'8[mi] |
+  sol2 sol4 |
+  do,2.\bar "|."
 
 
   % }				% Uncomment if repeating
@@ -182,21 +180,21 @@ bassA = \relative do {
   % MUSIC GOES HERE
 
   do2 la4 |
-  sol2 do,4 |
-  do'2 la4 |
+  sol2 sol4 |
   do2 la4 |
-  sol2 la4 |
+  do2 la4 |
+  do2 la4 |
   sol2 la4 |
   do2 do4 |
   sol2. |
   la2 sol4 |
-  do,2 sol'4 |
+  sol2 sol4 |
   do2 do4 |
   do2 do4 |
   sol2 la4 |
-  sol2 do,4 |
-  sol'2 sol4 |
-  do,2.
+  sol2 mi4 |
+  sol2 do4 |
+  <do do,>2.
 
 
   % 	}				% Uncomment if repeating
@@ -333,7 +331,7 @@ tenorTextA = \lyricmode {
 
 Thus may we a -- bide in un -- ion
 With each o -- ther and the Lord;
-And po -- ssess, in sweet co -- mmu -- nion,
+And po -- ssess, in sweet com -- mun -- ion,
 Joys which earth can -- not af -- ford.
 }
 

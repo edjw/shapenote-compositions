@@ -39,7 +39,7 @@
 songKey = sol  % Change this to set key (see examples above)
 songTitle = "Consensus"
 songMeter = "8,7"
-songComposer = "Ed Johnson-Williams, 12 August 2025"
+songComposer = "Ed Johnson-Williams, August 2025"
 
 \paper {
   page-count = #1

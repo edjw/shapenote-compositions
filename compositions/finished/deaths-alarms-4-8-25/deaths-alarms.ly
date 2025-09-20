@@ -43,7 +43,7 @@
 songKey = la % Change this to set key (see examples above)
 songTitle = "Death's Alarms"
 songMeter = "CM"
-songComposer = "Ed Johnson-Williams, 4 August 2025"
+songComposer = "Ed Johnson-Williams, August & September 2025"
 
 \paper {
   page-count = #1
@@ -55,7 +55,7 @@ songComposer = "Ed Johnson-Williams, 4 August 2025"
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   arranger = #songComposer
-  meter = "F# Minor"  % Update this manually to match songKey
+  meter = "F# Minor, Isaac Watts"  % Update this manually to match songKey
   tagline = ##f
 }
 
@@ -64,7 +64,7 @@ global = {
   %\minor        % Uncomment here for minor keys
   \aikenHeads     % or \sacredHarpHeads for 4-shape
   \numericTimeSignature
-  \time 4/4       % Change as needed
+  \time 2/4       % Change as needed
   \defineBarLine ";" #'("|" ";" " ")
   \defineBarLine ";." #'("|" ";." ";.")
   \defineBarLine ".;" #'("|" ".;" ".;")
@@ -88,16 +88,16 @@ global = {
 
 trebleMusic = \relative do' {
   % === A SECTION ===
-  mi1|
+  mi2|
   mi4 sol mi do4 |
   do4 mi sol sol |
   la4 sol do la |
-  sol2. la4 |
+  sol2 la |
   sol4. mi8 sol4 mi |
-  do8[mi8] sol4 sol4 mi4|
-  mi2 do8([re8] mi4) |
-  sol2 la2|
-  la1
+  do4 do sol'4 mi4|
+  mi2 sol |
+  la2 sol2|
+  mi2
 
   % === B SECTION ===
   % Add B section music here
@@ -106,16 +106,16 @@ trebleMusic = \relative do' {
 
 altoMusic = \relative do' {
   % === A SECTION ===
-  la1|
+  la2|
   do4 do do mi |
   do4 do sol do4 |
   do4 do mi do |
-  re2. do4 |
-  re4. do8 re4 do8[la8] |
-  sol4 sol4 sol4 sol8[la8]|
-  do4(si4) la4 (do4) |
-  do2 do|
-  do1
+  re2 do |
+  re4. do8 re4 la |
+  sol4 sol4 sol4 do|
+  do2 re |
+  mi2 re|
+  do2
 
 
   % === B SECTION ===
@@ -124,17 +124,17 @@ altoMusic = \relative do' {
 
 tenorMusic = \relative do'' {
   % === A SECTION ===
-  la,1|
+  la,2|
   mi'4 do la do |
   mi mi8[re8] mi4 sol |
   mi do do mi |
-  sol2. la4 |
+  sol2 la |
   sol4. mi8 re4 do |
   sol' sol8[mi8] re4
   mi4|
-  do(mi) mi2 |
-  sol2 mi2|
-  la,1
+  do(mi) re2 |
+  mi sol|
+  la2
 
   % === B SECTION ===
   % Add B section music here
@@ -144,18 +144,18 @@ tenorMusic = \relative do'' {
 bassMusic = \relative do {
   % === A SECTION ===
 
-  <la la,>1|
+  la2|
   la4 do la la |
   la la
   4 do4 do |
   la do sol la |
-  sol2. la4 |
+  sol2 la |
   sol4. mi8 sol4 la |
   do do sol4
-  mi4 |
-  sol2 la2 |
-  do2 la2|
-  <la la,>1
+  la4 |
+  la2 sol2 |
+  do2 sol2|
+  la2
   % === B SECTION ===
   % Add B section music here
 }

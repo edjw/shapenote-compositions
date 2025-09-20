@@ -36,10 +36,10 @@
 % G minor:  \transpose do sib  (then use \minor in global)
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = do  % Change this to set key (see examples above)
+songKey = la  % Change this to set key (see examples above)
 songTitle = "Czechia"
 songMeter = "CM"
-songComposer = "Ed Johnson-Williams, 1 September 2025"
+songComposer = "Ed Johnson-Williams, September 2025"
 
 \paper {
   page-count = #1
@@ -51,7 +51,7 @@ songComposer = "Ed Johnson-Williams, 1 September 2025"
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   arranger = #songComposer
-  meter = "C Major"  % Update this manually to match songKey
+  meter = "A Major, Isaac Watts"  % Update this manually to match songKey
   tagline = ##f
 }
 
@@ -81,44 +81,44 @@ global = {
 % Slurs:       do8[re8] or do4(re4)
 % Ties:        do4~ do4
 
-trebleMusic = \relative do'' {
+trebleMusic = \relative do' {
   r2. mi4 |
   do2 mi |
-  mi2 mi4(re) |
+  sol2 mi4(re) |
   mi2 sol |
   sol2. mi4 |
   re2. do4 |
   mi2 do |
   re2. do4 |
-  do4(re) do4(si) |
-  do2. sol'4 |
-  la (sol la) sol |
+  do2 do4(re) |
   mi2. sol4 |
-  mi2. do4 |
-  mi (sol) do,4.(re8) |
+  la2 do4 (sol) |
+  sol2. la4 |
+  sol2. sol4 |
+  mi2 sol |
   mi1
   \bar ".."
 }
 
 altoMusic = \relative do' {
-  r2. mi4 |
-  mi2 do |
-  mi2 mi4(re) |
-  do2 re |
-  mi2. mi4 |
-  sol2. mi4 |
-  mi2 mi |
+  r2. do4 |
+  do2 do |
+  do2 mi4(re) |
+  do2 sol |
+  do2. do4 |
+  sol2. la4 |
+  do2 do |
   re2. mi4 |
-  do4(re) mi(sol) |
-  mi2. re4 |
-  mi (sol la) sol |
-  sol2. mi4 |
-  mi2. sol4 |
-  mi(sol) la4.(sol8) |
+  do2 do4 (re) |
+  do2. re4 |
+  do2 do4 (sol) |
+  sol2. do4 |
+  do2. re4 |
+  do2 sol2 |
   sol1
 }
 
-tenorMusic = \relative do'' {
+tenorMusic = \relative do' {
   r2. sol4 |
   sol2 la |
   sol2 do4(re) |
@@ -127,12 +127,12 @@ tenorMusic = \relative do'' {
   re2. mi4 |
   do2 sol |
   sol2. sol4 |
-  mi4(sol) la4(sol) |
+  la2 la4(sol) |
   do2. re4 |
-  mi4(re do) re |
+  mi2 do4 (re) |
   do2. mi4 |
-  sol2. mi4 |
-  mi4(do) mi4. (re8) |
+  sol2. sol4 |
+  mi2 do4.(re8) |
   do1
 
   \bar "|."
@@ -140,20 +140,20 @@ tenorMusic = \relative do'' {
 
 bassMusic = \relative do {
   r2. do4 |
-  sol'2 mi |
+  do2 la |
   sol2 mi4(sol) |
   la2 sol |
-  do,2. do4 |
-  sol'2. la4 |
-  sol2 mi |
+  do2. do4 |
+  sol2. la4 |
+  sol2 sol |
   sol2. sol4 |
-  la (sol) do4(sol) |
-  sol2. sol4 |
-  do (sol mi) sol |
-  sol2. do4 |
-  do2. do,4 |
-  do(sol') la4.(sol8) |
-  do,1
+  la2 la4(sol) |
+  mi2. sol4 |
+  la2 la4 (sol) |
+  do2. la4 |
+  do2. sol4 |
+  sol2 do |
+  <do do,>1
 }
 
 %%%%%%% LYRICS %%%%%%%%%

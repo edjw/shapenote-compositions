@@ -39,7 +39,7 @@
 songKey = fa  % Change this to set key (see examples above)
 songTitle = "Portswood"
 songMeter = "CM"
-songComposer = "Ed Johnson-Williams, 13 September 2025"
+songComposer = "Ed Johnson-Williams, September 2025"
 
 \paper {
   page-count = #1
@@ -51,7 +51,7 @@ songComposer = "Ed Johnson-Williams, 13 September 2025"
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   arranger = #songComposer
-  meter = "F Major"  % Update this manually to match songKey
+  meter = "F Major, William Cowper"  % Update this manually to match songKey
   tagline = ##f
 }
 
