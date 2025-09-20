@@ -1,266 +1,154 @@
 \language "espanol"
-%%%%%% Sacred Harp Template 0.4 %%%%%%
-
-% A template for easy engraving of shapenote tunes in the style of the
-% 1991 edition of the Sacred Harp.
-%
-% Leland Paul Kusmer – me@lelandpaul.com – February 2011
-% Updated by Barry Parsons - September 2015
-%
-% For more information, see thypyramids.com/fasola
-
-
-\version "2.16.00"
+\version "2.24.0"
 #(set-default-paper-size "a4landscape")
 
-% \include "../../../partials/old-style-clef.ly"
+%%%%%% Shapenote Template %%%%%%
+%
+% HOW TO USE THIS TEMPLATE:
+% 1. Change songKey to set the key - examples provided
+% 2. Update song info: title, meter, composer
+% 3. Update meter = "G Major" to show the key name
+% 4. Enter music in the four voice sections
+% 5. Add lyrics to verseOne and verseTwo sections
+
+%
+% KEY TRANSPOSITION EXAMPLES (change in ONE place only):
+% C major:  \transpose do do
+% G major:  \transpose do sol
+% F major:  \transpose do fa
+% D major:  \transpose do re
+% A major:  \transpose do la
+% E major:  \transpose do mi
+% Bb major: \transpose do sib
+% Eb major: \transpose do mib
+%
+% MINOR KEYS:
+% A minor:  \transpose do do
+% E minor:  \transpose do sol
+% B minor:  \transpose do re
+% F# minor: \transpose do la
+% D minor:  \transpose do fa
+% G minor:  \transpose do sib
+% C minor:  \transpose do mib
+
+%%%%%% QUICK SETTINGS %%%%%%
+songKey = sib
+songTitle = "Aidan"
+songMeter = "11s"
+keySignature = \markup { "B" \flat " Major" }
+songComposer = "Ed Johnson-Williams, July & September 2025"
+poet = "Isaac Watts"
 
 \paper {
-
-  page-count = #1 % Limit the page size and system count here.
+  page-count = #1
   system-count = #2
-  %ragged-last = ##t
-  %ragged-bottom = ##t
   system-system-spacing = #'((basic-distance . 0) (padding . 6))
-  top-margin = 0.5\in
-
-
-
+  markup-system-spacing = #'((basic-distance . 12) (padding . 4))
+  top-margin = 1.25\cm
+  bottom-margin = 1.25\cm
 }
 
 \header {
-  title = \markup{
-    \bold \smaller
-    "Aidan   "  \small{"11s" }
-  }% TITLE.  METER.
-  %subtitle = \markup \italic \smaller
-  %       "For Beth and Matthew"	% Subtitle, alternative title
-  %subsubtitle = \markup \italic \tiny
-  %        ""	%	Optional Bible verse
-  arranger = \markup %\bold \tiny
-  "Ed Johnson-Williams, 25 July 2025." % Composer
-  meter = \markup {
-    %\bold \tiny
-    "C Major."
-  } % Key signature.  Poet.
-  tagline = ##f
-  %\markup \tiny
-  %	"" % Copyright info if applicable; leave blank otherwise.
+  title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
+  composer = #songComposer
+  tagline = ##f % removes the Lilypond tagline from bottom
+  poet = \markup{ \concat { #keySignature ", " #poet } }
 }
 
-
 global = {
-  \key 	do								%KEY NOTE
-
-  %Uncomment the mode, below:
-  \major
-  \aikenHeads    % Aiken Shapes
-
-  % \sacredHarpHeads
-  %\minor \sacredHarpHeadsMinor
+  \key do \major % Don't change this
+  \aikenHeads     % or \sacredHarpHeads for 4-shape
   \numericTimeSignature
-  \time 4/4				%TIME SIGNATURE as n/n
-  \defineBarLine ";" #'("|" ";" " ")
-  \defineBarLine ";." #'("|" ";." ";.")
-  \defineBarLine ".;" #'("|" ".;" ".;")
-  \defineBarLine ".." #'(".." ".." "..")
-  \defineBarLine ";.." #'(";.." ";.." ";..")
-  \defineBarLine ";.;" #'(";.;" ";.;" ";.;")
+  \time 4/4       % Change as needed
+  \defineBarLine ";" #'("|" ";" " ")        % Start repeat barline
+  \defineBarLine ";." #'("|" ";." ";.")     % End repeat barline
+  \defineBarLine ".;" #'("|" ".;" ".;")     % Double bar into start repeat
+  \defineBarLine ".." #'(".." ".." "..")    % Double barline for section endings
+  \defineBarLine ";.." #'(";.." ";.." ";..") % End repeat into double bar
+  \defineBarLine ";.;" #'(";.;" ";.;" ";.;") % Back-to-back repeats
   \autoBeamOff
-  \override Score.RehearsalMark.self-alignment-X = #LEFT
-
-
-
-
-
-
 }
 
 %%%%%%% MUSIC %%%%%%%%%
-% Music for the A and B sections; uncomment marked lines if repeating
+% Write all music with the do, re, mi, fa, sol, la, si
+%
+% HELPFUL PATTERNS:
+% Repeats:         \repeat volta 2 { music }
+% Mid-bar:         \bar ";"
+% Line break:      \break (after A section)
+% Beams:           do8[ re8] (eighth notes and shorter only)
+% Slurs:           do8( re8 mi8)
+% Combined:        do8([ re8]) (slur and beam together)
+% Ties:            do4~ do4
+% Dotted notes:    do4. re8
+% Octaves:         do'4 (higher) or do,4 (lower)
+% Fermatas:        do4\fermata
+% Grace notes:     \grace { do8 } re4
+% Chords:          <do mi sol>4
+% Accidentals:     dis4 or reb4
+% Text markings:   do4^\markup { "Fine" }
+% Triplets:        \tuplet 3/2 { do8 re8 mi8 }
 
-%%%%%%% The A Section %%%%%%%%
+trebleMusic = \relative do' {
 
-trebleA = \relative do'' {
-  % Treble A section
-
-  % \repeat volta 2{	% Uncomment to repeat the A section
-  % \bar ";"		% Uncomment if repeating
-
-  % MUSIC GOES HERE
   r2
 
   mi2 |
-  do mi4 mi |
-  mi2 do4 la |
-  sol2 la4 do |
-  mi2
+  do do4 do |
+  re2 mi4 re |
+  do2 la4 do |
+  mi2 mi |
+  do do4 do |
+  re2 mi4 mi | 
+  do2 do4 la | \break
+  do2.  do4 |
+  do2 mi4 sol |
+  la2 sol4 mi |
+  sol2 sol4 sol |
+  sol2 mi2 |
+  sol2 mi4 mi |
+  re2 do4 re |
+  mi2 re4 mi  |
+  sol1 |
 
-  sol |
-  mi do4 mi |
-  sol2 sol4 mi |
-  do2 do4 la |
-  do2.
-
-
-
-  %  \break	%	Uncomment for line break after A section
-  % }				% Uncomment if repeating
+  \bar ".."
 
 }
 
-altoA = \relative do' {
-  % Alto A section
-
-  %  \repeat volta 2{	% Uncomment to repeat the A section
-  %\bar ";"		% Uncomment if repeating
-
-  % MUSIC GOES HERE
+altoMusic = \relative do {
   r2 mi |
   sol2 sol4 mi |
-  do2 mi4 sol |
-  do,2 do4 mi |
-  sol2
-
-  do, |
-  sol' la4 la |
-  sol2 mi4 sol |
+  sol2 sol4 sol |
   sol2 la4 la |
-  sol2.
-
-
-  % }				% Uncomment if repeating
-
+  sol2 mi |
+  sol sol4 mi |
+  sol2 sol4 la |
+  sol2 la4 la |
+  sol2.   sol4 |
+  mi2 mi4 sol |
+  la2 sol4 la |
+  sol2 mi4 sol |
+  mi2 mi |
+  sol2 sol4 la |
+  sol2 mi4 sol |
+  sol2 sol4 sol |
+  mi1 |
 }
 
-tenorA = \relative do'' {
-  % Tenor A section
-
-  %  \repeat volta 2{	% Uncomment to repeat the A section
-  % \bar ";"		% Uncomment if repeating
-
-  % MUSIC GOES HERE
+tenorMusic = \relative do' {
   r2
 
   sol2 |
-  do do8[ si] la4 |
-  do2 do4 re |
+  do do4 la |
+  sol2 do4 re |
   mi2 fa4 do |
   do2
 
   sol |
-  do do8[ si] la4 |
-  do2 do4 mi |
+  do do4 la4 |
+  sol2 do4 mi |
   mi2 fa4 fa |
-  do2.
-
-
-  % }				% Uncomment if repeating
-
-}
-
-bassA = \relative do' {
-  % Bass A section
-
-  %  \repeat volta 2{	% Uncomment to repeat the A section
-  %\bar ";"		% Uncomment if repeating
-
-  % MUSIC GOES HERE
-  r2
-
-  do, |
-  do do'4 la |
-  sol2 do,4 re |
-  mi2 fa4 la |
-  sol2
-
-  do |
-  do,2 do'4 la |
-  sol2 sol4 do, |
-  do2 fa4 fa |
-  do2.
-
-  % 	}				% Uncomment if repeating
-
-}
-
-%%%%%%%% The B Section %%%%%%%%
-
-trebleB = \relative do'' {
-  % Treble B section
-
-  % \repeat volta 2 {
-  % Uncomment to repeat the B section
-
-  % MUSIC GOES HERE
-  do4 |
-  do2 mi4 mi |
-  do2 do4 mi |
-  mi2 do4 mi |
-  sol2
-
-  mi4( sol) |
-  sol2 mi4 do |
-  do2 do4 si |
-  do2 si4 si |
-  do1 |
-
-  \bar ".."
-
-  % }	% Uncomment if repeating
-
-  %{
-   \alternative {
-    % Uncomment if repeating
-     { \set Timing.measureLength = #(ly:make-moment 3/4) \mark \markup \bold \tiny "1." mi2. \bar ";." }	% Uncomment if repeating
-     { \set Timing.measureLength = #(ly:make-moment 6/4) \mark \markup \bold \tiny "2." mi1. \bar ".." }	% Uncomment if repeating
-  }				% Uncomment if repeating
-  %}
-
-  %  \bar ";.."
-
-}
-
-altoB = \relative do'' {
-  % Alto B section
-  % \repeat volta 2 {
-  % Uncomment to repeat the B section
-
-  % MUSIC GOES HERE
-  sol4 |
-  mi2 sol4 sol |
-  la2 sol4 la |
-  sol2 mi4 do |
-  do2
-
-  do4( mi) |
-  mi2 sol4 la |
-  sol2 mi4 sol |
-  sol2 sol4 sol |
-  sol1 |
-
-  %  }	% Uncomment if repeating
-  %{
-  \alternative {
-    % Uncomment if repeating
-   { \set Timing.measureLength = #(ly:make-moment 3/4) sol2. \bar ";." }	% Uncomment if repeating
-    { \set Timing.measureLength = #(ly:make-moment 6/4) sol1.  }	% Uncomment if repeating
-  }	% Uncomment if repeating
-  %}
-
-}
-
-
-
-tenorB = \relative do'' {
-  % Tenor B section
-
-  % \repeat volta 2{
-  % Uncomment to repeat the B section
-
-  % MUSIC GOES HERE
-  % \bar ".;"
-  mi4 |
+  do2.   mi4 |
   sol2 sol4 mi |
   mi2 do4 la |
   sol2 do4 do8[ re] |
@@ -269,230 +157,161 @@ tenorB = \relative do'' {
   do2 |
   do2 do4 la |
   sol2 do4 re |
-  mi2 re4 re |
+  mi2 re4 mi |
   do1 |
-
-  % }	% Uncomment if repeating
-  % \alternative {
-  %   % Uncomment if repeating
-  %   { \set Timing.measureLength = #(ly:make-moment 5/4) do2.~ do2 \bar ";." }
-  %   { \set Timing.measureLength = #(ly:make-moment 6/4) do1.  }
-  % }	% Uncomment if repeating
-
+  \bar ".."
 }
 
+bassMusic = \relative do {
+  r2
 
-
-
-bassB = \relative do' {
-  % Bass B section
-
-  % \repeat volta 2 {
-  % Uncomment to repeat the B section
-
-  % MUSIC GOES HERE
-  do4 |
-  sol2 do4 do |
-  la2 sol4 la |
-  <do do,>2 sol4 mi |
+  do |
+  do do4 la |
+  sol2 sol4 sol |
+  sol2 fa4 la |
   sol2
 
-  la2 |
-  <do do,>2 sol4 mi |
+  do |
+  do2 do4 la |
+  sol2 sol4 la |
+  sol2 fa4 fa |
+  do'2. do4 |
+  sol2 do4 do |
+  la2 sol4 la |
+  do2 sol4 sol |
+  sol2 do |
+  do2 do4 do |
   sol2 do4 sol |
-  do,2 sol'4 sol |
-  do,1 |
-
-
-  % }	% Uncomment if repeating
-
-  %{
-     \alternative {
-    % Uncomment if repeating
-     { \set Timing.measureLength = #(ly:make-moment 3/4) la4 do2 \bar ";." }	% Uncomment if repeating
-     { \set Timing.measureLength = #(ly:make-moment 6/4) la4 do2~ do2.  }	% Uncomment if repeating
-  }	% Uncomment if repeating
-  %}
+  do2 sol4 do |
+  do1 |
 
 }
 
+%%%%%%% LYRICS %%%%%%%%%
 
-%%%%%%% TEXT %%%%%%%%%
-
-% Remember to uncomment \addlyrics, below, for only the text that is being used.
-
-%%%%%%% The A Section %%%%%%%%
-
-trebleTextA = \lyricmode {
+verseOne = \lyricmode {
   \tiny
-  \set stanza = "1." % VERSE NUMBER (optional)
-  % Lyrics to appear under treble A section
   I dreamt I was out, to the east cast mine eye,
   The at -- mos -- phere calm and se -- rene was the sky;
+  So calm, still and aw -- ful, tre -- men -- dous the sight;
+  I thought the last judge -- ment was dawn -- ing to light.
 
 }
 
-trebleTextATwo = \lyricmode {
+verseTwo = \lyricmode {
   \tiny
-  \set stanza = "2." % VERSE NUMBER (optional)
-  % Lyrics to appear under treble A section
   A pil -- lar of cloud in the east did ap -- pear,
   A throne in the midst on which Je -- sus sat fair,
   Who co -- ming a -- long the e -- ther -- ’al bright plain
   And soar -- ing a -- loft till the midst He did gain.
+
 }
 
-altoTextA = \lyricmode {
+% Additional verses if needed
+verseThree = \lyricmode {
   \tiny
-  \set stanza = "3." % VERSE NUMBER (optional)
-  % Lyrics to appear under alto A section
-
   The next I heard Je -- sus say “Come you up here;”
   Then all the blest nat -- ions a -- rose with -- out fear,
   And quit -- ting the globe with great plea -- sure did sing
   A song that was ne -- ver be -- fore tuned to string.
 }
 
-tenorTextA = \lyricmode {
+verseFour = \lyricmode {
   \tiny
-  \set stanza = "4." % VERSE NUMBER (optional)
-  % Lyrics to appear under tenor A section
-
-
   Then, in the sweet tran -- sport, my feet left the ground
   With -- out a -- ny mo -- tion of bo -- dy or sound;
   My joys were un -- speak -- ab -- ly full of de -- light;
   So loud was the mus -- ic it o’er -- came me quite.
 }
 
-
-
-bassTextA = \lyricmode {
-  \tiny
-  \set stanza = "" % VERSE NUMBER (optional)
-  % Lyrics to appear under bass A section
-
-}
-
-trebleTextB = \lyricmode {
-  \tiny
-  % Lyrics to appear under treble B section
-  So calm, still and aw -- ful, tre -- men -- dous the sight;
-  I thought the last judge -- ment was dawn -- ing to light.
-
-}
-
-
-altoTextB = \lyricmode {
-  \tiny
-  % Lyrics to appear under alto B section
-
-
-}
-
-
-tenorTextB = \lyricmode {
-  \tiny
-  % Lyrics to appear under tenor B section
-
-
-
-}
-
-
-
-bassTextB = \lyricmode {
-  \tiny
-  % Lyrics to appear under bass B section
-
-
-
-}
-
-
-%%%%%%%%% LAYOUT %%%%%%%%%%%
-% The only modification necessary below here: Uncomment text that you'd like to add.
-
-\score {
+%%%%%%% SCORE %%%%%%%%%
+% Main music content (defined once, used for both print and MIDI)
+musicContent = {
   \new ChoirStaff <<
-
     \new Staff = treble <<
       \new Voice = "treble" {
         \global
-        % \transpose do fa {	% Uncomment if transposing. x = original key; y = target key
-        \trebleA
-        \trebleB
-        % }	%  Uncomment if transposing
+        \trebleMusic
       }
-      \new Lyrics  \lyricsto "treble" { \trebleTextA \trebleTextB }
-      \new Lyrics  \lyricsto "treble" { \trebleTextATwo }
-      %\new Lyrics  \lyricsto "treble" { \repeat unfold 28 { \skip 1 } \trebleTextB }
-      %\new Lyrics \lyricsto "treble" { \repeat unfold NN { \skip 1 } \trebleTextBtwo }				% Uncomment to add text
+      \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
+      % Uncomment for additional verses under treble:
+      \new Lyrics \lyricsto "treble" { \set stanza = "2." \verseTwo }
     >>
 
     \new Staff = alto <<
       \new Voice = "alto" {
         \global
-        % \transpose do fa {	% Uncomment if transposing. x = original key; y = target key
-        \altoA
-        \altoB
-        % }
+        \altoMusic
       }
-      \new Lyrics  \lyricsto "alto" { \altoTextA }
-      %\new Lyrics \lyricsto "alto" { \repeat unfold NN { \skip 1 } \altoTextBtwo }
+      % Uncomment for verse 2 under alto:
+      \new Lyrics \lyricsto "alto" { \set stanza = "3." \verseThree }
     >>
 
     \new Staff = tenor <<
       \new Voice = "tenor" {
         \global
-        % \transpose do fa {	% Uncomment if transposing. x = original key; y = target key
-        \tenorA
-        \tenorB
-        % }	% Uncomment if transposing
+        \tenorMusic
       }
-      \new Lyrics  \lyricsto "tenor" { \tenorTextA \tenorTextB }
-      % \new Lyrics  \lyricsto "tenor" { \repeat unfold 28 { \skip 1 } \tenorTextB }
-      %\new Lyrics \lyricsto "tenor" { \repeat unfold NN { \skip 1 } \tenorTextBtwo }
+      %\new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
+      % Uncomment for verse 3 under tenor:
+      \new Lyrics \lyricsto "tenor" { \set stanza = "4." \verseFour }
     >>
 
     \new Staff = bass <<
       \clef bass
       \new Voice = "bass" {
         \global
-        % \transpose do fa {	% Uncomment if transposing. x = original key; y = target key
-        \bassA
-        \bassB
-        % }	% Uncomment if transposing
+        \bassMusic
       }
-      % \new Lyrics  \lyricsto "bass" { \bassTextA }
-      % \new Lyrics  \lyricsto "bass" { \repeat unfold 28 { \skip 1 } \bassTextB }
-      %\new Lyrics \lyricsto "bass" { \repeat unfold NN { \skip 1 } \bassTextBtwo }
+      % Uncomment for lyrics under bass (less common):
+      % \new Lyrics \lyricsto "bass" { \set stanza = "4." \verseFour }
     >>
   >>
+}
+
+% Score for printing
+\score {
+  % SINGLE TRANSPOSE for all voices - change songKey at top
+  \transpose do \songKey {
+    \musicContent
+  }
+
   \layout {
     indent = 0\cm
-
     \context {
       \Score
       \remove "Bar_number_engraver"
-      \omit VoltaBracket
-      \override RehearsalMark.self-alignment-X = #LEFT
       \override TimeSignature.break-visibility = ##(#f #t #t)
-      \override NoteHead.font-size = #1
-
-      startRepeatBarType = #";"	%	Uncomment if repeats start mid-bar
-      %	startRepeatBarType = #".;"	%	Uncomment if repeats start on barline
+      \override NoteHead.font-size = #2
+      startRepeatBarType = #";"
       endRepeatBarType = #";."
       doubleRepeatBarType = ";.;"
-
-    }
-
-
-  }
-  \midi {
-    \context {
-      \Score
-      tempoWholesPerMinute = #(ly:make-moment 96 2) %Sets the metronome speed and value of the beat
     }
   }
 }
+
+% Score for MIDI (reuses musicContent with octave doubling)
+\score {
+  \unfoldRepeats
+  \transpose do \songKey {
+    <<
+      \musicContent
+      % Octave doubling
+      \new Staff { \global \transpose do do, { \trebleMusic } }
+      \new Staff { \global \transpose do do, { \tenorMusic } }
+    >>
+  }
+
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 100 4)
+    }
+
+    \context {
+      \Staff
+      midiInstrument = #"acoustic grand"
+    }
+  }
+}
+
