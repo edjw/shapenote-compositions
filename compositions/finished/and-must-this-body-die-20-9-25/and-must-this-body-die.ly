@@ -34,7 +34,7 @@
 %%%%%% QUICK SETTINGS %%%%%%
 songKey = la
 songTitle = "And Must This Body Die"
-songMeter = "CM"
+songMeter = "SM"
 keySignature = "F# Minor"
 songComposer = "Ed Johnson-Williams, September 2025"
 poet = "Isaac Watts"
