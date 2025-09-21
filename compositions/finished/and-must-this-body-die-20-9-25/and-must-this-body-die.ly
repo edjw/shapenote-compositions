@@ -96,8 +96,8 @@ trebleMusic = \relative do' {
   mi2.
   r2 la4 |
   sol2 mi4
-  mi2 re4
-  mi2.
+  mi2 mi4
+  re2.
   r2 mi4
   sol2 sol4
   mi2 mi4
@@ -117,8 +117,8 @@ altoMusic = \relative do' {
   la2.
   r2 la4
   do2 do4
-  do2 re4
-  mi2.
+  do2 do4
+  re2.
   r2 mi4
   re2 re4
   mi2 mi4
@@ -137,8 +137,8 @@ tenorMusic = \relative do' {
   la2. r2
   mi'4
   sol2 la4
-  mi2 sol4
-  la2. r2
+  mi2 la4
+  sol2. r2
   la4
   sol2 sol4
   la2 mi4
@@ -158,8 +158,8 @@ bassMusic = \relative do {
   la2.
   r2 la4
   do2 la4
-  la2 sol4
-  la2.
+  la2 la4
+  sol2.
   r2 la4
   sol2 sol4
   la2 la4
