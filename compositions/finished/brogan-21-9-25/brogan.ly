@@ -48,10 +48,25 @@ poet = "Isaac Watts"
   bottom-margin = 1.25\cm
 }
 
+% Custom strikethrough command
+#(define-markup-command (strike-through layout props arg)
+   (markup?)
+   #:properties ((thickness 1) (offset 0.2))
+   (let* ((thick (ly:output-def-lookup layout 'line-thickness))
+          (underline-thick (* thickness thick))
+          (markup (interpret-markup layout props arg))
+          (x1 (car (ly:stencil-extent markup X)))
+          (x2 (cdr (ly:stencil-extent markup X)))
+          (y1 (interval-center (ly:stencil-extent markup Y)))
+          (y2 y1)
+          (line (make-line-stencil underline-thick x1 y1 x2 y2)))
+     (ly:stencil-add markup line)))
+
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   composer = #songComposer
-  tagline = ##f % removes the Lilypond tagline from bottom
+  %tagline = ##f % removes the Lilypond tagline from bottom
+  tagline = \markup { \tiny {Major \strike-through {Banger} Bangor}}
   poet = \markup{ \concat { #keySignature ", " #poet } }
 }
 
