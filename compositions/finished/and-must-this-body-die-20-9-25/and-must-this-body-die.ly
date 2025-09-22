@@ -90,81 +90,81 @@ global = {
 % Triplets:        \tuplet 3/2 { do8 re8 mi8 }
 
 trebleMusic = \relative do' {
-  r2. r2 mi4 |
+  r2. mi2. |
   mi2 la4
   sol2 mi4 |
   mi2.
-  r2 la4 |
+  la2. |
   sol2 mi4
   mi2 mi4
   re2.
-  r2 mi4
+  mi2.
   sol2 sol4
   mi2 mi4
   re2
-  mi4 la2 \fermata
+  mi4 la2
   la4
-  sol2 la4
+  sol2 mi4
   la2 sol4
   mi1.
 
 }
 
 altoMusic = \relative do' {
-  r2. r2 la4
+  r2. la2.
   do2 mi4
-  re2 do4
+  re2 mi4
+  la,2.
   la2.
-  r2 la4
   do2 do4
   do2 do4
   re2.
-  r2 mi4
+  mi2.
   re2 re4
   mi2 mi4
   re2
-  do4 la2 \fermata
+  do4 la2
   la4
   sol2 la4
-  do2 sol4
+  do2 si4
   la1.
 }
 
 tenorMusic = \relative do' {
-  r2. r2la4
+  r2. la2.
   mi'2 mi4
   re2 do4
-  la2. r2
-  mi'4
+  la2.
+  mi'2.
   sol2 la4
   mi2 la4
-  sol2. r2
-  la4
+  sol2.
+  la2.
   sol2 sol4
   la2 mi4
   sol2
-  sol4 mi2  \fermata
+  sol4 mi2
   mi4
   re2 do4
-  mi2 do4
+  la2 sol4
   la1.
   \bar ".."
 }
 
 bassMusic = \relative do {
-  r2. r2 la4
+  r2. la2.
   la2 la4
   sol2 la4
   la2.
-  r2 la4
+  la2.
   do2 la4
   la2 la4
   sol2.
-  r2 la4
+  la2.
   sol2 sol4
   la2 la4
   sol2
-  do4 la2 \fermata
+  do4 la2
   la4
   sol2 la4
   do2 sol4
