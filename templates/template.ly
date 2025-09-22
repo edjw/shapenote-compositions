@@ -12,7 +12,7 @@
 % 5. Add lyrics to verseOne and verseTwo sections
 
 %
-% KEY TRANSPOSITION EXAMPLES (change in ONE place only):
+% KEY TRANSPOSITION EXAMPLES
 % C major:  \transpose do do
 % G major:  \transpose do sol
 % F major:  \transpose do fa
@@ -38,6 +38,8 @@ songMeter = "CM"
 keySignature = "F Major"
 songComposer = "Ed Johnson-Williams, 16 September 2025"
 poet = "Isaac Watts"
+timeSignature = 4/4
+noteHeadStyle = "seven"  % "seven", "four", or "normal"
 
 \paper {
   page-count = #1
@@ -55,11 +57,17 @@ poet = "Isaac Watts"
   poet = \markup{ \concat { #keySignature ", " #poet } }
 }
 
+setShapeHeads =
+#(cond
+  ((equal? noteHeadStyle "seven") #{ \aikenHeads #})
+  ((equal? noteHeadStyle "four") #{ \sacredHarpHeads #})
+  (else #{ #}))
+
 global = {
   \key do \major % Don't change this
-  \aikenHeads     % or \sacredHarpHeads for 4-shape
+  \setShapeHeads
   \numericTimeSignature
-  \time 4/4       % Change as needed
+  \time #timeSignature
   \defineBarLine ";" #'("|" ";" " ")        % Start repeat barline
   \defineBarLine ";." #'("|" ";." ";.")     % End repeat barline
   \defineBarLine ".;" #'("|" ".;" ".;")     % Double bar into start repeat
@@ -90,21 +98,20 @@ global = {
 % Triplets:        \tuplet 3/2 { do8 re8 mi8 }
 
 trebleMusic = \relative do'' {
-  
-  
+
 }
 
 altoMusic = \relative do' {
- 
+
 }
 
 tenorMusic = \relative do' {
- 
- \bar ".."
+
+  \bar ".."
 }
 
 bassMusic = \relative do {
- 
+
 }
 
 %%%%%%% LYRICS %%%%%%%%%
