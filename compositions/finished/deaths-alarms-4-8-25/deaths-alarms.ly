@@ -115,7 +115,7 @@ altoMusic = \relative do' {
   sol4 sol4 sol4 do|
   do2 re |
   mi2 re|
-  do2
+  mi2
 
 
   % === B SECTION ===
