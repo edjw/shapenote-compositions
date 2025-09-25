@@ -40,6 +40,16 @@ songComposer = "Ed Johnson-Williams, 16 September 2025"
 poet = "Isaac Watts"
 timeSignature = 4/4
 noteHeadStyle = "seven"  % "seven", "four", or "normal"
+pickupDuration = 0  % 0 = none, 4 = quarter, 2 = half, 8 = eighth
+
+setPickup =
+#(let ((duration (if (defined? 'pickupDuration) pickupDuration 0)))
+   (cond
+    ((equal? duration 2) #{ \partial 2 #})
+    ((equal? duration 4) #{ \partial 4 #})
+    ((equal? duration 8) #{ \partial 8 #})
+    ((equal? duration 0) #{ #})
+    (else #{ #})))
 
 \paper {
   page-count = #1
@@ -63,9 +73,20 @@ setShapeHeads =
   ((equal? noteHeadStyle "four") #{ \sacredHarpHeads #})
   (else #{ #}))
 
+setPickup =
+#(let ((duration (if (defined? 'pickupDuration) pickupDuration 0)))
+   (cond
+    ((equal? duration 2) #{ \partial 2 #})
+    ((equal? duration 4) #{ \partial 4 #})
+    ((equal? duration 8) #{ \partial 8 #})
+    ((equal? duration 0) #{ #})
+    (else #{ #})))
+
+% Don't change this global section
 global = {
-  \key do \major % Don't change this
+  \key do \major
   \setShapeHeads
+  \setPickup
   \numericTimeSignature
   \time #timeSignature
   \defineBarLine ";" #'("|" ";" " ")        % Start repeat barline
