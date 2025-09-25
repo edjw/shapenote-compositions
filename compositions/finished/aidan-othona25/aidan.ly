@@ -59,6 +59,7 @@ global = {
   \key do \major % Don't change this
   \aikenHeads     % or \sacredHarpHeads for 4-shape
   \numericTimeSignature
+  \partial 2
   \time 4/4       % Change as needed
   \defineBarLine ";" #'("|" ";" " ")        % Start repeat barline
   \defineBarLine ";." #'("|" ";." ";.")     % End repeat barline
@@ -91,7 +92,7 @@ global = {
 
 trebleMusic = \relative do' {
 
-  r2
+
 
   mi2 |
   do do4 do |
@@ -99,7 +100,7 @@ trebleMusic = \relative do' {
   do2 la4 do |
   mi2 mi |
   do do4 do |
-  re2 mi4 mi | 
+  re2 mi4 mi |
   do2 do4 la | \break
   do2.  do4 |
   do2 mi4 sol |
@@ -116,7 +117,7 @@ trebleMusic = \relative do' {
 }
 
 altoMusic = \relative do {
-  r2 mi |
+  mi2 |
   sol2 sol4 mi |
   sol2 sol4 sol |
   sol2 la4 la |
@@ -136,7 +137,7 @@ altoMusic = \relative do {
 }
 
 tenorMusic = \relative do' {
-  r2
+
 
   sol2 |
   do do4 la |
@@ -163,9 +164,9 @@ tenorMusic = \relative do' {
 }
 
 bassMusic = \relative do {
-  r2
 
-  do |
+
+  do2 |
   do do4 la |
   sol2 sol4 sol |
   sol2 fa4 la |

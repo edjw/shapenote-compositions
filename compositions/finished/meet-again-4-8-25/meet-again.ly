@@ -60,6 +60,7 @@ songComposer = "Ed Johnson-Williams, August & September 2025"
 }
 
 global = {
+  \partial 2
   \key do \major  % Don't remove the `\major` here – even for minor tunes
   %\minor        % Uncomment here for minor keys
   \aikenHeads     % or \sacredHarpHeads for 4-shape
@@ -88,71 +89,72 @@ global = {
 
 trebleMusic = \relative do' {
 
-  r2
+  \bar ";"
   \repeat volta 2 {
 
-    mi2^\markup { \tiny \musicglyph "scripts.segno" }
-    mi4 sol la sol
+    mi2
+    mi4^\markup { \tiny \musicglyph "scripts.segno" } sol la sol
     la mi la la
     sol4. sol8 mi4 re
 
   }
 
   \alternative {
-    \volta 1 { mi2  }
-    \volta 2,3 {  mi1^\markup { \tiny "Fine" }  }
+    \volta 1 { mi2 }
+    \volta 2,3 { mi1^\markup { \tiny \bold "Fine" }  }
   }
 
   r2 mi
   re4. mi8 sol4 mi
   sol4 sol mi4 la
-  mi sol la sol la2^\markup { \tiny "D.S. al Fine" }
+  mi sol la sol sol2 mi^\markup { \tiny \bold "D.S." }
 
 
 }
 
 altoMusic = \relative do' {
 
-  r2 \repeat volta 2 {
 
-    la2^\markup { \tiny \musicglyph "scripts.segno" }
-    la4 sol mi mi
-    la la la la4
+  \repeat volta 2 {
+
+    la2
+    la4^\markup { \tiny \musicglyph "scripts.segno" } sol mi mi
+    la la la mi
     sol4. sol8 la4 sol
   }
 
   \alternative {
-    \volta 1 { mi2  }
-    \volta 2,3 {  mi1^\markup { \tiny "Fine" }  }
+    \volta 1 { mi2 }
+    \volta 2,3 { mi1 }
   }
 
 
   r2 la
   sol4. la8 sol4 mi
   sol4 sol la la
-  la sol mi re
-  mi2^\markup { \tiny "D.S. al Fine" }
+  la4 sol mi4 re re2 mi
+
 }
 
 tenorMusic = \relative do' {
 
-  r2 \repeat volta 2 {
-    mi^\markup { \tiny \musicglyph "scripts.segno" }
-    mi4mi8([do]) la4 do
+  \repeat volta 2 {
+    mi
+    mi4^\markup { \tiny \musicglyph "scripts.segno" } mi8([do]) la4 do
     mi la mi4 mi
     re4. do8 la4 sol4
   }
 
   \alternative {
-    \volta 1 { la2  }
-    \volta 2,3 {  la1^\markup { \tiny "Fine" } }
+    \volta 1 { la2 }
+    \volta 2,3 { la1^\markup { \tiny \bold "Fine" } }
   }
 
   r2 la
   sol4. la8 do4 mi
   mi sol8([mi8]) la4
   mi4
-  la4 sol mi4 re mi2^\markup { \tiny "D.S. al Fine" }
+  la4 sol mi4 sol sol2 la ^\markup { \tiny \bold "D.S." }
 
 
 
@@ -161,24 +163,24 @@ tenorMusic = \relative do' {
 
 bassMusic = \relative do {
 
-  r2 \repeat volta 2 {
-    la2^\markup { \tiny \musicglyph "scripts.segno" }
-    la4 do la sol
-    do la la do
+
+  \repeat volta 2 {
+    la2
+    la4^\markup { \tiny \musicglyph "scripts.segno" } do la sol
+    mi la la la
     sol4. sol8 la4 sol
   }
 
   \alternative {
-    \volta 1 { la2  }
-    \volta 2,3 {  la1^\markup { \tiny "Fine" } }
+    \volta 1 { la2 }
+    \volta 2,3 { la1 }
   }
 
   r2 la
   sol4. la8 sol4 la
   do do la4
   la4
-  la do la sol la2^\markup { \tiny "D.S. al Fine" }
-
+  la do la sol sol2 la
 
 }
 
@@ -192,7 +194,7 @@ verseOneTop = \lyricmode {
   _
 
   For I must go and leave you all;
-  It fills my heart with pain;
+  It fills my heart with pain; Al-
 
 }
 
@@ -204,15 +206,11 @@ verseOneAA = \lyricmode {
 
 }
 
-verseOneB = \lyricmode {
-  \tiny
 
-
-}
 
 verseOneAC = \lyricmode {
   \tiny
-  Al -- though we part, per -- haps in tears,
+  _ though we part, per -- haps in tears,
   I hope we’ll meet a -- _ gain.
 }
 
@@ -233,7 +231,6 @@ musicContent = {
       }
       \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOneTop }
       \new Lyrics \lyricsto "treble" {  \verseOneAA }
-      \new Lyrics \lyricsto "treble" {  \verseOneB }
       \new Lyrics \lyricsto "treble" { \set stanza = "DS."   \verseOneAC }
 
       % Uncomment for additional verses under treble:
@@ -256,7 +253,6 @@ musicContent = {
       }
       \new Lyrics \lyricsto "tenor" { \set stanza = "1." \verseOneTop }
       \new Lyrics \lyricsto "tenor" {  \verseOneAA }
-      \new Lyrics \lyricsto "tenor" {  \verseOneB }
       \new Lyrics \lyricsto "tenor" { \set stanza = "DS."   \verseOneAC }
     >>
 
@@ -320,6 +316,7 @@ musicContent = {
     \context {
       \Staff
       midiInstrument = #"acoustic grand"
+
     }
   }
 }

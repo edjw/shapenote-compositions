@@ -2,8 +2,6 @@
 \version "2.24.0"
 #(set-default-paper-size "a4landscape")
 
-%%%%%% Sacred Harp Simplified Template v1.0 %%%%%%
-% Ed Johnson-Williams - Fast typesetting from paper
 %
 % HOW TO USE THIS TEMPLATE:
 % 1. Change songKey (line 39) to set the key - examples provided
@@ -82,49 +80,50 @@ global = {
 % Ties:        do4~ do4
 
 trebleMusic = \relative do'' {
-  % === A SECTION ===
+
   sol2. mi4 |
-  sol2 do, |
-  re2 mi2 |
-  sol2. mi4 |
-  do2 mi4 do |
-  mi2 mi |
-  re1 |
-  do4 re4 mi2 |
-  mi2 mi4 sol8([la]) |
+  re2 do |
+  sol' sol |
+  sol2. do4 |
+  la2 la4 do |
+  sol2 la |
   sol1 |
-  do4 la sol2 |
-  la2 sol4 sol4 |
-  sol1|
+  sol2. sol4 |
+  mi2 sol2 |
+  mi2. sol4 |
+  do1 |
+  do2. la4 |
+  sol2 la2 |
+  sol2. sol4 |
+  sol1 |
 
 
-  % === B SECTION ===
-  % Add B section music here
   \bar ".."
 }
 
 altoMusic = \relative do' {
-  % === A SECTION ===
+
   do2. do4 |
   re2 mi |
-  re2 do4 (mi4) |
-  do2. do4 |
-  do2 la4 sol |
+  re2 do2 |
+  mi2. mi4 |
+  do2 mi4 mi |
   do2 do |
-  sol1 |
-  do4 sol la2 |
-  do2 mi4 re8[do] |
-  sol1 |
-  sol4 la do2 |
-  do2 re4 re |
+  do1 |
+  re2. re4 |
+  do2 mi2 |
+  do2. do4 |
+  mi1 |
+  mi2. mi4 |
+  do2 mi2 |
+  re2. do4
   do1
 
-  % === B SECTION ===
-  % Add B section music here
+
 }
 
 tenorMusic = \relative do' {
-  % === A SECTION ===
+
 
   do2. mi4 |
   sol2 mi2 |
@@ -133,36 +132,39 @@ tenorMusic = \relative do' {
   mi2 mi4 sol4 |
   sol2 la2 |
   sol1 |
-  sol4 sol la2
-  do2 sol8([la]) sol8([fa])
-  mi1 |
-  mi4 fa mi4(re) |
-  do2 re4 re |
+  sol2. sol4|
+  la2 do2 |
+  do,2. mi4 |
+  sol1 |
+  sol2.
+  fa4 |
+  mi2 do2 |
+  re2. do4 |
   do1
 
-  % === B SECTION ===
-  % Add B section music here
+
   \bar "|."
 }
 
 bassMusic = \relative do {
-  % === A SECTION ===
+
   do2. do4 |
   sol2 do |
-  sol2 sol4(do) |
-  do2. la4 |
-  la2 la4 do |
-  do2 la |
+  sol2 sol |
+  do2. sol4 |
+  la2 la4 sol |
+  mi2 fa |
   sol1 |
-  sol4 sol la2 |
-  do do8([la]) sol([la]) |
-  do1 |
-  do4 re do2 |
-  la2 sol4 sol |
+  sol2. sol4 |
+  do2 do |
+  sol2. mi4 |
+  sol1 |
+  mi2. fa4 |
+  mi2 la2 |
+  sol2. do4 |
   do1
 
-  % === B SECTION ===
-  % Add B section music here
+
 }
 
 %%%%%%% LYRICS %%%%%%%%%
