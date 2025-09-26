@@ -13,6 +13,10 @@ wheels/
 # Virtual environments
 .venv
 
-# GarageBand project files
+# GarageBand project files and audio files
 *.band/
 !templates/voice.band/
+*.wav
+*.aiff
+*.mp3
+*.m4a
