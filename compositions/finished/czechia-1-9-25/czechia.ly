@@ -92,7 +92,7 @@ trebleMusic = \relative do' {
   re2. do4 |
   do2 do4(re) |
   mi2. sol4 |
-  la2 do4 (sol) |
+  la2 do4 (si) |
   sol2. la4 |
   sol2. sol4 |
   mi2 sol |
@@ -256,15 +256,69 @@ musicContent = {
   }
 }
 
+
 % Score for MIDI (reuses musicContent with octave doubling)
+
 \score {
   \unfoldRepeats
   \transpose do \songKey {
     <<
-      \musicContent
-      % Octave doubling for richer MIDI sound
-      \new Staff { \global \transpose do do, { \trebleMusic } }
-      \new Staff { \global \transpose do do, { \tenorMusic } }
+      \new ChoirStaff <<
+        \new Staff \with {
+          midiInstrument = #"soprano sax"
+          instrumentName = "Treble"
+        } {
+          \new Voice = "treble" {
+            \global
+            \trebleMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"alto sax"
+          instrumentName = "Alto"
+        } {
+          \new Voice = "alto" {
+            \global
+            \altoMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"trumpet"
+          instrumentName = "Tenor"
+        } {
+          \new Voice = "tenor" {
+            \global
+            \tenorMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"tuba"
+          instrumentName = "Bass"
+        } {
+          \clef bass
+          \new Voice = "bass" {
+            \global
+            \bassMusic
+          }
+        }
+      >>
+      % Octave doubling
+      \new Staff \with {
+        midiInstrument = #"tenor sax"
+        instrumentName = "Treble (low)"
+      } {
+        \new Voice = "treble-low" {
+          \global \transpose do do, { \trebleMusic }
+        }
+      }
+      \new Staff \with {
+        midiInstrument = #"trumpet"
+        instrumentName = "Tenor (low)"
+      } {
+        \new Voice = "tenor-low" {
+          \global \transpose do do, { \tenorMusic }
+        }
+      }
     >>
   }
 
@@ -272,12 +326,7 @@ musicContent = {
     \context {
       \Score
       tempoWholesPerMinute = #(ly:make-moment 100 4)
-    }
 
-    \context {
-      \Staff
-      midiInstrument = #"acoustic grand"
     }
   }
 }
-

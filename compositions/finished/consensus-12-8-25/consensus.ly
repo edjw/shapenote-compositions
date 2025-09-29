@@ -83,21 +83,21 @@ global = {
 %%%%%%% MUSIC %%%%%%%%%
 
 trebleMusic = \relative do' {
-    % === A SECTION ===
+  % === A SECTION ===
   \bar ";"
   \repeat volta 2 {
     r2 sol'4 sol |
     mi2 do2 |
-    mi4 sol mi2 |  
+    mi4 sol mi2 |
     sol2 sol4 sol |
     do2. sol4 |
     do4 sol sol2
   }
   \mark \markup { \tiny \italic "Fine." }
   \bar ";."
-    \break 
+  \break
 
- 
+
   % === B SECTION ===
   r2 sol4 mi |
   do2 sol' |
@@ -115,14 +115,14 @@ altoMusic = \relative do' {
   \repeat volta 2 {
     r2 mi4 do |
     sol2 do2 |
-    do4 mi do2 |  
+    do4 mi do2 |
     sol2 do4 mi |
     mi2. mi4 |
     mi4 do mi2
   }
   \mark \markup { \tiny \italic "Fine." }
   \bar ";."
-    \break  
+  \break
   % === B SECTION ===
   r2 do4 do |
   sol2 do |
@@ -147,7 +147,7 @@ tenorMusic = \relative do' {
   }
   \mark \markup { \tiny \italic "Fine." }
   \bar ";."
-      \break  
+  \break
 
   % === B SECTION ===
   r2 mi4 sol |
@@ -161,19 +161,19 @@ tenorMusic = \relative do' {
 }
 
 bassMusic = \relative do {
-    % === A SECTION ===
+  % === A SECTION ===
   \bar ";"
   \repeat volta 2 {
     r2 do4 sol |
     do,2 sol'2 |
-    do4 do sol2  
+    do4 do sol2
     do2 do4 sol |
     do,2. mi4 |
     sol4 sol do,2
   }
   \mark \markup { \tiny \italic "Fine." }
   \bar ";."
-      \break  
+  \break
 
   % === B SECTION ===
   r2 do'4 sol |
@@ -225,17 +225,17 @@ musicContent = {
         \trebleMusic
       }
       % First verse - combines A (1st time) and B section
-      \new Lyrics \lyricsto "treble" { 
+      \new Lyrics \lyricsto "treble" {
         \set stanza = "1."
-        \verseOneA 
-        \verseOneB 
+        \verseOneA
+        \verseOneB
       }
       % Second verse - A section repeat text
-      \new Lyrics \lyricsto "treble" { 
+      \new Lyrics \lyricsto "treble" {
         \verseOneARepeat
       }
       % D.C. verse
-      \new Lyrics \lyricsto "treble" { 
+      \new Lyrics \lyricsto "treble" {
         \set stanza = "D.C."
         \verseOneADC
       }
@@ -252,6 +252,21 @@ musicContent = {
       \new Voice = "tenor" {
         \global
         \tenorMusic
+      }
+      % First verse - combines A (1st time) and B section
+      \new Lyrics \lyricsto "tenor" {
+        \set stanza = "1."
+        \verseOneA
+        \verseOneB
+      }
+      % Second verse - A section repeat text
+      \new Lyrics \lyricsto "tenor" {
+        \verseOneARepeat
+      }
+      % D.C. verse
+      \new Lyrics \lyricsto "tenor" {
+        \set stanza = "D.C."
+        \verseOneADC
       }
     >>
 
@@ -287,15 +302,69 @@ musicContent = {
   }
 }
 
+
 % Score for MIDI (reuses musicContent with octave doubling)
+
 \score {
   \unfoldRepeats
   \transpose do \songKey {
     <<
-      \musicContent
-      % Octave doubling for richer MIDI sound
-      \new Staff { \global \transpose do do, { \trebleMusic } }
-      \new Staff { \global \transpose do do, { \tenorMusic } }
+      \new ChoirStaff <<
+        \new Staff \with {
+          midiInstrument = #"soprano sax"
+          instrumentName = "Treble"
+        } {
+          \new Voice = "treble" {
+            \global
+            \trebleMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"alto sax"
+          instrumentName = "Alto"
+        } {
+          \new Voice = "alto" {
+            \global
+            \altoMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"trumpet"
+          instrumentName = "Tenor"
+        } {
+          \new Voice = "tenor" {
+            \global
+            \tenorMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"tuba"
+          instrumentName = "Bass"
+        } {
+          \clef bass
+          \new Voice = "bass" {
+            \global
+            \bassMusic
+          }
+        }
+      >>
+      % Octave doubling
+      \new Staff \with {
+        midiInstrument = #"tenor sax"
+        instrumentName = "Treble (low)"
+      } {
+        \new Voice = "treble-low" {
+          \global \transpose do do, { \trebleMusic }
+        }
+      }
+      \new Staff \with {
+        midiInstrument = #"trumpet"
+        instrumentName = "Tenor (low)"
+      } {
+        \new Voice = "tenor-low" {
+          \global \transpose do do, { \tenorMusic }
+        }
+      }
     >>
   }
 
@@ -303,12 +372,7 @@ musicContent = {
     \context {
       \Score
       tempoWholesPerMinute = #(ly:make-moment 100 4)
-    }
 
-    \context {
-      \Staff
-      midiInstrument = #"acoustic grand"
     }
   }
 }
-

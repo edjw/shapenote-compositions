@@ -39,7 +39,7 @@
 songKey = sol  % Change this to set key (see examples above)
 songTitle = "Generosity"
 songMeter = "LM"
-songComposer = "Ed Johnson-Williams, August-September 2025"
+songComposer = "Ed Johnson-Williams, August & September 2025"
 
 \paper {
   page-count = #1
@@ -60,7 +60,7 @@ global = {
   %\minor        % Uncomment for minor keys but leave the \major aboe
   \aikenHeads     % or \sacredHarpHeads for 4-shape
   \numericTimeSignature
-  \time 4/4       % Change as needed
+  \time 2/4       % Change as needed
   \defineBarLine ";" #'("|" ";" " ")
   \defineBarLine ";." #'("|" ";." ";.")
   \defineBarLine ".;" #'("|" ".;" ".;")
@@ -84,7 +84,7 @@ global = {
 trebleMusic = \relative do' {
   % === A SECTION ===
 
-  r2. mi4 |
+  r4 mi4 |
   sol mi mi8([re]) do4 |
   si4 do do sol' |
   sol4 mi sol sol |
@@ -104,7 +104,7 @@ trebleMusic = \relative do' {
 
 altoMusic = \relative do' {
   % === A SECTION ===
-  r2. do4 |
+  r4 do4 |
   mi do do do |
   re do mi do |
   re do do do |
@@ -122,7 +122,7 @@ altoMusic = \relative do' {
 
 tenorMusic = \relative do' {
   % === A SECTION ===
-  r2. mi4 |
+  r4 mi4 |
   do do8([re]) mi4 mi |
   re mi8([re8]) do4 sol |
   sol' la8([sol]) mi4 do8([re])|
@@ -141,7 +141,7 @@ tenorMusic = \relative do' {
 
 bassMusic = \relative do {
   % === A SECTION ===
-  r2. do4 |
+  r4 do4 |
   do sol sol do |
   sol la sol do |
   sol4 la do do |
@@ -259,14 +259,69 @@ musicContent = {
   }
 }
 
+
 % Score for MIDI (reuses musicContent with octave doubling)
+
 \score {
+  \unfoldRepeats
   \transpose do \songKey {
     <<
-      \musicContent
-      % Octave doubling for richer MIDI sound
-      \new Staff { \global \transpose do do, { \trebleMusic } }
-      \new Staff { \global \transpose do do, { \tenorMusic } }
+      \new ChoirStaff <<
+        \new Staff \with {
+          midiInstrument = #"soprano sax"
+          instrumentName = "Treble"
+        } {
+          \new Voice = "treble" {
+            \global
+            \trebleMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"alto sax"
+          instrumentName = "Alto"
+        } {
+          \new Voice = "alto" {
+            \global
+            \altoMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"trumpet"
+          instrumentName = "Tenor"
+        } {
+          \new Voice = "tenor" {
+            \global
+            \tenorMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"tuba"
+          instrumentName = "Bass"
+        } {
+          \clef bass
+          \new Voice = "bass" {
+            \global
+            \bassMusic
+          }
+        }
+      >>
+      % Octave doubling
+      \new Staff \with {
+        midiInstrument = #"tenor sax"
+        instrumentName = "Treble (low)"
+      } {
+        \new Voice = "treble-low" {
+          \global \transpose do do, { \trebleMusic }
+        }
+      }
+      \new Staff \with {
+        midiInstrument = #"trumpet"
+        instrumentName = "Tenor (low)"
+      } {
+        \new Voice = "tenor-low" {
+          \global \transpose do do, { \tenorMusic }
+        }
+      }
     >>
   }
 
@@ -274,12 +329,7 @@ musicContent = {
     \context {
       \Score
       tempoWholesPerMinute = #(ly:make-moment 100 4)
-    }
 
-    \context {
-      \Staff
-      midiInstrument = #"acoustic grand"
     }
   }
 }
-

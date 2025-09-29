@@ -254,8 +254,8 @@ musicContent = {
         \global
         \trebleMusic
       }
-      
-       \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
+
+      \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
       % Repeat lyrics (for the repeated A section)
       \new Lyrics \lyricsto "treble" {
         \set stanza = ""
@@ -270,7 +270,7 @@ musicContent = {
         \global
         \altoMusic
       }
-    
+
     >>
 
     \new Staff = tenor <<
@@ -321,15 +321,69 @@ musicContent = {
   }
 }
 
+
 % Score for MIDI (reuses musicContent with octave doubling)
+
 \score {
   \unfoldRepeats
   \transpose do \songKey {
     <<
-      \musicContent
-      % Octave doubling for richer MIDI sound
-      \new Staff { \global \transpose do do, { \trebleMusic } }
-      \new Staff { \global \transpose do do, { \tenorMusic } }
+      \new ChoirStaff <<
+        \new Staff \with {
+          midiInstrument = #"soprano sax"
+          instrumentName = "Treble"
+        } {
+          \new Voice = "treble" {
+            \global
+            \trebleMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"alto sax"
+          instrumentName = "Alto"
+        } {
+          \new Voice = "alto" {
+            \global
+            \altoMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"trumpet"
+          instrumentName = "Tenor"
+        } {
+          \new Voice = "tenor" {
+            \global
+            \tenorMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"tuba"
+          instrumentName = "Bass"
+        } {
+          \clef bass
+          \new Voice = "bass" {
+            \global
+            \bassMusic
+          }
+        }
+      >>
+      % Octave doubling
+      \new Staff \with {
+        midiInstrument = #"tenor sax"
+        instrumentName = "Treble (low)"
+      } {
+        \new Voice = "treble-low" {
+          \global \transpose do do, { \trebleMusic }
+        }
+      }
+      \new Staff \with {
+        midiInstrument = #"trumpet"
+        instrumentName = "Tenor (low)"
+      } {
+        \new Voice = "tenor-low" {
+          \global \transpose do do, { \tenorMusic }
+        }
+      }
     >>
   }
 
@@ -337,13 +391,7 @@ musicContent = {
     \context {
       \Score
       tempoWholesPerMinute = #(ly:make-moment 100 4)
-    }
 
-    \context {
-      \Staff
-      midiInstrument = #"acoustic grand"
     }
   }
 }
-
-

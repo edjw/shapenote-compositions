@@ -108,18 +108,18 @@ trebleMusic = \relative do'' {
   r2 sol2 |
   sol sol4(fa) |
   mi2 sol |
-  sol2 sol4(fa) |
+  sol2 sol4(fas) |
   sol2 \fermata sol |
   do2 re4(do) |
   si2 la |
   si \fermata sol |
   sol sol |
   sol sol |
-  sol sol4(fa) |
+  sol sol4(fas) |
   sol2 \fermata sol |
   sol sol4(la) |
   sol2 sol |
-  mi2 \fermata
+  mi1 \fermata
 
 }
 
@@ -138,7 +138,7 @@ altoMusic = \relative do' {
   re \fermata mi |
   mi4(fa) mi(re) |
   do2 si |
-  do2 \fermata
+  do1 \fermata
 }
 
 tenorMusic = \relative do'' {
@@ -148,7 +148,7 @@ tenorMusic = \relative do'' {
   do si4 (la) |
   sol2 \fermata sol |
   sol4(la) si(la) |
-  sol2 fa |
+  sol2 fas |
   sol2 \fermata sol |
   do si |
   do mi4(re) |
@@ -156,7 +156,7 @@ tenorMusic = \relative do'' {
   sol2 \fermata sol2 |
   do2 sol4(fa) |
   mi2 re |
-  do2 \fermata
+  do1 \fermata
   \bar ".."
 }
 
@@ -175,7 +175,7 @@ bassMusic = \relative do {
   sol, \fermata do |
   do4(re) mi(fa) |
   sol2 sol,2 |
-  do2 \fermata
+  do1 \fermata
 
 }
 
@@ -279,15 +279,66 @@ musicContent = {
   }
 }
 
-% Score for MIDI (reuses musicContent with octave doubling)
 \score {
   \unfoldRepeats
   \transpose do \songKey {
     <<
-      \musicContent
+      \new ChoirStaff <<
+        \new Staff \with {
+          midiInstrument = #"trumpet"
+          instrumentName = "Treble"
+        } {
+          \new Voice = "treble" {
+            \global
+            \trebleMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"french horn"
+          instrumentName = "Alto"
+        } {
+          \new Voice = "alto" {
+            \global
+            \altoMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"trumpet"
+          instrumentName = "Tenor"
+        } {
+          \new Voice = "tenor" {
+            \global
+            \tenorMusic
+          }
+        }
+        \new Staff \with {
+          midiInstrument = #"tuba"
+          instrumentName = "Bass"
+        } {
+          \clef bass
+          \new Voice = "bass" {
+            \global
+            \bassMusic
+          }
+        }
+      >>
       % Octave doubling
-      \new Staff { \global \transpose do do, { \trebleMusic } }
-      \new Staff { \global \transpose do do, { \tenorMusic } }
+      \new Staff \with {
+        midiInstrument = #"trumpet"
+        instrumentName = "Treble (low)"
+      } {
+        \new Voice = "treble-low" {
+          \global \transpose do do, { \trebleMusic }
+        }
+      }
+      \new Staff \with {
+        midiInstrument = #"trumpet"
+        instrumentName = "Tenor (low)"
+      } {
+        \new Voice = "tenor-low" {
+          \global \transpose do do, { \tenorMusic }
+        }
+      }
     >>
   }
 
@@ -295,11 +346,7 @@ musicContent = {
     \context {
       \Score
       tempoWholesPerMinute = #(ly:make-moment 100 4)
-    }
 
-    \context {
-      \Staff
-      midiInstrument = #"acoustic grand"
     }
   }
 }
