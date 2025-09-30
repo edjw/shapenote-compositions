@@ -33,23 +33,70 @@
 
 %%%%%% QUICK SETTINGS %%%%%%
 songKey = la
+songMode = "major"  % "major" or "minor"
 songTitle = ""
 songMeter = "CM"
-keySignature = "F Major"
-songComposer = "Ed Johnson-Williams, 16 September 2025"
+songComposer = "Ed Johnson-Williams, September 2025"
 poet = "Isaac Watts"
 timeSignature = 4/4
 noteHeadStyle = "seven"  % "seven", "four", or "normal"
-pickupDuration = 0  % 0 = none, 4 = quarter, 2 = half, 8 = eighth
+pickupDuration = "4."  % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
 
 setPickup =
-#(let ((duration (if (defined? 'pickupDuration) pickupDuration 0)))
+#(let ((duration (if (defined? 'pickupDuration) pickupDuration "0")))
    (cond
-    ((equal? duration 2) #{ \partial 2 #})
-    ((equal? duration 4) #{ \partial 4 #})
-    ((equal? duration 8) #{ \partial 8 #})
-    ((equal? duration 0) #{ #})
+    ((equal? duration "2") #{ \partial 2 #})
+    ((equal? duration "2.") #{ \partial 2. #})
+    ((equal? duration "4") #{ \partial 4 #})
+    ((equal? duration "4.") #{ \partial 4. #})
+    ((equal? duration "8") #{ \partial 8 #})
+    ((equal? duration "8.") #{ \partial 8. #})
+    ((equal? duration "0") #{ #})
     (else #{ #})))
+
+
+% Function to convert songKey to readable key signature
+getKeySignature =
+#(let* ((key-pitch (if (defined? 'songKey) songKey (ly:make-pitch 0 0 0)))
+        (mode (if (defined? 'songMode) songMode "major"))
+        (notename (ly:pitch-notename key-pitch))
+        (alteration (ly:pitch-alteration key-pitch))
+        ;; notename: 0=C, 1=D, 2=E, 3=F, 4=G, 5=A, 6=B
+        ;; alteration: -1=flat, 0=natural, 1=sharp
+        (major-keys '(((0 . 0) . "C Major")
+                      ((1 . 0) . "D Major")
+                      ((2 . 0) . "E Major")
+                      ((3 . 0) . "F Major")
+                      ((4 . 0) . "G Major")
+                      ((5 . 0) . "A Major")
+                      ((6 . 0) . "B Major")
+                      ((6 . -1) . "B♭ Major")
+                      ((2 . -1) . "E♭ Major")
+                      ((5 . -1) . "A♭ Major")
+                      ((1 . -1) . "D♭ Major")
+                      ((4 . -1) . "G♭ Major")
+                      ((3 . 1) . "F♯ Major")
+                      ((0 . 1) . "C♯ Major")))
+        (minor-keys '(((5 . 0) . "A Minor")
+                      ((2 . 0) . "E Minor")
+                      ((6 . 0) . "B Minor")
+                      ((3 . 1) . "F♯ Minor")
+                      ((0 . 1) . "C♯ Minor")
+                      ((4 . 1) . "G♯ Minor")
+                      ((1 . 1) . "D♯ Minor")
+                      ((1 . 0) . "D Minor")
+                      ((4 . 0) . "G Minor")
+                      ((0 . 0) . "C Minor")
+                      ((3 . 0) . "F Minor")
+                      ((6 . -1) . "B♭ Minor")
+                      ((2 . -1) . "E♭ Minor")))
+        (keys (if (equal? mode "minor") minor-keys major-keys))
+        (key-pair (cons notename alteration))
+        (result (assoc key-pair keys)))
+   (if result
+       (cdr result)
+       "Unknown Key"))
+
 
 \paper {
   page-count = #1
@@ -64,7 +111,7 @@ setPickup =
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   composer = #songComposer
   tagline = ##f % removes the Lilypond tagline from bottom
-  poet = \markup{ \concat { #keySignature ", " #poet } }
+  poet = \markup{ \concat { #getKeySignature ", " #poet } }
 }
 
 setShapeHeads =
@@ -72,15 +119,6 @@ setShapeHeads =
   ((equal? noteHeadStyle "seven") #{ \aikenHeads #})
   ((equal? noteHeadStyle "four") #{ \sacredHarpHeads #})
   (else #{ #}))
-
-setPickup =
-#(let ((duration (if (defined? 'pickupDuration) pickupDuration 0)))
-   (cond
-    ((equal? duration 2) #{ \partial 2 #})
-    ((equal? duration 4) #{ \partial 4 #})
-    ((equal? duration 8) #{ \partial 8 #})
-    ((equal? duration 0) #{ #})
-    (else #{ #})))
 
 % Don't change this global section
 global = {
