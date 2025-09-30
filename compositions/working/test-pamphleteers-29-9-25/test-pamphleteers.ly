@@ -99,10 +99,12 @@ getKeySignature =
 \paper {
   page-count = #1
   system-count = #2
-  system-system-spacing = #'((basic-distance . 0) (padding . 6))
-  markup-system-spacing = #'((basic-distance . 12) (padding . 4))
-  top-margin = 1.25\cm
-  bottom-margin = 1.25\cm
+  system-system-spacing = #'((basic-distance . 0) (padding . 3))
+  markup-system-spacing = #'((basic-distance . 4) (padding . 3))
+  top-margin = .75\cm
+  bottom-margin = 0\cm
+  left-margin = .75\cm
+  right-margin = .75\cm
 }
 
 \header {
@@ -157,7 +159,15 @@ global = {
 % Triplets:        \tuplet 3/2 { do8 re8 mi8 }
 
 trebleMusic = \relative do' {
+
+  \newSpacingSection
+  \once \override Score.SpacingSpanner.spacing-increment = #0.2
+
   mi4. |
+
+  \newSpacingSection
+  \revert Score.SpacingSpanner.spacing-increment
+
   \repeat volta 2 {
     sol4 sol8 sol4 mi8 |
     sol4 do8 sol4 mi8 |
@@ -166,7 +176,7 @@ trebleMusic = \relative do' {
       {
         mi4. sol4. |
       } {
-        sol4. sol4. |
+        sol4. sol4. |\break
       }
     }
   }
@@ -181,13 +191,16 @@ trebleMusic = \relative do' {
     la4 sol8 mi4 sol8 |
     \alternative {
       {
-        sol4.^\markup { \italic \tiny "Optional repeat" } sol4. |
+        sol4. sol4. |
       }
       {
+        \newSpacingSection
+        \once \override Score.SpacingSpanner.spacing-increment = #0.2
         sol2. |
       }
     }
   }
+  \bar ".."
 }
 
 altoMusic = \relative do' {
@@ -299,7 +312,7 @@ verseOneA = \lyricmode {
   With all your fee -- ble light;
   Fare-
   _
-  And thou re -- ful -- gent orb of day,
+  \set stanza = "1." And thou re -- ful -- gent orb of day,
   In bright -- er flames ar -- rayed;
   My soul which springs be -- yond thy sphere,
   No more de -- mands thy aid.
@@ -312,8 +325,6 @@ verseOneB = \lyricmode {
   \tiny
   _ -well thou ev -- er chan -- ging moon,
   Pale em -- press of the - - night.
-
-
 }
 
 verseTwoA = \lyricmode {
@@ -322,7 +333,7 @@ verseTwoA = \lyricmode {
   Shall swell in -- to mine eyes;
   Nor
   _
-  There all the mill -- ions of his saints
+  \set stanza = "2." There all the mill -- ions of his saints
   Shall in one song u -- nite,
   And each the bliss of all shall share
   With in -- fin -- ite de -- light.
@@ -333,30 +344,28 @@ verseTwoA = \lyricmode {
 
 verseTwoB = \lyricmode {
   \tiny
-  _ the me -- ri -- dian sun de -- cline
+  _ the me -- rid -- ian sun de -- cline
   A -- midst those bright -- er - - skies.
 
 
 }
 
-verseFour = \lyricmode {
-  \tiny
-  % Verse 4 lyrics if needed
-}
 
 %%%%%%% SCORE %%%%%%%%%
 % Main music content (defined once, used for both print and MIDI)
 musicContent = {
   \new ChoirStaff <<
-    \new Staff = treble <<
+    \new Staff = treble \with {
+      \consists "Volta_engraver"
+    } <<
       \new Voice = "treble" {
         \global
         \trebleMusic
       }
       \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOneA }
       \new Lyrics \lyricsto "treble" {  \verseOneB }
-      % Uncomment for additional verses under treble:
-      % \new Lyrics \lyricsto "treble" { \set stanza = "3." \verseThree }
+      \new Lyrics \lyricsto "treble" { \set stanza = "2." \verseTwoA }
+      \new Lyrics \lyricsto "treble" { \verseTwoB }
     >>
 
     \new Staff = alto <<
@@ -367,15 +376,17 @@ musicContent = {
 
     >>
 
-    \new Staff = tenor <<
+    \new Staff = tenor \with {
+      \consists "Volta_engraver"
+    } <<
       \new Voice = "tenor" {
         \global
         \tenorMusic
       }
-      \new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwoA }
+      \new Lyrics \lyricsto "tenor" { \set stanza = "1." \verseOneA }
+      \new Lyrics \lyricsto "tenor" {  \verseOneB }
+      \new Lyrics  \lyricsto "tenor" { \set stanza = "2." \verseTwoA }
       \new Lyrics \lyricsto "tenor" { \verseTwoB }
-
-
     >>
 
     \new Staff = bass <<
@@ -401,17 +412,19 @@ musicContent = {
     \context {
       \Score
       \remove "Bar_number_engraver"
+      \remove "Volta_engraver"
       \override TimeSignature.break-visibility = ##(#f #t #t)
       \override NoteHead.font-size = #2
       startRepeatBarType = #";"
       endRepeatBarType = #";."
       doubleRepeatBarType = ";.;"
     }
+
+
   }
 }
 
 % Score for MIDI (reuses musicContent with octave doubling)
-
 \score {
   \unfoldRepeats
   \transpose do \songKey {
