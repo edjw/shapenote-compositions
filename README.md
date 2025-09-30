@@ -15,6 +15,7 @@ Each composition directory contains:
 
 Compositions currently being developed.
 
+I use Claude to commit to Github for me but I don't use Claude for writing music.
 
 ## Tools
 
