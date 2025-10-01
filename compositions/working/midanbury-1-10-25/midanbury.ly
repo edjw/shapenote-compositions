@@ -33,14 +33,15 @@
 
 %%%%%% QUICK SETTINGS %%%%%%
 songKey = la
-songMode = "major"  % "major" or "minor"
-songTitle = ""
-songMeter = "CM"
-songComposer = "Ed Johnson-Williams, September 2025"
-poetName = "Isaac Watts"
-timeSignature = 4/4
+songMode = "minor"  % "major" or "minor"
+songTitle= "Midanbury"
+songMeter = "6s"
+songComposer = "Ed Johnson-Williams, October 2025"
+poetName = ""
+timeSignature = 2/2
 noteHeadStyle = "seven"  % "seven", "four", or "normal"
 pickupDuration = "0"  % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
+
 
 setPickup =
 #(let ((duration (if (defined? 'pickupDuration) pickupDuration "0")))
@@ -101,7 +102,7 @@ getKeySignature =
 
 \paper {
   page-count = #1
-  system-count = #2
+  system-count = #1
   system-system-spacing = #'((basic-distance . 0) (padding . 6))
   markup-system-spacing = #'((basic-distance . 12) (padding . 4))
   top-margin = 1.25\cm
@@ -121,7 +122,6 @@ getKeySignature =
     }
   }
 }
-
 
 setShapeHeads =
 #(cond
@@ -165,47 +165,112 @@ global = {
 % Text markings:   do4^\markup { "Fine" }
 % Triplets:        \tuplet 3/2 { do8 re8 mi8 }
 
-trebleMusic = \relative do'' {
-
+trebleMusic = \relative do' {
+  r2 mi2 |
+  mi la |
+  la sol |
+  mi1 |
+  r2 sol2 |
+  la2 mi |
+  mi la |
+  sol1 |
+  r2 mi |
+  mi do |
+  mi mi |
+  re1 |
+  r2 mi4(re) |
+  mi2 mi |
+  la mi |
+  mi1
 }
 
 altoMusic = \relative do' {
+  r2 la2 |
+  mi mi |
+  mi sol |
+  la1 |
+  r2 do |
+  la la |
+  do la |
+  sol1 |
+  r2 la2 |
+  mi2 la4(sol) |
+  la2 mi |
+  sol1 |
+  r2 la2 |
+  la la |
+  mi mi |
+  la1
 
 }
 
-tenorMusic = \relative do' {
-
+tenorMusic = \relative do {
+  r2 mi2
+  la2 la2
+  la2 sol2
+  la1
+  r2 sol2
+  do do2
+  do2 re2
+  mi1
+  r2 mi2
+  la2 la4(sol)
+  mi2 mi2
+  re1
+  r2
+  mi4(re)
+  do2 la2
+  la2 sol2
+  la1
   \bar ".."
 }
 
 bassMusic = \relative do {
-
+  r2 la |
+  la mi |
+  la do |
+  la1 |
+  r2 do |
+  do la |
+  la la |
+  sol1 |
+  r2 la |
+  mi do' |
+  la la |
+  sol1 |
+  r2 la |
+  la do |
+  la mi |
+  la1
 }
 
 %%%%%%% LYRICS %%%%%%%%%
 
 verseOne = \lyricmode {
   \tiny
-  % Verse 1 lyrics
-
+  Come, wan -- d’ring sheep, oh, come!
+  I’ll bind thee to my breast,
+  I’ll bear thee to my home,
+  And lay thee down to rest.
 }
 
 verseTwo = \lyricmode {
   \tiny
-  % Verse 2 lyrics
-
+  I saw thee stray for -- lorn,
+  And heard thee faint -- ly cry,
+  And on the tree of scorn
+  For thee I deigned to die.
 }
 
-% Additional verses if needed
+
 verseThree = \lyricmode {
   \tiny
-  % Verse 3 lyrics if needed
+  I shield thee from a -- larms,
+  And wilt thou not be blest?
+  I bear thee in my arms,
+  Thou bear me in thy breast.
 }
 
-verseFour = \lyricmode {
-  \tiny
-  % Verse 4 lyrics if needed
-}
 
 %%%%%%% SCORE %%%%%%%%%
 % Main music content (defined once, used for both print and MIDI)
@@ -217,8 +282,6 @@ musicContent = {
         \trebleMusic
       }
       \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
-      % Uncomment for additional verses under treble:
-      % \new Lyrics \lyricsto "treble" { \set stanza = "3." \verseThree }
     >>
 
     \new Staff = alto <<
@@ -226,8 +289,7 @@ musicContent = {
         \global
         \altoMusic
       }
-      % Uncomment for verse 2 under alto:
-      % \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
+      \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
     >>
 
     \new Staff = tenor <<
@@ -235,8 +297,6 @@ musicContent = {
         \global
         \tenorMusic
       }
-      %\new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
-      % Uncomment for verse 3 under tenor:
       \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
     >>
 
@@ -246,8 +306,7 @@ musicContent = {
         \global
         \bassMusic
       }
-      % Uncomment for lyrics under bass (less common):
-      % \new Lyrics \lyricsto "bass" { \set stanza = "4." \verseFour }
+
     >>
   >>
 }

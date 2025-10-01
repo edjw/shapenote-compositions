@@ -53,11 +53,13 @@ setPickup =
 
 \paper {
   page-count = #1
-  system-count = #2
+  system-count = #1
   system-system-spacing = #'((basic-distance . 0) (padding . 6))
   markup-system-spacing = #'((basic-distance . 12) (padding . 4))
   top-margin = 1.25\cm
   bottom-margin = 1.25\cm
+  left-margin = .75\cm
+  right-margin = .75\cm
 }
 
 
@@ -127,8 +129,7 @@ trebleMusic = \relative do'' {
   sol2 sol4
   sol2 do4
   do2 do8(la)
-  sol2.
-  r2 do4
+  sol2 do4
   la2 sol4
   mi2 sol4
   la2 si4
@@ -146,8 +147,7 @@ altoMusic = \relative do' {
   mi2 do8(re)
   mi2 do4
   mi2 mi8(do)
-  re2.
-  r2 mi4
+  re2 mi4
   mi2 do4
   la2 do4
   do2 re4
@@ -161,8 +161,7 @@ altoMusic = \relative do' {
 tenorMusic = \relative do' {
   r2 do8 (mi) sol2 la4 sol2
   do,4 re2 mi8 (re) do2
-  do8 (re) mi2 la4 sol2 do8 (la) sol2.
-  r2 sol4 la2 do4 la2 sol4
+  do8 (re) mi2 la4 sol2 do8 (la) sol2 sol4 la2 do4 la2 sol4
   do,2 re4 mi2
   do'4 la2 sol4 la2 sol8 (mi) do2.
   \bar ".."
@@ -177,8 +176,7 @@ bassMusic = \relative do {
   do,2 sol4
   do2 la4
   sol2 do8(mi)
-  sol2.
-  r2 do,4
+  sol2 do,4
   mi2 do4
   mi2 mi4
   fa2 sol4
@@ -202,7 +200,11 @@ verseOne = \lyricmode {
 
 verseTwo = \lyricmode {
   \tiny
-  % Verse 2 lyrics
+  Wher -- e'er we turn our gaz -- ing eyes,
+  Thy rad -- iant foot -- steps shine;
+  Ten thous -- and pleas -- ing won -- ders rise
+  And speak their source di -- vine.
+
 
 }
 
@@ -227,6 +229,8 @@ musicContent = {
         \trebleMusic
       }
       \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
+      \new Lyrics \lyricsto "treble" { \set stanza = "2." \verseTwo }
+
       % Uncomment for additional verses under treble:
       % \new Lyrics \lyricsto "treble" { \set stanza = "3." \verseThree }
     >>
@@ -245,9 +249,10 @@ musicContent = {
         \global
         \tenorMusic
       }
-      %\new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
-      % Uncomment for verse 3 under tenor:
       \new Lyrics \lyricsto "tenor" { \set stanza = "1." \verseOne }
+
+      \new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
+
     >>
 
     \new Staff = bass <<
@@ -256,8 +261,6 @@ musicContent = {
         \global
         \bassMusic
       }
-      % Uncomment for lyrics under bass (less common):
-      % \new Lyrics \lyricsto "bass" { \set stanza = "4." \verseFour }
     >>
   >>
 }
