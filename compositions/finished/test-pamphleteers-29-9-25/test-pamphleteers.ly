@@ -219,7 +219,7 @@ altoMusic = \relative do' {
   }
 
   \repeat volta 2 {
-    la4 do8 mi4 mi8 |
+    do4 do8 mi4 mi8 |
     do4 sol8 sol4 do8 |
     mi4 do8 do4 do8 |
     do4. mi4. |
