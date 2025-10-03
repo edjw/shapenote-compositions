@@ -32,7 +32,7 @@
 % C minor:  \transpose do mib
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = la
+songKey = sib
 songMode = "minor"  % "major" or "minor"
 songTitle= "Midanbury"
 songMeter = "6s"
@@ -107,6 +107,7 @@ getKeySignature =
   markup-system-spacing = #'((basic-distance . 12) (padding . 4))
   top-margin = 1.25\cm
   bottom-margin = 1.25\cm
+  ragged-last = ##f
 }
 
 \header {
@@ -166,81 +167,77 @@ global = {
 % Triplets:        \tuplet 3/2 { do8 re8 mi8 }
 
 trebleMusic = \relative do' {
-  r2 mi2 |
-  mi la |
-  la sol |
-  mi1 |
-  r2 sol2 |
-  la2 mi |
-  mi la |
-  sol1 |
-  r2 mi |
-  mi do |
-  mi mi |
-  re1 |
-  r2 mi4(re) |
-  mi2 mi |
-  la mi |
+  r2 mi2
+  mi4 la
+  la2 sol
+  mi sol2
+  mi4 mi
+  mi2 sol
+  la2
+  mi2
+  mi4 mi
+  sol2 la4(sol)
+  la2
+  la4(sol)
+  mi mi
+  la2 mi
   mi1
+
 }
 
 altoMusic = \relative do' {
-  r2 la2 |
-  mi mi |
-  mi sol |
-  la1 |
-  r2 do |
-  la la |
-  do la |
-  sol1 |
-  r2 la2 |
-  mi2 la4(sol) |
-  la2 mi |
-  sol1 |
-  r2 la2 |
-  la la |
-  mi mi |
+  r2 la2
+  mi4 mi
+  mi2 sol
+  la sol
+  sol4 la
+  la2 sol
+  mi2
+  la2
+  mi4 la
+  sol2 mi4(sol)
+  mi2
+  mi4(sol)
+  la4 la
+  mi2 la
   la1
 
 }
 
 tenorMusic = \relative do {
   r2 mi2
-  la2 la2
-  la2 sol2
-  la1
-  r2 sol2
-  do do2
-  do2 re2
-  mi1
-  r2 mi2
-  la2 la4(sol)
-  mi2 mi2
-  re1
-  r2
-  mi4(re)
-  do2 la2
-  la2 sol2
-  la1
+  la4 la
+  la2 sol
+  la sol
+  do4 do
+  do2 re
+  mi2
+  mi2
+  la4 la
+  sol2 mi4(re)
+
+  mi2
+  do4(re) mi
+  mi mi2 mi
+  la,1
   \bar ".."
 }
 
+
 bassMusic = \relative do {
-  r2 la |
-  la mi |
-  la do |
-  la1 |
-  r2 do |
-  do la |
-  la la |
-  sol1 |
-  r2 la |
-  mi do' |
-  la la |
-  sol1 |
-  r2 la |
-  la do |
-  la mi |
+  r2 la2
+  la4 la
+  la2 do
+  la do
+  do4 la
+  mi2 sol
+  la2
+  la
+  mi4 mi do'2
+  la4(sol) do2
+  la4(sol) la4
+  mi
+  mi2 mi
   la1
 }
 
