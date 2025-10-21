@@ -110,7 +110,7 @@ jobs:
           cd blog
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/files/shapenote-compositions/*.pdf
+          git add -A public/files/shapenote-compositions/
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
