@@ -54,7 +54,7 @@ jobs:
           for file in $CHANGED_PDFS; do
             if [ -f "$file" ]; then
               # Get file modification date in YYYY-MM-DD format
-              MOD_DATE=$(date -r "$file" +%Y-%m-%d)
+              MOD_DATE=$(date -d "@$(stat -c %Y "$file")" +%Y-%m-%d)
 
               # Extract filename without extension
               FILENAME=$(basename "$file")
