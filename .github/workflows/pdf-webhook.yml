@@ -36,13 +36,16 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "Manual trigger detected - copying all PDF files"
             CHANGED_PDFS=$(find compositions/finished -name "*.pdf" -type f)
+            DELETED_PDFS=""
           else
             echo "Automatic trigger - copying only changed PDF files"
             CHANGED_PDFS=$(git diff --name-only HEAD^ HEAD | grep '^compositions/finished/.*\.pdf$' || true)
+            # Detect deleted PDF files
+            DELETED_PDFS=$(git diff --name-only --diff-filter=D HEAD^ HEAD | grep '^compositions/finished/.*\.pdf$' || true)
           fi
 
-          if [ -z "$CHANGED_PDFS" ]; then
-            echo "No PDF files to copy"
+          if [ -z "$CHANGED_PDFS" ] && [ -z "$DELETED_PDFS" ]; then
+            echo "No PDF files to copy or delete"
             echo "has_changes=false" >> $GITHUB_OUTPUT
             exit 0
           fi
@@ -75,6 +78,32 @@ jobs:
           COPIED_FILES=${COPIED_FILES%, }
           echo "copied_files=$COPIED_FILES" >> $GITHUB_OUTPUT
 
+          # Handle deleted PDFs
+          DELETED_FILES=""
+          for file in $DELETED_PDFS; do
+            # Extract filename without extension
+            FILENAME=$(basename "$file")
+            BASENAME="${FILENAME%.pdf}"
+
+            # Remove any existing date pattern to get base name
+            BASENAME_CLEAN=$(echo "$BASENAME" | sed -E 's/_?[0-9]{4}-[0-9]{2}-[0-9]{2}$//; s/_?[0-9]{2}-[0-9]{2}-[0-9]{4}$//')
+
+            # Find and remove all dated versions of this file in blog repo
+            # Pattern matches: basename_YYYY-MM-DD.pdf
+            PATTERN="../blog/public/files/shapenote-compositions/${BASENAME_CLEAN}_[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].pdf"
+            for dated_file in $PATTERN; do
+              if [ -f "$dated_file" ]; then
+                rm "$dated_file"
+                DELETED_BASENAME=$(basename "$dated_file")
+                echo "Deleted: $DELETED_BASENAME"
+                DELETED_FILES="$DELETED_FILES$DELETED_BASENAME, "
+              fi
+            done
+          done
+
+          DELETED_FILES=${DELETED_FILES%, }
+          echo "deleted_files=$DELETED_FILES" >> $GITHUB_OUTPUT
+
       - name: Commit and push to blog repository
         if: steps.copy-files.outputs.has_changes == 'true'
         run: |
@@ -88,5 +117,14 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update shapenote composition PDFs: ${{ steps.copy-files.outputs.copied_files }}"
+          # Build commit message
+          COMMIT_MSG="Update shapenote composition PDFs"
+          if [ -n "${{ steps.copy-files.outputs.copied_files }}" ]; then
+            COMMIT_MSG="$COMMIT_MSG - Added: ${{ steps.copy-files.outputs.copied_files }}"
+          fi
+          if [ -n "${{ steps.copy-files.outputs.deleted_files }}" ]; then
+            COMMIT_MSG="$COMMIT_MSG - Removed: ${{ steps.copy-files.outputs.deleted_files }}"
+          fi
+
+          git commit -m "$COMMIT_MSG"
           git push
