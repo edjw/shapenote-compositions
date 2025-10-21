@@ -47,7 +47,7 @@ songComposer = "Ed Johnson-Williams, August & September 2025"
 
 \paper {
   page-count = #1
-  system-count = #2
+  system-count = #1
   system-system-spacing = #'((basic-distance . 0) (padding . 6))
   top-margin = 0.5\in
 }
