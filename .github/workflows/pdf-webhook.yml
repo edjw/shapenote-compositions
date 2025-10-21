@@ -53,8 +53,8 @@ jobs:
           COPIED_FILES=""
           for file in $CHANGED_PDFS; do
             if [ -f "$file" ]; then
-              # Get file modification date in YYYY-MM-DD format
-              MOD_DATE=$(date -d "@$(stat -c %Y "$file")" +%Y-%m-%d)
+              # Get git commit date for the file in YYYY-MM-DD format
+              MOD_DATE=$(git log -1 --format=%cd --date=format:%Y-%m-%d -- "$file")
 
               # Extract filename without extension
               FILENAME=$(basename "$file")
