@@ -1,0 +1,71 @@
+name: Copy PDFs to Blog Repository
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'compositions/finished/**/*.pdf'
+
+jobs:
+  copy-pdfs-to-blog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout shapenote-compositions repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          path: shapenote-compositions
+
+      - name: Checkout blog repository
+        uses: actions/checkout@v4
+        with:
+          repository: edjw/edjw-blog-astro
+          token: ${{ secrets.BLOG_REPO_TOKEN }}
+          path: blog
+
+      - name: Get changed PDF files and copy to blog
+        id: copy-files
+        run: |
+          cd shapenote-compositions
+          CHANGED_PDFS=$(git diff --name-only HEAD^ HEAD | grep '^compositions/finished/.*\.pdf$' || true)
+
+          if [ -z "$CHANGED_PDFS" ]; then
+            echo "No PDF files changed"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+          mkdir -p ../blog/public/files/shapenote-compositions
+
+          COPIED_FILES=""
+          for file in $CHANGED_PDFS; do
+            if [ -f "$file" ]; then
+              FILENAME=$(basename "$file")
+              cp "$file" "../blog/public/files/shapenote-compositions/$FILENAME"
+              echo "Copied: $FILENAME"
+              COPIED_FILES="$COPIED_FILES$FILENAME, "
+            fi
+          done
+
+          COPIED_FILES=${COPIED_FILES%, }
+          echo "copied_files=$COPIED_FILES" >> $GITHUB_OUTPUT
+
+      - name: Commit and push to blog repository
+        if: steps.copy-files.outputs.has_changes == 'true'
+        run: |
+          cd blog
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/files/shapenote-compositions/*.pdf
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Update shapenote composition PDFs: ${{ steps.copy-files.outputs.copied_files }}"
+          git push
