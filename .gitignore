@@ -20,6 +20,3 @@ wheels/
 *.band/
 !templates/voice.band/
 *.wav
-*.aiff
-*.mp3
-*.m4a
