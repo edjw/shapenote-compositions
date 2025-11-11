@@ -77,6 +77,17 @@ jobs:
               # Construct new filename with modification date
               NEW_FILENAME="${BASENAME_CLEAN}_${MOD_DATE}.pdf"
 
+              # Remove old dated versions of this file before copying the new one
+              # Pattern matches: basename_YYYY-MM-DD.pdf
+              OLD_VERSIONS=$(find ../blog/public/files/shapenote-compositions -name "${BASENAME_CLEAN}_[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].pdf" -type f)
+              if [ -n "$OLD_VERSIONS" ]; then
+                echo "Removing old versions of $BASENAME_CLEAN:"
+                echo "$OLD_VERSIONS" | while read old_file; do
+                  rm -f "$old_file"
+                  echo "  Removed: $(basename "$old_file")"
+                done
+              fi
+
               cp "$file" "../blog/public/files/shapenote-compositions/$NEW_FILENAME"
               echo "Copied: $FILENAME -> $NEW_FILENAME"
               COPIED_FILES="$COPIED_FILES$NEW_FILENAME, "
