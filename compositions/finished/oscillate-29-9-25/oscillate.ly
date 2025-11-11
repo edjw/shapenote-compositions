@@ -33,7 +33,7 @@
 %%%%%% QUICK SETTINGS %%%%%%
 songKey = sol
 songMode = "major"  % "major" or "minor"
-songTitle = "Test Pamphleteers"
+songTitle = "Oscillate"
 songMeter = "CM"
 songComposer = "Ed Johnson-Williams, September 2025"
 poet = "Philip Doddridge"
@@ -364,8 +364,8 @@ musicContent = {
       }
       \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOneA }
       \new Lyrics \lyricsto "treble" {  \verseOneB }
-      \new Lyrics \lyricsto "treble" { \set stanza = "2." \verseTwoA }
-      \new Lyrics \lyricsto "treble" { \verseTwoB }
+      % \new Lyrics \lyricsto "treble" { \set stanza = "2." \verseTwoA }
+      % \new Lyrics \lyricsto "treble" { \verseTwoB }
     >>
 
     \new Staff = alto <<
@@ -385,8 +385,8 @@ musicContent = {
       }
       \new Lyrics \lyricsto "tenor" { \set stanza = "1." \verseOneA }
       \new Lyrics \lyricsto "tenor" {  \verseOneB }
-      \new Lyrics  \lyricsto "tenor" { \set stanza = "2." \verseTwoA }
-      \new Lyrics \lyricsto "tenor" { \verseTwoB }
+      %  \new Lyrics  \lyricsto "tenor" { \set stanza = "2." \verseTwoA }
+      %  \new Lyrics \lyricsto "tenor" { \verseTwoB }
     >>
 
     \new Staff = bass <<
