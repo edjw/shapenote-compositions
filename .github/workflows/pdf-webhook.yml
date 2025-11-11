@@ -39,9 +39,17 @@ jobs:
             DELETED_PDFS=""
           else
             echo "Automatic trigger - copying only changed PDF files"
-            CHANGED_PDFS=$(git diff --name-only HEAD^ HEAD | grep '^compositions/finished/.*\.pdf$' || true)
+            # Use github.event.before to check ALL commits in the push, not just the latest
+            # Falls back to HEAD^ for edge cases (first push, force push)
+            BEFORE_SHA="${{ github.event.before }}"
+            if [ -z "$BEFORE_SHA" ] || [ "$BEFORE_SHA" = "0000000000000000000000000000000000000000" ]; then
+              echo "No previous commit available, using HEAD^"
+              BEFORE_SHA="HEAD^"
+            fi
+            echo "Comparing $BEFORE_SHA to ${{ github.event.after }}"
+            CHANGED_PDFS=$(git diff --name-only $BEFORE_SHA ${{ github.event.after }} | grep '^compositions/finished/.*\.pdf$' || true)
             # Detect deleted PDF files
-            DELETED_PDFS=$(git diff --name-only --diff-filter=D HEAD^ HEAD | grep '^compositions/finished/.*\.pdf$' || true)
+            DELETED_PDFS=$(git diff --name-only --diff-filter=D $BEFORE_SHA ${{ github.event.after }} | grep '^compositions/finished/.*\.pdf$' || true)
           fi
 
           if [ -z "$CHANGED_PDFS" ] && [ -z "$DELETED_PDFS" ]; then
