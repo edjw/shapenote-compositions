@@ -33,7 +33,7 @@
 %%%%%% QUICK SETTINGS %%%%%%
 songKey = sol
 songMode = "major"  % "major" or "minor"
-songTitle = "Oscillate"
+songTitle = "Deliverance"
 songMeter = "CM"
 songComposer = "Ed Johnson-Williams, September 2025"
 poet = "Philip Doddridge"
