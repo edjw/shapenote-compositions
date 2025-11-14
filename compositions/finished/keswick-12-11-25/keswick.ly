@@ -186,7 +186,7 @@ trebleMusic = \relative do'' {
   % la2 sol4 |
   % mi2 mi8[(re8)] |
   %
-  mi2 do	4 |
+  do   2 do	4 |
   do2 re4 |
   sol2 sol4 |
   mi2.
@@ -224,7 +224,7 @@ tenorMusic = \relative do'' {
   sol2 la4 |
   do2 do4 |
   la2 sol4 |
-  do2 do8[(re8)] |
+  do2 do4 |
   mi2 mi4 |
   do2 sol4 |
   sol'2 mi4 |
@@ -238,7 +238,7 @@ tenorMusic = \relative do'' {
   r2 mi8[(re8)] |
   %
   do2 do4 |
-  mi2 do8[(re8)] |
+  mi2 do4 |
   mi2 mi4 |
   do2 sol4 |
   sol'2 mi8[(re8)] |
