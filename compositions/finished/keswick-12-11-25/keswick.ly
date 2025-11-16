@@ -35,7 +35,7 @@
 songKey = do
 songMode = "major"  % "major" or "minor"
 songTitle = "Keswick"
-songMeter = "CM"
+songMeter = "8,8"
 songComposer = "Ed Johnson-Williams, November 2025"
 poetName = "The Keswick School of Industrial Art"
 timeSignature = 3/4
