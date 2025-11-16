@@ -36,7 +36,7 @@ songKey = mib
 songMode = "major"  % "major" or "minor"
 songTitle = "Skiddaw"
 songMeter = "CM"
-songComposer = "Ed Johnson-Williams, October 2025"
+songComposer = "Ed Johnson-Williams, October & November 2025"
 poetName = "Morgan D. Jones"
 timeSignature = 3/4
 noteHeadStyle = "seven"  % "seven", "four", or "normal"
@@ -172,19 +172,18 @@ trebleMusic = \relative do' {
   sol2 la4 |
   sol2 sol4 |
   mi2 sol4 |
-  sol2 fa4 |
+  do2 do4 |
   sol2 mi8[(fa)] |
   sol2. |
   r2 sol4 |
-  la2 mi'4 |
-  do2 sol4 |
+  la2 la4 |
+  do2 do4 |
   do2 re4 |
-  do2 mi4 |
-  fa2 fa4 |
-  do2 sol4 |
+  do2 do4 |
+  la2 la4 |
+  la2 sol4 |
   sol2. |
 }
-
 
 altoMusic = \relative do' {
   mi8[(re)]|
@@ -195,12 +194,12 @@ altoMusic = \relative do' {
   mi2 fa4 |
   mi2 do4 |
   re2. |
-  r2 do4 |
+  r2 mi4 |
   do2 do4 |
-  do2 do4 |
-  mi2 sol4 |
+  do2 mi4 |
+  mi2 re4 |
   mi2 do4 |
-  la2 la4 |
+  do2 do4 |
   do2 re4 |
   mi2.
 
@@ -213,7 +212,7 @@ tenorMusic = \relative do' {
   mi2 re4 |
   do2 do4 |
   mi2 fa4 |
-  sol2 do4 |
+  sol2 do8[(la8)] |
   sol2. |
   r2 sol4 |
   la2 do4 |
@@ -231,13 +230,13 @@ bassMusic = \relative do {
   do2 do4 |
   sol2 do4 |
   do2 re4 |
-  mi2 mi4 |
+  do2 mi4 |
   do2 do4 |
   do2 la4 |
   sol2. |
-  r2 do8[(mi)] |
-  fa2 sol4 |
-  fa2 do4 |
+  r2 do4 |
+  fa2 fa4 |
+  do2 do4 |
   do2 sol4 |
   do2 do4 |
   do2 re4 |

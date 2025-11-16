@@ -1,7 +1,7 @@
 ## A lot
 - I
 - V
-- V7 -> I
+- V7 (sol si re fa)-> I 
 - IV -> I
 
 ## Quite a lot
@@ -49,7 +49,7 @@ Lot of I and V
 
 Happens a lot, especially Alto
 
-## IV6
+## ii min7 bs 7??
 Do re la fa
 Do la fa re
 I won't turn back has it a bit in passing
