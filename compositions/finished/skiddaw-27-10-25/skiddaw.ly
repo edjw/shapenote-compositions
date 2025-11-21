@@ -167,13 +167,13 @@ global = {
 % Triplets:        \tuplet 3/2 { do8 re8 mi8 }
 
 trebleMusic = \relative do' {
-  mi8[(fa)] |
+  mi8[fa] |
   sol2 la4 |
   sol2 la4 |
   sol2 sol4 |
   mi2 sol4 |
   do2 do4 |
-  sol2 mi8[(fa)] |
+  sol2 mi8[fa] |
   sol2. |
   \repeat volta 2 {
     r2 sol4 |
@@ -188,7 +188,7 @@ trebleMusic = \relative do' {
 }
 
 altoMusic = \relative do' {
-  mi8[(re)]|
+  mi8[re]|
   do2 do4 |
   re2 do4 |
   do2 si4 |
@@ -211,13 +211,13 @@ altoMusic = \relative do' {
 }
 
 tenorMusic = \relative do' {
-  do8[(re)]|
+  do8[re]|
   mi2 fa4 |
   sol2 fa4 |
   mi2 re4 |
   do2 do4 |
   mi2 fa4 |
-  sol2 do8[(la8)] |
+  sol2 do8[la8] |
   sol2. |
   \repeat volta 2 {
 
@@ -235,7 +235,7 @@ tenorMusic = \relative do' {
 }
 
 bassMusic = \relative do {
-  do8[(re)] |
+  do8[re] |
   do2 do4 |
   sol2 do4 |
   do2 re4 |
