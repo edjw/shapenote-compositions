@@ -1,7 +1,7 @@
 ## A lot
 - I
 - V
-- V7 (sol si re fa)-> I 
+- V7 (sol si re fa, sol re si fa, sol re sol fa, sol sol re fa, sol fa re si)-> I 
 - IV -> I
 
 ## Quite a lot
@@ -12,8 +12,8 @@
 
 ## Occasionally
 - #IVdim bs3 rTr (la do do fi / la do la fi) -> V
-- ii in passing mostly
-- iii in passing mostly -> V/I
+- ii (fa re la fa, re fa la fa) in passing mostly
+- iii (sol mi sol si) in passing mostly -> V/I
 - 
 
 
@@ -97,7 +97,7 @@ Used to move into V in Where We'll Never Grow Old and Father Along
 Used a little bit in passing
 Sol mi sol si
 
-## `iimin`
+## `ii min`
 Used a bit in passing
 (Fa re la fa : bs3) in Father Along 
 
