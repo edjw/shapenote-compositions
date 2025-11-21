@@ -211,9 +211,9 @@ altoMusic = \relative do' {
   r2. |
   r2 sol4
   %
-  la2 la4 |
+  sol2 la4 |
   la2 sol4 |
-  mi2 mi4 |
+  mi2 la4 |
   la2 sol4 |
   sol2 sol4 |
   sol2.
@@ -312,7 +312,7 @@ musicContent = {
         \global
         \trebleMusic
       }
-      \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
+      \new Lyrics \lyricsto "treble" { \verseOne }
       % Uncomment for additional verses under treble:
       % \new Lyrics \lyricsto "treble" { \set stanza = "3." \verseThree }
     >>
@@ -333,7 +333,7 @@ musicContent = {
       }
       %\new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
       % Uncomment for verse 3 under tenor:
-      \new Lyrics \lyricsto "tenor" { \set stanza = "1." \verseOne }
+      \new Lyrics \lyricsto "tenor" { \verseOne }
     >>
 
     \new Staff = bass <<
