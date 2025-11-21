@@ -171,24 +171,24 @@ trebleMusic = \relative do'' {
   mi2 mi4 |
   sol2 mi4 |
   do2 re4 |
-  do2 mi8[(re8)] |
+  do2 mi8[re8] |
   do2 do4 |
   mi2 sol4 |
   mi2 mi4 |
   re2. |
-  r2 mi8[(re8)] |
+  r2 mi8[re8] |
   do2 mi4 |
   %
   sol2 r4 |
   r2. |
-  r2 mi8[(re8)] |
+  r2 mi8[re8] |
   % sol2 la4 |
   % la2 sol4 |
   % mi2 mi8[(re8)] |
   %
-  do   2 do	4 |
+  do2 do4 |
   do2 re4 |
-  sol2 sol4 |
+  re2 do8[re] |
   mi2.
 
 }
@@ -201,7 +201,7 @@ altoMusic = \relative do' {
   mi2 sol4 |
   mi2 do4 |
   mi2 re4 |
-  mi2 do8[(mi8)] |
+  mi2 do8[mi8] |
   sol2. |
   %
   % r2 sol4 |
@@ -214,9 +214,9 @@ altoMusic = \relative do' {
   la2 la4 |
   la2 sol4 |
   mi2 mi4 |
-  fa2 re4 |
-  re2 do8[(re8)] |
-  mi2.
+  la2 sol4 |
+  sol2 sol4 |
+  sol2.
 }
 
 tenorMusic = \relative do'' {
@@ -235,13 +235,13 @@ tenorMusic = \relative do'' {
   %sol2 mi'8[(re8)] |
   r2. |
   r2. |
-  r2 mi8[(re8)] |
+  r2 mi8[re8] |
   %
   do2 do4 |
   mi2 do4 |
   mi2 mi4 |
   do2 sol4 |
-  sol'2 mi8[(re8)] |
+  sol'2 mi8[re8] |
   do2.|
   \bar ".."
 }
@@ -269,7 +269,7 @@ bassMusic = \relative do' {
   %
   la2 la4 |
   fa2 sol4 |
-  sol2 mi8[(re8)] |
+  sol2 mi8[re8] |
   do2.
 }
 
