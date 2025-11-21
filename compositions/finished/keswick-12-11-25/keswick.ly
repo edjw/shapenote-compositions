@@ -38,9 +38,9 @@ songTitle = "Keswick"
 songMeter = "8,8"
 songComposer = "Ed Johnson-Williams, November 2025"
 poetName = "The Keswick School of Industrial Art"
-timeSignature = 3/4
+timeSignature = 3/2
 noteHeadStyle = "seven"  % "seven", "four", or "normal"
-pickupDuration = "4"  % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
+pickupDuration = "2"  % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
 
 setPickup =
 #(let ((duration (if (defined? 'pickupDuration) pickupDuration "0")))
@@ -106,6 +106,7 @@ getKeySignature =
   markup-system-spacing = #'((basic-distance . 12) (padding . 4))
   top-margin = 1.25\cm
   bottom-margin = 1.25\cm
+
 }
 
 \header {
@@ -167,110 +168,110 @@ global = {
 % Triplets:        \tuplet 3/2 { do8 re8 mi8 }
 
 trebleMusic = \relative do'' {
-  do4 |
-  mi2 mi4 |
-  sol2 mi4 |
-  do2 re4 |
-  do2 mi8[re8] |
-  do2 do4 |
-  mi2 sol4 |
-  mi2 mi4 |
-  re2. |
-  r2 mi8[re8] |
-  do2 mi4 |
+  do2 |
+  mi1 mi2 |
+  sol1 mi2 |
+  do1 re2 |
+  do1 mi4(re4) |
+  do1 do2 |
+  mi1 sol2 |
+  mi1 mi2 |
+  re1. |
+  r1 mi4(re4) |
+  do1 mi2 |
   %
-  sol2 r4 |
-  r2. |
-  r2 mi8[re8] |
-  % sol2 la4 |
-  % la2 sol4 |
-  % mi2 mi8[(re8)] |
+  sol1 r2 |
+  r1. |
+  r1 mi4(re4) |
+  % sol1 la2 |
+  % la1 sol2 |
+  % mi1 mi4((re4)) |
   %
-  do2 do4 |
-  do2 re4 |
-  re2 do8[re] |
-  mi2.
+  do1 do2 |
+  do1 re2 |
+  re1 do4(re) |
+  mi1.
 
 }
 
 altoMusic = \relative do' {
-  do4 |
-  mi2 do4 |
-  do2 mi4 |
-  mi2 re4 |
-  mi2 sol4 |
-  mi2 do4 |
-  mi2 re4 |
-  mi2 do8[mi8] |
-  sol2. |
+  do2 |
+  mi1 do2 |
+  do1 mi2 |
+  mi1 re2 |
+  mi1 sol2 |
+  mi1 do2 |
+  mi1 re2 |
+  mi1 do4(mi4) |
+  sol1. |
   %
-  % r2 sol4 |
-  % la2 sol4 |
-  %    mi2 mi8[(sol8)] |
-  r2. |
-  r2. |
-  r2 sol4
+  % r1 sol2 |
+  % la1 sol2 |
+  %    mi1 mi4((sol4)) |
+  r1. |
+  r1. |
+  r1 sol2
   %
-  sol2 la4 |
-  la2 sol4 |
-  mi2 la4 |
-  la2 sol4 |
-  sol2 sol4 |
-  sol2.
+  sol1 la2 |
+  la1 sol2 |
+  mi1 la2 |
+  la1 sol2 |
+  sol1 sol2 |
+  sol1.
 }
 
 tenorMusic = \relative do'' {
-  sol4 |
-  sol2 la4 |
-  do2 do4 |
-  la2 sol4 |
-  do2 do4 |
-  mi2 mi4 |
-  do2 sol4 |
-  sol'2 mi4 |
-  re2. | \break
+  sol2 |
+  sol1 la2 |
+  do1 do2 |
+  la1 sol2 |
+  do1 do2 |
+  mi1 mi2 |
+  do1 sol2 |
+  sol'1 mi2 |
+  re1. | \break
   %
-  % r2 mi8[(re8)] |
-  % do2 do4 |
-  %sol2 mi'8[(re8)] |
-  r2. |
-  r2. |
-  r2 mi8[re8] |
+  % r1 mi4((re4)) |
+  % do1 do2 |
+  %sol1 mi'4((re4)) |
+  r1. |
+  r1. |
+  r1 mi4(re4) |
   %
-  do2 do4 |
-  mi2 do4 |
-  mi2 mi4 |
-  do2 sol4 |
-  sol'2 mi8[re8] |
-  do2.|
+  do1 do2 |
+  mi1 do2 |
+  mi1 mi2 |
+  do1 sol2 |
+  sol'1 mi4(re4) |
+  do1.|
   \bar ".."
 }
 
 bassMusic = \relative do' {
 
-  sol4 |
-  do2 la4 |
-  sol2 sol4 |
-  la2 sol4 |
-  mi2 sol4 |
-  la2 la4 |
-  sol2 sol4 |
-  do2 sol4 |
-  sol2. |
-  r2 sol4 |
-  la2 do4 |
+  sol2 |
+  do1 la2 |
+  sol1 sol2 |
+  la1 sol2 |
+  mi1 sol2 |
+  la1 la2 |
+  sol1 sol2 |
+  do1 sol2 |
+  sol1. |
+  r1 sol2 |
+  la1 do2 |
   %
-  do2 r4 |
-  r2. |
-  r2 sol4 |
-  % do2 la4 |
-  % sol2 sol4 |
-  % do2 sol4 |
+  do1 r2 |
+  r1. |
+  r1 sol2 |
+  % do1 la2 |
+  % sol1 sol2 |
+  % do1 sol2 |
   %
-  la2 la4 |
-  fa2 sol4 |
-  sol2 mi8[re8] |
-  do2.
+  la1 la2 |
+  fa1 sol2 |
+  sol1 mi4(re4) |
+  do1.
 }
 
 %%%%%%% LYRICS %%%%%%%%%
