@@ -106,6 +106,8 @@ getKeySignature =
   markup-system-spacing = #'((basic-distance . 12) (padding . 4))
   top-margin = 1.25\cm
   bottom-margin = 1.25\cm
+  % left-margin = 1.0\cm
+  % left-margin = 1.0\cm
 }
 
 \header {
