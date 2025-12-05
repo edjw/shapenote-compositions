@@ -362,7 +362,7 @@ musicContent = {
         \global
         \trebleMusic
       }
-      \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOneA }
+      \new Lyrics \lyricsto "treble" {  \verseOneA }
       \new Lyrics \lyricsto "treble" {  \verseOneB }
       % \new Lyrics \lyricsto "treble" { \set stanza = "2." \verseTwoA }
       % \new Lyrics \lyricsto "treble" { \verseTwoB }
@@ -383,7 +383,7 @@ musicContent = {
         \global
         \tenorMusic
       }
-      \new Lyrics \lyricsto "tenor" { \set stanza = "1." \verseOneA }
+      \new Lyrics \lyricsto "tenor" {  \verseOneA }
       \new Lyrics \lyricsto "tenor" {  \verseOneB }
       %  \new Lyrics  \lyricsto "tenor" { \set stanza = "2." \verseTwoA }
       %  \new Lyrics \lyricsto "tenor" { \verseTwoB }
