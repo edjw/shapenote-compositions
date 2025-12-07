@@ -281,7 +281,7 @@ bassMusic = \relative do {
   do,2 do4 do8 do |
   sol'4. sol8 sol4 sol  |
   do2 do4 do8 do |
-  do4 do do fa, |
+  do4 do do, fa |
   do2 do4 do8 do |
   sol'4. sol8 do,4 do |
   do2 do4 do8 do |
