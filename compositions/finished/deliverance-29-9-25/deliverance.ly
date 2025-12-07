@@ -312,7 +312,7 @@ verseOneA = \lyricmode {
   With all your fee -- ble light;
   Fare-
   _
-  \set stanza = "1." And thou re -- ful -- gent orb of day,
+  And thou re -- ful -- gent orb of day,
   In bright -- er flames ar -- rayed;
   My soul which springs be -- yond thy sphere,
   No more de -- mands thy aid.
