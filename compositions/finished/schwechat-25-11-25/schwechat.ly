@@ -179,11 +179,11 @@ trebleMusic = \relative do'' {
   si2. \repeat volta 2 {
     r4 |
     r1 |
-    r1 |
-    r1 |
-    r1 |
-    r1 |
-    r2. do,4|
+    r2. do4 |
+    sol la do sol |
+    la si do sol |
+    sol la sol sol |
+    sol fa mi do4 |
     do8[re] mi[fa] sol4 la8[do] |
     do2 si |
   }
@@ -215,9 +215,9 @@ altoMusic = \relative do' {
   \repeat volta 2 {
     r4 |
     r1 |
-    r1 |
-    r1 |
     r2. do4 |
+    sol do mi mi |
+    do re mi do4 |
     do8[re] mi[fa] mi4 mi |
     mi fa mi do |
     sol la si do |
@@ -286,7 +286,7 @@ bassMusic = \relative do {
     mi4 re do sol |
     sol do do sol |
     fa sol do do |
-    sol do la do |
+    sol do do do |
     do do do sol |
     sol  la sol do |
     do2 <sol sol'> |
@@ -341,6 +341,9 @@ refrainTreble = \lyricmode {
   _ _ _ _ _ _
   _ _ _ _ _ _
   _ _ _ _ _ _
+
+  I'd soar a -- way a -- bove the sky
+  I'd soar a -- way a -- bove the sky
   I'd fly to see my God a -- bove
   bove
 }
@@ -351,6 +354,8 @@ refrainAlto = \lyricmode {
   _ _ _ _ _ _
   _ _ _ _ _ _
   _ _ _ _ _ _
+
+  I'd soar a -- way a -- bove the sky
   I'd soar a -- way a -- bove the sky
   I'd fly to see my God a -- bove
   bove
