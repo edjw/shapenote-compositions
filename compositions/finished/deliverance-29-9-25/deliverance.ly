@@ -186,7 +186,7 @@ trebleMusic = \relative do' {
 
       } {
         sol4. \newSpacingSection
-        \revert Score.SpacingSpanner.spacing-increment \bar ";" sol4. |\break
+        \revert Score.SpacingSpanner.spacing-increment \bar ".;" sol4. |\break
       }
     }
   }
