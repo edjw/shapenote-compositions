@@ -172,6 +172,8 @@ trebleMusic = \relative do' {
     sol4 sol8 sol4 mi8 |
     sol4 do8 sol4 mi8 |
     sol4 la8 sol4 sol8
+
+    \set Score.voltaSpannerDuration = #(ly:make-moment 3/8)
     \alternative {
       {
 
@@ -180,11 +182,11 @@ trebleMusic = \relative do' {
 
         mi4.
 
-        \newSpacingSection
-        \revert Score.SpacingSpanner.spacing-increment
+
 
       } {
-        sol4. \bar ";" sol4. |\break
+        sol4. \newSpacingSection
+        \revert Score.SpacingSpanner.spacing-increment \bar ";" sol4. |\break
       }
     }
   }
