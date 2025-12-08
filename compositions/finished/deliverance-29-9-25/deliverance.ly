@@ -174,9 +174,17 @@ trebleMusic = \relative do' {
     sol4 la8 sol4 sol8
     \alternative {
       {
-        mi4. sol4. |
+
+        \newSpacingSection
+        \once \override Score.SpacingSpanner.spacing-increment = #0.8
+
+        mi4.
+
+        \newSpacingSection
+        \revert Score.SpacingSpanner.spacing-increment
+
       } {
-        sol4. sol4. |\break
+        sol4. \bar ";" sol4. |\break
       }
     }
   }
@@ -191,7 +199,7 @@ trebleMusic = \relative do' {
     la4 sol8 mi4 sol8 |
     \alternative {
       {
-        sol4. sol4. |
+        sol4. |
       }
       {
         \newSpacingSection
@@ -211,7 +219,7 @@ altoMusic = \relative do' {
     do4 mi8 do4 sol8 |
     \alternative {
       {
-        sol4. do4. |
+        sol4. |
       } {
         sol4. sol4. |
       }
@@ -228,7 +236,7 @@ altoMusic = \relative do' {
     mi4 do8 la4 sol8 |
     \alternative {
       {
-        do4. sol4. |
+        do4.  |
       }
       {
         do2. |
@@ -245,7 +253,7 @@ tenorMusic = \relative do' {
     do4 do8 mi4 re8 |
     \alternative {
       {
-        do4. sol4. |
+        do4. |
       } {
         do4. re4. |
       }
@@ -262,7 +270,7 @@ tenorMusic = \relative do' {
     la4 do8 mi4 re8 |
     \alternative {
       {
-        do4. re4. |
+        do4.  |
       }
       {
         do2. |
@@ -279,13 +287,14 @@ bassMusic = \relative do {
     sol4 la8 do4 sol8
     \alternative {
       {
-        sol4. do4. |
+        sol4.  |
       } {
         do4. sol4. |
       }
     }
   }
 
+  \bar "."
   \repeat volta 2 {
     la4 do8 do4 la8 |
     sol4 do8 mi4 do8 |
@@ -296,7 +305,7 @@ bassMusic = \relative do {
     do4 do8 do4 sol8 |
     \alternative {
       {
-        do4. sol4. |
+        do4. |
       }
       {
         do2. |
@@ -310,21 +319,21 @@ verseOneA = \lyricmode {
   \tiny
   Ye gold -- en lamps of heav’n fare -- well,
   With all your fee -- ble light;
-  Fare-
+
   _
   And thou re -- ful -- gent orb of day,
   In bright -- er flames ar -- rayed;
   My soul which springs be -- yond thy sphere,
   No more de -- mands thy aid.
-  And
+
   aid.
 
 }
 
 verseOneB = \lyricmode {
   \tiny
-  _ -well thou ev -- er chan -- ging moon,
-  Pale em -- press of the - - night.
+  Fare -- well thou ev -- er chan -- ging moon,
+  Pale em -- press of the - night.
 }
 
 verseTwoA = \lyricmode {
