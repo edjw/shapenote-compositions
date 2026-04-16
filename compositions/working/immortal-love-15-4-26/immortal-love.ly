@@ -296,16 +296,16 @@ altoMusic = \relative do' {
   do2 sol4 |
   sol2 mi4 |
   sol2 do4 |
-  si2 do4 |
-  sol2 do4 |
-  re2 do4 |
+  si2 sol4 |
+  sol2 sol4 |
+  la2 do4 |
   sol2. |
   r2 do4 |
   la2 sol4 |
   do2 sol4 |
   mi2 fa4 |
   sol2 la4 |
-  si2 do4 |
+  sol2 do4 |
   do2 re4 |
   do2.
 }
@@ -324,7 +324,7 @@ tenorMusic = \relative do'' {
   mi2 mi4 |
   sol2 fa4 |
   mi2 do4 |
-  re2 sol,4 |
+  re2 do4 |
   la2 sol4 |
   do2.
   \bar ".."
@@ -344,7 +344,7 @@ bassMusic = \relative do {
   do2 do4 |
   do2 re4 |
   do2 mi4 |
-  sol2 do4 |
+  sol2 sol 4 |
   la2 sol4 |
   <do do,>2. |
 
