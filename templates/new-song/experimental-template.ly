@@ -32,8 +32,8 @@
 % C minor:  \transpose do mib
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = do
-songMode = "minor"  % "major" or "minor"
+songKey = la
+songMode = "major"  % "major" or "minor"
 songTitle = ""
 songMeter = "CM"
 songComposer = "Ed Johnson-Williams, September 2025"
@@ -148,6 +148,16 @@ setShapeHeads =
        (make-music 'SkipMusic
                    'duration openingShapeQuarterDuration)))
 
+#(define (opening-shape-notehead-stencil grob)
+   (let* ((notehead (ly:note-head::print grob))
+          (chevron (grob-interpret-markup
+                    grob
+                    (markup
+                     #:override '(font-size . 1)
+                     #:translate '(1.6 . -0.58)
+                     "›"))))
+     (ly:stencil-add notehead chevron)))
+
 #(define (choose-opening-shape-pitch low-semitone high-semitone target-semitone)
    (let ((note-name (opening-shape-notename)))
      (if (not note-name)
@@ -172,12 +182,18 @@ getOpeningShapeTrebleMusic =
 #(make-opening-shape-music (choose-opening-shape-pitch 4 17 10))
 
 getOpeningShapeBassMusic =
-#(make-opening-shape-music (choose-opening-shape-pitch -17 -3 -11))
+#(make-opening-shape-music
+  (if (and (equal? songMode "major")
+           (= (ly:pitch-notename songKey) 5)
+           (= (ly:pitch-alteration songKey) 0))
+      (ly:make-pitch -2 6 0)
+      (choose-opening-shape-pitch -17 -3 -11)))
 
 openingShapeVoiceSettings = {
   \voiceOne
   \shiftOff
   \setShapeHeads
+  \once \override NoteHead.stencil = #opening-shape-notehead-stencil
   \omit Stem
   \omit Flag
   \omit Beam
@@ -369,6 +385,7 @@ printMusicContent = <<
     }
     \context {
       \Staff
+      \remove "Rest_collision_engraver"
       \override KeySignature.stencil = ##f
       \override KeyCancellation.stencil = ##f
       \override BarLine.break-visibility = ##(#t #t #f)
