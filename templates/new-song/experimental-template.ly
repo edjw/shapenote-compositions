@@ -154,7 +154,7 @@ setShapeHeads =
                     grob
                     (markup
                      #:override '(font-size . 1)
-                     #:translate '(1.6 . -0.58)
+                     #:translate '(1.8 . -0.58)
                      "›"))))
      (ly:stencil-add notehead chevron)))
 
@@ -202,7 +202,7 @@ openingShapeVoiceSettings = {
   \omit Rest
   \omit LedgerLineSpanner
   \once \override NoteColumn.ignore-collision = ##t
-  \once \override NoteHead.extra-offset = #'(-11.75 . 0)
+  \once \override NoteHead.extra-offset = #'(-11 . 0)
 }
 
 #(define (single-digit-time-signature-markup grob)
@@ -211,7 +211,7 @@ openingShapeVoiceSettings = {
      (markup
       #:override '(font-size . 9)
       #:raise -2.2
-      #:translate (cons -1 0)
+      #:translate (cons -2 0)
       numerator)))
 
 #(define (single-digit-time-signature-stencil grob)
@@ -220,6 +220,23 @@ openingShapeVoiceSettings = {
 singleDigitTimeSignatureStencil =
 #(lambda (grob)
    (single-digit-time-signature-stencil grob))
+
+#(define (letter-clef-stencil grob)
+   (let* ((glyph-name (ly:grob-property grob 'glyph-name ""))
+          (letter (cond
+                   ((string-contains glyph-name "G") "G")
+                   ((string-contains glyph-name "F") "F")
+                   (else "?")))
+          (y-offset (cond
+                     ((string-contains glyph-name "G") -0.9)
+                     ((string-contains glyph-name "F") -0.9)
+                     (else 0))))
+     (grob-interpret-markup grob
+                            (markup
+                             #:override '(font-size . 1)
+                             #:bold #:bold
+                             #:translate (cons 0.0 y-offset)
+                             letter))))
 
 % Don't change this global section
 global = {
@@ -390,6 +407,8 @@ printMusicContent = <<
       \override KeyCancellation.stencil = ##f
       \override BarLine.break-visibility = ##(#t #t #f)
       \override TimeSignature.stencil = #singleDigitTimeSignatureStencil
+      \override Clef.stencil = #letter-clef-stencil
+      \override Clef.break-visibility = ##(#f #f #f)
     }
   }
 }
