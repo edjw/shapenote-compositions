@@ -1,11 +1,11 @@
 ## A lot
 - I
 - V
-- V7 (sol si re fa, sol re si fa, sol re sol fa, sol sol re fa, sol fa re si)-> I 
+- V7 (sol **si** re fa, sol **re** si fa, sol **re** sol fa, sol **sol** re fa, sol **fa** re si)-> I 
 - IV -> I
 
 ## Quite a lot
-- IV bs5 root Alto (sometimes root treble) (do la fa do) -> I
+- IV bass5 root Alto (sometimes root treble) (do la fa do) -> I
 - vi
 - Isus24 (do fa re sol) -> between strong I and strong I 
 
