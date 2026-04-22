@@ -4,6 +4,7 @@
 # Claude-specific files
 .claude/
 CLAUDE.md
+.pi
 
 # Python-generated files
 __pycache__/
