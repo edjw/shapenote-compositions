@@ -32,7 +32,7 @@
 % C minor:  \transpose do mib
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = la
+songKey = sib
 songMode = "major"  % "major" or "minor"
 songTitle = "Immortal Love"
 songMeter = "CM"
@@ -271,8 +271,8 @@ trebleMusic = \relative do' {
   re2 mi4 |
   sol2 sol4 |
   mi2 mi4 |
-  re2 mi4 |
-  sol2. \break |
+  re2 do4 |
+  si2. \break |
 
   \newSpacingSection
   \once \override Score.SpacingSpanner.spacing-increment = #0.82
@@ -291,21 +291,21 @@ trebleMusic = \relative do' {
   mi2.
 }
 
-altoMusic = \relative do' {
-  r2  do4 |
-  do2 sol4 |
+altoMusic = \relative do {
+  r2  mi4 |
+  mi2 sol4 |
   sol2 mi4 |
   sol2 do4 |
   si2 sol4 |
   sol2 sol4 |
-  la2 do4 |
+  la2 sol4 |
   sol2. |
   r2 do4 |
   la2 sol4 |
   do2 sol4 |
   mi2 fa4 |
-  sol2 la4 |
   sol2 do4 |
+  sol2 sol4 |
   do2 re4 |
   do2.
 }
@@ -330,9 +330,9 @@ tenorMusic = \relative do'' {
   \bar ".."
 }
 
-bassMusic = \relative do {
-  r2  <do do,>4 |
-  mi,2 sol4 |
+bassMusic = \relative do, {
+  r2  do4 |
+  do2 sol'4 |
   do2 la4 |
   sol2 sol4 |
   sol2 do,4 |
@@ -344,7 +344,7 @@ bassMusic = \relative do {
   do2 do4 |
   do2 re4 |
   do2 mi4 |
-  sol2 sol 4 |
+  sol2 do4 |
   la2 sol4 |
   <do do,>2. |
 
