@@ -21,3 +21,7 @@ wheels/
 *.band/
 !templates/voice.band/
 *.wav
+
+# LilyPond build artifacts in root
+example-f-major-repeats.*
+scales.pdf
