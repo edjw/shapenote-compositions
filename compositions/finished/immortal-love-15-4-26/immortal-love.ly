@@ -202,16 +202,17 @@ openingShapeVoiceSettings = {
   \omit Rest
   \omit LedgerLineSpanner
   \once \override NoteColumn.ignore-collision = ##t
-  \once \override NoteHead.extra-offset = #'(-11.75 . 0)
+  \once \override NoteHead.extra-offset = #'(-8 . 0)
 }
 
 #(define (single-digit-time-signature-markup grob)
    (let* ((fraction (ly:grob-property grob 'fraction '(4 . 4)))
           (numerator (number->string (car fraction))))
      (markup
-      #:override '(font-size . 9)
-      #:raise -2.2
-      #:translate (cons -1 0)
+      #:override '(font-size . 6)
+      #:raise -1.5
+      #:bold #:bold
+      #:translate (cons -2 0)
       numerator)))
 
 #(define (single-digit-time-signature-stencil grob)
@@ -482,6 +483,7 @@ printMusicContent = <<
       \override KeyCancellation.stencil = ##f
       \override BarLine.break-visibility = ##(#t #t #f)
       \override TimeSignature.stencil = #singleDigitTimeSignatureStencil
+      \override Clef.stencil = ##f
     }
   }
 }
