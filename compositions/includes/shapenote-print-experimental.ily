@@ -119,7 +119,7 @@ printMusicContent = <<
       \override KeySignature.stencil = ##f
       \override KeyCancellation.stencil = ##f
       \override BarLine.break-visibility = ##(#t #t #f)
-      \override TimeSignature.style = #'single-digit
+      \override TimeSignature.style = #'single-number
       \override Clef.stencil = ##f
     }
   }

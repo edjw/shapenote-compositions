@@ -1,5 +1,5 @@
 \language "espanol"
-\version "2.24.0"
+\version "2.26.0"
 #(set-default-paper-size "a4landscape")
 
 %%%%%% Shapenote Template %%%%%%
@@ -438,7 +438,7 @@ musicContent = {
   \midi {
     \context {
       \Score
-      tempoWholesPerMinute = #(ly:make-moment 120 4)
+      tempoWholesPerMinute = #120/4
 
     }
   }

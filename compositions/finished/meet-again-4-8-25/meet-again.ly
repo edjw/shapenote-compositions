@@ -1,5 +1,5 @@
 \language "espanol"
-\version "2.24.0"
+\version "2.26.0"
 #(set-default-paper-size "a4landscape")
 
 %%%%%% Sacred Harp Simplified Template v1.0 %%%%%%
@@ -359,7 +359,7 @@ musicContent = {
   \midi {
     \context {
       \Score
-      tempoWholesPerMinute = #(ly:make-moment 100 4)
+      tempoWholesPerMinute = #100/4
 
     }
   }

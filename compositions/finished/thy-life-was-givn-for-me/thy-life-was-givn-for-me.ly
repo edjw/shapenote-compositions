@@ -1,5 +1,5 @@
 \language "espanol"
-\version "2.24.0"
+\version "2.26.0"
 #(set-default-paper-size "a4landscape")
 
 %%%%%% Shapenote Template %%%%%%
@@ -205,9 +205,9 @@ openingShapeVoiceSettings = {
   \once \override NoteHead.extra-offset = #'(-8 . 0)
 }
 
-#(define (single-digit-time-signature-markup grob)
-   (let* ((fraction (ly:grob-property grob 'fraction '(4 . 4)))
-          (numerator (number->string (car fraction))))
+#(define (single-number-time-signature-markup grob)
+   (let* ((time-signature (ly:grob-property grob 'time-signature '(4 . 4)))
+          (numerator (number->string (car time-signature))))
      (markup
       #:override '(font-size . 6)
       #:raise -1.5
@@ -216,12 +216,12 @@ openingShapeVoiceSettings = {
       numerator)))
 
 
-#(define (single-digit-time-signature-stencil grob)
-   (grob-interpret-markup grob (single-digit-time-signature-markup grob)))
+#(define (single-number-time-signature-stencil grob)
+   (grob-interpret-markup grob (single-number-time-signature-markup grob)))
 
 singleDigitTimeSignatureStencil =
 #(lambda (grob)
-   (single-digit-time-signature-stencil grob))
+   (single-number-time-signature-stencil grob))
 
 % Don't change this global section
 global = {
@@ -544,7 +544,7 @@ printMusicContent = <<
   \midi {
     \context {
       \Score
-      tempoWholesPerMinute = #(ly:make-moment 100 4)
+      tempoWholesPerMinute = #100/4
 
     }
   }

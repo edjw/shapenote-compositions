@@ -63,7 +63,7 @@
   \midi {
     \context {
       \Score
-      tempoWholesPerMinute = #(ly:make-moment 100 4)
+      tempoWholesPerMinute = #100/4
     }
   }
 }

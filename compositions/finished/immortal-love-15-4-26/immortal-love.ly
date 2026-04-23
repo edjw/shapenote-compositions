@@ -1,5 +1,5 @@
 \language "espanol"
-\version "2.24.0"
+\version "2.26.0"
 #(set-default-paper-size "a4landscape")
 
 % Major: C: do  D: re  E: mi  F: fa  G: sol  A:  la  Bb: sib  Eb: mib

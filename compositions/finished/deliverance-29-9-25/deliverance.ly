@@ -1,5 +1,5 @@
 \language "espanol"
-\version "2.24.0"
+\version "2.26.0"
 #(set-default-paper-size "a4landscape")
 
 %%%%%% Shapenote Template %%%%%%
@@ -173,9 +173,9 @@ trebleMusic = \relative do' {
     sol4 do8 sol4 mi8 |
     sol4 la8 sol4 sol8
 
-    \set Score.voltaSpannerDuration = #(ly:make-moment 3/8)
     \alternative {
       {
+        \once \override Score.VoltaBracket.musical-length = \musicLength 4.
 
         \newSpacingSection
         \once \override Score.SpacingSpanner.spacing-increment = #0.8
@@ -502,7 +502,7 @@ musicContent = {
   \midi {
     \context {
       \Score
-      tempoWholesPerMinute = #(ly:make-moment 100 4)
+      tempoWholesPerMinute = #100/4
 
     }
   }
