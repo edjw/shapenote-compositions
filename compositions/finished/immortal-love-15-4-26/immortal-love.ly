@@ -17,7 +17,7 @@ noteHeadStyle = "seven"  % "seven", "four", or "normal"
 pickupDuration = "0"  % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
 
 
-\include "../../includes/shapenote-common.ily"
+\include "shapenote-common.ily"
 
 %%%%%%% MUSIC %%%%%%%%%
 %
@@ -180,7 +180,7 @@ bassLyrics = <<
 >>
 %%%%%%%%%%%%%%%%
 
-\include "../../includes/shapenote-voices-and-lyrics.ily"
+\include "shapenote-voices-and-lyrics.ily"
 
 %%%%%%% PRINT MODE %%%%%%%%%
 % Uncomment exactly one of shapenote-print-standard.ily and shapenote-print-experimental.ily.
@@ -190,11 +190,11 @@ bassLyrics = <<
 % No clef symbols
 % Just a big top number for time signature
 % A mi/si at the beginning instead of key signature
-\include "../../includes/shapenote-print-experimental.ily"
+\include "shapenote-print-experimental.ily"
 %%
-% \include "../../includes/shapenote-print-standard.ily"
+% \include "shapenote-print-standard.ily"
 
 %%%%%%%%%%%%%%%%
 
 
-\include "../../includes/shapenote-midi.ily"
+\include "shapenote-midi.ily"
