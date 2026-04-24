@@ -23,5 +23,8 @@ wheels/
 *.wav
 
 # LilyPond build artifacts in root
+# Keep compiled PDFs/MIDIs next to their .ly files, not at repo root.
+/*.pdf
+/*.midi
 example-f-major-repeats.*
 scales.pdf
