@@ -1,4 +1,4 @@
-% relies
+% relies on ../includes
 \language "espanol"
 \version "2.26.0"
 #(set-default-paper-size "a4landscape")
