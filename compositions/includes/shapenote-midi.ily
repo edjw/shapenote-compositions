@@ -63,7 +63,7 @@
   \midi {
     \context {
       \Score
-      tempoWholesPerMinute = #100/4
+      tempoWholesPerMinute = #(/ midiTempo 4)
     }
   }
 }

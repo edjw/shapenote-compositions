@@ -68,9 +68,15 @@ getKeySignature =
   tagline = ##f
   poet = \markup{
     \concat {
-      #getKeySignature
+      #(if (equal? showKeySignatureWords "yes")
+           getKeySignature
+           "")
+      #(if (and (equal? showKeySignatureWords "yes")
+                (not (string-null? poetName)))
+           ". "
+           "")
       #(if (not (string-null? poetName))
-           (string-append ". " poetName)
+           poetName
            "")
     }
   }

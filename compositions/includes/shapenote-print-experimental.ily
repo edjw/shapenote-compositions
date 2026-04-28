@@ -8,7 +8,11 @@
 
 #(define (opening-shape-notename)
    (cond
-    ((or (equal? noteHeadStyle "seven") (equal? noteHeadStyle "four")) 6)
+    ((equal? noteHeadStyle "four") 6)
+    ((equal? noteHeadStyle "seven")
+     (if (equal? openingShapeStyle "root")
+         (if (equal? songMode "minor") 5 0)
+         6))
     (else #f)))
 
 #(define (make-opening-shape-music pitch)
@@ -25,7 +29,7 @@
                     grob
                     (markup
                      #:override '(font-size . 1)
-                     #:translate '(1.6 . -0.58)
+                     #:translate '(1.8 . -0.58)
                      "›"))))
      (ly:stencil-add notehead chevron)))
 
@@ -53,12 +57,14 @@ getOpeningShapeTrebleMusic =
 #(make-opening-shape-music (choose-opening-shape-pitch 4 17 10))
 
 getOpeningShapeBassMusic =
-#(make-opening-shape-music
-  (if (and (equal? songMode "major")
-           (= (ly:pitch-notename songKey) 5)
-           (= (ly:pitch-alteration songKey) 0))
-      (ly:make-pitch -2 6 0)
-      (choose-opening-shape-pitch -17 -3 -11)))
+#(let ((notename (opening-shape-notename)))
+   (make-opening-shape-music
+    (if (and notename
+             (equal? songMode "major")
+             (= (ly:pitch-notename songKey) 5)
+             (= (ly:pitch-alteration songKey) 0))
+        (ly:make-pitch -2 notename 0)
+        (choose-opening-shape-pitch -17 -3 -5))))
 
 openingShapeVoiceSettings = {
   \voiceOne
