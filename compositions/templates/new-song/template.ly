@@ -12,6 +12,7 @@ songTitle = "Hello"
 songMeter = "LM"
 songComposer = "Ed Johnson-Williams, April 2026"
 poetName = "Social and Camp-Meeting Songs, 1825"
+songFooter = ""
 timeSignature = 6/4
 noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
 pickupDuration = "4" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth

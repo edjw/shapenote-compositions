@@ -65,7 +65,10 @@ getKeySignature =
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   composer = #songComposer
-  tagline = ##f
+  tagline =
+  #(if (defined? 'songFooter)
+       #{ \markup { \tiny #songFooter } #}
+       #f)
   poet = \markup{
     \concat {
       #(if (and (defined? 'showKeySignatureWords)
