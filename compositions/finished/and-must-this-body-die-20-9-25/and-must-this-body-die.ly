@@ -49,10 +49,18 @@ poet = "Isaac Watts"
 }
 
 \header {
-  title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
+  title = \markup{
+    \bold \smaller #songTitle "   " \small{
+      #songMeter
+    }
+  }
   composer = #songComposer
   tagline = ##f % removes the Lilypond tagline from bottom
-  poet = \markup{ \concat { #keySignature ", " #poet } }
+  poet = \markup{
+    \concat {
+      #keySignature ", " #poet
+    }
+  }
 }
 
 global = {
@@ -211,7 +219,9 @@ musicContent = {
         \global
         \trebleMusic
       }
-      \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
+      \new Lyrics \lyricsto "treble" {
+        \set stanza = "1." \verseOne
+      }
       % Uncomment for additional verses under treble:
       % \new Lyrics \lyricsto "treble" { \set stanza = "3." \verseThree }
     >>
@@ -230,9 +240,13 @@ musicContent = {
         \global
         \tenorMusic
       }
-      \new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
+      \new Lyrics \lyricsto "tenor" {
+        \set stanza = "2." \verseTwo
+      }
       % Uncomment for verse 3 under tenor:
-      \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
+      \new Lyrics \lyricsto "tenor" {
+        \set stanza = "3." \verseThree
+      }
     >>
 
     \new Staff = bass <<
@@ -320,7 +334,9 @@ musicContent = {
         instrumentName = "Treble (low)"
       } {
         \new Voice = "treble-low" {
-          \global \transpose do do, { \trebleMusic }
+          \global \transpose do do, {
+            \trebleMusic
+          }
         }
       }
       \new Staff \with {
@@ -328,7 +344,9 @@ musicContent = {
         instrumentName = "Tenor (low)"
       } {
         \new Voice = "tenor-low" {
-          \global \transpose do do, { \tenorMusic }
+          \global \transpose do do, {
+            \tenorMusic
+          }
         }
       }
     >>

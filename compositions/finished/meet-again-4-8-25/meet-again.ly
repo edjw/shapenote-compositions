@@ -53,7 +53,11 @@ songComposer = "Ed Johnson-Williams, August & September 2025"
 }
 
 \header {
-  title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
+  title = \markup{
+    \bold \smaller #songTitle "   " \small{
+      #songMeter
+    }
+  }
   arranger = #songComposer
   meter = "G Minor"  % Update this manually to match songKey
   tagline = ##f
@@ -93,21 +97,32 @@ trebleMusic = \relative do' {
   \repeat volta 2 {
 
     mi2
-    mi4^\markup { \tiny \musicglyph "scripts.segno" } sol la sol
+    mi4^\markup {
+      \tiny \musicglyph "scripts.segno"
+    } sol la sol
     la mi la la
     sol4. sol8 mi4 re
+
 
   }
 
   \alternative {
-    \volta 1 { mi2 }
-    \volta 2,3 { mi1^\markup { \tiny \bold "Fine" }  }
+    \volta 1 {
+      mi2
+    }
+    \volta 2,3 {
+      mi1^\markup {
+        \tiny \bold "Fine"
+      }
+    }
   }
 
   r2 mi
   re4. mi8 sol4 mi
   sol4 sol mi4 la
-  mi sol la sol sol2 mi^\markup { \tiny \bold "D.S." }
+  mi sol la sol sol2 mi^\markup {
+    \tiny \bold "D.S."
+  }
 
 
 }
@@ -118,14 +133,20 @@ altoMusic = \relative do' {
   \repeat volta 2 {
 
     la2
-    la4^\markup { \tiny \musicglyph "scripts.segno" } sol mi mi
+    la4^\markup {
+      \tiny \musicglyph "scripts.segno"
+    } sol mi mi
     la la la mi
     sol4. sol8 la4 sol
   }
 
   \alternative {
-    \volta 1 { mi2 }
-    \volta 2,3 { mi1 }
+    \volta 1 {
+      mi2
+    }
+    \volta 2,3 {
+      mi1
+    }
   }
 
 
@@ -140,21 +161,31 @@ tenorMusic = \relative do' {
 
   \repeat volta 2 {
     mi
-    mi4^\markup { \tiny \musicglyph "scripts.segno" } mi8([do]) la4 do
+    mi4^\markup {
+      \tiny \musicglyph "scripts.segno"
+    } mi8([do]) la4 do
     mi la mi4 mi
     re4. do8 la4 sol4
   }
 
   \alternative {
-    \volta 1 { la2 }
-    \volta 2,3 { la1^\markup { \tiny \bold "Fine" } }
+    \volta 1 {
+      la2
+    }
+    \volta 2,3 {
+      la1^\markup {
+        \tiny \bold "Fine"
+      }
+    }
   }
 
   r2 la
   sol4. la8 do4 mi
   mi sol8([mi8]) la4
   mi4
-  la4 sol mi4 sol sol2 la ^\markup { \tiny \bold "D.S." }
+  la4 sol mi4 sol sol2 la ^\markup {
+    \tiny \bold "D.S."
+  }
 
 
 
@@ -166,14 +197,20 @@ bassMusic = \relative do {
 
   \repeat volta 2 {
     la2
-    la4^\markup { \tiny \musicglyph "scripts.segno" } do la sol
+    la4^\markup {
+      \tiny \musicglyph "scripts.segno"
+    } do la sol
     mi la la la
     sol4. sol8 la4 sol
   }
 
   \alternative {
-    \volta 1 { la2 }
-    \volta 2,3 { la1 }
+    \volta 1 {
+      la2
+    }
+    \volta 2,3 {
+      la1
+    }
   }
 
   r2 la
@@ -229,9 +266,15 @@ musicContent = {
         \global
         \trebleMusic
       }
-      \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOneTop }
-      \new Lyrics \lyricsto "treble" {  \verseOneAA }
-      \new Lyrics \lyricsto "treble" { \set stanza = "DS."   \verseOneAC }
+      \new Lyrics \lyricsto "treble" {
+        \set stanza = "1." \verseOneTop
+      }
+      \new Lyrics \lyricsto "treble" {
+        \verseOneAA
+      }
+      \new Lyrics \lyricsto "treble" {
+        \set stanza = "DS."   \verseOneAC
+      }
 
       % Uncomment for additional verses under treble:
       % \new Lyrics \lyricsto "treble" { \set stanza = "3." \verseThree }
@@ -251,9 +294,15 @@ musicContent = {
         \global
         \tenorMusic
       }
-      \new Lyrics \lyricsto "tenor" { \set stanza = "1." \verseOneTop }
-      \new Lyrics \lyricsto "tenor" {  \verseOneAA }
-      \new Lyrics \lyricsto "tenor" { \set stanza = "DS."   \verseOneAC }
+      \new Lyrics \lyricsto "tenor" {
+        \set stanza = "1." \verseOneTop
+      }
+      \new Lyrics \lyricsto "tenor" {
+        \verseOneAA
+      }
+      \new Lyrics \lyricsto "tenor" {
+        \set stanza = "DS."   \verseOneAC
+      }
     >>
 
     \new Staff = bass <<
@@ -342,7 +391,9 @@ musicContent = {
         instrumentName = "Treble (low)"
       } {
         \new Voice = "treble-low" {
-          \global \transpose do do, { \trebleMusic }
+          \global \transpose do do, {
+            \trebleMusic
+          }
         }
       }
       \new Staff \with {
@@ -350,7 +401,9 @@ musicContent = {
         instrumentName = "Tenor (low)"
       } {
         \new Voice = "tenor-low" {
-          \global \transpose do do, { \tenorMusic }
+          \global \transpose do do, {
+            \tenorMusic
+          }
         }
       }
     >>

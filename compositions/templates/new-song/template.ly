@@ -6,18 +6,20 @@
 % Major: C: do  D: re  E: mi  F: fa  G: sol  A:  la  Bb: sib  Eb: mib
 % Minor: A: do  B: re  C#:mi  D: fa  E: sol  F#: la  G: sib   C: mib
 
-songKey = la
-songMode = "major" % "major" or "minor"
-songTitle = ""
-songMeter = "CM"
-songComposer = "Ed Johnson-Williams, September 2026"
-poetName = "Isaac Watts"
-timeSignature = 4/4
-noteHeadStyle = "seven"  % "seven", "four", or "normal (not supported)"
-pickupDuration = "0"  % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
+songKey = mib
+songMode = "minor" % "major" or "minor"
+songTitle = "Hello"
+songMeter = "LM"
+songComposer = "Ed Johnson-Williams, April 2026"
+poetName = "Social and Camp-Meeting Songs, 1825"
+timeSignature = 6/4
+noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
+pickupDuration = "4" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
+midiTempo = 160
+openingShapeStyle = "root" % "seventh" = si/mi marker, "root" = do/la marker. Always choose seventh in four shapes
+showKeySignatureWords = "yes" % "yes" or "no"
 
-
-\include "../../includes/shapenote-common.ily"
+\include "shapenote-common.ily"
 
 %%%%%%% MUSIC %%%%%%%%%
 %
@@ -94,7 +96,9 @@ altoLyrics = <<
 >>
 
 tenorLyrics = <<
-  \new Lyrics \lyricsto "tenor" { \set stanza = "1." \verseOne }
+  \new Lyrics \lyricsto "tenor" {
+    \set stanza = "1." \verseOne
+  }
   % \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
 >>
 
@@ -103,7 +107,7 @@ bassLyrics = <<
 >>
 %%%%%%%%%%%%%%%%
 
-\include "../../includes/shapenote-voices-and-lyrics.ily"
+\include "shapenote-voices-and-lyrics.ily"
 
 %%%%%%% PRINT MODE %%%%%%%%%
 % Uncomment exactly one of shapenote-print-standard.ily and shapenote-print-experimental.ily.
@@ -113,11 +117,11 @@ bassLyrics = <<
 % No clef symbols
 % Just a big top number for time signature
 % A mi/si at the beginning instead of key signature
-\include "../../includes/shapenote-print-experimental.ily"
+\include "shapenote-print-experimental.ily"
 %%
-% \include "../../includes/shapenote-print-standard.ily"
+% \include "shapenote-print-standard.ily"
 
 %%%%%%%%%%%%%%%%
 
 
-\include "../../includes/shapenote-midi.ily"
+\include "shapenote-midi.ily"

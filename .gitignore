@@ -28,3 +28,6 @@ wheels/
 /*.midi
 example-f-major-repeats.*
 scales.pdf
+lilypond-tmp-*.pdf
+template.midi
+template.pdf
