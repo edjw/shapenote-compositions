@@ -15,13 +15,13 @@ jobs:
 
     steps:
       - name: Checkout shapenote-compositions repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           path: shapenote-compositions
 
       - name: Checkout blog repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: edjw/edjw-blog-astro
           token: ${{ secrets.BLOG_REPO_TOKEN }}
