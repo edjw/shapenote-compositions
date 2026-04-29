@@ -32,7 +32,7 @@
 % C minor:  \transpose do mib
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = mib
+songKey = fa
 songMode = "major"  % "major" or "minor"
 songTitle = "Skiddaw"
 songMeter = "CM"
