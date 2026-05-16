@@ -1,100 +1,60 @@
+% relies on ../includes
 \language "espanol"
 \version "2.26.0"
 #(set-default-paper-size "a4landscape")
-\include "articulate.ly"
 
+% Major: C: do  D: re  E: mi  F: fa  G: sol  A:  la  Bb: sib  Eb: mib
+% Minor: A: do  B: re  C#:mi  D: fa  E: sol  F#: la  G: sib   C: mib
 
-%%%%%% Sacred Harp Simplified Template v1.0 %%%%%%
-% Ed Johnson-Williams - Fast typesetting from paper
-%
-% HOW TO USE THIS TEMPLATE:
-% 1. Change songKey (line 39) to set the key - examples provided
-% 2. Update song info (lines 40-42): title, meter, composer
-% 3. Update meter = "G Major" (line 54) to show the key name
-% 4. Enter music in the four voice sections (always in C major)
-% 5. Add lyrics to verseOne and verseTwo sections
-
-%
-% QUICK TIPS:
-% - Always write music as if in C major (do, re, mi, fa, sol, la, si)
-% - The transpose happens automatically based on songKey
-% - All parts sing same lyrics - placement under treble/tenor for good spacing
-% - For minor keys: set songKey AND uncomment \minor in global
-%
-% KEY TRANSPOSITION EXAMPLES (change in ONE place only):
-% C major:  \transpose do do    (no change - default)
-% G major:  \transpose do sol
-% F major:  \transpose do fa
-% D major:  \transpose do re
-% Bb major: \transpose do sib
-% Eb major: \transpose do mib
-% A major:  \transpose do la
-%
-% MINOR KEYS:
-% A minor:  \transpose do la   (then use \minor in global)
-% E minor:  \transpose do mi   (then use \minor in global)
-% D minor:  \transpose do re   (then use \minor in global)
-% C minor:  \transpose do do   (then use \minor in global)
-% G minor:  \transpose do sol  (then use \minor in global)
-
-%%%%%% QUICK SETTINGS %%%%%%
-songKey = sol  % Change this to set key (see examples above)
+songKey = la
+songMode = "major" % "major" or "minor"
 songTitle = "Bolderwood"
 songMeter = "CM"
 songComposer = "Ed Johnson-Williams, August 2025"
+poetName = "Isaac Watts"
+songFooter = ""
+timeSignature = 6/4
+noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
+pickupDuration = "4" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
+midiTempo = 100
+openingShapeStyle = "root" % "seventh" = si/mi marker, "root" = do/la marker. Always choose seventh in four shapes
+showKeySignatureWords = "yes" % "yes" or "no"
 
-\paper {
-  page-count = #1
-  system-count = #1
-  system-system-spacing = #'((basic-distance . 0) (padding . 6))
-  top-margin = 0.5\in
-
-}
-
-\header {
-  title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
-  arranger = #songComposer
-  meter = "G Major, Isaac Watts"  % Update this manually to match songKey
-  tagline = ##f
-}
-
-global = {
-  \key do \major
-  % \minor        % Uncomment for minor keys but leave the \major aboe
-  \aikenHeads     % or \sacredHarpHeads for 4-shape
-  \numericTimeSignature
-  \time 6/4       % Change as needed
-  \defineBarLine ";" #'("|" ";" " ")
-  \defineBarLine ";." #'("|" ";." ";.")
-  \defineBarLine ".;" #'("|" ".;" ".;")
-  \defineBarLine ".." #'(".." ".." "..")
-  \defineBarLine ";.." #'(";.." ";.." ";..")
-  \defineBarLine ";.;" #'(";.;" ";.;" ";.;")
-  \autoBeamOff
-}
+\include "shapenote-common.ily"
 
 %%%%%%% MUSIC %%%%%%%%%
-% Write all music in C major (do, re, mi, fa, sol, la, si)
-% The songKey transpose will handle the actual key
 %
-% HELPFUL PATTERNS:
-% Repeats:     \repeat volta 2 { music }
-% Mid-bar:     \bar ";"
-% Line break:  \break (after A section)
-% Slurs:       do8[re8] or do4(re4)
-% Ties:        do4~ do4
+% Beams:                do8[re] (eighth notes and shorter only)
+% Dotted notes:         do4. re8
+% Octaves:              do'4 (higher) | do,4 (lower)
+% Slurs:                do8( re8 mi8)
+% Repeats:              \repeat volta 2 { music }
+% Ties:                 do4~ do4
+% Octave doubling:      <do do,>2 (bass root + octave below)
+% Text markings:        do4^\markup { "Fine" }
+% Combined:              do8([ re8]) (slur and beam together)
+% Rests:                r1 | r2 | r4 | r1. | r2.
+% Fermatas:             do4\fermata
+% Fine/D.C.:            \mark \markup { \tiny \italic "Fine." }
+%                       \mark \markup { \italic \tiny "D.C." }
+% Chords:               <do mi sol>4
+% Ending barlines:      \bar ".." (standard) | \bar "|." (final) | \bar ".;" (repeat start)
+% Line break:           \break (after A section)
+% Mid-bar:              \bar ";"
+% Alternative endings:  \alternative { { ending1 } { ending2 } }
+% Accidentals:          fas4 or sib4 (sharps add s, flats add b)
+% Triplets:             \tuplet 3/2 { do8 re8 mi8 }
+% Repeat+fermata:       \bar ".|:" (put \fermata on last note before it)
+% Segno:                do4^\markup { \tiny \musicglyph "scripts.segno" }
 
 trebleMusic = \relative do' {
-  % === A SECTION ===
-
-  r1 r4 mi4 |
-
+  mi4 |
   sol2 mi4 do2 sol'4 |
   sol2 sol4 mi2\fermata do4 |
-  re2 do4 sol'2 mi4 | \break
-  re2. r2 do4|
+  re2 do4 sol'2 mi4 |
+  re2. r2 do4 |
   mi2 sol4 do2 si4 |
-  do2 la4 sol2\fermata sol4  | \bar ".|:"
+  do2 la4 sol2\fermata sol4 | \bar ".|:"
 
   \repeat volta 2 {
     do,4(re) mi sol2 mi4 |
@@ -103,20 +63,10 @@ trebleMusic = \relative do' {
     { sol2.(mi2)\fermata sol4 | }
     { mi1. | }
   }
-
-
-
-
-  % === B SECTION ===
-  % Add B section music here
-  \bar ".."
 }
 
 altoMusic = \relative do' {
-  % === A SECTION ===
-
-  r1 r4 sol4 |
-
+  sol4 |
   do2 do4 sol2 sol4 |
   sol2 do4 do2\fermata do4 |
   si2 la4 sol2 do4 |
@@ -131,21 +81,15 @@ altoMusic = \relative do' {
     { sol2.(do2)\fermata sol4 | }
     { sol1. | }
   }
-
-
-
-  % === B SECTION ===
-  % Add B section music here
 }
 
 tenorMusic = \relative do' {
-  % === A SECTION ===
-  r1 r4 sol4 |
+  sol4 |
   do2 la4 sol2 do4 |
   mi2 sol4 do,2\fermata la4 |
   sol2 do4 mi2 sol4 |
   sol2. r2 sol4 |
-  la2 sol4 mi2 sol4 |
+  la2 sol4 mi2 sol4 \break |
   sol2 mi4 re2\fermata mi4 | \bar ".|:"
 
   \repeat volta 2 {
@@ -155,68 +99,52 @@ tenorMusic = \relative do' {
     { do2.(mi2)\fermata mi4 | }
     { do1. | }
   }
-
-  % === B SECTION ===
-  % Add B section music here
   \bar "|."
 }
 
 bassMusic = \relative do {
-  % === A SECTION ===
-  r1 r4 do4 |
-  sol2 la4 do2 mi4|
+  do4 |
+  sol2 la4 do2 mi4 |
   do2 sol4 sol2\fermata la4 |
   sol2 la4 do2 do4 |
   sol2. r2 sol4 |
   la2 do4 do2 sol4 |
-  do2 la4 sol2\fermata do,4 | \bar ".|:"
+  do2 la4 sol2\fermata <do do,>4 | \bar ".|:"
 
   \repeat volta 2 {
-    sol'2 sol4 do2 do4 |
+    sol2 sol4 do2 do4 |
   }
   \alternative {
-    { do2.(sol2)\fermata do,4 | }
-    { <do do'>1. | }
+    { do2.(sol2)\fermata <do do,>4 | }
+    { <do do,>1. | }
   }
-
-
-
-
-  % === B SECTION ===
-  % Add B section music here
 }
+%%%%%%%%%%%%%%%%
 
 %%%%%%% LYRICS %%%%%%%%%
 
 verseOne = \lyricmode {
   \tiny
-  % Verse 1 lyrics
   Now shall my in -- ward joys a -- rise,
   And burst in -- to a song;
   Al -- migh -- ty love in -- spires my heart,
   And plea -- sure tunes my tongue.
   And
   tongue.
-
 }
 
 verseTwo = \lyricmode {
   \tiny
-  % Verse 2 lyrics
   God, on His thir -- sty Zi -- on’s hill,
   Some mer -- cy drops has thrown;
   And so -- lemn oaths have bound His love
   To show’r sal -- va -- tion down.
   To
   down.
-
-
 }
 
-% Additional verses if needed
 verseThree = \lyricmode {
   \tiny
-  % Verse 3 lyrics if needed
   Why do we then in -- dulge our fears,
   Sus -- pic -- ions and com -- plaints?
   Is He a God, and shall His grace
@@ -230,143 +158,39 @@ verseFour = \lyricmode {
   % Verse 4 lyrics if needed
 }
 
-%%%%%%% SCORE %%%%%%%%%
-% Main music content (defined once, used for both print and MIDI)
-musicContent = {
-  \new ChoirStaff <<
-    \new Staff = treble <<
-      \new Voice = "treble" {
-        \global
-        \trebleMusic
-      }
-      \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
-      % Uncomment for additional verses under treble:
-      % \new Lyrics \lyricsto "treble" { \set stanza = "3." \verseThree }
-    >>
+%%%%%%% LYRICS PLACEMENT %%%%%%%%%
+trebleLyrics = <<
+  \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
+>>
 
-    \new Staff = alto <<
-      \new Voice = "alto" {
-        \global
-        \altoMusic
-      }
-      % Uncomment for verse 2 under alto (common pattern):
-      \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
-    >>
+altoLyrics = <<
+  \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
+>>
 
-    \new Staff = tenor <<
-      \new Voice = "tenor" {
-        \global
-        \tenorMusic
-      }
-      %\new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
-      % Uncomment for verse 3 under tenor:
-      \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
-    >>
+tenorLyrics = <<
+  \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
+>>
 
-    \new Staff = bass <<
-      \clef bass
-      \new Voice = "bass" {
-        \global
-        \bassMusic
-      }
-      % Uncomment for lyrics under bass (less common):
-      % \new Lyrics \lyricsto "bass" { \set stanza = "4." \verseFour }
-    >>
-  >>
-}
+bassLyrics = <<
+  % \new Lyrics \lyricsto "bass" { \set stanza = "4." \verseFour }
+>>
+%%%%%%%%%%%%%%%%
 
-% Score for printing
-\score {
-  % SINGLE TRANSPOSE for all voices - change songKey at top
-  \transpose do \songKey {
-    \musicContent
-  }
+\include "shapenote-voices-and-lyrics.ily"
 
-  \layout {
-    indent = 0\cm
-    \context {
-      \Score
-      \remove "Bar_number_engraver"
-      \override TimeSignature.break-visibility = ##(#f #t #t)
-      \override NoteHead.font-size = #1
-      startRepeatBarType = #";"
-      endRepeatBarType = #";."
-      doubleRepeatBarType = ";.;"
-    }
-  }
-}
+%%%%%%% PRINT MODE %%%%%%%%%
+% Uncomment exactly one of shapenote-print-standard.ily and shapenote-print-experimental.ily.
 
 
-% Score for MIDI (reuses musicContent with octave doubling)
+% This is an experimental layout.
+% No clef symbols
+% Just a big top number for time signature
+% A mi/si at the beginning instead of key signature
+\include "shapenote-print-experimental.ily"
+%%
+% \include "shapenote-print-standard.ily"
 
-\score {
-  \unfoldRepeats
-  \transpose do \songKey {
-    <<
-      \new ChoirStaff <<
-        \new Staff \with {
-          midiInstrument = #"soprano sax"
-          instrumentName = "Treble"
-        } {
-          \new Voice = "treble" {
-            \global
-            \trebleMusic
-          }
-        }
-        \new Staff \with {
-          midiInstrument = #"alto sax"
-          instrumentName = "Alto"
-        } {
-          \new Voice = "alto" {
-            \global
-            \altoMusic
-          }
-        }
-        \new Staff \with {
-          midiInstrument = #"trumpet"
-          instrumentName = "Tenor"
-        } {
-          \new Voice = "tenor" {
-            \global
-            \tenorMusic
-          }
-        }
-        \new Staff \with {
-          midiInstrument = #"tuba"
-          instrumentName = "Bass"
-        } {
-          \clef bass
-          \new Voice = "bass" {
-            \global
-            \bassMusic
-          }
-        }
-      >>
-      % Octave doubling
-      \new Staff \with {
-        midiInstrument = #"tenor sax"
-        instrumentName = "Treble (low)"
-      } {
-        \new Voice = "treble-low" {
-          \global \transpose do do, { \trebleMusic }
-        }
-      }
-      \new Staff \with {
-        midiInstrument = #"trumpet"
-        instrumentName = "Tenor (low)"
-      } {
-        \new Voice = "tenor-low" {
-          \global \transpose do do, { \tenorMusic }
-        }
-      }
-    >>
-  }
+%%%%%%%%%%%%%%%%
 
-  \midi {
-    \context {
-      \Score
-      tempoWholesPerMinute = #100/4
 
-    }
-  }
-}
+\include "shapenote-midi.ily"
