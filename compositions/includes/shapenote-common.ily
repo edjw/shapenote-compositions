@@ -1,3 +1,6 @@
+#(if (not (defined? 'showChoirBrace))
+     (module-define! (current-module) 'showChoirBrace #t))
+
 setPickup =
 #(let ((duration (if (defined? 'pickupDuration) pickupDuration "0")))
    (cond

@@ -1,8 +1,14 @@
+printMusicContent =
+#(if showChoirBrace
+     #{ \new ChoirStaff << \staffMusic >> #}
+     #{ \new ChoirStaff \with {
+          \override SystemStartBrace.stencil = ##f
+          \override SystemStartBracket.stencil = ##f
+        } << \staffMusic >> #})
+
 \score {
   \transpose do \songKey {
-    \new ChoirStaff <<
-      \staffMusic
-    >>
+    \printMusicContent
   }
 
   \layout {

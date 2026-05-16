@@ -19,6 +19,7 @@ pickupDuration = "4" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter
 midiTempo = 160
 openingShapeStyle = "root" % "seventh" = si/mi marker, "root" = do/la marker. Always choose seventh in four shapes
 showKeySignatureWords = "yes" % "yes" or "no"
+% showChoirBrace = ##f % hide the left brace in standard print mode (default ##t)
 
 \include "shapenote-common.ily"
 
