@@ -6,6 +6,13 @@
 #(define openingShapeSourceDo (ly:make-pitch -1 0 0))
 #(define openingShapeQuarterDuration (ly:make-duration 2 0 1))
 
+% openingShapeStyle values:
+%   "root"    = do/la marker (default)
+%   "seventh" = si/mi marker
+% Four-shape notation ignores this and always uses the seventh marker.
+#(if (not (defined? 'openingShapeStyle))
+     (module-define! (current-module) 'openingShapeStyle "root"))
+
 #(define (opening-shape-notename)
    (cond
     ((equal? noteHeadStyle "four") 6)
