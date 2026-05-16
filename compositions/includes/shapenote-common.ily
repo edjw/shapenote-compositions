@@ -103,7 +103,7 @@ global = {
   \numericTimeSignature
   \time #timeSignature
   \defineBarLine ";" #'("|" ";" " ")
-  \defineBarLine ";." #'("|" ";." ";.")
+  \defineBarLine ";." #'(#t #f #t)
   \defineBarLine ".;" #'("|" ".;" ".;")
   \defineBarLine ".." #'(".." ".." "..")
   \defineBarLine ";.." #'(";.." ";.." ";..")
