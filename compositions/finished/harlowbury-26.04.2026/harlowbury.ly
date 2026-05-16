@@ -12,10 +12,10 @@ songMeter = "LM"
 songComposer = "Ed Johnson-Williams, April 2026"
 songFooter = "via Sand Mountain, Lloyds at the Macartes, Erin Johnson-Williams, and 429b Symyadda in the Shenandoah Harmony"
 poetName = "Social and Camp-Meeting Songs, 1825"
-timeSignature = 3/4
+timeSignature = 6/8
 noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
-pickupDuration = "4" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
-midiTempo = 100
+pickupDuration = "8" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
+midiTempo = 80
 openingShapeStyle = "root" % "seventh" = si/mi marker, "root" = do/la marker. Always choose seventh in four shapes
 showKeySignatureWords = "yes" % "yes" or "no"
 
@@ -46,72 +46,62 @@ showKeySignatureWords = "yes" % "yes" or "no"
 % Repeat+fermata:    \bar ".|:" (put \fermata on last note before it)
 % Segno:        do4^\markup { \tiny \musicglyph "scripts.segno" }
 
+%%%%%%%%%%%%%%%%
+
+
+
+
 trebleMusic = \relative do' {
 
-  mi4 |
-  mi2 la8(sol) |
-  mi4(sol) sol |
-  la4(mi) mi |
-  mi2 la4 |
-  mi2 mi8(sol) |
-  la4(sol) re |
-  mi2 sol4 |
-  la2 mi4 |
-  mi2 la8(sol) |
-  mi4(sol) sol |
-  la4(mi) mi |
-  mi2. |
+  mi8 |
+  mi4 la8 mi8(sol) sol |
+  la8(mi) mi mi4 la8 |
+  mi4 sol8 la(sol) re |
+  mi4 sol8 la4 mi8 |
+  mi4 la8 mi8(sol) sol |
+  la8(mi) mi mi4. |
 
 }
 
 altoMusic = \relative do {
 
-  mi4 |
-  la2 mi8(sol) mi4(sol) sol |
-  la4(mi) sol |
-  mi2 la4 |
-  la2 la8(si)  |
-  la4(sol) sol |
-  la2 si4 |
-  la2 mi4 |
-  la2 mi8(sol) mi4(sol) sol |
-  la4(mi) sol |
-  mi2.
-
+  mi8 |
+  la4 mi8 mi8(sol) sol |
+  la8(mi) sol mi4 la8 |
+  la4 si8 la(sol) sol |
+  la4 si8 la4 mi8 |
+  la4 mi8 mi8(sol) sol |
+  la8(mi) sol la4. |
 
 }
 
 
 tenorMusic = \relative do' {
 
-  la4 |
-  mi'2 mi8(re) si4(re) re4 |
-  mi4(la,) si4 la2 \bar ";" mi'4
-
-  la2 la8(sol) \break mi4(re) sol4 |
-  la4(mi) sol4 mi2 la,4 |
-  mi'2 mi8(re) si4(re) re4 |
-  mi4(la,) si4 la2. |
+  la8 |
+  mi'4 mi8 si8(re) re8 |
+  mi8(la,) si8 la4 \bar ";." mi'8 |
+  la4 sol8 mi(re) sol |
+  la8(mi) sol8 mi4 la,8 |
+  mi'4 mi8 si8(re) re8 |
+  mi8(la,) si8 la4. |
   \bar ".."
+
 }
 
 
 bassMusic = \relative do {
 
-  la4 |
-  la2 la8(sol) mi4(sol) sol |
-  la4(mi) sol |
-  la2 la4 |
-  do2 do8(si) |
-  la4(sol) sol |
-  la4(do) sol |
-  la2 la4 |
-  la2 la8(sol) mi4(sol) sol |
-  la4 mi sol |
-  la2.
+  la8 |
+  la4 la8 mi8(sol) sol |
+  la8(mi) sol la4 la8 |
+  do4 si8 la(sol) sol |
+  la8(do) sol la4 la8 |
+  la4 la8 mi8(sol) sol |
+  la8 (do) sol la4. |
 
 }
-%%%%%%%%%%%%%%%%
+
 
 %%%%%%% LYRICS %%%%%%%%%
 
