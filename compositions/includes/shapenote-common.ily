@@ -66,7 +66,15 @@ getKeySignature =
 }
 
 \header {
-  title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
+  title = \markup \fill-line {
+    \null
+    \line {
+      \bold \smaller #songTitle
+      \with-dimensions #'(0 . 0) #'(0 . 0)
+        \line { \hspace #1.5 \small #songMeter }
+    }
+    \null
+  }
   composer = #songComposer
   tagline =
   #(if (defined? 'songFooter)
