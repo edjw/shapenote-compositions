@@ -14,7 +14,7 @@ songComposer = "Ed Johnson-Williams, May 2026"
 poetName = "John Newton"
 songFooter = ""
 timeSignature = 2/4
-noteHeadStyle = "four" % "seven", "four", or "normal (not supported)"
+noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
 pickupDuration = "0" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
 midiTempo = 80
 %openingShapeStyle = "root" % "seventh" = si/mi marker, "root" = do/la marker. Always choose seventh in four shapes
