@@ -15,6 +15,7 @@ poetName = "John Greenleaf Whittier 1866"
 timeSignature = 3/4
 noteHeadStyle = "seven"  % "seven", "four", or "normal"
 pickupDuration = "0"  % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eight
+midiTempo = 80
 
 
 \include "shapenote-common.ily"
