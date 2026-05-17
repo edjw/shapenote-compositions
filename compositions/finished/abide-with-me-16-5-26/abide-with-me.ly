@@ -8,7 +8,7 @@
 
 songKey = sib
 songMode = "major" % "major" or "minor"
-songTitle = "Abide with Me"
+songTitle = "Abide With Me"
 songMeter = "10s"
 songComposer = "Arr: Ed Johnson-Williams, May 2026"
 poetName = "Henry Francis Lyte, 1847"
@@ -48,8 +48,8 @@ trebleMusic = \relative do' {
 
   mi2 mi4 sol |
   sol2 sol |
-  mi4 re do re |
-  do1 |
+  do,4 re do re |
+  mi1 |
   mi2 re4 mi |
   mi2 re |
   do4 re mi re |
@@ -71,8 +71,8 @@ altoMusic = \relative do' {
   mi4 sol do la |
   sol1 |
   sol2 la4 do |
-  do2 sol |
-  la4 sol sol la |
+  la2 sol |
+  la4 la sol la |
   sol1 |
   sol2 sol4 sol |
   mi2 sol |
@@ -107,15 +107,15 @@ tenorMusic = \relative do' {
 
 bassMusic = \relative do, {
   do2 do4 sol' |
-  sol2 sol |
+  do2 sol |
   la4 sol mi re |
   do1 |
   do2 re4 mi |
   la2 sol  |
-  do4 sol do, re |
+  do,4 re mi re |
   sol1 |
   do,2 do4 sol' |
-  sol2 sol |
+  do2 sol |
   sol4 fa do do |
   sol'1 |
   sol2 mi4 re |
