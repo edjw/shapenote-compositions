@@ -15,7 +15,7 @@ poetName = "Henry Francis Lyte, 1847"
 songFooter = ""
 timeSignature = 4/4
 noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
-midiTempo = 110
+midiTempo = 100
 
 \include "shapenote-common.ily"
 
@@ -46,15 +46,16 @@ midiTempo = 110
 
 trebleMusic = \relative do' {
 
-  mi2 mi4 sol |
+  mi2 sol4 sol |
   sol2 sol |
-  do,4 re do re |
-  mi1 |
+  mi4 re mi fa |
+  mi1
+  |
   mi2 re4 mi |
   mi2 re |
   do4 re mi re |
   re1 |
-  mi2 mi4 sol |
+  mi2 sol4 sol |
   sol2 sol |
   mi4 la la sol |
   sol1 |
@@ -72,14 +73,14 @@ altoMusic = \relative do' {
   sol1 |
   sol2 la4 do |
   la2 sol |
-  la4 la sol la |
+  fa4 fa sol la |
   sol1 |
   sol2 sol4 sol |
   mi2 sol |
-  do4 la la sol |
+  do4 do la sol |
   sol1 |
   sol2 do4 la |
-  sol la sol do |
+  sol fa sol do |
   do2 sol |
   sol1 |
 
@@ -106,17 +107,17 @@ tenorMusic = \relative do' {
 }
 
 bassMusic = \relative do, {
-  do2 do4 sol' |
+  do2 mi4 sol |
   do2 sol |
   la4 sol mi re |
   do1 |
-  do2 re4 mi |
+  do'2 re4 do |
   la2 sol  |
   do,4 re mi re |
   sol1 |
-  do,2 do4 sol' |
+  do,2 mi4 sol |
   do2 sol |
-  sol4 fa do do |
+  sol4 fa fa do |
   sol'1 |
   sol2 mi4 re |
   do re mi fa |
