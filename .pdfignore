@@ -1,0 +1,9 @@
+# PDFs listed here are NOT copied to the blog repository by
+# .github/workflows/pdf-webhook.yml.
+#
+# One path per line, exactly as it appears in git (relative to the
+# repo root). Blank lines and lines starting with # are ignored.
+#
+# Example:
+# compositions/finished/foo/foo.pdf
+# compositions/finished/bar/bar.pdf

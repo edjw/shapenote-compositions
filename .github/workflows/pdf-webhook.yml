@@ -32,10 +32,21 @@ jobs:
         run: |
           cd shapenote-compositions
 
+          # Filter out any paths listed in .pdfignore (exact match, repo-root relative).
+          # Comments (#) and blank lines in the ignore file are skipped.
+          IGNORE_FILE=".pdfignore"
+          filter_ignored() {
+            if [ -s "$IGNORE_FILE" ]; then
+              grep -vxFf <(grep -vE '^[[:space:]]*(#|$)' "$IGNORE_FILE") || true
+            else
+              cat
+            fi
+          }
+
           # Check if this is a manual trigger
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "Manual trigger detected - copying all PDF files"
-            CHANGED_PDFS=$(find compositions/finished -name "*.pdf" -type f)
+            CHANGED_PDFS=$(find compositions/finished -name "*.pdf" -type f | filter_ignored)
             DELETED_PDFS=""
           else
             echo "Automatic trigger - copying only changed PDF files"
@@ -47,9 +58,9 @@ jobs:
               BEFORE_SHA="HEAD^"
             fi
             echo "Comparing $BEFORE_SHA to ${{ github.event.after }}"
-            CHANGED_PDFS=$(git diff --name-only $BEFORE_SHA ${{ github.event.after }} | grep '^compositions/finished/.*\.pdf$' || true)
+            CHANGED_PDFS=$(git diff --name-only $BEFORE_SHA ${{ github.event.after }} | grep '^compositions/finished/.*\.pdf$' | filter_ignored || true)
             # Detect deleted PDF files
-            DELETED_PDFS=$(git diff --name-only --diff-filter=D $BEFORE_SHA ${{ github.event.after }} | grep '^compositions/finished/.*\.pdf$' || true)
+            DELETED_PDFS=$(git diff --name-only --diff-filter=D $BEFORE_SHA ${{ github.event.after }} | grep '^compositions/finished/.*\.pdf$' | filter_ignored || true)
           fi
 
           if [ -z "$CHANGED_PDFS" ] && [ -z "$DELETED_PDFS" ]; then
