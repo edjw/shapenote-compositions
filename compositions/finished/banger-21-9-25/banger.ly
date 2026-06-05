@@ -33,7 +33,7 @@
 
 %%%%%% QUICK SETTINGS %%%%%%
 songKey = mib
-songTitle = "Brogan"
+songTitle = "Banger"
 songMeter = "CM"
 keySignature = "E♭ Major"
 songComposer = "Ed Johnson-Williams, September 2025"
@@ -65,8 +65,7 @@ poet = "Isaac Watts"
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   composer = #songComposer
-  %tagline = ##f % removes the Lilypond tagline from bottom
-  tagline = \markup { \tiny {Major \strike-through {Banger} Bangor}}
+  tagline = ##f % removes the Lilypond tagline from bottom
   poet = \markup{ \concat { #keySignature ", " #poet } }
 }
 
