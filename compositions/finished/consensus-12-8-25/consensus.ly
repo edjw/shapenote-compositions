@@ -36,7 +36,7 @@
 % G minor:  \transpose do sol  (then use \minor in global)
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = sol  % Change this to set key (see examples above)
+songKey = fa  % Change this to set key (see examples above)
 songTitle = "Consensus"
 songMeter = "8,7"
 songComposer = "Ed Johnson-Williams, August 2025"
@@ -51,7 +51,7 @@ songComposer = "Ed Johnson-Williams, August 2025"
 \header {
   title = \markup{ \bold \smaller #songTitle "   " \small{#songMeter }}
   arranger = #songComposer
-  meter = "G Major"  % Update this manually to match songKey
+  meter = "F Major"  % Update this manually to match songKey
   tagline = ##f
 }
 
@@ -87,8 +87,8 @@ trebleMusic = \relative do' {
   \bar ";"
   \repeat volta 2 {
     r2 sol'4 sol |
-    mi2 do2 |
-    mi4 sol mi2 |
+    do2 do |
+    sol4 sol mi2 |
     sol2 sol4 sol |
     do2. sol4 |
     do4 sol sol2
@@ -100,9 +100,9 @@ trebleMusic = \relative do' {
 
   % === B SECTION ===
   r2 sol4 mi |
-  do2 sol' |
-  do4 sol do,2 |
-  mi2 do4 mi |
+  mi2 sol |
+  do4 do mi2 |
+  mi2 do4 do |
   sol2 do |
   do4 sol sol2
   \mark \markup { \italic \tiny "D.C." }
@@ -142,7 +142,7 @@ tenorMusic = \relative do' {
     mi2 sol2 |
     do4 do sol2  |
     mi2 do4 do |
-    sol2. do4 |
+    sol'2. do,4 |
     mi4 do do2
   }
   \mark \markup { \tiny \italic "Fine." }
@@ -165,10 +165,10 @@ bassMusic = \relative do {
   \bar ";"
   \repeat volta 2 {
     r2 do4 sol |
-    do,2 sol'2 |
+    do2 sol2 |
     do4 do sol2
     do2 do4 sol |
-    do,2. mi4 |
+    do2. mi4 |
     sol4 sol do,2
   }
   \mark \markup { \tiny \italic "Fine." }
@@ -176,12 +176,12 @@ bassMusic = \relative do {
   \break
 
   % === B SECTION ===
-  r2 do'4 sol |
+  r2 do4 sol |
   do2 mi |
   do4 sol sol2 |
-  do sol4 mi |
+  do sol4 sol |
   do2 do |
-  sol'4 sol <do do,>2
+  sol'4 sol do,2
   \mark \markup { \italic \tiny "D.C." }
   \bar ".."
 }
@@ -226,7 +226,7 @@ musicContent = {
       }
       % First verse - combines A (1st time) and B section
       \new Lyrics \lyricsto "treble" {
-        \set stanza = "1."
+
         \verseOneA
         \verseOneB
       }
@@ -255,7 +255,7 @@ musicContent = {
       }
       % First verse - combines A (1st time) and B section
       \new Lyrics \lyricsto "tenor" {
-        \set stanza = "1."
+
         \verseOneA
         \verseOneB
       }
