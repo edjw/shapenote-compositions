@@ -40,13 +40,18 @@
                      "›"))))
      (ly:stencil-add notehead chevron)))
 
-#(define (choose-opening-shape-pitch low-semitone high-semitone target-semitone)
-   (let ((note-name (opening-shape-notename)))
+#(define (choose-opening-shape-pitch low-semitone high-semitone target-semitone . tie-preference)
+   (let ((note-name (opening-shape-notename))
+         (prefer-higher? (and (pair? tie-preference)
+                              (eq? (car tie-preference) 'higher))))
      (if (not note-name)
          #f
          (let* ((transpose-interval (ly:pitch-diff songKey openingShapeSourceDo))
                 (candidate-octaves '(-3 -2 -1 0 1 2)))
-           (let loop ((octaves candidate-octaves) (best-pitch #f) (best-score #f))
+           (let loop ((octaves candidate-octaves)
+                      (best-pitch #f)
+                      (best-score #f)
+                      (best-semitone #f))
              (if (null? octaves)
                  best-pitch
                  (let* ((base-pitch (ly:make-pitch (car octaves) note-name 0))
@@ -55,13 +60,19 @@
                         (in-range (and (>= printed-semitone low-semitone)
                                        (<= printed-semitone high-semitone)))
                         (distance (abs (- printed-semitone target-semitone)))
-                        (score (+ distance (if in-range 0 1000))))
-                   (if (or (not best-score) (< score best-score))
-                       (loop (cdr octaves) base-pitch score)
-                       (loop (cdr octaves) best-pitch best-score)))))))))
+                        (score (+ distance (if in-range 0 1000)))
+                        (better? (or (not best-score)
+                                     (< score best-score)
+                                     (and (= score best-score)
+                                          best-semitone
+                                          prefer-higher?
+                                          (> printed-semitone best-semitone)))))
+                   (if better?
+                       (loop (cdr octaves) base-pitch score printed-semitone)
+                       (loop (cdr octaves) best-pitch best-score best-semitone)))))))))
 
 getOpeningShapeTrebleMusic =
-#(make-opening-shape-music (choose-opening-shape-pitch 4 17 10))
+#(make-opening-shape-music (choose-opening-shape-pitch 4 17 10 'higher))
 
 getOpeningShapeBassMusic =
 #(let ((notename (opening-shape-notename)))
