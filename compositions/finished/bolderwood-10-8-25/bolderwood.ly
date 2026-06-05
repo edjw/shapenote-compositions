@@ -6,7 +6,7 @@
 % Major: C: do  D: re  E: mi  F: fa  G: sol  A:  la  Bb: sib  Eb: mib
 % Minor: A: do  B: re  C#:mi  D: fa  E: sol  F#: la  G: sib   C: mib
 
-songKey = la
+songKey = sol
 songMode = "major" % "major" or "minor"
 songTitle = "Bolderwood"
 songMeter = "CM"
@@ -109,14 +109,14 @@ bassMusic = \relative do {
   sol2 la4 do2 do4 |
   sol2. r2 sol4 |
   la2 do4 do2 sol4 |
-  do2 la4 sol2\fermata <do do,>4 | \bar ".|:"
+  do2 la4 sol2\fermata do4 | \bar ".|:"
 
   \repeat volta 2 {
     sol2 sol4 do2 do4 |
   }
   \alternative {
-    { do2.(sol2)\fermata <do do,>4 | }
-    { <do do,>1. | }
+    { do2.(sol2)\fermata do4 | }
+    { do1. | }
   }
 }
 %%%%%%%%%%%%%%%%
