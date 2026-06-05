@@ -167,7 +167,7 @@ global = {
 
 trebleMusic = \relative do'' {
   sol4 |
-  mi2 sol4 sol2 do4 |
+  sol2 sol4 sol2 do4 |
   do2 la4 la2 sol4 |
   sol2 mi4 la2 sol4 |
   mi2 mi4 sol2 sol4 |
@@ -179,7 +179,7 @@ trebleMusic = \relative do'' {
 
 altoMusic = \relative do' {
   mi4 |
-  sol2 mi8[(re)] do2 do4 |
+  mi2 mi8[(re)] do2 do4 |
   la2 la4 do2 do4 |
   re2 do4 mi2 re4 |
   do2 do4 mi2 sol4 |
