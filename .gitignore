@@ -22,6 +22,14 @@ wheels/
 !templates/voice.band/
 *.wav
 
+# Ableton Live project files
+# Ableton stores everything in a "<name> Project/" folder: set files,
+# backups, sample analysis, and recorded audio. None of it belongs in git.
+* Project/
+*.als
+*.asd
+Ableton Project Info/
+
 # LilyPond build artifacts in root
 # Keep compiled PDFs/MIDIs next to their .ly files, not at repo root.
 /*.pdf
