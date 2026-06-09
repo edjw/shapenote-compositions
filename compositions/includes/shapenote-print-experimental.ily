@@ -40,6 +40,35 @@
                      "›"))))
      (ly:stencil-add notehead chevron)))
 
+% The opening note only prints on the first system, so to repeat it we capture
+% its stencil per staff and replay it through the KeySignature, which LilyPond
+% reprints on every system.
+#(define opening-shape-store (make-hash-table))
+#(define opening-shape-seen (make-hash-table))
+
+% Nudge the replayed marker left (staff-spaces) onto the far-left edge to line up
+% with the first-system note. Uses extra-offset, not a stencil translate, which
+% the prefatory spacing would just cancel.
+#(define opening-shape-keysignature-x-offset -3.5)
+
+#(define ((opening-shape-capture key) grob)
+   (let ((stencil (opening-shape-notehead-stencil grob))
+         (position (ly:grob-property grob 'staff-position)))
+     (hash-set! opening-shape-store key (cons position stencil))
+     stencil))
+
+#(define ((opening-shape-keysignature key) grob)
+   (let ((entry (hash-ref opening-shape-store key #f))
+         (seen (hash-ref opening-shape-seen key #f)))
+     (cond
+      ((not seen)
+       ;; First system: blank, the note already draws the marker here.
+       (hash-set! opening-shape-seen key #t)
+       empty-stencil)
+      ((not entry) empty-stencil)
+      (else
+       (ly:stencil-translate-axis (cdr entry) (/ (car entry) 2) Y)))))
+
 #(define (choose-opening-shape-pitch low-semitone high-semitone target-semitone . tie-preference)
    (let ((note-name (opening-shape-notename))
          (prefer-higher? (and (pair? tie-preference)
@@ -88,7 +117,6 @@ openingShapeVoiceSettings = {
   \voiceOne
   \shiftOff
   \setShapeHeads
-  \once \override NoteHead.stencil = #opening-shape-notehead-stencil
   \omit Stem
   \omit Flag
   \omit Beam
@@ -104,18 +132,26 @@ printMusicContent = <<
   \staffMusic
   \context Staff = treble \new Voice {
     \openingShapeVoiceSettings
+    \override Staff.KeySignature.stencil = #(opening-shape-keysignature 'treble)
+    \once \override NoteHead.stencil = #(opening-shape-capture 'treble)
     \getOpeningShapeTrebleMusic
   }
   \context Staff = alto \new Voice {
     \openingShapeVoiceSettings
+    \override Staff.KeySignature.stencil = #(opening-shape-keysignature 'alto)
+    \once \override NoteHead.stencil = #(opening-shape-capture 'alto)
     \getOpeningShapeTrebleMusic
   }
   \context Staff = tenor \new Voice {
     \openingShapeVoiceSettings
+    \override Staff.KeySignature.stencil = #(opening-shape-keysignature 'tenor)
+    \once \override NoteHead.stencil = #(opening-shape-capture 'tenor)
     \getOpeningShapeTrebleMusic
   }
   \context Staff = bass \new Voice {
     \openingShapeVoiceSettings
+    \override Staff.KeySignature.stencil = #(opening-shape-keysignature 'bass)
+    \once \override NoteHead.stencil = #(opening-shape-capture 'bass)
     \getOpeningShapeBassMusic
   }
 >>
@@ -140,7 +176,8 @@ printMusicContent = <<
     \context {
       \Staff
       \remove "Rest_collision_engraver"
-      \override KeySignature.stencil = ##f
+      % KeySignature.stencil is set per staff in printMusicContent (opening shape).
+      \override KeySignature.extra-offset = #(cons opening-shape-keysignature-x-offset 0)
       \override KeyCancellation.stencil = ##f
       \override BarLine.break-visibility = ##(#t #t #f)
       \override TimeSignature.style = #'single-number
