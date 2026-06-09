@@ -179,7 +179,9 @@ printMusicContent = <<
       % KeySignature.stencil is set per staff in printMusicContent (opening shape).
       \override KeySignature.extra-offset = #(cons opening-shape-keysignature-x-offset 0)
       \override KeyCancellation.stencil = ##f
-      \override BarLine.break-visibility = ##(#t #t #f)
+      % Begin-of-line must stay visible so a start-repeat shows its dots at the
+      % top of a system; plain barlines have an empty begin-of-line glyph anyway.
+      \override BarLine.break-visibility = ##(#t #t #t)
       \override TimeSignature.style = #'single-number
       \override Clef.stencil = ##f
     }
