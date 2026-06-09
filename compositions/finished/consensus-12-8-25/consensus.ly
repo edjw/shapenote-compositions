@@ -155,7 +155,7 @@ tenorMusic = \relative do' {
   mi4 sol mi2 |
   sol sol4 sol |
   do2 sol |
-  mi4 do sol2
+  mi4 do sol'2
   \mark \markup { \italic \tiny "D.C." }
   \bar ".."
 }
