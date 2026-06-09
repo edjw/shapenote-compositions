@@ -39,3 +39,5 @@ scales.pdf
 lilypond-tmp-*.pdf
 compositions/templates/new-song/template.midi
 compositions/templates/new-song/template.pdf
+compositions/templates/new-song-v2/template.midi
+compositions/templates/new-song-v2/template.pdf
