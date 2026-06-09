@@ -183,5 +183,9 @@ printMusicContent = <<
       \override TimeSignature.style = #'single-number
       \override Clef.stencil = ##f
     }
+    \context {
+      \Lyrics
+      \override LyricText.self-alignment-X = #LEFT
+    }
   }
 }
