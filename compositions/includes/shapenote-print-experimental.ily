@@ -40,34 +40,33 @@
                      "›"))))
      (ly:stencil-add notehead chevron)))
 
-% The opening note only prints on the first system, so to repeat it we capture
-% its stencil per staff and replay it through the KeySignature, which LilyPond
-% reprints on every system.
+% The opening note only prints on system 1. To repeat it, register the note grob
+% per staff and replay its stencil through the KeySignature (reprinted on every
+% system). Read on demand at replay time so note/keysig stencil order is irrelevant.
 #(define opening-shape-store (make-hash-table))
-#(define opening-shape-seen (make-hash-table))
 
-% Nudge the replayed marker left (staff-spaces) onto the far-left edge to line up
-% with the first-system note. Uses extra-offset, not a stencil translate, which
-% the prefatory spacing would just cancel.
+% Slide the replayed marker left onto the far-left edge (extra-offset, since a
+% stencil translate just gets cancelled by the prefatory spacing).
 #(define opening-shape-keysignature-x-offset -3.5)
 
-#(define ((opening-shape-capture key) grob)
-   (let ((stencil (opening-shape-notehead-stencil grob))
-         (position (ly:grob-property grob 'staff-position)))
-     (hash-set! opening-shape-store key (cons position stencil))
-     stencil))
+#(define ((opening-shape-register key) grob)
+   (hash-set! opening-shape-store key grob)
+   '())
+
+#(define (opening-shape-at-start? grob)
+   (let ((when (ly:grob-property (ly:item-get-column grob) 'when)))
+     (and (= (ly:moment-main when) 0)
+          (= (ly:moment-grace when) 0))))
 
 #(define ((opening-shape-keysignature key) grob)
-   (let ((entry (hash-ref opening-shape-store key #f))
-         (seen (hash-ref opening-shape-seen key #f)))
-     (cond
-      ((not seen)
-       ;; First system: blank, the note already draws the marker here.
-       (hash-set! opening-shape-seen key #t)
-       empty-stencil)
-      ((not entry) empty-stencil)
-      (else
-       (ly:stencil-translate-axis (cdr entry) (/ (car entry) 2) Y)))))
+   (let ((note (hash-ref opening-shape-store key #f)))
+     (if (or (not note) (opening-shape-at-start? grob))
+         ;; System 1 blanks here; the note draws the marker itself.
+         empty-stencil
+         (ly:stencil-translate-axis
+          (ly:grob-property note 'stencil)
+          (/ (ly:grob-property note 'staff-position) 2)
+          Y))))
 
 #(define (choose-opening-shape-pitch low-semitone high-semitone target-semitone . tie-preference)
    (let ((note-name (opening-shape-notename))
@@ -117,6 +116,7 @@ openingShapeVoiceSettings = {
   \voiceOne
   \shiftOff
   \setShapeHeads
+  \once \override NoteHead.stencil = #opening-shape-notehead-stencil
   \omit Stem
   \omit Flag
   \omit Beam
@@ -133,25 +133,25 @@ printMusicContent = <<
   \context Staff = treble \new Voice {
     \openingShapeVoiceSettings
     \override Staff.KeySignature.stencil = #(opening-shape-keysignature 'treble)
-    \once \override NoteHead.stencil = #(opening-shape-capture 'treble)
+    \once \override NoteHead.before-line-breaking = #(opening-shape-register 'treble)
     \getOpeningShapeTrebleMusic
   }
   \context Staff = alto \new Voice {
     \openingShapeVoiceSettings
     \override Staff.KeySignature.stencil = #(opening-shape-keysignature 'alto)
-    \once \override NoteHead.stencil = #(opening-shape-capture 'alto)
+    \once \override NoteHead.before-line-breaking = #(opening-shape-register 'alto)
     \getOpeningShapeTrebleMusic
   }
   \context Staff = tenor \new Voice {
     \openingShapeVoiceSettings
     \override Staff.KeySignature.stencil = #(opening-shape-keysignature 'tenor)
-    \once \override NoteHead.stencil = #(opening-shape-capture 'tenor)
+    \once \override NoteHead.before-line-breaking = #(opening-shape-register 'tenor)
     \getOpeningShapeTrebleMusic
   }
   \context Staff = bass \new Voice {
     \openingShapeVoiceSettings
     \override Staff.KeySignature.stencil = #(opening-shape-keysignature 'bass)
-    \once \override NoteHead.stencil = #(opening-shape-capture 'bass)
+    \once \override NoteHead.before-line-breaking = #(opening-shape-register 'bass)
     \getOpeningShapeBassMusic
   }
 >>
