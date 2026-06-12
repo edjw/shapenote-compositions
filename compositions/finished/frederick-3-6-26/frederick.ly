@@ -5,7 +5,7 @@
 % Major: C: do  D: re  E: mi  F: fa  G: sol  A:  la  Bb: sib  Eb: mib
 % Minor: A: do  B: re  C#:mi  D: fa  E: sol  F#: la  G: sib   C: mib
 
-songKey = re
+songKey = do
 songMode = "minor" % "major" or "minor"
 songTitle = "Frederick"
 songMeter = "8.6.8.6"
@@ -23,9 +23,7 @@ showKeySignatureWords = "yes" % "yes" or "no"
 \include "shapenote-common.ily"
 
 \paper {
-
   system-count = #1
-
 }
 
 %%%%%%% MUSIC %%%%%%%%%
@@ -55,22 +53,20 @@ showKeySignatureWords = "yes" % "yes" or "no"
 
 trebleMusic = \relative do'' {
 
-  la4 |
-  la2 do4 |
+  mi4 |
+  mi2 do4 |
   do2 mi8[re] |
-  do2 do4 |
-  mi2 mi8[re] |
-  mi2 la,4 |
   do2 re4 |
-  mi2. |
-  r2
-
+  do2 mi8[re] |
+  mi2 mi4 |
+  mi2 re4 |
+  mi2
   \repeat volta 2 {
     do4
-    la2 mi'8[re] |
-    do2 mi8[re] |
+    mi2 mi8[re] |
+    do2 mi8[sol] |
     mi2 mi4 |
-    do2 do8[re] |
+    sol2 do,8[re] |
     mi2 mi4 |
     do2 re4 |
   }
@@ -85,19 +81,18 @@ altoMusic = \relative do' {
   mi4 |
   do2 do8[mi] |
   mi2 mi8[re] |
-  mi2 mi4 |
+  mi2 re4 |
   do2 do4 |
   mi2 do4 |
   do2 re4 |
-  mi2. |
-  r2
+  mi2
   \repeat volta 2 {
     mi4
     do2 do8[re] |
-    mi2 mi8[do]
-    do2 mi4 |
-    mi2 do4 |
-    do2 mi4 |
+    mi2 mi8[sol]
+    la2 la4 |
+    la2 la4 |
+    mi2 mi4 |
     mi2 re4 |
     \alternative {
       { mi2 } { mi2. }
@@ -108,47 +103,44 @@ altoMusic = \relative do' {
 }
 tenorMusic = \relative do'' {
   la8[sol] |
-  mi2 mi4 |
-  la2 mi8[sol] |
-  la2 sol4 |
-  la2 mi8[sol] |
-  la2 la4 |
   mi2 sol4 |
-  la2. |
-
-  r2
+  la2 la8[sol] |
+  do2 re4 |
+  mi2 mi8[re] |
+  do2 la4 |
+  mi2 sol4 |
+  la2
   \repeat volta 2 {
     la8[sol]
     mi2 sol4 |
-    la2 mi8[sol] |
-    la2 do4 |
+    la2 do8[re] |
+    do2 do4 |
     mi2 mi8[re] |
-    do2 la4 |
-    mi2 sol4 |
+    do2 mi4 |
+    mi2 sol,4 |
     \alternative {
       { la2 } { la2. }
     }
   }
 }
-bassMusic = \relative do {
+bassMusic = \relative do' {
 
   la4 |
-  la2 la8[do] |
-  la2 la4 |
-  mi'2 do4 |
-  la2 la8[do] |
-  mi2 mi4 |
-  la2 sol4 |
-  la2. |
-  r2
+  la2 do8[sol] |
+  la2 do4 |
+  do2 sol4 |
+  la2 la8[sol] |
+  la2 do4 |
+  do2 sol4 |
+  la2
   \repeat volta 2 {
-    la,4
-    la2 do4 |
-    la2 do4 |
-    mi2 do4 |
-    la2 la8[do] |
-    mi2 la4 |
+    la4
     la2 sol4 |
+    mi2 sol4 |
+    la2 la4 |
+    la2 la8[sol] |
+    la2 la4 |
+    do2 sol4 |
   }
   \alternative {
     { la2 } { la2. }
@@ -163,15 +155,15 @@ bassMusic = \relative do {
 verseOne = \lyricmode {
   \tiny
   O may we, Lord, be one in You
-  in know -- ledge, truth and love;
-  and let our songs of free -- dom rise
+  in know -- ledge, truth and love.
+  And let our songs of free -- dom rise
   from earth to heav'n a -- bove.
 }
 
 verseTwo = \lyricmode {
   \tiny
   U -- nite us in the sa -- cred love
-  Of know  -- ledge truth and Thee;
+  Of know  -- ledge truth and Thee.
   And let our hills and val -- leys shout
   The song of lib -- er  -- ty.
 }
