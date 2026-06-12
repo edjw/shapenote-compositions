@@ -249,7 +249,7 @@ musicContent = {
       \remove "Bar_number_engraver"
       \override TimeSignature.break-visibility = ##(#f #t #t)
       \override NoteHead.font-size = #1
-      startRepeatBarType = #";"
+      startRepeatBarType = #".;"
       endRepeatBarType = #";."
       doubleRepeatBarType = ";.;"
     }
