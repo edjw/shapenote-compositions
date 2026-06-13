@@ -7,3 +7,7 @@
 # Example:
 # compositions/finished/foo/foo.pdf
 # compositions/finished/bar/bar.pdf
+
+# No matching .ly file; would collide with the main Abide With Me PDF name.
+compositions/finished/abide-with-me-16-5-26/original/abide-with-me.pdf
+

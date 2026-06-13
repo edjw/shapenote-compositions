@@ -1,0 +1,9 @@
+# Optional composition-date overrides for PDFs whose .ly songComposer
+# field does not contain a parseable month/year.
+#
+# Format:
+# path/to/file.pdf=YYYY-MM-DD
+#
+# Use the first day of the month for month-level composition dates.
+
+compositions/finished/abide-with-me-16-5-26/original/abide-with-me-original-shapenote-style.pdf=2026-05-01
