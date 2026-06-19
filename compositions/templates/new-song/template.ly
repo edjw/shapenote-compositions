@@ -6,17 +6,17 @@
 % Major: C: do  D: re  E: mi  F: fa  G: sol  A:  la  Bb: sib  Eb: mib
 % Minor: A: do  B: re  C#:mi  D: fa  E: sol  F#: la  G: sib   C: mib
 
-songKey = mib
-songMode = "minor" % "major" or "minor"
-songTitle = "Hello"
+songKey = do
+songMode = "major" % "major" or "minor"
+songTitle = ""
 songMeter = "LM"
-songComposer = "Ed Johnson-Williams, April 2026"
-poetName = "Social and Camp-Meeting Songs, 1825"
+songComposer = "Ed Johnson-Williams, XXXX 2026"
+poetName = ""
 songFooter = ""
-timeSignature = 6/4
+timeSignature = 4/4
 noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
-pickupDuration = "4" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
-midiTempo = 160
+pickupDuration = "0" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
+midiTempo = 100
 openingShapeStyle = "root" % "seventh" = si/mi marker, "root" = do/la marker. Always choose seventh in four shapes
 showKeySignatureWords = "yes" % "yes" or "no"
 % showChoirBrace = ##f % hide the left brace in standard print mode (default ##t)
