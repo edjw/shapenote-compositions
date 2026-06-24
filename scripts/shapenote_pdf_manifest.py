@@ -175,8 +175,10 @@ def manifest(repo_root: pathlib.Path, url_root: str) -> list[dict[str, str]]:
     overrides = date_overrides(repo_root)
     items = []
     errors = []
+    filenames: dict[str, str] = {}
 
     for pdf_path in find_pdfs(repo_root):
+        source_path = repo_path(pdf_path, repo_root)
         try:
             metadata = metadata_for_pdf(pdf_path, repo_root, overrides)
         except ValueError as error:
@@ -184,6 +186,13 @@ def manifest(repo_root: pathlib.Path, url_root: str) -> list[dict[str, str]]:
             continue
 
         filename = copied_filename(pdf_path, metadata)
+        if existing_source := filenames.get(filename):
+            errors.append(
+                f"Duplicate output filename {filename}: {existing_source} and {source_path}"
+            )
+            continue
+        filenames[filename] = source_path
+
         items.append(
             {
                 "name": clean_basename(pdf_path),
@@ -191,7 +200,7 @@ def manifest(repo_root: pathlib.Path, url_root: str) -> list[dict[str, str]]:
                 "url": f"{url_root.rstrip('/')}/{filename}",
                 "compositionMonth": metadata.composition_month,
                 "displayDate": metadata.display_date,
-                "sourcePath": repo_path(pdf_path, repo_root),
+                "sourcePath": source_path,
             }
         )
 

@@ -43,6 +43,9 @@ jobs:
           BLOG_PDF_DIR="../blog/public/files/shapenote-compositions"
           BLOG_MANIFEST="../blog/src/data/shapenote-compositions.json"
 
+          mkdir -p "$(dirname "$BLOG_MANIFEST")"
+          python3 scripts/shapenote_pdf_manifest.py manifest > "$BLOG_MANIFEST"
+
           PDF_FILES=$(python3 - <<'PY'
           import pathlib
           import sys
@@ -56,28 +59,23 @@ jobs:
           PY
           )
 
-          if [ -z "$PDF_FILES" ]; then
-            echo "No PDF files to sync"
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-            exit 0
-          fi
-
           rm -rf "$BLOG_PDF_DIR"
           mkdir -p "$BLOG_PDF_DIR"
-          mkdir -p "$(dirname "$BLOG_MANIFEST")"
 
           COPIED_FILES=""
-          while IFS= read -r file; do
-            [ -n "$file" ] || continue
-            FILENAME=$(basename "$file")
-            NEW_FILENAME=$(python3 scripts/shapenote_pdf_manifest.py filename "$file")
+          if [ -z "$PDF_FILES" ]; then
+            echo "No PDF files to copy; wrote empty manifest"
+          else
+            while IFS= read -r file; do
+              [ -n "$file" ] || continue
+              FILENAME=$(basename "$file")
+              NEW_FILENAME=$(python3 scripts/shapenote_pdf_manifest.py filename "$file")
 
-            cp "$file" "$BLOG_PDF_DIR/$NEW_FILENAME"
-            echo "Copied: $FILENAME -> $NEW_FILENAME"
-            COPIED_FILES="$COPIED_FILES$NEW_FILENAME, "
-          done <<< "$PDF_FILES"
-
-          python3 scripts/shapenote_pdf_manifest.py manifest > "$BLOG_MANIFEST"
+              cp "$file" "$BLOG_PDF_DIR/$NEW_FILENAME"
+              echo "Copied: $FILENAME -> $NEW_FILENAME"
+              COPIED_FILES="$COPIED_FILES$NEW_FILENAME, "
+            done <<< "$PDF_FILES"
+          fi
 
           COPIED_FILES=${COPIED_FILES%, }
           echo "copied_files=$COPIED_FILES" >> $GITHUB_OUTPUT
