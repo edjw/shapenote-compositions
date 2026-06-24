@@ -8,8 +8,10 @@ on:
     paths:
       - 'compositions/finished/**/*.pdf'
       - 'compositions/finished/**/*.ly'
+      - '.github/workflows/pdf-webhook.yml'
       - '.pdfdates'
       - '.pdfignore'
+      - 'scripts/shapenote_pdf_manifest.py'
   workflow_dispatch:
 
 jobs:
@@ -30,231 +32,73 @@ jobs:
           token: ${{ secrets.BLOG_REPO_TOKEN }}
           path: blog
 
-      - name: Get changed PDF files and copy to blog
-        id: copy-files
+      - name: Sync PDFs and manifest to blog
+        id: sync-files
         run: |
           cd shapenote-compositions
 
-          # Filter out any paths listed in .pdfignore (exact match, repo-root relative).
-          # Comments (#) and blank lines in the ignore file are skipped.
-          IGNORE_FILE=".pdfignore"
-          filter_ignored() {
-            if [ -s "$IGNORE_FILE" ]; then
-              grep -vxFf <(grep -vE '^[[:space:]]*(#|$)' "$IGNORE_FILE") || true
-            else
-              cat
-            fi
-          }
+          # The source repo is authoritative. Regenerate the public PDF directory
+          # and manifest from all finished PDFs so deletes, renames, and metadata
+          # changes never require manual blog edits.
+          BLOG_PDF_DIR="../blog/public/files/shapenote-compositions"
+          BLOG_MANIFEST="../blog/src/data/shapenote-compositions.json"
 
-          # Read an optional exact-path override from .pdfdates, otherwise read the
-          # composition month/year from the LilyPond songComposer field.
-          # Examples handled: "May 2026" and "June + August 2026".
-          # Multi-month dates sort by the last month listed.
-          composition_date_for_pdf() {
-            local pdf_file="$1"
-            python3 - "$pdf_file" <<'PY'
+          PDF_FILES=$(python3 - <<'PY'
           import pathlib
-          import re
           import sys
 
-          pdf_path = pathlib.Path(sys.argv[1])
-          pdf_path_string = pdf_path.as_posix()
+          sys.path.insert(0, "scripts")
+          import shapenote_pdf_manifest
 
-          override_path = pathlib.Path(".pdfdates")
-          if override_path.is_file():
-              for line in override_path.read_text(encoding="utf-8", errors="ignore").splitlines():
-                  line = line.strip()
-                  if not line or line.startswith("#") or "=" not in line:
-                      continue
-                  path, date = (part.strip() for part in line.split("=", 1))
-                  if path == pdf_path_string and re.fullmatch(r"\d{4}-\d{2}-\d{2}", date):
-                      print(date)
-                      sys.exit(0)
-
-          ly_candidates = [pdf_path.with_suffix(".ly")]
-          if not ly_candidates[0].is_file():
-              ly_candidates = sorted(pdf_path.parent.glob("*.ly"))
-
-          month_numbers = {
-              "january": "01",
-              "february": "02",
-              "march": "03",
-              "april": "04",
-              "may": "05",
-              "june": "06",
-              "july": "07",
-              "august": "08",
-              "september": "09",
-              "october": "10",
-              "november": "11",
-              "december": "12",
-          }
-          month_pattern = "|".join(month_numbers.keys())
-          composer_pattern = re.compile(r'^\s*songComposer\s*=\s*"([^"]*)"', re.MULTILINE)
-          date_pattern = re.compile(
-              rf"\b((?:{month_pattern})(?:\s*(?:\+|&|and|/|-)\s*(?:{month_pattern}))*)\s+((?:19|20)\d{{2}})\b",
-              re.IGNORECASE,
+          repo_root = pathlib.Path.cwd()
+          for pdf_path in shapenote_pdf_manifest.find_pdfs(repo_root):
+              print(shapenote_pdf_manifest.repo_path(pdf_path, repo_root))
+          PY
           )
 
-          for ly_path in ly_candidates:
-              try:
-                  text = ly_path.read_text(encoding="utf-8", errors="ignore")
-              except OSError:
-                  continue
-
-              composer_match = composer_pattern.search(text)
-              if not composer_match:
-                  continue
-
-              matches = list(date_pattern.finditer(composer_match.group(1)))
-              if not matches:
-                  continue
-
-              match = matches[-1]
-              month_names = re.findall(month_pattern, match.group(1), re.IGNORECASE)
-              if not month_names:
-                  continue
-
-              print(f"{match.group(2)}-{month_numbers[month_names[-1].lower()]}-01")
-              sys.exit(0)
-
-          sys.exit(1)
-          PY
-          }
-
-          # Check if this is a manual trigger
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "Manual trigger detected - copying all PDF files"
-            CHANGED_PDFS=$(find compositions/finished -name "*.pdf" -type f | filter_ignored)
-            DELETED_PDFS=""
-          else
-            echo "Automatic trigger - copying only changed PDF files"
-            # Use github.event.before to check ALL commits in the push, not just the latest
-            # Falls back to HEAD^ for edge cases (first push, force push)
-            BEFORE_SHA="${{ github.event.before }}"
-            if [ -z "$BEFORE_SHA" ] || [ "$BEFORE_SHA" = "0000000000000000000000000000000000000000" ]; then
-              echo "No previous commit available, using HEAD^"
-              BEFORE_SHA="HEAD^"
-            fi
-            echo "Comparing $BEFORE_SHA to ${{ github.event.after }}"
-            CHANGED_FILES=$(git diff --name-only --diff-filter=ACMR "$BEFORE_SHA" "${{ github.event.after }}")
-            if echo "$CHANGED_FILES" | grep -Eq '^(\.pdfdates|\.pdfignore)$'; then
-              echo "PDF config changed - copying all PDF files"
-              CHANGED_PDFS=$(find compositions/finished -name "*.pdf" -type f | filter_ignored)
-            else
-              CHANGED_PDFS=$(
-                {
-                  echo "$CHANGED_FILES" | grep '^compositions/finished/.*\.pdf$' || true
-                  echo "$CHANGED_FILES" | grep '^compositions/finished/.*\.ly$' | while IFS= read -r ly_file; do
-                    pdf_file="${ly_file%.ly}.pdf"
-                    if [ -f "$pdf_file" ]; then
-                      echo "$pdf_file"
-                    fi
-                  done || true
-                } | sort -u | filter_ignored
-              )
-            fi
-            # Detect deleted PDF files
-            DELETED_PDFS=$(git diff --name-only --diff-filter=D "$BEFORE_SHA" "${{ github.event.after }}" | grep '^compositions/finished/.*\.pdf$' | filter_ignored || true)
-          fi
-
-          if [ -z "$CHANGED_PDFS" ] && [ -z "$DELETED_PDFS" ]; then
-            echo "No PDF files to copy or delete"
+          if [ -z "$PDF_FILES" ]; then
+            echo "No PDF files to sync"
             echo "has_changes=false" >> $GITHUB_OUTPUT
             exit 0
           fi
 
-          echo "has_changes=true" >> $GITHUB_OUTPUT
-          mkdir -p ../blog/public/files/shapenote-compositions
+          rm -rf "$BLOG_PDF_DIR"
+          mkdir -p "$BLOG_PDF_DIR"
+          mkdir -p "$(dirname "$BLOG_MANIFEST")"
 
           COPIED_FILES=""
           while IFS= read -r file; do
             [ -n "$file" ] || continue
-            if [ -f "$file" ]; then
-              # Prefer the composition date from songComposer, falling back to the PDF commit date.
-              COMPOSITION_DATE=$(composition_date_for_pdf "$file" || true)
-              if [ -z "$COMPOSITION_DATE" ]; then
-                COMPOSITION_DATE=$(git log -1 --format=%cd --date=format:%Y-%m-%d -- "$file")
-                echo "Could not parse songComposer date for $file; using commit date $COMPOSITION_DATE"
-              fi
+            FILENAME=$(basename "$file")
+            NEW_FILENAME=$(python3 scripts/shapenote_pdf_manifest.py filename "$file")
 
-              # Extract filename without extension
-              FILENAME=$(basename "$file")
-              BASENAME="${FILENAME%.pdf}"
+            cp "$file" "$BLOG_PDF_DIR/$NEW_FILENAME"
+            echo "Copied: $FILENAME -> $NEW_FILENAME"
+            COPIED_FILES="$COPIED_FILES$NEW_FILENAME, "
+          done <<< "$PDF_FILES"
 
-              # Remove any existing date pattern (YYYY-MM-DD or DD-MM-YYYY or similar)
-              BASENAME_CLEAN=$(echo "$BASENAME" | sed -E 's/_?[0-9]{4}-[0-9]{2}-[0-9]{2}$//; s/_?[0-9]{2}-[0-9]{2}-[0-9]{4}$//')
-
-              # Construct new filename with composition date
-              NEW_FILENAME="${BASENAME_CLEAN}_${COMPOSITION_DATE}.pdf"
-
-              # Remove old dated versions of this file before copying the new one
-              # Pattern matches: basename_YYYY-MM-DD.pdf
-              OLD_VERSIONS=$(find ../blog/public/files/shapenote-compositions -name "${BASENAME_CLEAN}_[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].pdf" -type f)
-              if [ -n "$OLD_VERSIONS" ]; then
-                echo "Removing old versions of $BASENAME_CLEAN:"
-                echo "$OLD_VERSIONS" | while IFS= read -r old_file; do
-                  rm -f "$old_file"
-                  echo "  Removed: $(basename "$old_file")"
-                done
-              fi
-
-              cp "$file" "../blog/public/files/shapenote-compositions/$NEW_FILENAME"
-              echo "Copied: $FILENAME -> $NEW_FILENAME"
-              COPIED_FILES="$COPIED_FILES$NEW_FILENAME, "
-            fi
-          done <<< "$CHANGED_PDFS"
+          python3 scripts/shapenote_pdf_manifest.py manifest > "$BLOG_MANIFEST"
 
           COPIED_FILES=${COPIED_FILES%, }
           echo "copied_files=$COPIED_FILES" >> $GITHUB_OUTPUT
-
-          # Handle deleted PDFs
-          DELETED_FILES=""
-          while IFS= read -r file; do
-            [ -n "$file" ] || continue
-            # Extract filename without extension
-            FILENAME=$(basename "$file")
-            BASENAME="${FILENAME%.pdf}"
-
-            # Remove any existing date pattern to get base name
-            BASENAME_CLEAN=$(echo "$BASENAME" | sed -E 's/_?[0-9]{4}-[0-9]{2}-[0-9]{2}$//; s/_?[0-9]{2}-[0-9]{2}-[0-9]{4}$//')
-
-            # Find and remove all dated versions of this file in blog repo
-            # Pattern matches: basename_YYYY-MM-DD.pdf
-            OLD_VERSIONS=$(find ../blog/public/files/shapenote-compositions -name "${BASENAME_CLEAN}_[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].pdf" -type f)
-            if [ -n "$OLD_VERSIONS" ]; then
-              while IFS= read -r dated_file; do
-                rm "$dated_file"
-                DELETED_BASENAME=$(basename "$dated_file")
-                echo "Deleted: $DELETED_BASENAME"
-                DELETED_FILES="$DELETED_FILES$DELETED_BASENAME, "
-              done <<< "$OLD_VERSIONS"
-            fi
-          done <<< "$DELETED_PDFS"
-
-          DELETED_FILES=${DELETED_FILES%, }
-          echo "deleted_files=$DELETED_FILES" >> $GITHUB_OUTPUT
+          echo "has_changes=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push to blog repository
-        if: steps.copy-files.outputs.has_changes == 'true'
+        if: steps.sync-files.outputs.has_changes == 'true'
         run: |
           cd blog
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A public/files/shapenote-compositions/
+          git add -A public/files/shapenote-compositions/ src/data/shapenote-compositions.json
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0
           fi
 
-          # Build commit message
-          COMMIT_MSG="Update shapenote composition PDFs"
-          if [ -n "${{ steps.copy-files.outputs.copied_files }}" ]; then
-            COMMIT_MSG="$COMMIT_MSG - Added: ${{ steps.copy-files.outputs.copied_files }}"
-          fi
-          if [ -n "${{ steps.copy-files.outputs.deleted_files }}" ]; then
-            COMMIT_MSG="$COMMIT_MSG - Removed: ${{ steps.copy-files.outputs.deleted_files }}"
+          COMMIT_MSG="Update shapenote composition PDFs and manifest"
+          if [ -n "${{ steps.sync-files.outputs.copied_files }}" ]; then
+            COMMIT_MSG="$COMMIT_MSG - Synced: ${{ steps.sync-files.outputs.copied_files }}"
           fi
 
           git commit -m "$COMMIT_MSG"
