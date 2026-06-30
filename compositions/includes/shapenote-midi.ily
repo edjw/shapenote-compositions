@@ -16,6 +16,18 @@
           }
         }
         \new Staff \with {
+          midiInstrument = #"tenor sax"
+          instrumentName = "Treble (low)"
+          midiMinimumVolume = #0.20
+          midiMaximumVolume = #0.30
+          midiPanPosition = #-0.65
+        } {
+          \new Voice = "treble-low" {
+            \global \transpose do do, { \trebleMusic }
+          }
+        }
+
+        \new Staff \with {
           midiInstrument = #"alto sax"
           instrumentName = "Alto"
           midiMinimumVolume = #0.36
@@ -40,6 +52,18 @@
           }
         }
         \new Staff \with {
+          midiInstrument = #"trombone"
+          instrumentName = "Tenor (low)"
+          midiMinimumVolume = #0.20
+          midiMaximumVolume = #0.30
+          midiPanPosition = #0.12
+        } {
+          \new Voice = "tenor-low" {
+            \global \transpose do do, { \tenorMusic }
+          }
+        }
+
+        \new Staff \with {
           midiInstrument = #"tuba"
           instrumentName = "Bass"
           midiMinimumVolume = #0.40
@@ -53,28 +77,6 @@
           }
         }
       >>
-      \new Staff \with {
-        midiInstrument = #"tenor sax"
-        instrumentName = "Treble (low)"
-        midiMinimumVolume = #0.20
-        midiMaximumVolume = #0.30
-        midiPanPosition = #-0.65
-      } {
-        \new Voice = "treble-low" {
-          \global \transpose do do, { \trebleMusic }
-        }
-      }
-      \new Staff \with {
-        midiInstrument = #"trombone"
-        instrumentName = "Tenor (low)"
-        midiMinimumVolume = #0.20
-        midiMaximumVolume = #0.30
-        midiPanPosition = #0.12
-      } {
-        \new Voice = "tenor-low" {
-          \global \transpose do do, { \tenorMusic }
-        }
-      }
     >>
   }
 
