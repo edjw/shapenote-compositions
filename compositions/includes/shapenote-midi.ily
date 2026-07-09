@@ -5,14 +5,14 @@
      (module-define! (current-module) 'shapeNoteMidiBeatExtraVelocity
                      (if (and (defined? 'timeSignature)
                               (shape-note-midi-supported-meter? timeSignature))
-                         9
+                         5
                          0)))
 
 #(if (not (defined? 'shapeNoteMidiBarExtraVelocity))
      (module-define! (current-module) 'shapeNoteMidiBarExtraVelocity
                      (if (and (defined? 'timeSignature)
                               (shape-note-midi-supported-meter? timeSignature))
-                         4
+                         3
                          0)))
 
 shapeNoteMidiBeatStructure =
@@ -50,8 +50,8 @@ trebleLowMidiStaff =
        \new Staff \with {
          midiInstrument = #"tenor sax"
          instrumentName = "Treble (low)"
-         midiMinimumVolume = #0.20
-         midiMaximumVolume = #0.30
+         midiMinimumVolume = #0.33
+         midiMaximumVolume = #0.47
          midiPanPosition = #-0.65
        } {
          \new Voice = "treble-low" {
@@ -69,8 +69,8 @@ altoMidiStaff =
        \new Staff \with {
          midiInstrument = #"alto sax"
          instrumentName = "Alto"
-         midiMinimumVolume = #0.36
-         midiMaximumVolume = #0.50
+         midiMinimumVolume = #0.40
+         midiMaximumVolume = #0.55
          midiPanPosition = #0.75
        } {
          \new Voice = "alto" {
@@ -107,8 +107,8 @@ tenorLowMidiStaff =
        \new Staff \with {
          midiInstrument = #"trombone"
          instrumentName = "Tenor (low)"
-         midiMinimumVolume = #0.20
-         midiMaximumVolume = #0.30
+         midiMinimumVolume = #0.43
+         midiMaximumVolume = #0.61
          midiPanPosition = #0.12
        } {
          \new Voice = "tenor-low" {
