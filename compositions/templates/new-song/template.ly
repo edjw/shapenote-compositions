@@ -3,11 +3,7 @@
 \version "2.26.0"
 #(set-default-paper-size "a4landscape")
 
-% Major: C: do  D: re  E: mi  F: fa  G: sol  A:  la  Bb: sib  Eb: mib
-% Minor: A: do  B: re  C#:mi  D: fa  E: sol  F#: la  G: sib   C: mib
-
-songKey = do
-songMode = "major" % "major" or "minor"
+songKey = "c major" % e.g. "e minor", "f# major", "bb major"
 songTitle = ""
 songMeter = "LM"
 songComposer = "Ed Johnson-Williams, XXXX 2026"
@@ -30,7 +26,7 @@ showKeySignatureWords = "yes" % "yes" or "no"
 % Octaves:              do'4 (higher) | do,4 (lower)
 % Slurs:                do8( re8 mi8)
 % Repeats:              \repeat volta 2 { music }
-% Ties:                 do4~ do4
+% Ties:                 do4~ do4 (don't tie rests)
 % Octave doubling:      <do do,>2 (bass root + octave below)
 % Text markings:        do4^\markup { "Fine" }
 % Combined:              do8([ re8]) (slur and beam together)
@@ -45,6 +41,7 @@ showKeySignatureWords = "yes" % "yes" or "no"
 % Alternative endings:  \alternative { { ending1 } { ending2 } }
 % Accidentals:          fas4 or sib4 (sharps add s, flats add b)
 % Triplets:             \tuplet 3/2 { do8 re8 mi8 }
+% Time signature:       \bar ".." \time 3/2
 % Repeat+fermata:       \bar ".|:" (put \fermata on last note before it)
 % Segno:                do4^\markup { \tiny \musicglyph "scripts.segno" }
 
