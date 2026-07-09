@@ -1,6 +1,63 @@
 #(if (not (defined? 'showChoirBrace))
      (module-define! (current-module) 'showChoirBrace #t))
 
+% songKey can be written as a plain key name string, e.g.
+%   songKey = "e minor"    songKey = "f# major"    songKey = "bb major"
+% It is parsed here into the movable-do transposition pitch (for minor keys,
+% "do" is the relative major's tonic) plus the text shown top-left on the page.
+% The old style (songKey = sol / songMode = "minor") still works unchanged.
+#(define (parse-song-key str)
+   ;; -> (list do-pitch mode display-text) or #f if unrecognised
+   (let* ((parts (filter (lambda (p) (not (string-null? p)))
+                         (string-split (string-downcase (string-trim-both str))
+                                       #\space))))
+     (and (= (length parts) 2)
+          (let* ((note (car parts))
+                 (mode (cadr parts))
+                 (letter (string-ref note 0))
+                 (notename (string-index "cdefgab" letter))
+                 (alteration
+                  (cond
+                   ((= (string-length note) 1) 0)
+                   ((and (= (string-length note) 2)
+                         (memv (string-ref note 1) '(#\# #\♯))) 1/2)
+                   ((and (= (string-length note) 2)
+                         (memv (string-ref note 1) '(#\b #\♭))) -1/2)
+                   (else #f)))
+                 (accidental-text
+                  (cond ((eqv? alteration 1/2) "♯")
+                        ((eqv? alteration -1/2) "♭")
+                        (else ""))))
+            (and notename alteration (member mode '("major" "minor"))
+                 (let* ((tonic (ly:make-pitch -1 notename alteration))
+                        (do-pitch
+                         (if (string=? mode "minor")
+                             ;; relative major tonic, kept in the same octave
+                             ;; as the old syllable table (bare do..si)
+                             (let ((rel (ly:pitch-transpose
+                                         tonic (ly:make-pitch 0 2 -1/2))))
+                               (ly:make-pitch -1
+                                              (ly:pitch-notename rel)
+                                              (ly:pitch-alteration rel)))
+                             tonic)))
+                   (list do-pitch
+                         mode
+                         (string-append (string (char-upcase letter))
+                                        accidental-text
+                                        " "
+                                        (if (string=? mode "minor")
+                                            "Minor"
+                                            "Major")))))))))
+
+#(if (and (defined? 'songKey) (string? songKey))
+     (let ((parsed (parse-song-key songKey)))
+       (if parsed
+           (begin
+             (module-define! (current-module) 'songKeyText (caddr parsed))
+             (module-define! (current-module) 'songMode (cadr parsed))
+             (module-define! (current-module) 'songKey (car parsed)))
+           (ly:error "Unrecognised songKey ~s — expected e.g. \"e minor\", \"f# major\" or \"bb major\"" songKey))))
+
 setPickup =
 #(let ((duration (if (defined? 'pickupDuration) pickupDuration "0")))
    (cond
@@ -14,7 +71,9 @@ setPickup =
     (else #{ #})))
 
 getKeySignature =
-#(let* ((key-pitch (if (defined? 'songKey) songKey (ly:make-pitch 0 0 0)))
+#(if (defined? 'songKeyText)
+   songKeyText
+   (let* ((key-pitch (if (defined? 'songKey) songKey (ly:make-pitch 0 0 0)))
         (mode (if (defined? 'songMode) songMode "major"))
         (notename (ly:pitch-notename key-pitch))
         (alteration (ly:pitch-alteration key-pitch))
@@ -54,7 +113,7 @@ getKeySignature =
         (result (assoc key-list all-keys)))
    (if result
        (cdr result)
-       "Unknown Key"))
+       "Unknown Key")))
 
 \paper {
   page-count = #1
