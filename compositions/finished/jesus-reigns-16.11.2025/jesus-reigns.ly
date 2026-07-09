@@ -171,7 +171,7 @@ global = {
 
 trebleMusic = \relative do'' {
 
-  r2 sol4. fa8 |
+  r2^\markup { "Swung" } sol4. fa8 |
   mi4 sol mi fa  |
   sol2 mi4 do8 do |
   re4. re8 mi4 fa |

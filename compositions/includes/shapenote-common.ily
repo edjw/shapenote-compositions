@@ -130,7 +130,7 @@ getKeySignature =
     \line {
       \bold \smaller #songTitle
       \with-dimensions #'(0 . 0) #'(0 . 0)
-        \line { \hspace #1.5 \small #songMeter }
+      \line { \hspace #1.5 \small #songMeter }
     }
     \null
   }
