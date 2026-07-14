@@ -162,23 +162,18 @@ verseFour = \lyricmode {
 
 %%%%%%% LYRICS PLACEMENT %%%%%%%%%
 trebleLyrics = <<
-  % \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
+  \new Lyrics \lyricsto "treble" { \verseOne }
 >>
 
-altoLyrics = <<
-  % \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
->>
+
 
 tenorLyrics = <<
   \new Lyrics \lyricsto "tenor" {
-    \set stanza = "1." \verseOne
+    \verseOne
   }
-  % \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
 >>
 
-bassLyrics = <<
-  % \new Lyrics \lyricsto "bass" { \set stanza = "4." \verseFour }
->>
+
 %%%%%%%%%%%%%%%%
 
 \include "shapenote-voices-and-lyrics.ily"
