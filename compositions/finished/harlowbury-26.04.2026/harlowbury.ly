@@ -21,6 +21,10 @@ showKeySignatureWords = "yes" % "yes" or "no"
 
 \include "shapenote-common.ily"
 
+\paper {
+  system-count = #1
+}
+
 %%%%%%% MUSIC %%%%%%%%%
 %
 % Beams:        do8[re] (eighth notes and shorter only)
