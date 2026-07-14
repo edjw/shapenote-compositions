@@ -333,12 +333,10 @@ TrebleverseOne = \lyricmode {
 
 AltoverseOne = \lyricmode {
   \tiny
-  Broad is the road that leads to death
-  And thou -- sands walk to -- ge -- ther there;
+  _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _
   But wis -- dom shows a nar -- row path,
-  But wis -- dom shows a nar -- row path,
-  With here and there a trav -- el -- er.
-  er.
+
 }
 
 
@@ -353,12 +351,10 @@ TenorverseOne = \lyricmode {
 
 BassverseOne = \lyricmode {
   \tiny
-  Broad is the road that leads to death
-  And thou -- sands walk to -- ge -- ther there;
+  _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _
   But wis -- dom shows a nar -- row path,
-  But wis -- dom shows a nar -- row path,
-  With here and there a trav -- el -- er.
-  er.
+
 }
 
 
@@ -372,7 +368,7 @@ musicContent = {
         \global
         \trebleMusic
       }
-      \new Lyrics \lyricsto "treble" { \set stanza = "1." \TrebleverseOne }
+      \new Lyrics \lyricsto "treble" {  \TrebleverseOne }
 
 
     >>
@@ -382,7 +378,7 @@ musicContent = {
         \global
         \altoMusic
       }
-      \new Lyrics \lyricsto "alto" { \set stanza = "1." \AltoverseOne }
+      \new Lyrics \lyricsto "alto" {  \AltoverseOne }
 
     >>
 
@@ -391,7 +387,7 @@ musicContent = {
         \global
         \tenorMusic
       }
-      \new Lyrics \lyricsto "tenor" { \set stanza = "1." \TenorverseOne }
+      \new Lyrics \lyricsto "tenor" {  \TenorverseOne }
 
     >>
 
@@ -401,7 +397,7 @@ musicContent = {
         \global
         \bassMusic
       }
-      \new Lyrics \lyricsto "bass" { \set stanza = "1." \BassverseOne }
+      \new Lyrics \lyricsto "bass" {  \BassverseOne }
 
     >>
   >>
