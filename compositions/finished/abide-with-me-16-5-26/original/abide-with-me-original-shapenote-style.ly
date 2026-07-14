@@ -160,7 +160,7 @@ verseFour = \lyricmode {
 
 %%%%%%% LYRICS PLACEMENT %%%%%%%%%
 trebleLyrics = <<
-  % \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
+  \new Lyrics \lyricsto "treble" {  \verseOne }
 >>
 
 altoLyrics = <<
@@ -169,7 +169,7 @@ altoLyrics = <<
 
 tenorLyrics = <<
   \new Lyrics \lyricsto "tenor" {
-    \set stanza = "1." \verseOne
+    \verseOne
   }
   % \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
 >>
