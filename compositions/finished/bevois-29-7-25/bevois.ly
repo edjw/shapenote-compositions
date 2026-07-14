@@ -53,7 +53,7 @@ setPickup =
 
 \paper {
   page-count = #1
-  system-count = #1
+  system-count = #2
   system-system-spacing = #'((basic-distance . 0) (padding . 6))
   markup-system-spacing = #'((basic-distance . 12) (padding . 4))
   top-margin = 1.25\cm
