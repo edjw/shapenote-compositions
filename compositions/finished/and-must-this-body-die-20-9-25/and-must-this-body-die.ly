@@ -244,9 +244,7 @@ musicContent = {
         \set stanza = "2." \verseTwo
       }
       % Uncomment for verse 3 under tenor:
-      \new Lyrics \lyricsto "tenor" {
-        \set stanza = "3." \verseThree
-      }
+
     >>
 
     \new Staff = bass <<
