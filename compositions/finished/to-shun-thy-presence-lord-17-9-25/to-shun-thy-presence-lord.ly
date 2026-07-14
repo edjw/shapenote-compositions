@@ -40,10 +40,10 @@
 % C minor:  \transpose do mib
 
 %%%%%% QUICK SETTINGS %%%%%%
-songKey = la
+songKey = sol
 songTitle = "To Shun Thy Presence, Lord"
 songMeter = "CM"
-keySignature = "F# Minor"
+keySignature = "E Minor"
 songComposer = "Ed Johnson-Williams, 16 September 2025"
 poet = "Isaac Watts"
 
