@@ -78,7 +78,7 @@ altoMusic = \relative do' {
   sol2 sol4 |
   do4. re8 do4 |
   do4 do sol |
-  do re mi |
+  do do mi |
   re2 re4 |
   do4. re8 mi4 |
   mi4 mi mi |
@@ -119,7 +119,7 @@ bassMusic = \relative do {
   sol2 do4 |
   do4. sol8 la4 |
   fa4 fa mi |
-  fa sol la |
+  fa do' la |
   sol2 sol4 |
   la4. sol8 la4|
   do4 la do |
