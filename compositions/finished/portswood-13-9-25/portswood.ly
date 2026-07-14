@@ -144,7 +144,7 @@ bassMusic = \relative do {
   la4 si do2 |
   do2 do4 do |
   sol2 sol |
-  <do do,>1
+  do1
 }
 
 %%%%%%% LYRICS %%%%%%%%%
