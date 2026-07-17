@@ -3,13 +3,13 @@
 \version "2.26.0"
 #(set-default-paper-size "a4landscape")
 
-songKey = "g major" % e.g. "e minor", "f# major", "bb major"
+songKey = "bb major" % e.g. "e minor", "f# major", "bb major"
 songTitle = ""
 songMeter = "CM"
 songComposer = "Ed Johnson-Williams, July 2026"
 poetName = "John Newton, 1779"
 songFooter = ""
-timeSignature = 3/4
+timeSignature = 6/4
 noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
 pickupDuration = "4" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
 midiTempo = 100
@@ -19,119 +19,94 @@ showKeySignatureWords = "yes" % "yes" or "no"
 
 \include "shapenote-common.ily"
 
-%%%%%%% MUSIC %%%%%%%%%
-%
-% Beams:                do8[re] (eighth notes and shorter only)
-% Dotted notes:         do4. re8
-% Octaves:              do'4 (higher) | do,4 (lower)
-% Slurs:                do8( re8 mi8)
-% Repeats:              \repeat volta 2 { music }
-% Ties:                 do4~ do4 (don't tie rests)
-% Octave doubling:      <do do,>2 (bass root + octave below)
-% Text markings:        do4^\markup { "Fine" }
-% Combined:              do8([ re8]) (slur and beam together)
-% Rests:                r1 | r2 | r4 | r1. | r2.
-% Fermatas:             do4\fermata
-% Fine/D.C.:            \mark \markup { \tiny \italic "Fine." }
-%                       \mark \markup { \italic \tiny "D.C." }
-% Chords:               <do mi sol>4
-% Ending barlines:      \bar ".." (standard) | \bar "|." (final) | \bar ".;" (repeat start)
-% Line break:           \break (after A section)
-% Mid-bar:              \bar ";"
-% Alternative endings:  \alternative { { ending1 } { ending2 } }
-% Accidentals:          fas4 or sib4 (sharps add s, flats add b)
-% Triplets:             \tuplet 3/2 { do8 re8 mi8 }
-% Time signature:       \bar ".." \time 3/2
-% Repeat+fermata:       \bar ".|:" (put \fermata on last note before it)
-% Segno:                do4^\markup { \tiny \musicglyph "scripts.segno" }
 
-trebleMusic = \relative do'' {
-  sol4 |
-  mi2 sol4 |
-  sol2 sol4 |
-  la2 sol4 |
-  sol2 mi4 |
-  do2 sol'4 |
-  mi2 re4 |
-  mi2. |
-  r2 mi4 |
-  sol2 sol4 |
-  mi2 do4 |
-  mi2 sol4 |
-  mi2 sol4 |
-  la2 sol4 |
-  la2 sol4 |
-  sol2 mi4 |
-  re2 sol4 |
-  fa2 fa4 |
-  sol2. |
+trebleMusic = \relative do' {
+  do4
+  mi2 do4
+  si2 do4
+  do2 do4
+  do2 mi4
+  do2 sol'4
+  mi2 re4
+  mi2.
+  r2 do4
+  mi2 do4
+  mi2 re4
+  do2 do4
+  mi2 sol4
+  fa2 mi4
+  re2 do4
+  do2 do4
+  re2 mi4
+  re2 mi4
+  mi2.
 }
 
 altoMusic = \relative do' {
-  sol4 |
-  do2 do4 |
-  re2 do4 |
-  do2 sol4 |
-  sol2 do4 |
-  la2 do4 |
-  do2 la4 |
-  sol2. |
-  r2 sol4 |
-  do2 sol4 |
-  la2 sol4 |
-  la2 do4 |
-  do2 sol4 |
-  la2 do4 |
-  mi2 re4 |
-  do2 do4 |
-  la2 mi'4 |
-  re2 si4 |
-  do2. |
+  sol4
+  mi2 mi4
+  sol2 sol4
+  la2 sol4
+  sol2 sol4
+  la2 sol4
+  mi2 sol4
+  sol2.
+  r2 sol4
+  sol2 la4
+  la2 si4
+  do2 la4
+  sol2 sol4
+  la2 la4
+  sol2 la4
+  sol2 sol4
+  la2 sol4
+  sol2 sol4
+  sol2.
 }
 
 tenorMusic = \relative do' {
-  do4 |
-  sol'2 do,4 |
-  re2 mi4 |
-  fa2 mi4 |
-  do2 do4 |
-  fa2 do4 |
-  do2 re4 |
-  do2. |
-  r2 do4 |
-  mi2 sol4 |
-  la2 sol4 |
-  la2 sol4 |
-  sol2 sol4 |
-  re2 do4 |
-  la2 do4 |
-  mi2 sol4 |
-  la2 sol4 |
-  re2 re4 |
-  do2. |
+  do4
+  sol'2 do,4
+  re2 mi4
+  fa2 mi4
+  do2 do4
+  fa2 do4
+  do2 re4
+  do2.
+  r2 do4
+  sol'2 fa4
+  mi2 sol4
+  fa2 mi4
+  do2 do4
+  re2 mi4
+  sol2 fa4
+  mi2 sol4
+  fa2 mi4
+  re2 do4
+  do2.
   \bar ".."
 }
 
-bassMusic = \relative do {
-  do4 |
-  do2 do4 |
-  sol2 do4 |
-  fa2 do4 |
-  do2 do4 |
-  fa2 do4 |
-  mi2 re4 |
-  do2. | \break
-  r2 do4 |
-  mi2 do4 |
-  la2 mi'4 |
-  mi2 do4 |
-  do2 do4 |
-  la2 do4 |
-  la2 do4 |
-  do2 do4 |
-  re2 mi4 |
-  sol,2 sol4 |
-  do2. |
+bassMusic = \relative do, {
+  do4
+  do2 mi4
+  sol2 sol4
+  fa2 mi4
+  do2 mi4
+  fa2 sol4
+  la2 si4
+  do2.
+  r2 do4
+  do2 do4
+  la2 sol4
+  do2 la4
+  do2 do4
+  re2 do4
+  sol2 fa4
+  mi2 do4
+  re2 mi4
+  sol2 mi4
+  do2.
 }
 %%%%%%%%%%%%%%%%
 
@@ -150,7 +125,7 @@ verseTwo = \lyricmode {
   \tiny
   'Twas grace that taught my heart to fear,
   and grace my fears re -- lieved;
-  how prec -- ious did that grace a -- ppear
+  how prec -- ious did that grace ap -- pear
   the hour I first be -- lieved,
   the hour I first be -- lieved!
 }
