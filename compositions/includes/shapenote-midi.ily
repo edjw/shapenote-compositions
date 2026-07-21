@@ -1,5 +1,9 @@
 #(define (shape-note-midi-supported-meter? sig)
-   (member sig '((2 . 4) (2 . 2) (3 . 4) (4 . 4) (6 . 4) (6 . 8))))
+   (member sig
+           '(;; Common meters
+             (2 . 4) (2 . 2) (3 . 2) (3 . 4) (4 . 4) (6 . 4) (6 . 8)
+             ;; Rare meters
+             (3 . 8) (4 . 2) (9 . 8) (12 . 8))))
 
 #(if (not (defined? 'shapeNoteMidiBeatExtraVelocity))
      (module-define! (current-module) 'shapeNoteMidiBeatExtraVelocity
@@ -17,12 +21,17 @@
 
 shapeNoteMidiBeatStructure =
 #(cond
-  ((equal? timeSignature '(4 . 4)) #{ \set Timing.beatStructure = #'(2 2) #})
-  ((equal? timeSignature '(2 . 2)) #{ \set Timing.beatStructure = #'(1 1) #})
   ((equal? timeSignature '(2 . 4)) #{ \set Timing.beatStructure = #'(2) #})
+  ((equal? timeSignature '(2 . 2)) #{ \set Timing.beatStructure = #'(2) #})
   ((equal? timeSignature '(3 . 4)) #{ \set Timing.beatStructure = #'(2 1) #})
+  ((equal? timeSignature '(3 . 2)) #{ \set Timing.beatStructure = #'(2 1) #})
+  ((equal? timeSignature '(4 . 4)) #{ \set Timing.beatStructure = #'(2 2) #})
   ((equal? timeSignature '(6 . 4)) #{ \set Timing.beatStructure = #'(3 3) #})
   ((equal? timeSignature '(6 . 8)) #{ \set Timing.beatStructure = #'(3 3) #})
+  ((equal? timeSignature '(3 . 8)) #{ \set Timing.beatStructure = #'(2 1) #})
+  ((equal? timeSignature '(4 . 2)) #{ \set Timing.beatStructure = #'(2 2) #})
+  ((equal? timeSignature '(9 . 8)) #{ \set Timing.beatStructure = #'(6 3) #})
+  ((equal? timeSignature '(12 . 8)) #{ \set Timing.beatStructure = #'(6 6) #})
   (else #{ #}))
 
 trebleMidiStaff =
