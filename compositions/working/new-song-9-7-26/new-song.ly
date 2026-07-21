@@ -28,7 +28,7 @@ trebleMusic = \relative do' {
   do2 mi4
   do2 sol'4
   mi2 re4
-  mi2.
+  do2.
   r2 do4
   mi2 do4
   mi2 re4
@@ -99,7 +99,7 @@ bassMusic = \relative do, {
   r2 do4
   do2 do4
   la2 sol4
-  do2 la4
+  fa2 la4
   do2 do4
   re2 do4
   sol2 fa4
