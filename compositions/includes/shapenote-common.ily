@@ -24,9 +24,11 @@
                    ((and (= (string-length note) 2)
                          (memv (string-ref note 1) '(#\b #\♭))) -1/2)
                    (else #f)))
-                 (accidental-text
-                  (cond ((eqv? alteration 1/2) "♯")
-                        ((eqv? alteration -1/2) "♭")
+                 (accidental-markup
+                  (cond ((eqv? alteration 1/2)
+                         (markup #:override '(font-name . "STIXGeneral") "♯"))
+                        ((eqv? alteration -1/2)
+                         (markup #:override '(font-name . "STIXGeneral") "♭"))
                         (else ""))))
             (and notename alteration (member mode '("major" "minor"))
                  (let* ((tonic (ly:make-pitch -1 notename alteration))
@@ -42,12 +44,29 @@
                              tonic)))
                    (list do-pitch
                          mode
-                         (string-append (string (char-upcase letter))
-                                        accidental-text
-                                        " "
-                                        (if (string=? mode "minor")
-                                            "Minor"
-                                            "Major")))))))))
+                         (make-concat-markup
+                          (list (string (char-upcase letter))
+                                accidental-markup
+                                " "
+                                (if (string=? mode "minor")
+                                    "Minor"
+                                    "Major"))))))))))
+
+#(define (key-label-markup text)
+   (let ((sharp-position (string-index text #\♯))
+         (flat-position (string-index text #\♭)))
+     (cond
+      (sharp-position
+       (make-concat-markup
+        (list (substring text 0 sharp-position)
+              (markup #:override '(font-name . "STIXGeneral") "♯")
+              (substring text (+ sharp-position 1)))))
+      (flat-position
+       (make-concat-markup
+        (list (substring text 0 flat-position)
+              (markup #:override '(font-name . "STIXGeneral") "♭")
+              (substring text (+ flat-position 1)))))
+      (else text))))
 
 #(if (and (defined? 'songKey) (string? songKey))
      (let ((parsed (parse-song-key songKey)))
@@ -112,7 +131,7 @@ getKeySignature =
         (key-list (list notename alteration mode))
         (result (assoc key-list all-keys)))
    (if result
-       (cdr result)
+       (key-label-markup (cdr result))
        "Unknown Key")))
 
 \paper {
