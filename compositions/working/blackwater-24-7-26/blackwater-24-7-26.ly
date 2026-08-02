@@ -53,7 +53,7 @@ showKeySignatureWords = "yes" % "yes" or "no"
 trebleMusic = \relative do' {
   mi4 mi8 do do4. re8 |
   mi4 sol la2 |
-  mi4 do8 re mi4 mi |
+  mi4 mi8 re mi4 mi |
   re1 |
   \repeat volta 2 {
     mi4 do8 mi sol4. la8 |
