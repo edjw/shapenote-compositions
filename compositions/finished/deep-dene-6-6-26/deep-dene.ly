@@ -100,7 +100,7 @@ tenorMusic = \relative do' {
   mi2 do8[si] la2 la8[do] |
   mi2 do8[mi] sol2 mi4 |
   mi2 mi8[sol] la2 la4 |
-  sol2 sol4 do,2 do8[re] |
+  sol2 sol4 mi2 do8[re] |
   mi2.~ mi2 la4 |
   sol2 sol4 mi2 sol4 |
   la1. |
