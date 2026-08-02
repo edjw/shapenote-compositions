@@ -6,8 +6,11 @@
 songKey = "f major" % e.g. "e minor", "f# major", "bb major"
 songTitle = "Safe in the Promised Land"
 songMeter = "PM"
-songComposer = "Ed Johnson-Williams, July 2026"
-poetName = ""
+songComposer = \markup \right-column {
+  "Arr. Ed Johnson-Williams, July 2026"
+  "from Original Sacred Harp, 1966, from B. F. White, 1844."
+}
+poetName = "The Sacred Harp, 1844."
 songFooter = ""
 timeSignature = 4/4
 noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
@@ -59,7 +62,7 @@ trebleMusic = \relative do'' {
     mi sol sol sol |
     sol sol sol sol |
     mi sol do sol |
-    mi4. sol8 mi4 mi |
+    la4. sol8 la4 sol |
     sol la do sol |
     do2 sol4 la |
     do sol sol2 |
@@ -67,9 +70,9 @@ trebleMusic = \relative do'' {
 }
 
 altoMusic = \relative do' {
-  do2 do4 sol |
+  do2 do4 si |
   do do do do |
-  sol2 sol4 sol |
+  si2 si4 sol |
   sol4 sol sol sol |
   la2 do4 do4 |
   mi do do do |
@@ -80,10 +83,10 @@ altoMusic = \relative do' {
     do4 do do do |
     mi do do do |
     si si si do8[re] |
-    mi4 do do do |
-    la4. sol8 la4 do |
-    do do do do  |
-    do2 do4 do |
+    mi4 do do mi |
+    fa4. mi8 mi4 do |
+    do do do mi  |
+    mi2 do4 do |
     do si do2 |
   }
 
@@ -127,12 +130,12 @@ bassMusic = \relative do {
   \repeat volta 2 {
     do4 do sol sol |
     do mi sol do, |
-    sol sol sol sol8[la] |
-    do4 do do do |
-    mi4. re8 mi4 do |
-    do mi mi8[re] do4 |
-    mi2 mi4 fa |
-    sol4 sol4 do,2 |
+    sol sol sol la8[si] |
+    do4 do do mi |
+    fa4. sol8 do,4 do |
+    do la la8[sol] do4 |
+    la2 do4 re |
+    do4 sol4 do2 |
   }
 }
 %%%%%%%%%%%%%%%%
