@@ -3,12 +3,16 @@
 \version "2.26.0"
 #(set-default-paper-size "a4landscape")
 
-songKey = "c major" % e.g. "e minor", "f# major", "bb major"
-songTitle = ""
+songKey = "bb major" % e.g. "e minor", "f# major", "bb major"
+songTitle = "Skirrid"
 songMeter = "LM"
 songComposer = "Ed Johnson-Williams, July 2026"
 poetName = "Isaac Watts, 1715"
-songFooter = ""
+songFooter = \markup \center-column {
+  "\"The Skirrid / Ysgyryd Fawr\" is a hill and pilgrimage site near Abergavenny, Wales."
+  "Ysgyryd means something that has shattered or trembled. Part of the mountain is said to have broken off when Jesus was crucified."
+}
+
 timeSignature = 2/2
 noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
 %pickupDuration = "" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
@@ -22,6 +26,7 @@ showKeySignatureWords = "yes" % "yes" or "no"
 %\paper {
 %  system-count = #1
 %}
+
 
 %%%%%%% MUSIC %%%%%%%%%
 %
@@ -49,97 +54,97 @@ showKeySignatureWords = "yes" % "yes" or "no"
 % Repeat+fermata:       \bar ".|:" (put \fermata on last note before it)
 % Segno:                do4^\markup { \tiny \musicglyph "scripts.segno" }
 
-trebleMusic = \relative do'' {
+trebleMusic = \relative do' {
   r2 do2 |
-  sol sol |
-  do do |
-  mi do |
+  do sol |
+  do re |
+  mi re |
   mi1 |
-  r2 re |
-  do mi |
-  sol, sol |
-  mi' mi |
-  do1 |
   r2 do |
   mi mi |
-  mi sol,|
-  do do |
-  sol'1 |
-  r2 sol |
-  mi mi |
+  sol, do |
+  mi do |
+  sol1 |
+  r2 do |
+  do mi |
+  do4(la) sol2 |
+  do re |
+  sol1 |
+  r2 mi |
+  re mi |
   mi do |
   sol sol |
   do1 |
 }
 
-altoMusic = \relative do'' {
+altoMusic = \relative do' {
   r2  sol2 |
-  mi mi |
-  sol sol |
   sol mi |
+  mi sol |
+  sol la |
   mi1 |
   r2 sol |
-  mi do |
-  do mi |
-  mi sol |
+  do la |
+  sol mi |
+  mi mi |
   sol1 |
   r2 sol |
-  mi do |
-  mi sol |
   sol mi |
-  re1 |
-  r2 do |
-  mi la |
-  la la |
   mi sol |
+  sol la4(sol) |
+  do1 |
+  r2 do |
+  sol la |
+  la sol |
+  sol sol |
   sol1 |
 }
 
-tenorMusic = \relative do'' {
-  r2   sol2 |
-  do2 do |
-  mi do |
-  do sol |
-  sol1 |
-  r2 sol |
-  la la |
-  do do |
-  do sol |
-  sol1 | \break
+tenorMusic = \relative do' {
   r2 sol2 |
-  la la |
-  la do |
+  do do |
+  mi re |
   do la |
   sol1 |
   r2 sol |
   la la |
   do do |
-  mi mi |
+  do mi |
+  re1 | \break
+  r2 mi2 |
+  sol sol |
+  la sol |
+  mi re |
+  mi1 |
+  r2 mi |
+  re do |
+  la do |
+  re mi |
   do1 |
 
   \bar ".."
 }
 
-bassMusic = \relative do {
-  r2   do2 |
+bassMusic = \relative do, {
+  r2 do2 |
   do mi |
-  sol mi |
-  mi do |
-  do1 |
-  r2 sol' |
-  la la |
   sol sol |
-  sol do, |
+  do re |
   do1 |
   r2 do |
-  mi mi |
-  mi do |
-  sol' la |
+  la la |
+  do la |
+  do la |
   sol1 |
-  r2 sol |
-  mi do |
-  do mi |
-  do do |
+  r2 do, |
+  do' sol |
+  la do |
+  do re |
+  do1 |
+  r2 do |
+  sol la |
+  mi sol |
+  sol do, |
   do1 |
 
 }
