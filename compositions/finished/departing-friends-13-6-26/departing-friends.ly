@@ -135,7 +135,7 @@ bassMusic = \relative do {
   do2. la4 |
   fa2.
   \repeat volta 2 {
-    do'4
+    sol4
     sol2 do |
     la sol |
 
