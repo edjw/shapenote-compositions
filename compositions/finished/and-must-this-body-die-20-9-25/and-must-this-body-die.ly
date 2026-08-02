@@ -33,6 +33,7 @@
 
 %%%%%% QUICK SETTINGS %%%%%%
 songKey = la
+songMode = "minor"
 songTitle = "And Must This Body Die"
 songMeter = "SM"
 keySignature = "F# Minor"

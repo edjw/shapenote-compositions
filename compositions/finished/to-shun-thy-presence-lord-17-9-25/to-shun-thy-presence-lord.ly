@@ -41,6 +41,7 @@
 
 %%%%%% QUICK SETTINGS %%%%%%
 songKey = sol
+songMode = "minor"
 songTitle = "To Shun Thy Presence, Lord"
 songMeter = "CM"
 keySignature = "E Minor"
