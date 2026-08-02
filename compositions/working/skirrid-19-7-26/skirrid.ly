@@ -91,7 +91,7 @@ altoMusic = \relative do' {
   r2 sol |
   sol mi |
   mi sol |
-  sol la4(sol) |
+  sol la4(si) |
   do1 |
   r2 do |
   sol la |
@@ -111,8 +111,8 @@ tenorMusic = \relative do' {
   do do |
   do mi |
   re1 | \break
-  r2 mi2 |
-  sol sol |
+  r2 mi4(fa) |
+  sol2 sol |
   la sol |
   mi re |
   mi1 |
@@ -133,16 +133,16 @@ bassMusic = \relative do, {
   do1 |
   r2 do |
   la la |
-  do la |
+  mi sol |
   do la |
   sol1 |
   r2 do, |
   do' sol |
   la do |
-  do re |
+  do sol |
   do1 |
-  r2 do |
-  sol la |
+  r2 do4(la) |
+  sol2 la |
   mi sol |
   sol do, |
   do1 |
