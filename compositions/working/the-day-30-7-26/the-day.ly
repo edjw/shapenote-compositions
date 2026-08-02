@@ -56,8 +56,8 @@ trebleMusic = \relative do' {
   do1 |
   re2 do4 do |
   sol2 sol'4 la |
-  do,2 re |
-  mi1 |
+  sol2 re |
+  do1 |
   mi2 do4 re |
   mi1 |
   sol2 la4 sol |
