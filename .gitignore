@@ -42,3 +42,7 @@ compositions/templates/new-song/template.pdf
 compositions/templates/new-song-v2/template.midi
 compositions/templates/new-song-v2/template.pdf
 *.notes
+
+# Pattern analysis output
+/unseen-pattern-references.md
+/unusual-patterns-all-sources.csv
