@@ -83,11 +83,11 @@ altoMusic = \relative do {
 tenorMusic = \relative do' {
 
   la8 |
-  mi'4 mi8 si8(re) re8 |
+  mi'4 mi8 do8(re) re8 |
   mi8(la,) si8 la4 \bar ";." mi'8 |
   la4 sol8 mi(re) sol |
   la8(mi) sol8 mi4 la,8 |
-  mi'4 mi8 si8(re) re8 |
+  mi'4 mi8 do8(re) re8 |
   mi8(la,) si8 la4. |
   \bar ".."
 
