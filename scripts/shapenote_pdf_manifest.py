@@ -214,7 +214,7 @@ def metadata_for_pdf(
 def clean_basename(pdf_path: pathlib.Path) -> str:
     basename = pdf_path.stem
     return re.sub(
-        r"_?\d{4}-\d{2}-\d{2}$|_?\d{2}-\d{2}-\d{4}$",
+        r"(?:[-_]?\d{4}-\d{2}-\d{2}|[-_]?\d{1,2}[-.]\d{1,2}[-.](?:\d{2}|\d{4}))$",
         "",
         basename,
     )

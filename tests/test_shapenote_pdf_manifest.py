@@ -71,6 +71,20 @@ poetName = \"The Sacred Harp, 1844.\"
             ],
         )
 
+    def test_manifest_removes_short_date_suffix_from_source_filename(self) -> None:
+        result = run_cli(
+            'songComposer = "Ed Johnson-Williams, July 2026"\n',
+            "manifest",
+            "sugar-loaf-22-7-26",
+            "sugar-loaf-22-7-26",
+        )
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(
+            json.loads(result.stdout)[0]["filename"],
+            "sugar-loaf_2026-07-01.pdf",
+        )
+
     def test_date_ignores_dates_after_a_quoted_composer(self) -> None:
         result = run_cli(
             """songComposer = \"Ed Johnson-Williams, July 2026\"
