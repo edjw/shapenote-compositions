@@ -4,7 +4,7 @@
 #(set-default-paper-size "a4landscape")
 
 songKey = "bb major" % e.g. "e minor", "f# major", "bb major"
-songTitle = ""
+songTitle = "Itchen"
 songMeter = "CM"
 songComposer = "Ed Johnson-Williams, July 2026"
 poetName = "John Newton, 1779"
@@ -57,7 +57,7 @@ altoMusic = \relative do' {
   do2 la4
   sol2 sol4
   la2 la4
-  sol2 la4
+  si2 la4
   sol2 sol4
   la2 sol4
   sol2 sol4
@@ -69,7 +69,7 @@ tenorMusic = \relative do' {
   sol'2 do,4
   re2 mi4
   fa2 mi4
-  do2 do4
+  do2 mi4
   fa2 do4
   do2 re4
   do2.
