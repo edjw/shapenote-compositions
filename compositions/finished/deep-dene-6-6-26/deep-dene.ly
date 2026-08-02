@@ -68,9 +68,9 @@ trebleMusic = \relative do' {
 
 altoMusic = \relative do' {
   la4 |
-  do2 sol4 re'2 do4 |
+  do2 do4 re2 do4 |
   si2 la4 la2 la4 |
-  do2 sol4 re'2 do4 |
+  do2 do4 re2 do4 |
   si2 do4 mi2 mi4 |
   do2 sol4 sol2 sol4 |
   la2.~ la2 la4 |
