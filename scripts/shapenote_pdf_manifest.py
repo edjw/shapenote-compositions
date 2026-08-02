@@ -25,7 +25,10 @@ MONTH_NUMBERS = {
 
 MONTH_NAMES = {number: name.title() for name, number in MONTH_NUMBERS.items()}
 MONTH_PATTERN = "|".join(MONTH_NUMBERS.keys())
-COMPOSER_PATTERN = re.compile(r'^\s*songComposer\s*=\s*"([^"]*)"', re.MULTILINE)
+COMPOSER_PATTERN = re.compile(
+    r'^[ \t]*songComposer[ \t]*=[ \t]*(?:"(?P<quoted>[^"]*)"|(?P<markup>\\markup\b))',
+    re.MULTILINE,
+)
 DATE_PATTERN = re.compile(
     rf"\b(?:\d{{1,2}}\s+)?((?:{MONTH_PATTERN})(?:\s*(?:\+|&|and|/|-)\s*(?:{MONTH_PATTERN}))*)\s+((?:19|20)\d{{2}})\b",
     re.IGNORECASE,
@@ -91,12 +94,72 @@ def metadata_from_date(year: str, month_number: str) -> CompositionMetadata:
     )
 
 
-def parse_composer_metadata(text: str) -> CompositionMetadata | None:
+def composer_text(text: str) -> str | None:
     composer_match = COMPOSER_PATTERN.search(text)
     if not composer_match:
         return None
 
-    matches = list(DATE_PATTERN.finditer(composer_match.group(1)))
+    if composer_match.group("markup") is None:
+        return composer_match.group("quoted")
+
+    markup_start = composer_match.start("markup")
+    markup_end = composer_match.end()
+    opening_brace = text.find("{", markup_end)
+    top_level_match = re.search(r"^\S", text[markup_end:], re.MULTILINE)
+    top_level_start = (
+        markup_end + top_level_match.start() if top_level_match is not None else len(text)
+    )
+    if opening_brace == -1 or opening_brace > top_level_start:
+        line_end = text.find("\n", markup_end)
+        return text[markup_start:line_end if line_end != -1 else len(text)]
+
+    depth = 0
+    in_string = False
+    escaped = False
+    index = opening_brace
+    while index < len(text):
+        character = text[index]
+        if in_string:
+            if escaped:
+                escaped = False
+            elif character == "\\":
+                escaped = True
+            elif character == '"':
+                in_string = False
+            index += 1
+            continue
+
+        if text.startswith("%{", index):
+            comment_end = text.find("%}", index + 2)
+            if comment_end == -1:
+                return text[markup_start:]
+            index = comment_end + 2
+            continue
+        if character == "%":
+            line_end = text.find("\n", index + 1)
+            if line_end == -1:
+                return text[markup_start:]
+            index = line_end + 1
+            continue
+        if character == '"':
+            in_string = True
+        elif character == "{":
+            depth += 1
+        elif character == "}":
+            depth -= 1
+            if depth == 0:
+                return text[markup_start : index + 1]
+        index += 1
+
+    return text[markup_start:]
+
+
+def parse_composer_metadata(text: str) -> CompositionMetadata | None:
+    value = composer_text(text)
+    if value is None:
+        return None
+
+    matches = list(DATE_PATTERN.finditer(value))
     if not matches:
         return None
 

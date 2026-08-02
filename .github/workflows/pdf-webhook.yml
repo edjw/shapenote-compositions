@@ -12,6 +12,7 @@ on:
       - '.pdfdates'
       - '.pdfignore'
       - 'scripts/shapenote_pdf_manifest.py'
+      - 'tests/**'
   workflow_dispatch:
 
 jobs:
@@ -24,6 +25,10 @@ jobs:
         with:
           fetch-depth: 0
           path: shapenote-compositions
+
+      - name: Test PDF manifest
+        working-directory: shapenote-compositions
+        run: python3 -m unittest discover -s tests -v
 
       - name: Checkout blog repository
         uses: actions/checkout@v6
