@@ -79,8 +79,8 @@ altoMusic = \relative do' {
   sol4.~sol4 sol8 |
   do4 do8 re4 re8 |
   do16 re8.~ re4. mi8 |
-  re4 do8 do4 sol8 |
-  re'4.~re4 sol,8 |
+  re4 do8 do4 mi8 |
+  re4.~re4 sol,8 |
   do4 do8 do4 si8 |
   %  do16  la16~la4 do4. |
   la8(do8 mi) fa4 mi8 |
