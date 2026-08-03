@@ -50,22 +50,22 @@ showKeySignatureWords = "yes" % "yes" or "no"
 
 trebleMusic = \relative do'' {
   sol2 sol4 sol4 |
-  do do sol do |
-  si2 sol4 do8[si] |
-  do4 do si sol |
+  do sol mi sol |
+  sol2 sol4 do8[si] |
+  do4 do si do |
   do2 la4 sol |
   sol la la sol |
   do2 sol4 mi |
   sol sol sol2 |
   \repeat volta 2 {
     sol4 sol do sol |
-    mi sol sol sol |
+    mi sol do do |
     sol sol sol sol |
-    mi sol do sol |
-    la4. sol8 la4 sol |
-    sol la do sol |
-    do2 sol4 la |
-    do sol sol2 |
+    sol sol mi mi |
+    mi4. sol8 la4 do |
+    sol la do do |
+    la2 sol4 mi |
+    sol sol sol2 |
   }
 }
 
@@ -75,7 +75,7 @@ altoMusic = \relative do' {
   si2 si4 sol |
   sol4 sol sol sol |
   la2 do4 do4 |
-  mi do do do |
+  mi mi mi do |
   mi2 mi4 do |
 
   do si do2 |
@@ -83,11 +83,11 @@ altoMusic = \relative do' {
     do4 do do do |
     mi do do do |
     si si si do8[re] |
-    mi4 do do mi |
-    fa4. mi8 mi4 do |
-    do do do mi  |
-    mi2 do4 do |
-    do si do2 |
+    mi4 mi do sol |
+    la4. sol8 do4 do |
+    do do do do  |
+    re2 mi4 mi |
+    do si sol2 |
   }
 
 
@@ -121,21 +121,21 @@ bassMusic = \relative do {
   do2 do4 sol4 |
   do4 do do do |
   sol2 sol4 sol |
-  do mi sol sol |
+  do mi sol mi |
   fa2 fa4 do |
-  do mi mi8[re] do4 |
+  do la la8[si] do4 |
 
   do2 do4 do |
   do re do2 |
   \repeat volta 2 {
     do4 do sol sol |
     do mi sol do, |
-    sol sol sol la8[si] |
-    do4 do do mi |
-    fa4. sol8 do,4 do |
-    do la la8[sol] do4 |
-    la2 do4 re |
-    do4 sol4 do2 |
+    sol sol sol do8[si] |
+    do4 do do do |
+    do4. mi8 fa4 sol |
+    do, mi mi8[re] do4 |
+    re2 do4 la |
+    sol sol do2 |
   }
 }
 %%%%%%%%%%%%%%%%
