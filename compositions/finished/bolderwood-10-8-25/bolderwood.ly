@@ -54,15 +54,13 @@ trebleMusic = \relative do' {
   re2 do4 sol'2 mi4 |
   re2. r2 do4 |
   mi2 sol4 do2 si4 |
-  do2 la4 sol2\fermata sol4 | \bar ".|:"
+  do2 la4 sol2\fermata sol4 |
+  do,4(re) mi sol2 mi4 |
+  sol2.(mi2)\fermata sol4 |
 
-  \repeat volta 2 {
-    do,4(re) mi sol2 mi4 |
-  }
-  \alternative {
-    { sol2.(mi2)\fermata sol4 | }
-    { mi1. | }
-  }
+  do,4(re) mi sol2 mi4 |
+  mi1. |
+
 }
 
 altoMusic = \relative do' {
@@ -72,15 +70,12 @@ altoMusic = \relative do' {
   si2 la4 sol2 do4 |
   si2. r2 do4 |
   do2 do4 sol2 sol4 |
-  do2 la4 sol2\fermata do4 | \bar ".|:"
+  do2 la4 sol2\fermata do4 |
+  do4(si) do do2 do4 |
+  sol2.(do2)\fermata sol4 |
+  do4(si) do do2 do4 |
+  sol1. |
 
-  \repeat volta 2 {
-    do4(si) do do2 do4 |
-  }
-  \alternative {
-    { sol2.(do2)\fermata sol4 | }
-    { sol1. | }
-  }
 }
 
 tenorMusic = \relative do' {
@@ -90,15 +85,12 @@ tenorMusic = \relative do' {
   sol2 do4 mi2 sol4 |
   sol2. r2 sol4 |
   la2 sol4 mi2 sol4 \break |
-  sol2 mi4 re2\fermata mi4 | \bar ".|:"
+  sol2 mi4 re2\fermata mi4 |
+  mi4(re) do sol2 la4 |
+  do2.(mi2)\fermata mi4 |
+  mi4(re) do sol2 la4 |
+  do1. |
 
-  \repeat volta 2 {
-    mi4(re) do sol2 la4 |
-  }
-  \alternative {
-    { do2.(mi2)\fermata mi4 | }
-    { do1. | }
-  }
   \bar "|."
 }
 
@@ -109,15 +101,12 @@ bassMusic = \relative do {
   sol2 la4 do2 do4 |
   sol2. r2 sol4 |
   la2 do4 do2 sol4 |
-  do2 la4 sol2\fermata do4 | \bar ".|:"
+  do2 la4 sol2\fermata do4 |
+  sol2 sol4 do2 do4 |
+  do2.(sol2)\fermata do4 |
+  sol2 sol4 do2 do4 |
+  do1. |
 
-  \repeat volta 2 {
-    sol2 sol4 do2 do4 |
-  }
-  \alternative {
-    { do2.(sol2)\fermata do4 | }
-    { do1. | }
-  }
 }
 %%%%%%%%%%%%%%%%
 
@@ -128,9 +117,9 @@ verseOne = \lyricmode {
   Now shall my in -- ward joys a -- rise,
   And burst in -- to a song;
   Al -- migh -- ty love in -- spires my heart,
+  And plea -- sure tunes my tongue. __
   And plea -- sure tunes my tongue.
-  And
-  tongue.
+
 }
 
 verseTwo = \lyricmode {
@@ -138,9 +127,9 @@ verseTwo = \lyricmode {
   God, on His thir -- sty Zi -- on’s hill,
   Some mer -- cy drops has thrown;
   And so -- lemn oaths have bound His love
+  To show’r sal -- va -- tion down. __
   To show’r sal -- va -- tion down.
-  To
-  down.
+
 }
 
 verseThree = \lyricmode {
@@ -148,9 +137,9 @@ verseThree = \lyricmode {
   Why do we then in -- dulge our fears,
   Sus -- pic -- ions and com -- plaints?
   Is He a God, and shall His grace
+  Grow wea -- ry of His saints? __
   Grow wea -- ry of His saints?
-  Grow
-  saints?
+
 }
 
 verseFour = \lyricmode {
