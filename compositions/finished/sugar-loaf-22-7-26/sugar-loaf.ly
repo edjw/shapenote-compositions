@@ -98,14 +98,14 @@ altoMusic = \relative do' {
     }
   }
 
-  do2 sol4 mi |
+  do2 sol4 sol |
   sol2 sol |
   mi2 sol |
   sol2. si4 |
   do la8[sol] la4 la |
   sol la8[sol] sol4 sol |
   sol la sol sol |
-  sol4(mi) sol2 |
+  sol4(la) si2 |
   sol1 |
 
 }
@@ -126,7 +126,7 @@ tenorMusic = \relative do' {
     { do2 do |  }
   }
 
-  sol'2 sol4 do, |
+  sol'2 sol4 mi |
   re2 do |
   mi sol |
   re2. re4 |
