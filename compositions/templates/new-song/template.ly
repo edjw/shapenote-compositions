@@ -35,7 +35,7 @@ showKeySignatureWords = "yes" % "yes" or "no"
 % Fine/D.C.:            \mark \markup { \tiny \italic "Fine." }
 %                       \mark \markup { \italic \tiny "D.C." }
 % Chords:               <do mi sol>4
-% Ending barlines:      \bar ".." (standard) | \bar "|." (final) | \bar ".;" (repeat start)
+% Ending barline:       automatic ".." | override with \bar "|."
 % Line break:           \break (after A section)
 % Mid-bar:              \bar ";"
 % Alternative endings:  \alternative { { ending1 } { ending2 } }
@@ -55,7 +55,6 @@ altoMusic = \relative do' {
 
 tenorMusic = \relative do' {
   do4
-  \bar ".."
 }
 
 bassMusic = \relative do {
