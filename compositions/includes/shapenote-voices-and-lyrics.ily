@@ -25,6 +25,18 @@
 #(if (not (defined? 'bassLyrics))
      (module-define! (current-module) 'bassLyrics #{ #}))
 
+% Keep an invisible voice in every printed staff for the full score duration,
+% then request the shared layout's default section-ending barline.
+automaticEndingBar = {
+  \skip <<
+    \trebleMusic
+    \altoMusic
+    \tenorMusic
+    \bassMusic
+  >>
+  \section
+}
+
 trebleStaff =
 #(if hasTreble
      #{
@@ -33,6 +45,7 @@ trebleStaff =
            \global
            \trebleMusic
          }
+         \new NullVoice { \automaticEndingBar }
          \trebleLyrics
        >>
      #}
@@ -46,6 +59,7 @@ altoStaff =
            \global
            \altoMusic
          }
+         \new NullVoice { \automaticEndingBar }
          \altoLyrics
        >>
      #}
@@ -59,6 +73,7 @@ tenorStaff =
            \global
            \tenorMusic
          }
+         \new NullVoice { \automaticEndingBar }
          \tenorLyrics
        >>
      #}
@@ -73,6 +88,7 @@ bassStaff =
            \global
            \bassMusic
          }
+         \new NullVoice { \automaticEndingBar }
          \bassLyrics
        >>
      #}

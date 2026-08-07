@@ -19,6 +19,16 @@
                          3
                          0)))
 
+% Optional music appended only to MIDI playback (for D.C., codas, etc.).
+#(if (not (defined? 'trebleMidiSuffix))
+     (module-define! (current-module) 'trebleMidiSuffix #{ #}))
+#(if (not (defined? 'altoMidiSuffix))
+     (module-define! (current-module) 'altoMidiSuffix #{ #}))
+#(if (not (defined? 'tenorMidiSuffix))
+     (module-define! (current-module) 'tenorMidiSuffix #{ #}))
+#(if (not (defined? 'bassMidiSuffix))
+     (module-define! (current-module) 'bassMidiSuffix #{ #}))
+
 shapeNoteMidiBeatStructure =
 #(cond
   ((equal? timeSignature '(2 . 4)) #{ \set Timing.beatStructure = #'(2) #})
@@ -48,6 +58,7 @@ trebleMidiStaff =
            \global
            \shapeNoteMidiBeatStructure
            \trebleMusic
+           \trebleMidiSuffix
          }
        }
      #}
@@ -66,7 +77,10 @@ trebleLowMidiStaff =
          \new Voice = "treble-low" {
            \global
            \shapeNoteMidiBeatStructure
-           \transpose do do, { \trebleMusic }
+           \transpose do do, {
+             \trebleMusic
+             \trebleMidiSuffix
+           }
          }
        }
      #}
@@ -86,6 +100,7 @@ altoMidiStaff =
            \global
            \shapeNoteMidiBeatStructure
            \altoMusic
+           \altoMidiSuffix
          }
        }
      #}
@@ -105,6 +120,7 @@ tenorMidiStaff =
            \global
            \shapeNoteMidiBeatStructure
            \tenorMusic
+           \tenorMidiSuffix
          }
        }
      #}
@@ -123,7 +139,10 @@ tenorLowMidiStaff =
          \new Voice = "tenor-low" {
            \global
            \shapeNoteMidiBeatStructure
-           \transpose do do, { \tenorMusic }
+           \transpose do do, {
+             \tenorMusic
+             \tenorMidiSuffix
+           }
          }
        }
      #}
@@ -144,6 +163,7 @@ bassMidiStaff =
            \global
            \shapeNoteMidiBeatStructure
            \bassMusic
+           \bassMidiSuffix
          }
        }
      #}

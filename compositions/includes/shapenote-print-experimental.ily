@@ -136,18 +136,13 @@ printMusicContent = <<
       \remove "Bar_number_engraver"
       \override SpanBar.stencil = ##f
       \override TimeSignature.break-visibility = ##(#f #t #t)
-      % Put begin-of-line barlines before hidden prefatory slots so a system-opening
-      % start-repeat sits on the left edge instead of after invisible time/key space.
-      \override BreakAlignment.break-align-orders =
-      #(vector
-        '(staff-ellipsis left-edge cue-end-clef ambitus breathing-sign optional-material-end-bracket signum-repetitionis clef cue-clef staff-bar key-cancellation key-signature time-signature optional-material-start-bracket custos)
-        '(staff-ellipsis left-edge optional-material-end-bracket cue-end-clef ambitus breathing-sign signum-repetitionis clef cue-clef staff-bar key-cancellation key-signature time-signature optional-material-start-bracket custos)
-        '(staff-ellipsis left-edge optional-material-end-bracket ambitus breathing-sign signum-repetitionis clef staff-bar key-cancellation key-signature time-signature cue-clef optional-material-start-bracket custos))
       \override VoltaBracket.shorten-pair = #'(0 . 0)
       \override NoteHead.font-size = #2
-      startRepeatBarType = #".;"
+      printInitialRepeatBar = ##t
+      startRepeatBarType = #";"
       endRepeatBarType = #";."
       doubleRepeatBarType = ";.;"
+      sectionBarType = ".."
     }
     \context {
       \Staff
@@ -174,7 +169,7 @@ printMusicContent = <<
                                          (key-cancellation . (extra-space . 0.3))
                                          (optional-material-end-bracket . (extra-space . 0.3))
                                          (optional-material-start-bracket . (extra-space . 0.3))
-                                         (first-note . (extra-space . 0.3))
+                                         (first-note . (fixed-space . 0.6))
                                          (next-note . (semi-fixed-space . 0.9))
                                          (right-edge . (extra-space . 0.0)))
       \override TimeSignature.style = #'single-number
@@ -185,7 +180,7 @@ printMusicContent = <<
                                                (optional-material-start-bracket . (extra-space . 0.3))
                                                (right-edge . (extra-space . 0.3))
                                                (signum-repetitionis . (extra-space . 0.3))
-                                               (staff-bar . (extra-space . 0.3)))
+                                               (staff-bar . (extra-space . 0.8)))
       \override Clef.stencil = ##f
       % Marker placement: the markup already carries its own vertical
       % translation (staff position), so pin the grob to the staff centre
@@ -196,7 +191,7 @@ printMusicContent = <<
     \context {
       \Lyrics
       \override LyricText.self-alignment-X = #LEFT
-      \override StanzaNumber.padding = #0.35
+      \override StanzaNumber.padding = #0.1
     }
   }
 }
