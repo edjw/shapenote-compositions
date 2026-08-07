@@ -1,46 +1,43 @@
-% relies on ../includes
 \language "espanol"
 \version "2.26.0"
 #(set-default-paper-size "a4landscape")
 
-songKey = "F major" % e.g. "e minor", "f# major", "bb major"
-songTitle = "Tatooine"
-songMeter = "CM"
-songComposer = "Chris Noren, July 2026"
-poetName = "Elizabeth Singer Rowe, 1739"
-songFooter = ""
-timeSignature = 4/4
-noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
-pickupDuration = "0" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
-midiTempo = 100
 
-\include "shapenote-common.ily"
+\header {
+  title = \markup \fill-line {
+    \line {
+      % Set the title
+      \bold \smaller "Tatooine"
+      \hspace #1.5
+
+      % Set the meter
+      \small "CM"
+    }
+  }
+  composer = "Chris Noren, July 2026"
+  poet = "F Major. Elizabeth Singer Rowe, 1739"
+  tagline = ##f
+}
+
+global = {
+  % change it to minor if you like here
+  \key do \major
+  % Change it to \sacredHarpHeads if you want four shapes here
+  \aikenHeads
+  \numericTimeSignature
+
+  % Change the time signature here
+  \time 4/4
+
+  \defineBarLine ";" #'("|" ";" " ")
+  \defineBarLine ";." #'(#t #f #t)
+  \defineBarLine ".;" #'("|" ".;" ".;")
+  \defineBarLine ".." #'(".." ".." "..")
+  \defineBarLine ";.." #'(";.." ";.." ";..")
+  \defineBarLine ";.;" #'(";.;" ";.;" ";.;")
+}
 
 %%%%%%% MUSIC %%%%%%%%%
-%
-% Beams:                do8[re] (eighth notes and shorter only)
-% Dotted notes:         do4. re8
-% Octaves:              do'4 (higher) | do,4 (lower)
-% Slurs:                do8( re8 mi8)
-% Repeats:              \repeat volta 2 { music }
-% Ties:                 do4~ do4 (don't tie rests)
-% Octave doubling:      <do do,>2 (bass root + octave below)
-% Text markings:        do4^\markup { "Fine" }
-% Combined:              do8([ re8]) (slur and beam together)
-% Rests:                r1 | r2 | r4 | r1. | r2.
-% Fermatas:             do4\fermata
-% Fine/D.C.:            \mark \markup { \tiny \italic "Fine." }
-%                       \mark \markup { \italic \tiny "D.C." }
-% Chords:               <do mi sol>4
-% Ending barlines:      \bar ".." (standard) | \bar "|." (final) | \bar ".;" (repeat start)
-% Line break:           \break (after A section)
-% Mid-bar:              \bar ";"
-% Alternative endings:  \alternative { { ending1 } { ending2 } }
-% Accidentals:          fas4 or sib4 (sharps add s, flats add b)
-% Triplets:             \tuplet 3/2 { do8 re8 mi8 }
-% Time signature:       \bar ".." \time 3/2
-% Repeat+fermata:       \bar ".|:" (put \fermata on last note before it)
-% Segno:                do4^\markup { \tiny \musicglyph "scripts.segno" }
 
 trebleMusic = \relative do'' {
   sol2 mi4. sol8 |
@@ -75,6 +72,7 @@ altoMusic = \relative do'' {
   do2 do4(sol) |
   la2. do4 |
   do1 |
+
   \repeat volta 2 {
     mi2 mi4. re8 |
     do2. si4 |
@@ -89,7 +87,6 @@ altoMusic = \relative do'' {
     do2 si |
     do1 |
   }
-
 }
 
 tenorMusic = \relative do'' {
@@ -115,6 +112,7 @@ tenorMusic = \relative do'' {
     mi2 re |
     do1 |
   }
+
   \bar ".."
 }
 
@@ -128,7 +126,6 @@ bassMusic = \relative do' {
   do1 |
 
   \repeat volta 2 {
-
     do2 sol4. sol8 |
     la2. si4 |
     do2 do4(la) |
@@ -142,11 +139,7 @@ bassMusic = \relative do' {
     sol'2 sol, |
     do1 |
   }
-
-
-
 }
-%%%%%%%%%%%%%%%%
 
 %%%%%%% LYRICS %%%%%%%%%
 
@@ -195,15 +188,12 @@ verseTwoTenorEnding = \lyricmode {
   From Thy per -- fect -- ions be.
 }
 
-
-
 verseOneAltoEntry = \lyricmode {
   \tiny
   _ _ _ _ _ _ _ _
   _ _ _ _ _ _
   _ _ _ _ _ _ _ _
   And hal -- le -- lu -- jahs sing.
-
   And hal -- le -- lu -- jahs sing.
   And hal -- le -- lu -- jahs sing.
 }
@@ -216,12 +206,7 @@ verseTwoAltoEntry = \lyricmode {
   From Thy per -- fect -- ions be.
   From Thy per -- fect -- ions be.
   From Thy per -- fect -- ions be.
-
-
 }
-
-
-
 
 verseOneBassEntry = \lyricmode {
   \tiny
@@ -245,59 +230,95 @@ verseTwoBassEntry = \lyricmode {
   From Thy per -- fect -- ions be.
 }
 
+%%%%%%% SCORE %%%%%%%%%
 
+\score {
+  % key signature is set with the fa here
+  \transpose do fa {
+    \new ChoirStaff  <<
+      \new Staff = treble <<
+        \new Voice = "treble" {
+          \global
+          \trebleMusic
+        }
+        \new Lyrics \lyricsto "treble" {
+          \set stanza = "1."
+          \verseOne
+        }
+        \new Lyrics \lyricsto "treble" {
+          \verseTwoTrebleEnding
+        }
+      >>
 
+      \new Staff = alto <<
+        \new Voice = "alto" {
+          \global
+          \altoMusic
+        }
+        \new Lyrics \lyricsto "alto" {
+          \verseOneAltoEntry
+        }
+        \new Lyrics \lyricsto "alto" {
+          \verseTwoAltoEntry
+        }
+      >>
 
+      \new Staff = tenor <<
+        \new Voice = "tenor" {
+          \global
+          \tenorMusic
+        }
+        \new Lyrics \lyricsto "tenor" {
+          \set stanza = "2."
+          \verseTwo
+        }
+        \new Lyrics \lyricsto "tenor" {
+          \verseOneTenorEnding
+        }
+        \new Lyrics \lyricsto "tenor" {
+          \verseTwoTenorEnding
+        }
+      >>
 
-%%%%%%% LYRICS PLACEMENT %%%%%%%%%
-trebleLyrics = <<
-  \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
-
-  \new Lyrics \lyricsto "treble" {
-    \verseTwoTrebleEnding
+      \new Staff = bass <<
+        \clef bass
+        \new Voice = "bass" {
+          \global
+          \bassMusic
+        }
+        \new Lyrics \lyricsto "bass" {
+          \verseOneBassEntry
+        }
+        \new Lyrics \lyricsto "bass" {
+          \verseTwoBassEntry
+        }
+      >>
+    >>
   }
->>
 
-altoLyrics = <<
-  \new Lyrics \lyricsto "alto" { \verseOneAltoEntry }
-  \new Lyrics \lyricsto "alto" { \verseTwoAltoEntry }
+  \layout {
+    indent = 0\cm
 
->>
+    \context {
+      \Score
+      \remove "Bar_number_engraver"
+      \override NoteHead.font-size = #2
 
-tenorLyrics = <<
-  \new Lyrics \lyricsto "tenor" { \set stanza = "2." \verseTwo }
+      printInitialRepeatBar = ##t
+      startRepeatBarType = #";"
+      endRepeatBarType = #";."
+      doubleRepeatBarType = #";.;"
+      sectionBarType = #".."
+    }
 
-  \new Lyrics \lyricsto "tenor" {
-    \verseOneTenorEnding
+    \context {
+      \Staff
+    }
+
+    \context {
+      \Lyrics
+      \override LyricText.self-alignment-X = #LEFT
+    }
   }
-  \new Lyrics \lyricsto "tenor" {
-    \verseTwoTenorEnding
-  }
->>
-
-bassLyrics = <<
-  \new Lyrics \lyricsto "bass" {  \verseOneBassEntry }
-  \new Lyrics \lyricsto "bass" {  \verseTwoBassEntry }
-
->>
-%%%%%%%%%%%%%%%%
-
-\include "shapenote-voices-and-lyrics.ily"
-
-%%%%%%% PRINT MODE %%%%%%%%%
-% Uncomment exactly one of shapenote-print-standard.ily and shapenote-print-experimental.ily.
-
-
-% This is an experimental layout.
-% No clef symbols
-% Just a big top number for time signature
-% A mi/si at the beginning instead of key signature
-%\include "shapenote-print-experimental.ily"
-%%
-\include "shapenote-print-standard.ily"
-
-%%%%%%%%%%%%%%%%
-
-
-\include "shapenote-midi.ily"
+}
 
