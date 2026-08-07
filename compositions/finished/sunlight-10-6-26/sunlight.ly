@@ -58,42 +58,48 @@ trebleMusic = \relative do'' {
   sol4 sol sol fa |
   mi fa sol do |
   mi do do si |
-  do2. do4 |
-  do2 mi |
-  mi8(do4.) sol4. sol8 |
-  sol4 sol mi mi |
-  sol2. do4 |
-  do2 mi2 |
-  mi8(do4.) sol4. sol8 |
-  mi4 sol do sol |
+  sol2
 
+  \repeat volta 2 {
+    r4 do4 |
+    do2 mi |
+    mi8(do4.) sol4. sol8 |
+    sol4 sol mi mi |
+    sol2. do4 |
+    do2 mi2 |
+    mi8(do4.) sol4. sol8 |
+    mi4 sol do sol |
+  }
 
-  sol1
-
-
+  \alternative {
+    {  sol2 } {
+      sol1
+    }
+  }
 
 }
 
 altoMusic = \relative do' {
 
   mi2 |
-
   mi4 mi mi fa |
   fa fa mi mi |
   sol mi mi fa |
   sol2 mi |
   mi4 mi mi re |
   do do mi mi |
-  mi re do re |
-  mi2. mi4 |
-  fa2 sol2 mi8(do4.) do4. re8 |
-  mi4 mi sol sol |
-  fa2. mi4 |
-  fa2 sol |
-  mi8(do4.) do4. si8 |
-  do4 do do si |
-
-  do1 |
+  mi re do si |
+  mi2
+  \repeat volta 2 {
+    r4 mi4 |
+    fa2 sol2 mi2 do4. re8 |
+    mi4 mi sol sol |
+    fa2. mi4 |
+    fa2 sol |
+    mi2 do4. si8 |
+    do4 do do si |
+  }
+  \alternative { {  do2 } { do1 } }
 }
 
 tenorMusic = \relative do'' {
@@ -105,23 +111,20 @@ tenorMusic = \relative do'' {
   do4 do do sol |
   la la do do |
   do do mi re | \break
-  do2.
+  do2
 
-  sol4 |
-  la2 do |
-  la8 (sol4.) mi'4. re8 |
-  do4 do do mi |
-  re2. sol,4 |
-  la2 do |
-  la8 (sol4.) mi'4. re8 |
-  do4 do mi re |
+  \repeat volta 2 {
 
-  do1  |
-
-
-
-
-
+    r4 sol4 |
+    la2 do |
+    la8 (sol4.) mi'4. re8 |
+    do4 do do mi |
+    re2. sol,4 |
+    la2 do |
+    la8 (sol4.) mi'4. re8 |
+    do4 do mi re |
+  }
+  \alternative { {  do2 } { do1 } }
   \bar ".."
 }
 
@@ -134,15 +137,18 @@ bassMusic = \relative do {
   do4 do do re |
   mi do do do |
   sol' sol sol sol |
-  do,2. do4 |
-  fa2 do |
-  la8(do4.) do4. do8 |
-  do4 do do do |
-  sol2. do4 |
-  fa2 do la8(do4.) do4. re8 |
-  mi4 do sol' sol, |
+  do,2
+  \repeat volta 2 {
+    r4 mi4 |
+    fa2 do |
+    la8(do4.) do4. do8 |
+    do4 do do do |
+    sol2. do4 |
+    fa2 do la8(do4.) do4. re8 |
+    mi4 do sol' sol, |
+  }
+  \alternative { {  do2 } { do1 } }
 
-  do1 |
 }
 %%%%%%%%%%%%%%%%
 

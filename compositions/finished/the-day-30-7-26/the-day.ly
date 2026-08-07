@@ -7,9 +7,9 @@ songKey = "bb major" % e.g. "e minor", "f# major", "bb major"
 songTitle = "The Day"
 songMeter = ""
 songComposer = "Ed Johnson-Williams, July 2026"
-poetName = "Psalm 118:24, The Bible (King James Version)"
+poetName = "Psalm 118:24, The Bible"
 songFooter = ""
-timeSignature = 2/2
+timeSignature = 4/4
 noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
 pickupDuration = "0" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
 midiTempo = 100
@@ -50,21 +50,21 @@ showKeySignatureWords = "yes" % "yes" or "no"
 % Segno:                do4^\markup { \tiny \musicglyph "scripts.segno" }
 
 trebleMusic = \relative do' {
-  mi2 do4 re |
+  mi2 mi4 re |
   mi1 |
   sol2 do,4 re |
-  do1 |
-  re2 do4 do |
+  mi1 |
+  re2 do4 la |
   sol2 sol'4 la |
-  sol2 re |
+  sol2 mi |
+  sol1 |
+  mi2 mi4 re |
+  mi1 |
+  sol2 mi4 re |
   do1 |
-  mi2 do4 re |
-  mi1 |
-  sol2 la4 sol |
-  mi1 |
-  do2 do4 sol |
-  sol'2 mi4 sol |
-  mi2 re |
+  do2 la4 sol |
+  sol'2 sol4 sol |
+  mi2 sol |
   mi1 |
 }
 
@@ -75,15 +75,15 @@ altoMusic = \relative do' {
   sol1 |
   sol2 mi4 mi |
   mi2 sol4 fa |
-  mi2 sol |
+  sol2 mi |
   sol1 |
   sol2 sol4 sol |
   sol1 |
   do2 do4 si |
   do1 |
-  do2 do4 do |
+  sol2 la4 do |
   si2 do4 si |
-  sol2 sol |
+  sol2 si |
   sol1 |
 }
 
@@ -94,8 +94,8 @@ tenorMusic = \relative do' {
   do1 |
   sol'2 sol4 mi |
   do2 mi4 fa |
-  sol2 re |
-  do1 |
+  sol2 mi |
+  re1 |
   do2 do4 sol |
   do1 |
   mi2 do4 re |
@@ -110,20 +110,20 @@ tenorMusic = \relative do' {
 }
 
 bassMusic = \relative do, {
-  do2 mi4 sol |
-  do,1 |
+  do2 mi4 re |
+  do1 |
   do'2 la4 sol |
   do,1 |
   sol'2 sol4 la |
   do,2 do4 do |
-  sol'2 sol |
-  do,1 |
-  do2 mi4 sol |
-  do,1 |
+  do'2 la |
+  sol1 |
+  do,2 mi4 re |
+  do1 |
   do'2 la4 sol |
   sol1 |
-  do2 do,4 do |
-  sol'2 sol4 sol |
+  do2 do4 do |
+  sol2 mi4 sol |
   do2 sol |
   do,1 |
 }
