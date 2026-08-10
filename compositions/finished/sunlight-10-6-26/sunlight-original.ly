@@ -3,14 +3,14 @@
 \version "2.26.0"
 #(set-default-paper-size "a4landscape")
 
-songKey = "c major" % e.g. "e minor", "f# major", "bb major"
+songKey = "e major" % e.g. "e minor", "f# major", "bb major"
 songTitle = "Sunlight"
 songMeter = ""
 songComposer = "Ed Johnson-Williams, July 2026"
 poetName = "Judson W. Van De Venter, 1897"
 songFooter = ""
 timeSignature = 4/4
-noteHeadStyle = "four" % "seven", "four", or "normal (not supported)"
+noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
 pickupDuration = "2"
 % "0" = none, "2" = half, "2." = dotted half, "4" = quarter
 %"4." = dotted quarter, "8" = eighth, "8." = dotted eighth
@@ -50,67 +50,67 @@ showKeySignatureWords = "yes" % "yes" or "no"
 % Segno:                do4^\markup { \tiny \musicglyph "scripts.segno" }
 
 trebleMusic = \relative do'' {
-  do2 |
-  mi4 mi mi8[re] do4 |
-  do do mi4 do4 |
-  do mi sol fa |
-  mi2 do |
-  do4 do sol do |
-  do8[re] mi4 sol mi |
-  mi re mi fa |
-  mi2
+  sol2 |
+  sol4 sol do si |
+  la do mi do |
+  mi4 do do si |
+  do2 sol |
+  sol4 sol sol fa |
+  mi fa sol do |
+  mi do do si |
+  sol2
 
   \repeat volta 2 {
     r4 do4 |
-    do2 do |
-    do8(mi4.) sol4. sol8 |
+    do2 mi |
+    mi8(do4.) sol4. sol8 |
     sol4 sol mi mi |
-    re2. do4 |
-    do2 do2 |
-    do8(mi4.) sol4. sol8 |
-    mi4 mi mi fa |
+    sol2. do4 |
+    do2 mi2 |
+    mi8(do4.) sol4. sol8 |
+    mi4 sol do sol |
   }
 
   \alternative {
-    {  mi2 } {
-      mi1
+    {  sol2 } {
+      sol1
     }
   }
 
 }
 
-altoMusic = \relative do'' {
+altoMusic = \relative do' {
 
-  sol2 |
-  sol4 sol sol fa |
-  mi fa sol sol |
-  sol sol mi fa |
+  mi2 |
+  mi4 mi mi fa |
+  fa fa mi mi |
+  sol mi mi fa |
   sol2 mi |
-  sol4 sol sol fa |
-  mi mi sol sol |
-  sol sol sol sol |
-  sol2
+  mi4 mi mi re |
+  do do mi mi |
+  mi re do si |
+  mi2
   \repeat volta 2 {
-    r4 sol4 |
-    la2 la2 do2 do4. si8 |
-    sol4 sol sol sol |
-    sol2. sol4 |
-    la2 la |
-    do  do4. si8 |
-    sol4 sol do si |
+    r4 mi4 |
+    fa2 sol2 mi2 do4. re8 |
+    mi4 mi sol sol |
+    fa2. mi4 |
+    fa2 sol |
+    mi2 do4. si8 |
+    do4 do do si |
   }
-  \alternative { {  sol2 } { sol1 } }
+  \alternative { {  do2 } { do1 } }
 }
 
 tenorMusic = \relative do'' {
   sol2 |
-  do4 do do8[si] la4
-  sol la do do |
-  do do8[re] mi4 re |
+  do4 do do sol
+  la la la sol |
+  do do mi re |
   do2 sol2 |
-  do4 do do8[si] la4 |
-  do mi mi8[re] do4 |
-  do do8[re] mi4 sol, | \break
+  do4 do do sol |
+  la la do do |
+  do do mi re | \break
   do2
 
   \repeat volta 2 {
@@ -118,11 +118,11 @@ tenorMusic = \relative do'' {
     r4 sol4 |
     la2 do |
     la8 (sol4.) mi'4. re8 |
-    do4 do do8[re] mi4 |
+    do4 do do mi |
     re2. sol,4 |
     la2 do |
     la8 (sol4.) mi'4. re8 |
-    do4 do8[re] mi4 re |
+    do4 do mi re |
   }
   \alternative { {  do2 } { do1 } }
   \bar ".."
@@ -130,25 +130,24 @@ tenorMusic = \relative do'' {
 
 bassMusic = \relative do {
   do2 |
-  do4 do do do |
+  do4 do do re |
   do do do do |
-  do do mi sol |
-  do,2 do |
-  do4 do do do |
-  sol' sol do, do |
-  sol' sol8[fa] mi4 re |
-  do2
+  sol' sol sol, sol |
+  do2 do |
+  do4 do do re |
+  mi do do do |
+  sol' sol sol sol |
+  do,2
   \repeat volta 2 {
     r4 mi4 |
-    fa2 fa |
-    fa8(do4.) do4. re8 |
-    mi4 do do do |
-    sol'4 sol8[la] sol[fa] mi4 |
-    % sol'2. sol4 |
-    fa2 fa fa8(do4.) do4. re8 |
-    mi4 do sol' sol |
+    fa2 do |
+    la8(do4.) do4. do8 |
+    do4 do do do |
+    sol2. do4 |
+    fa2 do la8(do4.) do4. re8 |
+    mi4 do sol' sol, |
   }
-  \alternative { {  do,2 } { do1 } }
+  \alternative { {  do2 } { do1 } }
 
 }
 %%%%%%%%%%%%%%%%
@@ -160,7 +159,7 @@ verseOne = \lyricmode {
   I wan -- dered in the shades of night,
   Till Je -- sus came to me,
   And with the sun -- light of His love
-  bid all my dark -- ness flee.
+  Bid all my dark -- ness flee.
 }
 
 verseTwo = \lyricmode {
@@ -186,8 +185,8 @@ chorus = \lyricmode {
   _ _ _ _ _ _ _ _
   _ _ _ _ _ _
   \set stanza = "Chorus. "
-  Sun -- light, sun -- light sun -- light in my soul to -- day
-  Sun -- light, sun -- light sun -- light all a -- long the way. way.
+  Sun -- light, sun -- light sun -- light in my soul to -- day,
+  Sun -- light, sun -- light sun -- light all a -- long the way. Sun- way
 }
 
 %%%%%%% LYRICS PLACEMENT %%%%%%%%%
@@ -213,19 +212,10 @@ tenorLyrics = <<
   \new Lyrics \lyricsto "tenor" {
     \chorus
   }
-
-
 >>
 
 bassLyrics = <<
-  \new Lyrics \with { alignAboveContext = "bass" } \lyricsto "bass" {
-    \tiny
-    _ _ _ _ _ _ _ _ _ _ _ _ _ _
-    _ _ _ _ _ _ _ _ _ _ _ _  _ _
-    _ _ _ _ _ _ _ _ _ _ _
-    (to -- day)
-  }
-
+  % \new Lyrics \lyricsto "bass" { \set stanza = "4." \verseFour }
 >>
 %%%%%%%%%%%%%%%%
 
