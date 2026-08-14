@@ -3,7 +3,7 @@
 \version "2.26.0"
 #(set-default-paper-size "a4landscape")
 
-songKey = "bb major" % e.g. "e minor", "f# major", "bb major"
+songKey = "a major" % e.g. "e minor", "f# major", "bb major"
 songTitle = "Itchen"
 songMeter = "CM"
 songComposer = "Ed Johnson-Williams, July 2026"
