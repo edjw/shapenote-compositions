@@ -1,9 +1,8 @@
 # System files
 .DS_Store
 
-# Claude-specific files
+# Agent-specific working files
 .claude/
-CLAUDE.md
 .pi
 
 # Python-generated files
