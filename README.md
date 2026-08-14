@@ -45,3 +45,7 @@ View results:
 ```bash
 tail -n 20 harmony.log
 ```
+
+### Songbook PDF composer
+
+The terminal composer combines finished PDFs into a landscape A4 songbook, with up to two short songs on a page. See [`songbook/README.md`](songbook/README.md) for setup, controls and PDF rules.

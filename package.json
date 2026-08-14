@@ -1,0 +1,20 @@
+{
+  "name": "shapenote-songbook-tui",
+  "private": true,
+  "packageManager": "pnpm@11.5.2",
+  "type": "module",
+  "scripts": {
+    "songbook": "node --experimental-ffi --experimental-strip-types songbook/tui/app.ts",
+    "typecheck": "tsc --noEmit",
+    "test:filter": "node --experimental-strip-types --test songbook/tui/filter.test.ts",
+    "test": "uv run python -m unittest discover -s tests -v",
+    "check": "pnpm run typecheck && pnpm run test:filter && uv run basedpyright && pnpm run test"
+  },
+  "dependencies": {
+    "@opentui/core": "0.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.0"
+  }
+}
