@@ -23,6 +23,7 @@ showKeySignatureWords = "yes" % "yes" or "no"
 
 \paper {
   system-count = #1
+  ragged-last = ##f
 }
 
 %%%%%%% MUSIC %%%%%%%%%
