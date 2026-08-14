@@ -4,7 +4,7 @@
 #(set-default-paper-size "a4landscape")
 
 songKey = "Bb major" % e.g. "e minor", "f# major", "bb major"
-songTitle = "Consultation"
+songTitle = "Take it to the Lord"
 songMeter = "8.7.8.7 D"
 songComposer = "Ed Johnson-Williams, August 2026"
 poetName = "Joseph Medlicott Scriven, 1855"
