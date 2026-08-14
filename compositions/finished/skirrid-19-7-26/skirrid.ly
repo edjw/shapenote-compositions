@@ -14,7 +14,7 @@ songFooter = \markup \center-column {
 }
 
 timeSignature = 2/2
-noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
+noteHeadStyle = "four" % "seven", "four", or "normal (not supported)"
 %pickupDuration = "" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
 midiTempo = 100
 openingShapeStyle = "root" % "seventh" = si/mi marker, "root" = do/la marker. Always choose seventh in four shapes
@@ -62,9 +62,9 @@ trebleMusic = \relative do' {
   mi1 |
   r2 do |
   mi mi |
-  sol, do |
-  mi do |
-  sol1 |
+  sol, sol |
+  do mi |
+  re1 |
   r2 do |
   do mi |
   do4(la) sol2 |
@@ -82,9 +82,9 @@ altoMusic = \relative do' {
   sol mi |
   mi sol |
   sol la |
-  mi1 |
+  sol1 |
   r2 sol |
-  do la |
+  la la |
   sol mi |
   mi mi |
   sol1 |
@@ -133,7 +133,7 @@ bassMusic = \relative do, {
   do1 |
   r2 do |
   la la |
-  mi sol |
+  sol sol |
   do la |
   sol1 |
   r2 do, |
