@@ -10,7 +10,7 @@ songComposer = "Ed Johnson-Williams, July 2026"
 poetName = "Judson W. Van De Venter, 1897"
 songFooter = ""
 timeSignature = 4/4
-noteHeadStyle = "four" % "seven", "four", or "normal (not supported)"
+noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
 pickupDuration = "2"
 % "0" = none, "2" = half, "2." = dotted half, "4" = quarter
 %"4." = dotted quarter, "8" = eighth, "8." = dotted eighth
@@ -185,7 +185,7 @@ chorus = \lyricmode {
   _ _ _ _ _ _
   _ _ _ _ _ _ _ _
   _ _ _ _ _ _
-  \set stanza = "Chorus. "
+  %  \set stanza = "Chorus. "
   Sun -- light, sun -- light sun -- light in my soul to -- day
   Sun -- light, sun -- light sun -- light all a -- long the way. way.
 }
