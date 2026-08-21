@@ -84,7 +84,7 @@ tenorMusic = \relative do' {
 
   \repeat volta 2 {
     la4 la8 sol mi4. re8 |
-    do8[re] mi[do] re2 |
+    do4 mi re2 |
     mi4 mi8 re do4 si |
     do1 |
   }

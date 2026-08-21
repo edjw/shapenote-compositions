@@ -1,9 +1,9 @@
 #(define (shape-note-midi-supported-meter? sig)
    (member sig
            '(;; Common meters
-             (2 . 4) (2 . 2) (3 . 2) (3 . 4) (4 . 4) (6 . 4) (6 . 8)
-             ;; Rare meters
-             (3 . 8) (4 . 2) (9 . 8) (12 . 8))))
+              (2 . 4) (2 . 2) (3 . 2) (3 . 4) (4 . 4) (6 . 4) (6 . 8)
+              ;; Rare meters
+              (3 . 8) (4 . 2) (9 . 8) (12 . 8))))
 
 #(if (not (defined? 'shapeNoteMidiBeatExtraVelocity))
      (module-define! (current-module) 'shapeNoteMidiBeatExtraVelocity
@@ -50,8 +50,8 @@ trebleMidiStaff =
        \new Staff \with {
          midiInstrument = #"soprano sax"
          instrumentName = "Treble"
-         midiMinimumVolume = #0.38
-         midiMaximumVolume = #0.52
+         %         midiMinimumVolume = #0.38
+         %         midiMaximumVolume = #0.52
          midiPanPosition = #-0.45
        } {
          \new Voice = "treble" {
@@ -70,8 +70,8 @@ trebleLowMidiStaff =
        \new Staff \with {
          midiInstrument = #"tenor sax"
          instrumentName = "Treble (low)"
-         midiMinimumVolume = #0.33
-         midiMaximumVolume = #0.47
+         %         midiMinimumVolume = #0.33
+         %         midiMaximumVolume = #0.47
          midiPanPosition = #-0.65
        } {
          \new Voice = "treble-low" {
@@ -92,8 +92,8 @@ altoMidiStaff =
        \new Staff \with {
          midiInstrument = #"alto sax"
          instrumentName = "Alto"
-         midiMinimumVolume = #0.40
-         midiMaximumVolume = #0.55
+         %         midiMinimumVolume = #0.40
+         %         midiMaximumVolume = #0.55
          midiPanPosition = #0.75
        } {
          \new Voice = "alto" {
@@ -112,8 +112,8 @@ tenorMidiStaff =
        \new Staff \with {
          midiInstrument = #"trumpet"
          instrumentName = "Tenor"
-         midiMinimumVolume = #0.48
-         midiMaximumVolume = #0.66
+         %         midiMinimumVolume = #0.48
+         %         midiMaximumVolume = #0.66
          midiPanPosition = #-0.12
        } {
          \new Voice = "tenor" {
@@ -132,8 +132,8 @@ tenorLowMidiStaff =
        \new Staff \with {
          midiInstrument = #"trombone"
          instrumentName = "Tenor (low)"
-         midiMinimumVolume = #0.43
-         midiMaximumVolume = #0.61
+         %         midiMinimumVolume = #0.43
+         %         midiMaximumVolume = #0.61
          midiPanPosition = #0.12
        } {
          \new Voice = "tenor-low" {
