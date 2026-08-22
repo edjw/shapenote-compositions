@@ -32,7 +32,7 @@ printMusicContent =
     \context {
       \Lyrics
       \override LyricText.self-alignment-X = #LEFT
-      \override StanzaNumber.padding = #0.1
+      \override StanzaNumber.padding = #0.5
     }
   }
 }
