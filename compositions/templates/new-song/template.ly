@@ -94,9 +94,7 @@ altoLyrics = <<
 >>
 
 tenorLyrics = <<
-  \new Lyrics \lyricsto "tenor" {
-    \set stanza = "1." \verseOne
-  }
+  \new Lyrics \lyricsto "tenor" { \set stanza = "1." \verseOne }
   % \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
 >>
 
