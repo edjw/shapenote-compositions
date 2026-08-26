@@ -5,7 +5,7 @@
 
 songKey = "f major" % e.g. "e minor", "f# major", "bb major"
 songTitle = "Pateley Bridge"
-songMeter = "LM"
+songMeter = "8.8.8.6"
 songComposer = "Ed Johnson-Williams, August 2026"
 poetName = "Charlotte Elliott, 1836"
 songFooter = ""
@@ -57,7 +57,7 @@ trebleMusic = \relative do'' {
   sol2 la4 sol |
   la2 sol |
   do2 sol |
-  mi1 |
+  sol1 |
   sol2 la4 sol |
   sol2 sol |
   sol1 |
@@ -73,7 +73,7 @@ altoMusic = \relative do' {
   do la |
   sol1 |
   sol2 do4 do |
-  mi2 re |
+  do2 re |
   do re |
   mi1 |
   do2 do4 do |
@@ -108,8 +108,8 @@ bassMusic = \relative do {
   la2 sol |
   sol2 la |
   sol1 |
-  do2 do4 do |
-  la2 sol |
+  do2 do4 sol |
+  fa2 sol |
   fa sol |
   do1 |
   do2 do4 do |
