@@ -92,10 +92,10 @@ altoMusic = \relative do'' {
   sol2
   \repeat volta 2 {
     r4 sol4 |
-    la2 la2 do2 do4. si8 |
+    la2 sol2 do2 do4. si8 |
     sol4 sol sol sol |
     sol2. sol4 |
-    la2 la |
+    la2 do |
     do  do4. si8 |
     sol4 sol do si |
   }
@@ -140,12 +140,11 @@ bassMusic = \relative do {
   do2
   \repeat volta 2 {
     r4 mi4 |
-    fa2 fa |
-    fa8(do4.) do4. re8 |
+    fa2 do |
+    do2 do4. re8 |
     mi4 do do do |
     sol'4 sol8[la] sol[fa] mi4 |
-    % sol'2. sol4 |
-    fa2 fa fa8(do4.) do4. re8 |
+    fa2 do do2 do4. re8 |
     mi4 do sol' sol |
   }
   \alternative { {  do,2 } { do1 } }
