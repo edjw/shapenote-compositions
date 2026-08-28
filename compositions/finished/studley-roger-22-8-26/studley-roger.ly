@@ -3,11 +3,11 @@
 \version "2.26.0"
 #(set-default-paper-size "a4landscape")
 
-songKey = "f major" % e.g. "e minor", "f# major", "bb major"
-songTitle = "Pateley Bridge"
-songMeter = "8.8.8.6"
+songKey = "c major" % e.g. "e minor", "f# major", "bb major"
+songTitle = "Studley Roger"
+songMeter = "8.6.8.6"
 songComposer = "Ed Johnson-Williams, August 2026"
-poetName = "Charlotte Elliott, 1836"
+poetName = ""
 songFooter = ""
 timeSignature = 4/4
 noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
@@ -46,75 +46,102 @@ showKeySignatureWords = "yes" % "yes" or "no"
 % Segno:                do4^\markup { \tiny \musicglyph "scripts.segno" }
 
 trebleMusic = \relative do'' {
-  sol2 mi4 do |
-  mi2 sol |
-  mi sol |
-  mi1 |
-  re2 mi4 sol |
-  mi2 re |
-  sol mi |
-  re1 |
-  sol2 la4 sol |
-  la2 sol |
-  do2 sol |
   sol1 |
-  sol2 la4 sol |
-  sol2 sol |
-  sol1 |
+  do4 mi sol sol |
+  mi re mi re |
+  do mi mi sol |
+  mi2. \repeat volta 2 {
+    r4 |
+    r2. mi4 |
+    mi re do si |
+    sol2. la4 |
+    do2. mi4 |
+    sol2. r4 |
+    r1 |
+    r2. do,4 |
+    mi re do do |
+    do mi sol mi |
+    mi2. sol4 |
+    mi2 re |
+  }
+  \alternative { { mi2. } { mi1 |  } }
+
 }
 
-altoMusic = \relative do' {
-  sol2 do4 do |
-  do2 sol |
-  la sol |
+altoMusic = \relative do'' {
   sol1 |
-  sol2 do4 re |
-  mi2 re |
-  do la |
-  sol1 |
-  sol2 do4 do |
-  do2 re |
-  do re |
-  mi1 |
-  do2 do4 do |
-  re2 mi |
-  mi1 |
+  sol4 la sol sol |
+  sol fa mi sol |
+  sol la sol sol |
+  sol2. \repeat volta 2 {
+    r4
+    r2. sol4 |
+    sol fa mi re |
+    do2. do4 |
+    mi2. sol4 |
+    sol2. sol4 |
+    do2 do |
+    si2. sol4 |
+    sol fa mi do |
+    mi sol sol sol |
+    sol2. sol4 |
+    la2 sol
+  }
+
+  \alternative { { sol2. } { sol1 |  } }
+
 }
 
-tenorMusic = \relative do' {
-  do2 sol'4 sol |
-  mi2 re |
-  mi re |
-  do1 |
-  sol'2 sol4 sol |
-  la2 sol |
-  mi la |
+tenorMusic = \relative do'' {
   sol1 |
-  mi2 fa4 sol |
-  la2 sol |
-  la si |
-  do1 |
-  sol2 fa4 mi |
-  re2 mi |
-  do1 |
+  do4 do do re |
+  mi re do sol |
+  do la sol sol |
+  do2.
+  \repeat volta 2 {
+    r4 |
+    r1 |
+    r2. sol4 |
+    do re mi fa |
+    sol2. mi4 |
+    re2. r4 |
+    r1 |
+    r2. sol,4 |
+    do re mi fa |
+    sol mi do do |
+    do2. re4 |
+    mi2 sol, |
+  }
+
+  \alternative { { do2. } { do1 |  } }
+
 }
 
-bassMusic = \relative do {
-  do2 do4 do |
-  do2 sol |
-  la si |
+bassMusic = \relative do' {
+
   do1 |
-  sol2 do4 si |
-  la2 sol |
-  sol2 la |
-  sol1 |
-  do2 do4 sol |
-  fa2 sol |
-  fa sol |
-  do1 |
-  do2 do4 do |
-  si2 do |
-  do1 |
+  do4 la sol sol |
+  mi sol sol sol |
+  sol mi do do |
+  do2.
+  \repeat volta 2 {
+    sol'4 |
+    la si do do |
+    sol1~ |
+    sol2. fa4 |
+    mi2. do4 |
+    sol'1 ~ |
+    sol1~
+    sol2. do4 |
+    do sol sol fa |
+    mi do do do |
+    do2. sol'4 |
+    la2 sol
+  }
+
+  \alternative { { do,2. } { do1 |  } }
+
+
 }
 %%%%%%%%%%%%%%%%
 
@@ -122,46 +149,79 @@ bassMusic = \relative do {
 
 verseOne = \lyricmode {
   \tiny
-  Just as I am, with -- out one plea,
-  But that Thy blood was shed for me,
-  And that Thou bidst me come to Thee,
-  O Lamb of God, I come.
+  As pants the hart for cool -- ing streams,
+  when heat -- ed in the chase.
+  So longs my soul, O God for thee
+  So longs my soul, O God for thee,
+  and thy re -- fresh -- ing grace grace.
 }
+
+verseOneTreble = \lyricmode {
+  \tiny
+  As pants the hart for cool -- ing streams,
+  when heat -- ed in the chase.
+  So longs my soul O God, O God for thee,
+  So longs my soul O God for thee,
+  and thy re -- fresh -- ing grace grace.
+
+}
+
+verseOneAlto = \lyricmode {
+  \tiny
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  So longs my soul, O God O God for thee
+  O God for thee
+
+
+}
+
+verseOneBass = \lyricmode {
+  \tiny
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  So longs my soul O "God__" \skip 1 \skip 1
+  for thee __
+
+}
+
 
 verseTwo = \lyricmode {
   \tiny
-  Just as I am, and wait -- ing not
-  to rid my soul of one dark blot,
-  to thee, whose blood can cleanse each spot,
-  O Lamb of God, I come.
+  % Verse 2 lyrics
 }
 
 verseThree = \lyricmode {
   \tiny
-  Just as I am, thou wilt re -- ceive,
-  wilt wel -- come, par -- don, cleanse, re -- lieve:
-  be -- cause thy prom -- ise I be -- lieve,
-  O Lamb of God, I come.
+  % Verse 3 lyrics if needed
 }
 
-
+verseFour = \lyricmode {
+  \tiny
+  % Verse 4 lyrics if needed
+}
 
 %%%%%%% LYRICS PLACEMENT %%%%%%%%%
 trebleLyrics = <<
-  \new Lyrics \lyricsto "treble" { \set stanza = "1." \verseOne }
+  \new Lyrics \lyricsto "treble" {  \verseOneTreble }
 >>
 
 altoLyrics = <<
-  \new Lyrics \lyricsto "alto" { \set stanza = "2." \verseTwo }
+  \new Lyrics \lyricsto "alto" {
+    \verseOneAlto
+  }
 >>
 
 tenorLyrics = <<
-
-  \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
+  \new Lyrics \lyricsto "tenor" {
+    \verseOne
+  }
+  % \new Lyrics \lyricsto "tenor" { \set stanza = "3." \verseThree }
 >>
 
 bassLyrics = <<
-  % \new Lyrics \lyricsto "bass" { \set stanza = "4." \verseFour }
+  \new Lyrics \with { alignAboveContext = "bass" } \lyricsto "bass" {
+
+    \verseOneBass
+  }
 >>
 %%%%%%%%%%%%%%%%
 

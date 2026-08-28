@@ -47,10 +47,10 @@ showKeySignatureWords = "yes" % "yes" or "no"
 
 trebleMusic = \relative do' {
   r2 mi |
-  la4 la mi re |
+  la4 la mi sol |
   mi2. do8[si] |
   la2 mi' |
-  mi4 la2 sol4 |
+  mi8[sol] la2 sol4 |
   mi mi sol sol |
   la sol mi re |
   mi2 mi |
@@ -64,7 +64,7 @@ trebleMusic = \relative do' {
 altoMusic = \relative do' {
   r2 la |
   la4 la la si |
-  do2. do8[si] |
+  la2. do8[si] |
   la2 si |
   si4 la2 sol4 |
   sol la si si |
@@ -79,11 +79,11 @@ altoMusic = \relative do' {
 }
 
 tenorMusic = \relative do' {
-  r2 do2 |
+  r2 mi2 |
   mi4 mi do si |
   la2. do8[re] |
   mi2 sol |
-  mi4 do2 do8[re] |
+  mi4 mi2 do8[re] |
   mi4 mi re re | \break
   mi mi sol sol |
   la2 la |   sol4 mi mi8[re] mi4 |
@@ -105,7 +105,7 @@ bassMusic = \relative do {
   la la do si |
   la2 la |
   sol4 mi sol la |
-  sol mi mi8[re] mi4 |
+  sol mi sol la4 |
   sol la2 sol4 |
   mi mi mi sol |
   la1 |
