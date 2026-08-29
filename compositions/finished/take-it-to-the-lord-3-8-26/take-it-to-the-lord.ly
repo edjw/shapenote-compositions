@@ -49,7 +49,7 @@ trebleMusic = \relative do' {
 
   \repeat volta 2 {
     mi4 mi |
-    mi4. re8 do4 mi |
+    mi4. mi8 do4 mi |
     re4 re do mi |
     sol4. sol8 la4 sol |
     mi2 |
@@ -79,7 +79,7 @@ altoMusic = \relative do' {
   sol4 mi sol mi |
   sol4. sol8 sol4 mi |
   re2 sol4 mi |
-  mi4. re8 mi4 mi |
+  mi4. mi8 mi4 mi |
   sol sol mi sol |
   sol4. sol8 sol4 mi8[sol] |
   sol2 |
@@ -90,12 +90,12 @@ tenorMusic = \relative do' {
   \repeat volta 2 {
     sol4 la |
     do4. la8 do4 la |
-    sol4 sol sol la |
+    sol4 sol sol do |
     do4. re8 mi4 re |
     do2
   }
   do4 do |
-  re4. re8 mi4 re |
+  re4. mi8 mi4 re |
   do4 sol do mi |
   sol4. sol8 mi8[re] do[mi] |
   re2 sol,4 la |
@@ -108,7 +108,7 @@ tenorMusic = \relative do' {
 bassMusic = \relative do, {
   \repeat volta 2 {
     do4 mi |
-    do4. re8 do4 mi |
+    do4. do8 do4 mi |
     sol4 sol do la |
     sol4. sol8 la4 sol |
     do,2
@@ -118,7 +118,7 @@ bassMusic = \relative do, {
   do4 do do la |
   sol4. sol8 sol4 mi |
   re2 do4 mi |
-  do4. re8 do4 mi |
+  do4. do8 do4 mi |
   sol4 sol la sol |
   mi4. sol8 sol4 mi8[re] |
   do2 |
