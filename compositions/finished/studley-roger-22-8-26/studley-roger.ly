@@ -59,7 +59,7 @@ trebleMusic = \relative do'' {
     sol2. r4 |
     r1 |
     r2. do,4 |
-    mi re do do |
+    mi re do la |
     do mi sol mi |
     mi2. sol4 |
     mi2 re |
@@ -121,7 +121,7 @@ bassMusic = \relative do' {
 
   do1 |
   do4 la sol sol |
-  mi sol sol sol |
+  mi sol do sol |
   sol mi do do |
   do2.
   \repeat volta 2 {
