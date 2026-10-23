@@ -1,0 +1,1749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 3.1 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
+<score-partwise version="3.1">
+    <work><work-title>Keswick     8,8</work-title></work>
+    <identification>
+        <creator type="composer">Ed Johnson-Williams, November 2025</creator>
+        <creator type="poet">C Major, The Keswick School of Industrial Art</creator>
+    </identification>
+    <part-list>
+        <part-group type="start" number="0">
+            <group-name></group-name>
+            <group-symbol>bracket</group-symbol>
+            <group-barline>no</group-barline>
+        </part-group>
+        <score-part id="P0"><part-name></part-name></score-part>
+        <score-part id="P1"><part-name></part-name></score-part>
+        <score-part id="P2"><part-name></part-name></score-part>
+        <score-part id="P3"><part-name></part-name></score-part>
+        <part-group type="stop" number="0"/>
+    </part-list>
+    <part id="P0">
+        <measure number="1">
+            <attributes>
+                <divisions>1</divisions>
+                <key><fifths>0</fifths></key>
+                <time>
+                    <beats>3</beats>
+                    <beat-type>2</beat-type>
+                </time>
+                <clef>
+                    <sign>G</sign>
+                    <line>2</line>
+                    <clef-octave-change>0</clef-octave-change>
+                </clef>
+            </attributes>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="1"><text>The</text></lyric>
+            </note>
+            <barline location="right"/>
+        </measure>
+        <measure number="2">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="1">
+                    <syllabic>begin</syllabic>
+                    <text>lov</text>
+                </lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="1">
+                    <syllabic>end</syllabic>
+                    <text>ing</text>
+                </lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="3">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="1"><text>eye</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="1"><text>and</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="4">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="1">
+                    <syllabic>begin</syllabic>
+                    <text>pat</text>
+                </lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="1">
+                    <syllabic>end</syllabic>
+                    <text>ient</text>
+                </lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="5">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="1"><text>hand</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="start"/></notations>
+                <lyric number="1"><text>Shall</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="stop"/></notations>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="6">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="1"><text>work</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="1"><text>with</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="7">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="1"><text>joy</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="1"><text>and</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="8">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="1"><text>bless</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="1"><text>the</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="9">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+                <lyric number="1"><text>land</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+        </measure>
+        <measure number="10">
+            <attributes><divisions>1</divisions></attributes>
+            <note>
+                <rest/>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="start"/></notations>
+                <lyric number="1"><text>Shall</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="stop"/></notations>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="11">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="1"><text>work</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="1"><text>with</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="12">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="1"><text>joy</text></lyric>
+            </note>
+            <note>
+                <rest/>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="13">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <rest/>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="14">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <rest/>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="start"/></notations>
+                <lyric number="1"><text>Shall</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="stop"/></notations>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="15">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="1"><text>work</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="1"><text>with</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="16">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="1"><text>joy</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="1"><text>and</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="17">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="1"><text>bless</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="start"/></notations>
+                <lyric number="1"><text>the</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="stop"/></notations>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="18">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+                <lyric number="1"><text>land</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+        </measure>
+    </part>
+    <part id="P1">
+        <measure number="1">
+            <attributes>
+                <divisions>1</divisions>
+                <key><fifths>0</fifths></key>
+                <time>
+                    <beats>3</beats>
+                    <beat-type>2</beat-type>
+                </time>
+                <clef>
+                    <sign>G</sign>
+                    <line>2</line>
+                    <clef-octave-change>0</clef-octave-change>
+                </clef>
+            </attributes>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <barline location="right"/>
+        </measure>
+        <measure number="2">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="3">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="4">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="5">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="6">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="7">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="8">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="start"/></notations>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="stop"/></notations>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="9">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+            </note>
+            <backup><duration>6</duration></backup>
+        </measure>
+        <measure number="10">
+            <attributes><divisions>1</divisions></attributes>
+            <note>
+                <rest/>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="11">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <rest/>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="12">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <rest/>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="13">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>A</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="14">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>A</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="15">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>A</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="16">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>A</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="17">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="18">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+            </note>
+            <backup><duration>6</duration></backup>
+        </measure>
+    </part>
+    <part id="P2">
+        <measure number="1">
+            <attributes>
+                <divisions>1</divisions>
+                <key><fifths>0</fifths></key>
+                <time>
+                    <beats>3</beats>
+                    <beat-type>2</beat-type>
+                </time>
+                <clef>
+                    <sign>G</sign>
+                    <line>2</line>
+                    <clef-octave-change>0</clef-octave-change>
+                </clef>
+            </attributes>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="2"><text>The</text></lyric>
+            </note>
+            <barline location="right"/>
+        </measure>
+        <measure number="2">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="2">
+                    <syllabic>begin</syllabic>
+                    <text>lov</text>
+                </lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>A</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="2">
+                    <syllabic>end</syllabic>
+                    <text>ing</text>
+                </lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="3">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="2"><text>eye</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="2"><text>and</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="4">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>A</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="2">
+                    <syllabic>begin</syllabic>
+                    <text>pat</text>
+                </lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="2">
+                    <syllabic>end</syllabic>
+                    <text>ient</text>
+                </lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="5">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="2"><text>hand</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="2"><text>Shall</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="6">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="2"><text>work</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="2"><text>with</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="7">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="2"><text>joy</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="2"><text>and</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="8">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="2"><text>bless</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="2"><text>the</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="9">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+                <lyric number="2"><text>land</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+        </measure>
+        <measure number="10">
+            <attributes><divisions>1</divisions></attributes>
+            <note>
+                <rest/>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="11">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <rest/>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="12">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <rest/>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="start"/></notations>
+                <lyric number="2"><text>Shall</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="stop"/></notations>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="13">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="2"><text>work</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="2"><text>with</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="14">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="2"><text>joy</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="2"><text>Shall</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="15">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="2"><text>work</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="2"><text>with</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="16">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="2"><text>joy</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+                <lyric number="2"><text>and</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="17">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+                <lyric number="2"><text>bless</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="start"/></notations>
+                <lyric number="2"><text>the</text></lyric>
+            </note>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="stop"/></notations>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="18">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>5</octave>
+                </pitch>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+                <lyric number="2"><text>land</text></lyric>
+            </note>
+            <backup><duration>6</duration></backup>
+        </measure>
+    </part>
+    <part id="P3">
+        <measure number="1">
+            <attributes>
+                <divisions>1</divisions>
+                <key><fifths>0</fifths></key>
+                <time>
+                    <beats>3</beats>
+                    <beat-type>2</beat-type>
+                </time>
+                <clef>
+                    <sign>F</sign>
+                    <line>4</line>
+                    <clef-octave-change>0</clef-octave-change>
+                </clef>
+            </attributes>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <barline location="right"/>
+        </measure>
+        <measure number="2">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>A</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="3">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="4">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>A</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="5">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="6">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>A</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>A</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="7">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="8">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="9">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+            </note>
+            <backup><duration>6</duration></backup>
+        </measure>
+        <measure number="10">
+            <attributes><divisions>1</divisions></attributes>
+            <note>
+                <rest/>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="11">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>A</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="12">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>4</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <rest/>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="13">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <rest/>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="14">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <rest/>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="15">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>A</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>A</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="16">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>F</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>2</duration>
+                <type>half</type>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="17">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>G</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>4</duration>
+                <type>whole</type>
+            </note>
+            <note>
+                <pitch>
+                    <step>E</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="start"/></notations>
+            </note>
+            <note>
+                <pitch>
+                    <step>D</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>1</duration>
+                <type>quarter</type>
+                <notations><slur number="1" type="stop"/></notations>
+            </note>
+            <backup><duration>6</duration></backup>
+            <barline location="right"/>
+        </measure>
+        <measure number="18">
+            <attributes><divisions>1</divisions></attributes>
+            <barline location="left"/>
+            <note>
+                <pitch>
+                    <step>C</step>
+                    <alter>0</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>6</duration>
+                <type>whole</type>
+                <dot/>
+            </note>
+            <backup><duration>6</duration></backup>
+        </measure>
+    </part>
+</score-partwise>
