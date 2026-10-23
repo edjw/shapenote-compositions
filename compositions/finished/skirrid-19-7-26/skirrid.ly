@@ -14,7 +14,7 @@ songFooter = \markup \center-column {
 }
 
 timeSignature = 2/2
-noteHeadStyle = "four" % "seven", "four", or "normal (not supported)"
+noteHeadStyle = "seven" % "seven", "four", or "normal (not supported)"
 %pickupDuration = "" % "0" = none, "2" = half, "2." = dotted half, "4" = quarter, "4." = dotted quarter, "8" = eighth, "8." = dotted eighth
 midiTempo = 100
 openingShapeStyle = "root" % "seventh" = si/mi marker, "root" = do/la marker. Always choose seventh in four shapes
